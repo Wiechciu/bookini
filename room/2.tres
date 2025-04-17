@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Room" load_steps=2 format=3 uid="uid://ed2gwukvwq6x"]
+
+[ext_resource type="Script" uid="uid://ddyy08blkifoj" path="res://room/room.gd" id="1_le53d"]
+
+[resource]
+script = ExtResource("1_le53d")
+name = "Pokój 2"
+price = 100.0
+capacity = 5
+metadata/_custom_type_script = "uid://ddyy08blkifoj"

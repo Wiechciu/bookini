@@ -1,0 +1,163 @@
+[gd_scene format=3 uid="uid://d26lkxydpbp38"]
+
+[node name="DatabaseHeader" type="PanelContainer"]
+size_flags_horizontal = 3
+theme_type_variation = &"PanelContainerDatabaseHeader"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_type_variation = &"LabelCalendar"
+text = "LP"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Label14" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+theme_type_variation = &"LabelCalendar"
+text = "Imię i nazwisko"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="VSeparator14" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_type_variation = &"LabelCalendar"
+text = "Numer telefonu"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="VSeparator2" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_type_variation = &"LabelCalendar"
+text = "PESEL"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="VSeparator3" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+theme_type_variation = &"LabelCalendar"
+text = "Pobyt od"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="VSeparator4" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Label5" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+theme_type_variation = &"LabelCalendar"
+text = "Pobyt do"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="VSeparator5" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Label6" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+theme_type_variation = &"LabelCalendar"
+text = "Pokój"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="VSeparator6" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Label7" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+theme_type_variation = &"LabelCalendar"
+text = "Ilość osób"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="VSeparator7" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Label8" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+theme_type_variation = &"LabelCalendar"
+text = "Zaliczka kwota"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="VSeparator8" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Label9" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+theme_type_variation = &"LabelCalendar"
+text = "Zaliczka data"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="VSeparator9" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Label10" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+theme_type_variation = &"LabelCalendar"
+text = "Zapłata kwota"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="VSeparator10" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Label11" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+theme_type_variation = &"LabelCalendar"
+text = "Zapłata data"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="VSeparator11" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Label12" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+theme_type_variation = &"LabelCalendar"
+text = "Faktura"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="VSeparator12" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Label13" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+theme_type_variation = &"LabelCalendar"
+text = "Status faktury"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="VSeparator13" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2

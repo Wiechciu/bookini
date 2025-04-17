@@ -1,0 +1,194 @@
+[gd_scene load_steps=3 format=3 uid="uid://evc7i3gpsd3b"]
+
+[ext_resource type="Script" uid="uid://dtvofq0chvq8o" path="res://calendar/calendar_row.gd" id="1_mfpya"]
+[ext_resource type="PackedScene" uid="uid://ogbjdpwoo7tr" path="res://calendar/calendar_field.tscn" id="2_0tbxy"]
+
+[node name="CalendarRow" type="PanelContainer" node_paths=PackedStringArray("container")]
+script = ExtResource("1_mfpya")
+container = NodePath("HBoxContainer")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="CalendarField" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="CalendarField2" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+layout_mode = 2
+
+[node name="VSeparator2" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="CalendarField3" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+layout_mode = 2
+
+[node name="VSeparator3" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="CalendarField4" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+layout_mode = 2
+
+[node name="VSeparator4" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="CalendarField5" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+layout_mode = 2
+
+[node name="VSeparator5" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="CalendarField6" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+layout_mode = 2
+
+[node name="VSeparator6" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="CalendarField7" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+layout_mode = 2
+
+[node name="VSeparator7" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="CalendarField8" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+layout_mode = 2
+
+[node name="VSeparator8" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="CalendarField9" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+layout_mode = 2
+
+[node name="VSeparator9" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="CalendarField10" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+layout_mode = 2
+
+[node name="VSeparator10" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="CalendarField11" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+layout_mode = 2
+
+[node name="VSeparator11" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="CalendarField12" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+layout_mode = 2
+
+[node name="VSeparator12" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="CalendarField13" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+layout_mode = 2
+
+[node name="VSeparator13" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="CalendarField14" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+layout_mode = 2
+
+[node name="VSeparator14" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="CalendarField15" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+layout_mode = 2
+
+[node name="VSeparator15" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="CalendarField16" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+layout_mode = 2
+
+[node name="VSeparator16" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="CalendarField17" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+layout_mode = 2
+
+[node name="VSeparator17" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="CalendarField18" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+layout_mode = 2
+
+[node name="VSeparator18" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="CalendarField19" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+layout_mode = 2
+
+[node name="VSeparator19" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="CalendarField20" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+layout_mode = 2
+
+[node name="VSeparator20" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="CalendarField21" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+layout_mode = 2
+
+[node name="VSeparator21" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="CalendarField22" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+layout_mode = 2
+
+[node name="VSeparator22" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="CalendarField23" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+layout_mode = 2
+
+[node name="VSeparator23" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="CalendarField24" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+layout_mode = 2
+
+[node name="VSeparator24" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="CalendarField25" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+layout_mode = 2
+
+[node name="VSeparator25" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="CalendarField26" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+layout_mode = 2
+
+[node name="VSeparator26" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="CalendarField27" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+layout_mode = 2
+
+[node name="VSeparator27" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="CalendarField28" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+layout_mode = 2
+
+[node name="VSeparator28" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="CalendarField29" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+layout_mode = 2
+
+[node name="VSeparator29" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="CalendarField30" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+layout_mode = 2
+
+[node name="VSeparator30" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="CalendarField31" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+layout_mode = 2

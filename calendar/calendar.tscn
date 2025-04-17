@@ -1,0 +1,96 @@
+[gd_scene load_steps=11 format=3 uid="uid://c6fm2nlqvb5cy"]
+
+[ext_resource type="Script" uid="uid://b3sh4bf8xa4yy" path="res://calendar/calendar.gd" id="1_64tpo"]
+[ext_resource type="PackedScene" uid="uid://bcufem7igam2a" path="res://calendar/calendar_header.tscn" id="1_f8ws7"]
+[ext_resource type="PackedScene" uid="uid://evc7i3gpsd3b" path="res://calendar/calendar_row.tscn" id="2_74sj6"]
+[ext_resource type="Script" uid="uid://ddyy08blkifoj" path="res://room/room.gd" id="3_ynh3x"]
+[ext_resource type="Resource" uid="uid://b8j0xtuwck2md" path="res://room/1.tres" id="4_0p1os"]
+[ext_resource type="Resource" uid="uid://ed2gwukvwq6x" path="res://room/2.tres" id="5_apc6p"]
+[ext_resource type="Resource" uid="uid://c2i582ufu3mqb" path="res://room/3.tres" id="6_al83p"]
+[ext_resource type="Resource" uid="uid://b43uc4q44hy6a" path="res://room/4.tres" id="7_1nywg"]
+[ext_resource type="Resource" uid="uid://b0n8w667otpoe" path="res://room/5.tres" id="8_kfdgi"]
+[ext_resource type="PackedScene" uid="uid://cgflx4a5bq6dg" path="res://calendar/calendar_row_label.tscn" id="9_0p1os"]
+
+[node name="Calendar" type="PanelContainer" node_paths=PackedStringArray("previous_button", "next_button", "calendar_header", "calendar_row_container", "calendar_row_label_container")]
+script = ExtResource("1_64tpo")
+previous_button = NodePath("HBoxContainer/CalendarPreviousButton")
+next_button = NodePath("HBoxContainer/CalendarNextButton")
+calendar_header = NodePath("HBoxContainer/CalendarRows/CalendarHeader")
+calendar_row_scene = ExtResource("2_74sj6")
+calendar_row_container = NodePath("HBoxContainer/CalendarRows")
+calendar_row_label_scene = ExtResource("9_0p1os")
+calendar_row_label_container = NodePath("HBoxContainer/CalendarRowLabels")
+rooms = Array[ExtResource("3_ynh3x")]([ExtResource("4_0p1os"), ExtResource("5_apc6p"), ExtResource("6_al83p"), ExtResource("7_1nywg"), ExtResource("8_kfdgi")])
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="CalendarRowLabels" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Header" type="PanelContainer" parent="HBoxContainer/CalendarRowLabels"]
+custom_minimum_size = Vector2(20, 36)
+layout_mode = 2
+theme_type_variation = &"PanelContainerCalendarHeader"
+
+[node name="Label" type="Label" parent="HBoxContainer/CalendarRowLabels/Header"]
+layout_mode = 2
+theme_type_variation = &"LabelCalendar"
+
+[node name="CalendarRowLabel" parent="HBoxContainer/CalendarRowLabels" instance=ExtResource("9_0p1os")]
+layout_mode = 2
+
+[node name="CalendarRowLabel2" parent="HBoxContainer/CalendarRowLabels" instance=ExtResource("9_0p1os")]
+layout_mode = 2
+
+[node name="CalendarRowLabel3" parent="HBoxContainer/CalendarRowLabels" instance=ExtResource("9_0p1os")]
+layout_mode = 2
+
+[node name="CalendarRowLabel4" parent="HBoxContainer/CalendarRowLabels" instance=ExtResource("9_0p1os")]
+layout_mode = 2
+
+[node name="CalendarRowLabel5" parent="HBoxContainer/CalendarRowLabels" instance=ExtResource("9_0p1os")]
+layout_mode = 2
+
+[node name="CalendarRowLabel6" parent="HBoxContainer/CalendarRowLabels" instance=ExtResource("9_0p1os")]
+layout_mode = 2
+
+[node name="CalendarPreviousButton" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+theme_type_variation = &"ButtonCalendar"
+text = "<"
+alignment = 2
+
+[node name="CalendarRows" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CalendarHeader" parent="HBoxContainer/CalendarRows" instance=ExtResource("1_f8ws7")]
+layout_mode = 2
+
+[node name="CalendarRow" parent="HBoxContainer/CalendarRows" instance=ExtResource("2_74sj6")]
+layout_mode = 2
+
+[node name="CalendarRow2" parent="HBoxContainer/CalendarRows" instance=ExtResource("2_74sj6")]
+layout_mode = 2
+
+[node name="CalendarRow3" parent="HBoxContainer/CalendarRows" instance=ExtResource("2_74sj6")]
+layout_mode = 2
+
+[node name="CalendarRow4" parent="HBoxContainer/CalendarRows" instance=ExtResource("2_74sj6")]
+layout_mode = 2
+
+[node name="CalendarRow5" parent="HBoxContainer/CalendarRows" instance=ExtResource("2_74sj6")]
+layout_mode = 2
+
+[node name="CalendarRow6" parent="HBoxContainer/CalendarRows" instance=ExtResource("2_74sj6")]
+layout_mode = 2
+
+[node name="CalendarNextButton" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+theme_type_variation = &"ButtonCalendar"
+text = ">"
+alignment = 0

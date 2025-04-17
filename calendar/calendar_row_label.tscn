@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgflx4a5bq6dg"]
+
+[ext_resource type="Script" uid="uid://b240ac3h4d7ei" path="res://calendar/calendar_row_label.gd" id="1_58gri"]
+
+[node name="CalendarRowLabel" type="PanelContainer" node_paths=PackedStringArray("label")]
+script = ExtResource("1_58gri")
+label = NodePath("Label")
+
+[node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_type_variation = &"LabelCalendar"
+text = "1"

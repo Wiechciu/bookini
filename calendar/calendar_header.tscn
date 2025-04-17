@@ -1,0 +1,364 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcufem7igam2a"]
+
+[ext_resource type="Script" uid="uid://44je2arga3bp" path="res://calendar/calendar_header.gd" id="1_s7e30"]
+
+[node name="CalendarHeader" type="PanelContainer" node_paths=PackedStringArray("month_label")]
+theme_type_variation = &"PanelContainerCalendarHeader"
+script = ExtResource("1_s7e30")
+month_label = NodePath("VBoxContainer/HBoxContainer/MonthLabel")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="MonthLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(650, 0)
+layout_mode = 2
+theme_type_variation = &"LabelCalendar"
+text = "styczeń 2025"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_type_variation = &"LabelCalendar"
+text = "01"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_type_variation = &"LabelCalendar"
+text = "02"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator3" type="VSeparator" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_type_variation = &"LabelCalendar"
+text = "03"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator4" type="VSeparator" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label5" type="Label" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_type_variation = &"LabelCalendar"
+text = "04"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator5" type="VSeparator" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label6" type="Label" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_type_variation = &"LabelCalendar"
+text = "05"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator6" type="VSeparator" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label7" type="Label" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_type_variation = &"LabelCalendar"
+text = "06"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator7" type="VSeparator" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label8" type="Label" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_type_variation = &"LabelCalendar"
+text = "07"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator8" type="VSeparator" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label9" type="Label" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_type_variation = &"LabelCalendar"
+text = "08"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator9" type="VSeparator" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label10" type="Label" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_type_variation = &"LabelCalendar"
+text = "09"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator10" type="VSeparator" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label11" type="Label" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_type_variation = &"LabelCalendar"
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator11" type="VSeparator" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label12" type="Label" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_type_variation = &"LabelCalendar"
+text = "11"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator12" type="VSeparator" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label13" type="Label" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_type_variation = &"LabelCalendar"
+text = "12"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator13" type="VSeparator" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label14" type="Label" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_type_variation = &"LabelCalendar"
+text = "13"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator14" type="VSeparator" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label15" type="Label" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_type_variation = &"LabelCalendar"
+text = "14"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator15" type="VSeparator" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label16" type="Label" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_type_variation = &"LabelCalendar"
+text = "15"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator16" type="VSeparator" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label17" type="Label" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_type_variation = &"LabelCalendar"
+text = "16"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator17" type="VSeparator" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label18" type="Label" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_type_variation = &"LabelCalendar"
+text = "17"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator18" type="VSeparator" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label19" type="Label" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_type_variation = &"LabelCalendar"
+text = "18"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator19" type="VSeparator" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label20" type="Label" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_type_variation = &"LabelCalendar"
+text = "19"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator20" type="VSeparator" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label21" type="Label" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_type_variation = &"LabelCalendar"
+text = "20"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator21" type="VSeparator" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label22" type="Label" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_type_variation = &"LabelCalendar"
+text = "21"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator22" type="VSeparator" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label23" type="Label" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_type_variation = &"LabelCalendar"
+text = "22"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator23" type="VSeparator" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label24" type="Label" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_type_variation = &"LabelCalendar"
+text = "23"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator24" type="VSeparator" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label25" type="Label" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_type_variation = &"LabelCalendar"
+text = "24"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator25" type="VSeparator" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label26" type="Label" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_type_variation = &"LabelCalendar"
+text = "25"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator26" type="VSeparator" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label27" type="Label" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_type_variation = &"LabelCalendar"
+text = "26"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator27" type="VSeparator" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label28" type="Label" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_type_variation = &"LabelCalendar"
+text = "27"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator28" type="VSeparator" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label29" type="Label" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_type_variation = &"LabelCalendar"
+text = "28"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator29" type="VSeparator" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label30" type="Label" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_type_variation = &"LabelCalendar"
+text = "29"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator30" type="VSeparator" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label31" type="Label" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_type_variation = &"LabelCalendar"
+text = "30"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator31" type="VSeparator" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label32" type="Label" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_type_variation = &"LabelCalendar"
+text = "31"
+horizontal_alignment = 1
+vertical_alignment = 1

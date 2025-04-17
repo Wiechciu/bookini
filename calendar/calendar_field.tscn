@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ogbjdpwoo7tr"]
+
+[ext_resource type="Script" uid="uid://joe71rpgm8l0" path="res://calendar/calendar_field.gd" id="1_8j7mv"]
+
+[node name="CalendarField" type="ColorRect"]
+custom_minimum_size = Vector2(20, 20)
+color = Color(1, 0.361596, 0.248365, 1)
+script = ExtResource("1_8j7mv")

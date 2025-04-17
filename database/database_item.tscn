@@ -1,0 +1,192 @@
+[gd_scene load_steps=3 format=3 uid="uid://cejexibyxff8t"]
+
+[ext_resource type="Script" uid="uid://bqdi3s37ogh3w" path="res://database/database_item.gd" id="1_613yd"]
+[ext_resource type="Script" uid="uid://chansodt3v1ji" path="res://database/database_item_text_edit.gd" id="2_dy1nr"]
+
+[node name="DatabaseItem" type="PanelContainer" node_paths=PackedStringArray("label_container", "id_label", "name_label", "phone_label", "pesel_label", "start_date_label", "end_date_label", "room_label", "quantity_label", "prepaid_amount_label", "prepaid_date_label", "payment_amount_label", "payment_date_label", "invoice_label", "invoice_status_label")]
+size_flags_horizontal = 3
+script = ExtResource("1_613yd")
+label_container = NodePath("HBoxContainer")
+id_label = NodePath("HBoxContainer/Id")
+name_label = NodePath("HBoxContainer/Name")
+phone_label = NodePath("HBoxContainer/Phone")
+pesel_label = NodePath("HBoxContainer/Pesel")
+start_date_label = NodePath("HBoxContainer/StartDate")
+end_date_label = NodePath("HBoxContainer/EndDate")
+room_label = NodePath("HBoxContainer/Room")
+quantity_label = NodePath("HBoxContainer/Quantity")
+prepaid_amount_label = NodePath("HBoxContainer/PrepaidAmount")
+prepaid_date_label = NodePath("HBoxContainer/PrepaidDate")
+payment_amount_label = NodePath("HBoxContainer/PaymentAmount")
+payment_date_label = NodePath("HBoxContainer/PaymentDate")
+invoice_label = NodePath("HBoxContainer/Invoice")
+invoice_status_label = NodePath("HBoxContainer/InvoiceStatus")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Id" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_type_variation = &"LabelDatabaseItem"
+text = "1234"
+clip_text = true
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Name" type="TextEdit" parent="HBoxContainer"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+focus_next = NodePath("../Phone")
+theme_type_variation = &"TextEditDatabaseItem"
+text = "Jakub Wiecheć"
+script = ExtResource("2_dy1nr")
+
+[node name="VSeparator14" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Phone" type="TextEdit" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+focus_next = NodePath("../Pesel")
+focus_previous = NodePath("../Name")
+theme_type_variation = &"TextEditDatabaseItem"
+text = "123456789"
+script = ExtResource("2_dy1nr")
+
+[node name="VSeparator2" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Pesel" type="TextEdit" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+focus_next = NodePath("../StartDate")
+focus_previous = NodePath("../Phone")
+theme_type_variation = &"TextEditDatabaseItem"
+text = "12345"
+script = ExtResource("2_dy1nr")
+
+[node name="VSeparator3" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="StartDate" type="TextEdit" parent="HBoxContainer"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+focus_next = NodePath("../EndDate")
+focus_previous = NodePath("../Pesel")
+theme_type_variation = &"TextEditDatabaseItem"
+text = "2025-01-02"
+script = ExtResource("2_dy1nr")
+date_entry = true
+
+[node name="VSeparator4" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="EndDate" type="TextEdit" parent="HBoxContainer"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+focus_next = NodePath("../Room")
+focus_previous = NodePath("../StartDate")
+theme_type_variation = &"TextEditDatabaseItem"
+text = "2025-01-10"
+script = ExtResource("2_dy1nr")
+date_entry = true
+
+[node name="VSeparator5" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Room" type="TextEdit" parent="HBoxContainer"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+focus_next = NodePath("../Quantity")
+focus_previous = NodePath("../EndDate")
+theme_type_variation = &"TextEditDatabaseItem"
+text = "3"
+script = ExtResource("2_dy1nr")
+
+[node name="VSeparator6" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Quantity" type="TextEdit" parent="HBoxContainer"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+focus_next = NodePath("../PrepaidAmount")
+focus_previous = NodePath("../Room")
+theme_type_variation = &"TextEditDatabaseItem"
+text = "5"
+script = ExtResource("2_dy1nr")
+
+[node name="VSeparator7" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="PrepaidAmount" type="TextEdit" parent="HBoxContainer"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+focus_next = NodePath("../PrepaidDate")
+focus_previous = NodePath("../Quantity")
+theme_type_variation = &"TextEditDatabaseItem"
+text = "500"
+script = ExtResource("2_dy1nr")
+
+[node name="VSeparator8" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="PrepaidDate" type="TextEdit" parent="HBoxContainer"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+focus_next = NodePath("../PaymentAmount")
+focus_previous = NodePath("../PrepaidAmount")
+theme_type_variation = &"TextEditDatabaseItem"
+text = "2025-01-01"
+script = ExtResource("2_dy1nr")
+
+[node name="VSeparator9" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="PaymentAmount" type="TextEdit" parent="HBoxContainer"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+focus_next = NodePath("../PaymentDate")
+focus_previous = NodePath("../PrepaidDate")
+theme_type_variation = &"TextEditDatabaseItem"
+text = "300"
+script = ExtResource("2_dy1nr")
+
+[node name="VSeparator10" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="PaymentDate" type="TextEdit" parent="HBoxContainer"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+focus_next = NodePath("../Invoice")
+focus_previous = NodePath("../PaymentAmount")
+theme_type_variation = &"TextEditDatabaseItem"
+text = "2025-01-02"
+script = ExtResource("2_dy1nr")
+
+[node name="VSeparator11" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Invoice" type="TextEdit" parent="HBoxContainer"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+focus_next = NodePath("../InvoiceStatus")
+focus_previous = NodePath("../PaymentDate")
+theme_type_variation = &"TextEditDatabaseItem"
+text = "Tak"
+script = ExtResource("2_dy1nr")
+
+[node name="VSeparator12" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="InvoiceStatus" type="TextEdit" parent="HBoxContainer"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+focus_previous = NodePath("../Invoice")
+theme_type_variation = &"TextEditDatabaseItem"
+text = "Opłacona"
+script = ExtResource("2_dy1nr")
+
+[node name="VSeparator13" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2

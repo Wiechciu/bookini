@@ -1,0 +1,152 @@
+[gd_resource type="Theme" load_steps=22 format=3 uid="uid://b1p3xo06djhek"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_05tig"]
+bg_color = Color(0.901961, 0.901961, 0.901961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1rmny"]
+bg_color = Color(0.901961, 0.901961, 0.901961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mihib"]
+bg_color = Color(0.901961, 0.901961, 0.901961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yin2u"]
+bg_color = Color(0.901961, 0.901961, 0.901961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ttqs8"]
+bg_color = Color(0.901961, 0.901961, 0.901961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wdt2l"]
+bg_color = Color(0.901961, 0.901961, 0.901961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6cw85"]
+bg_color = Color(0.901961, 0.901961, 0.901961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_110ce"]
+bg_color = Color(0.901961, 0.901961, 0.901961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_504p6"]
+bg_color = Color(0.901961, 0.901961, 0.901961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_howt0"]
+bg_color = Color(0.901961, 0.901961, 0.901961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n3ikw"]
+bg_color = Color(0.901961, 0.901961, 0.901961, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wvktn"]
+content_margin_left = 3.0
+content_margin_right = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wvktn"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vj6dk"]
+bg_color = Color(0.61511, 0.822396, 1, 1)
+border_width_left = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e1x85"]
+bg_color = Color(0.69243, 0.920045, 1, 1)
+border_width_left = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ndmpe"]
+bg_color = Color(1, 1, 0.643137, 1)
+border_width_left = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mworl"]
+bg_color = Color(1, 1, 0.643137, 1)
+border_width_left = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cjfk0"]
+content_margin_left = 5.0
+bg_color = Color(0.578645, 0.831881, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ceoj"]
+content_margin_left = 3.0
+content_margin_right = 3.0
+bg_color = Color(0, 0, 0, 0.117647)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6q1gq"]
+content_margin_left = 3.0
+content_margin_right = 3.0
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_wvktn"]
+grow_begin = 0.0
+grow_end = 0.0
+vertical = true
+
+[resource]
+ButtonCalendar/base_type = &"Button"
+ButtonCalendar/colors/font_color = Color(0, 0, 0, 1)
+ButtonCalendar/colors/font_disabled_color = Color(0, 0, 0, 1)
+ButtonCalendar/colors/font_focus_color = Color(0, 0, 0, 1)
+ButtonCalendar/colors/font_hover_color = Color(0, 0, 0, 1)
+ButtonCalendar/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+ButtonCalendar/colors/font_outline_color = Color(0, 0, 0, 1)
+ButtonCalendar/colors/font_pressed_color = Color(0, 0, 0, 1)
+ButtonCalendar/colors/icon_disabled_color = Color(0, 0, 0, 1)
+ButtonCalendar/colors/icon_focus_color = Color(0, 0, 0, 1)
+ButtonCalendar/colors/icon_hover_color = Color(0, 0, 0, 1)
+ButtonCalendar/colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+ButtonCalendar/colors/icon_normal_color = Color(0, 0, 0, 1)
+ButtonCalendar/colors/icon_pressed_color = Color(0, 0, 0, 1)
+ButtonCalendar/styles/disabled = SubResource("StyleBoxFlat_05tig")
+ButtonCalendar/styles/disabled_mirrored = SubResource("StyleBoxFlat_1rmny")
+ButtonCalendar/styles/focus = SubResource("StyleBoxFlat_mihib")
+ButtonCalendar/styles/hover = SubResource("StyleBoxFlat_yin2u")
+ButtonCalendar/styles/hover_mirrored = SubResource("StyleBoxFlat_ttqs8")
+ButtonCalendar/styles/hover_pressed = SubResource("StyleBoxFlat_wdt2l")
+ButtonCalendar/styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_6cw85")
+ButtonCalendar/styles/normal = SubResource("StyleBoxFlat_110ce")
+ButtonCalendar/styles/normal_mirrored = SubResource("StyleBoxFlat_504p6")
+ButtonCalendar/styles/pressed = SubResource("StyleBoxFlat_howt0")
+ButtonCalendar/styles/pressed_mirrored = SubResource("StyleBoxFlat_n3ikw")
+HBoxContainer/constants/separation = 0
+Label/colors/font_color = Color(0, 0, 0, 1)
+LabelCalendar/base_type = &"Label"
+LabelCalendar/colors/font_color = Color(0, 0, 0, 1)
+LabelCalendar/font_sizes/font_size = 12
+LabelDatabaseItem/base_type = &"Label"
+LabelDatabaseItem/font_sizes/font_size = 12
+LabelDatabaseItem/styles/normal = SubResource("StyleBoxEmpty_wvktn")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_wvktn")
+PanelContainerCalendarHeader/base_type = &"PanelContainer"
+PanelContainerCalendarHeader/styles/panel = SubResource("StyleBoxFlat_vj6dk")
+PanelContainerDatabaseHeader/base_type = &"PanelContainer"
+PanelContainerDatabaseHeader/styles/panel = SubResource("StyleBoxFlat_e1x85")
+PanelContainerDatabaseItemSelected/base_type = &"PanelContainer"
+PanelContainerDatabaseItemSelected/styles/panel = SubResource("StyleBoxFlat_ndmpe")
+PanelContainerDatabaseNewItem/base_type = &"PanelContainer"
+PanelContainerDatabaseNewItem/styles/panel = SubResource("StyleBoxFlat_mworl")
+PanelContainerHeader/base_type = &"PanelContainer"
+PanelContainerHeader/styles/panel = SubResource("StyleBoxFlat_cjfk0")
+TextEditDatabaseItem/base_type = &"TextEdit"
+TextEditDatabaseItem/colors/caret_color = Color(0, 0, 0, 1)
+TextEditDatabaseItem/colors/font_color = Color(0, 0, 0, 1)
+TextEditDatabaseItem/constants/line_spacing = 0
+TextEditDatabaseItem/font_sizes/font_size = 12
+TextEditDatabaseItem/styles/focus = SubResource("StyleBoxFlat_0ceoj")
+TextEditDatabaseItem/styles/normal = SubResource("StyleBoxEmpty_6q1gq")
+VBoxContainer/constants/separation = 0
+VSeparator/constants/separation = 1
+VSeparator/styles/separator = SubResource("StyleBoxLine_wvktn")

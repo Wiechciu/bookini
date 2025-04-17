@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtyiafuie21sr"]
+
+[ext_resource type="Texture2D" uid="uid://dj68ekuciwvdv" path="res://x.png" id="1_ulx4u"]
+[ext_resource type="Script" uid="uid://bicnmtfwnfxmb" path="res://close_button.gd" id="2_q8cqu"]
+
+[node name="AppHeader" type="PanelContainer"]
+custom_minimum_size = Vector2(0, 30)
+theme_type_variation = &"PanelContainerHeader"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="HeaderLabel" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Hotel rezerwacje"
+
+[node name="CloseButton" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+icon = ExtResource("1_ulx4u")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_q8cqu")
+
+[connection signal="pressed" from="HBoxContainer/CloseButton" to="HBoxContainer/CloseButton" method="_on_pressed"]
