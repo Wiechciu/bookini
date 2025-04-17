@@ -27,5 +27,6 @@ layout_mode = 2
 layout_mode = 2
 database = NodePath("../Database")
 
-[node name="Database" parent="VBoxContainer" instance=ExtResource("3_lquwl")]
+[node name="Database" parent="VBoxContainer" node_paths=PackedStringArray("calendar") instance=ExtResource("3_lquwl")]
 layout_mode = 2
+calendar = NodePath("../Calendar")

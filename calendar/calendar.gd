@@ -91,7 +91,7 @@ func _on_database_item_updated() -> void:
 
 func update_colors() -> void:
 	reset_colors()
-	for reservation: Reservation in Reservation.reservations:
+	for reservation: Reservation in GlobalRefs.reservations:
 		apply_colors(reservation)
 
 
@@ -109,7 +109,9 @@ func apply_colors(reservation: Reservation) -> void:
 			continue
 		for calendar_field in calendar_row.calendar_fields:
 			var field_unix_time = Time.get_unix_time_from_datetime_string("%04d-%02d-%02d" % [current_year, current_month, calendar_field.day])
-			if field_unix_time == start_unix_time:
+			if field_unix_time >= start_unix_time and field_unix_time <= end_unix_time and calendar_field.color != Color.WHITE:
+				calendar_field.color = Color.RED
+			elif field_unix_time == start_unix_time:
 				calendar_field.color = Color.ROYAL_BLUE
 			elif field_unix_time > start_unix_time and field_unix_time < end_unix_time:
 				calendar_field.color = Color.CORNFLOWER_BLUE
