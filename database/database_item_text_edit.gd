@@ -16,11 +16,10 @@ func _input(event: InputEvent) -> void:
 	if date_entry:
 		check_date_entry(event)
 	
-	if event.is_action_pressed("ui_focus_prev"):
+	if event.is_action_pressed("ui_focus_prev", true):
 		find_prev_valid_focus().grab_focus()
 		get_viewport().set_input_as_handled()
-	
-	if event.is_action_pressed("ui_focus_next"):
+	elif event.is_action_pressed("ui_focus_next", true):
 		find_next_valid_focus().grab_focus()
 		get_viewport().set_input_as_handled()
 

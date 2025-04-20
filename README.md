@@ -1,7 +1,6 @@
 # hotel
  
 TODO:
-	reservation removal
 	room management
 	interactive calendar:
 		hover shows basic information

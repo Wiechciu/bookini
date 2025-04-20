@@ -3,6 +3,7 @@ extends PanelContainer
 
 signal item_updated
 
+@export var delete_button: Button
 @export var label_container: Container
 @export var id_label: Label
 @export var name_label: TextEdit
@@ -19,29 +20,47 @@ signal item_updated
 @export var invoice_label: TextEdit
 @export var invoice_status_label: TextEdit
 var reservation: Reservation
+var database: Database
+var cached_content: String
 
 
 func _ready() -> void:
+	delete_button.pressed.connect(_on_delete_button_pressed)
+	hide_delete_button()
 	for child: Control in label_container.get_children():
 		if child is TextEdit:
 			child.clear()
-			child.focus_entered.connect(_on_focus_entered)
-			child.focus_exited.connect(_on_focus_exited)
-			child.text_changed.connect(_on_text_changed)
+			child.focus_entered.connect(_on_focus_entered.bind(child))
+			child.focus_exited.connect(_on_focus_exited.bind(child))
 
 
-func _on_text_changed() -> void:
-	#item_updated.emit()
-	pass
+func _on_delete_button_pressed() -> void:
+	if Database.selected_item != self:
+		return
+	database.remove_item(self)
 
 
-func _on_focus_entered() -> void:
+func _on_focus_entered(child: TextEdit) -> void:
+	show_delete_button()
+	cached_content = child.text
 	theme_type_variation = "PanelContainerDatabaseItemSelected"
+	Database.selected_item = self
 
 
-func _on_focus_exited() -> void:
+func _on_focus_exited(child: TextEdit) -> void:
+	hide_delete_button()
 	theme_type_variation = ""
+	if child.text == cached_content:
+		return
 	update_reservation()
+
+
+func hide_delete_button() -> void:
+	delete_button.modulate.a = 0.0
+
+
+func show_delete_button() -> void:
+	delete_button.modulate.a = 1.0
 
 
 func assign_reservation(reservation_to_assign: Reservation = null) -> void:
@@ -84,3 +103,8 @@ func update_reservation() -> void:
 		)
 	print("ID %s updated" % id_label.text)
 	item_updated.emit()
+
+
+func start_editing() -> void:
+	await get_tree().process_frame
+	name_label.grab_focus()

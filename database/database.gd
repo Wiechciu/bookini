@@ -8,15 +8,19 @@ signal item_updated
 @export var item_container: Container
 @export var database_item_scene: PackedScene
 @export var add_button: Button
-@export var refresh_button: Button
 var save_location: String = "user://"
 var save_name: String = "database"
 var save_extension: String = ".save"
+static var selected_item: DatabaseItem
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("add_new_item"):
+		add_new_item()
 
 
 func _ready() -> void:
 	add_button.pressed.connect(_on_add_button_pressed)
-	refresh_button.pressed.connect(_on_refresh_button_pressed)
 	clear_database_items()
 	clear_database()
 	load_database()
@@ -26,14 +30,18 @@ func _ready() -> void:
 
 
 func _on_add_button_pressed() -> void:
-	create_database_item()
-	scroll_to_bottom()
+	add_new_item()
 
 
-func _on_refresh_button_pressed() -> void:
-	clear_database_items()
-	load_database_items()
-	scroll_to_bottom()
+func add_new_item() -> void:
+	var new_item: DatabaseItem = create_database_item()
+	new_item.start_editing()
+
+
+func remove_item(item_to_remove: DatabaseItem) -> void:
+	GlobalRefs.reservations.erase(item_to_remove.reservation)
+	item_to_remove.queue_free()
+	save_database()
 
 
 func scroll_to_bottom() -> void:
@@ -84,6 +92,7 @@ func create_database_item(reservation: Reservation = null) -> DatabaseItem:
 	var new_item: DatabaseItem = database_item_scene.instantiate() as DatabaseItem
 	item_container.add_child(new_item)
 	new_item.assign_reservation(reservation)
+	new_item.database = self
 	new_item.item_updated.connect(_on_item_updated)
 	return new_item
 

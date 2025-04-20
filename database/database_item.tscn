@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://cejexibyxff8t"]
+[gd_scene load_steps=4 format=3 uid="uid://cejexibyxff8t"]
 
 [ext_resource type="Script" uid="uid://bqdi3s37ogh3w" path="res://database/database_item.gd" id="1_613yd"]
 [ext_resource type="Script" uid="uid://chansodt3v1ji" path="res://database/database_item_text_edit.gd" id="2_dy1nr"]
+[ext_resource type="Texture2D" uid="uid://b28ms02xh6xvk" path="res://trash.png" id="2_faif8"]
 
-[node name="DatabaseItem" type="PanelContainer" node_paths=PackedStringArray("label_container", "id_label", "name_label", "phone_label", "pesel_label", "start_date_label", "end_date_label", "room_label", "quantity_label", "prepaid_amount_label", "prepaid_date_label", "payment_amount_label", "payment_date_label", "invoice_label", "invoice_status_label")]
+[node name="DatabaseItem" type="PanelContainer" node_paths=PackedStringArray("delete_button", "label_container", "id_label", "name_label", "phone_label", "pesel_label", "start_date_label", "end_date_label", "room_label", "quantity_label", "prepaid_amount_label", "prepaid_date_label", "payment_amount_label", "payment_date_label", "invoice_label", "invoice_status_label")]
 size_flags_horizontal = 3
 script = ExtResource("1_613yd")
+delete_button = NodePath("HBoxContainer/DeleteButton")
 label_container = NodePath("HBoxContainer")
 id_label = NodePath("HBoxContainer/Id")
 name_label = NodePath("HBoxContainer/Name")
@@ -25,18 +27,39 @@ invoice_status_label = NodePath("HBoxContainer/InvoiceStatus")
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
 
+[node name="DeleteButton" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(20, 17)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+focus_mode = 0
+flat = true
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/DeleteButton"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_faif8")
+expand_mode = 3
+stretch_mode = 5
+
 [node name="Id" type="Label" parent="HBoxContainer"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 theme_type_variation = &"LabelDatabaseItem"
 text = "1234"
+horizontal_alignment = 2
 clip_text = true
 
 [node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
 layout_mode = 2
 
 [node name="Name" type="TextEdit" parent="HBoxContainer"]
-custom_minimum_size = Vector2(180, 0)
+custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 focus_next = NodePath("../Phone")
 theme_type_variation = &"TextEditDatabaseItem"
