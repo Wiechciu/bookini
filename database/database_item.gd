@@ -35,7 +35,7 @@ func _ready() -> void:
 
 
 func _on_delete_button_pressed() -> void:
-	if Database.selected_item != self:
+	if database.selected_item != self:
 		return
 	database.remove_item(self)
 
@@ -44,7 +44,7 @@ func _on_focus_entered(child: TextEdit) -> void:
 	show_delete_button()
 	cached_content = child.text
 	theme_type_variation = "PanelContainerDatabaseItemSelected"
-	Database.selected_item = self
+	database.selected_item = self
 
 
 func _on_focus_exited(child: TextEdit) -> void:

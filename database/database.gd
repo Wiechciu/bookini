@@ -10,8 +10,10 @@ signal item_updated
 @export var add_button: Button
 var save_location: String = "user://"
 var save_name: String = "database"
+var backup_save_name: String = "database_backup_{DATE}"
 var save_extension: String = ".save"
-static var selected_item: DatabaseItem
+var selected_item: DatabaseItem
+var current_date_string: String
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -20,6 +22,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _ready() -> void:
+	current_date_string = Time.get_date_string_from_system()
 	add_button.pressed.connect(_on_add_button_pressed)
 	clear_database_items()
 	clear_database()
@@ -65,9 +68,16 @@ func clear_database() -> void:
 
 
 func save_database() -> void:
-	var dir = DirAccess.open(save_location)
-	dir.remove(save_name + save_extension)
+	#var dir = DirAccess.open(save_location)
+	#dir.remove(save_name + save_extension)
 	var file = FileAccess.open(save_location + save_name + save_extension, FileAccess.WRITE)
+	file.store_var(GlobalRefs.reservations, true)
+	file.close()
+	save_backup()
+
+
+func save_backup() -> void:
+	var file = FileAccess.open((save_location + backup_save_name  + save_extension).format({"DATE": current_date_string}), FileAccess.WRITE)
 	file.store_var(GlobalRefs.reservations, true)
 	file.close()
 
