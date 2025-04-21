@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=22 format=3 uid="uid://b1p3xo06djhek"]
+[gd_resource type="Theme" load_steps=25 format=3 uid="uid://b1p3xo06djhek"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_05tig"]
 bg_color = Color(0.901961, 0.901961, 0.901961, 1)
@@ -51,6 +51,13 @@ border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6q1gq"]
+bg_color = Color(0.823529, 0.823529, 0.823529, 1)
+border_width_left = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e1x85"]
 bg_color = Color(0.69243, 0.920045, 1, 1)
 border_width_left = 2
@@ -87,6 +94,15 @@ content_margin_right = 3.0
 bg_color = Color(0, 0, 0, 0.117647)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6q1gq"]
+content_margin_left = 3.0
+content_margin_right = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3n26i"]
+content_margin_left = 3.0
+content_margin_right = 3.0
+bg_color = Color(0, 0, 0, 0.117647)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i1e0v"]
 content_margin_left = 3.0
 content_margin_right = 3.0
 
@@ -132,6 +148,8 @@ LabelDatabaseItem/styles/normal = SubResource("StyleBoxEmpty_wvktn")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_wvktn")
 PanelContainerCalendarHeader/base_type = &"PanelContainer"
 PanelContainerCalendarHeader/styles/panel = SubResource("StyleBoxFlat_vj6dk")
+PanelContainerDatabaseFilter/base_type = &"PanelContainer"
+PanelContainerDatabaseFilter/styles/panel = SubResource("StyleBoxFlat_6q1gq")
 PanelContainerDatabaseHeader/base_type = &"PanelContainer"
 PanelContainerDatabaseHeader/styles/panel = SubResource("StyleBoxFlat_e1x85")
 PanelContainerDatabaseItemSelected/base_type = &"PanelContainer"
@@ -147,6 +165,13 @@ TextEditDatabaseItem/constants/line_spacing = 0
 TextEditDatabaseItem/font_sizes/font_size = 12
 TextEditDatabaseItem/styles/focus = SubResource("StyleBoxFlat_0ceoj")
 TextEditDatabaseItem/styles/normal = SubResource("StyleBoxEmpty_6q1gq")
+TextEditDatabaseItemIncorrectValidation/base_type = &"TextEdit"
+TextEditDatabaseItemIncorrectValidation/colors/caret_color = Color(0, 0, 0, 1)
+TextEditDatabaseItemIncorrectValidation/colors/font_color = Color(0.679014, 8.30255e-06, 4.62055e-06, 1)
+TextEditDatabaseItemIncorrectValidation/constants/line_spacing = 0
+TextEditDatabaseItemIncorrectValidation/font_sizes/font_size = 12
+TextEditDatabaseItemIncorrectValidation/styles/focus = SubResource("StyleBoxFlat_3n26i")
+TextEditDatabaseItemIncorrectValidation/styles/normal = SubResource("StyleBoxEmpty_i1e0v")
 VBoxContainer/constants/separation = 0
 VSeparator/constants/separation = 1
 VSeparator/styles/separator = SubResource("StyleBoxLine_wvktn")

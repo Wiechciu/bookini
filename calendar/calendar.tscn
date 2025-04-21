@@ -37,6 +37,7 @@ theme_type_variation = &"PanelContainerCalendarHeader"
 [node name="Label" type="Label" parent="HBoxContainer/CalendarRowLabels/Header"]
 layout_mode = 2
 theme_type_variation = &"LabelCalendar"
+text = "Pokoje"
 
 [node name="CalendarRowLabel" parent="HBoxContainer/CalendarRowLabels" instance=ExtResource("9_0p1os")]
 layout_mode = 2

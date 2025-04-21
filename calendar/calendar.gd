@@ -91,8 +91,8 @@ func _on_database_item_updated() -> void:
 
 func update_colors() -> void:
 	reset_colors()
-	for reservation: Reservation in GlobalRefs.reservations:
-		apply_colors(reservation)
+	for booking: Booking in GlobalRefs.bookings:
+		apply_colors(booking)
 
 
 func reset_colors() -> void:
@@ -101,11 +101,11 @@ func reset_colors() -> void:
 			calendar_field.color = Color.WHITE
 
 
-func apply_colors(reservation: Reservation) -> void:
-	var start_unix_time = Time.get_unix_time_from_datetime_string(reservation.start_date)
-	var end_unix_time = Time.get_unix_time_from_datetime_string(reservation.end_date)
+func apply_colors(booking: Booking) -> void:
+	var start_unix_time = Time.get_unix_time_from_datetime_string(booking.start_date)
+	var end_unix_time = Time.get_unix_time_from_datetime_string(booking.end_date)
 	for calendar_row: CalendarRow in calendar_rows:
-		if calendar_row.room.name != reservation.room:
+		if calendar_row.room.name != booking.room:
 			continue
 		for calendar_field in calendar_row.calendar_fields:
 			var field_unix_time = Time.get_unix_time_from_datetime_string("%04d-%02d-%02d" % [current_year, current_month, calendar_field.day])

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cy6syqbn8oudx"]
+
+[ext_resource type="Script" uid="uid://b2830he6imbje" path="res://database/date_entry_component.gd" id="1_5yudj"]
+
+[node name="DateEntryComponent" type="Node"]
+script = ExtResource("1_5yudj")

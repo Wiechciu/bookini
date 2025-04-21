@@ -19,7 +19,7 @@ signal item_updated
 @export var payment_date_label: TextEdit
 @export var invoice_label: TextEdit
 @export var invoice_status_label: TextEdit
-var reservation: Reservation
+var booking: Booking
 var database: Database
 var cached_content: String
 
@@ -52,7 +52,7 @@ func _on_focus_exited(child: TextEdit) -> void:
 	theme_type_variation = ""
 	if child.text == cached_content:
 		return
-	update_reservation()
+	update_booking()
 
 
 func hide_delete_button() -> void:
@@ -63,30 +63,30 @@ func show_delete_button() -> void:
 	delete_button.modulate.a = 1.0
 
 
-func assign_reservation(reservation_to_assign: Reservation = null) -> void:
-	if reservation_to_assign == null:
-		reservation = Reservation.create_empty()
-		id_label.text = str(reservation.id)
+func assign_booking(booking_to_assign: Booking = null) -> void:
+	if booking_to_assign == null:
+		booking = Booking.create_empty()
+		id_label.text = str(booking.id)
 		return
-	reservation = reservation_to_assign
-	id_label.text = str(reservation.id)
-	name_label.text = reservation.name
-	phone_label.text = reservation.phone
-	pesel_label.text = reservation.pesel
-	start_date_label.text = reservation.start_date
-	end_date_label.text = reservation.end_date
-	room_label.text = reservation.room
-	quantity_label.text = str(reservation.quantity) if reservation.quantity else ""
-	prepaid_amount_label.text = str(reservation.prepaid_amount) if reservation.prepaid_amount else ""
-	prepaid_date_label.text = reservation.prepaid_date
-	payment_amount_label.text = str(reservation.payment_amount) if reservation.payment_amount else ""
-	payment_date_label.text = reservation.payment_date
-	invoice_label.text = "tak" if reservation.invoice else ""
-	invoice_status_label.text = "opłacona" if reservation.invoice_status else ""
+	booking = booking_to_assign
+	id_label.text = str(booking.id)
+	name_label.text = booking.name
+	phone_label.text = booking.phone
+	pesel_label.text = booking.pesel
+	start_date_label.text = booking.start_date
+	end_date_label.text = booking.end_date
+	room_label.text = booking.room
+	quantity_label.text = str(booking.quantity) if booking.quantity else ""
+	prepaid_amount_label.text = str(booking.prepaid_amount) if booking.prepaid_amount else ""
+	prepaid_date_label.text = booking.prepaid_date
+	payment_amount_label.text = str(booking.payment_amount) if booking.payment_amount else ""
+	payment_date_label.text = booking.payment_date
+	invoice_label.text = "tak" if booking.invoice else ""
+	invoice_status_label.text = "opłacona" if booking.invoice_status else ""
 
 
-func update_reservation() -> void:
-	reservation.update(
+func update_booking() -> void:
+	booking.update(
 		name_label.text,
 		phone_label.text,
 		pesel_label.text,

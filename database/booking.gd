@@ -1,4 +1,4 @@
-class_name Reservation
+class_name Booking
 extends Resource
 
 
@@ -18,12 +18,12 @@ extends Resource
 @export_storage var invoice_status: bool
 
 
-static func create_empty() -> Reservation:
-	var new_reservation: Reservation = Reservation.new()
+static func create_empty() -> Booking:
+	var new_booking: Booking = Booking.new()
 	GlobalRefs.last_id += 1
-	new_reservation.id = GlobalRefs.last_id
-	GlobalRefs.reservations.append(new_reservation)
-	return new_reservation
+	new_booking.id = GlobalRefs.last_id
+	GlobalRefs.bookings.append(new_booking)
+	return new_booking
 
 
 static func create(
@@ -40,25 +40,25 @@ static func create(
 		payment_date: String,
 		invoice: bool,
 		invoice_status: bool
-	) -> Reservation:
-	var new_reservation: Reservation = Reservation.new()
+	) -> Booking:
+	var new_booking: Booking = Booking.new()
 	GlobalRefs.last_id += 1
-	new_reservation.id = GlobalRefs.last_id
-	new_reservation.name = name
-	new_reservation.phone = phone
-	new_reservation.pesel = pesel
-	new_reservation.start_date = start_date
-	new_reservation.end_date = end_date
-	new_reservation.room = room
-	new_reservation.quantity = quantity
-	new_reservation.prepaid_amount = prepaid_amount
-	new_reservation.prepaid_date = prepaid_date
-	new_reservation.payment_amount = payment_amount
-	new_reservation.payment_date = payment_date
-	new_reservation.invoice = invoice
-	new_reservation.invoice_status = invoice_status
-	GlobalRefs.reservations.append(new_reservation)
-	return new_reservation
+	new_booking.id = GlobalRefs.last_id
+	new_booking.name = name
+	new_booking.phone = phone
+	new_booking.pesel = pesel
+	new_booking.start_date = start_date
+	new_booking.end_date = end_date
+	new_booking.room = room
+	new_booking.quantity = quantity
+	new_booking.prepaid_amount = prepaid_amount
+	new_booking.prepaid_date = prepaid_date
+	new_booking.payment_amount = payment_amount
+	new_booking.payment_date = payment_date
+	new_booking.invoice = invoice
+	new_booking.invoice_status = invoice_status
+	GlobalRefs.bookings.append(new_booking)
+	return new_booking
 
 
 func update(

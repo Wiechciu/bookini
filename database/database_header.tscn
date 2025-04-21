@@ -2,6 +2,7 @@
 
 [node name="DatabaseHeader" type="PanelContainer"]
 size_flags_horizontal = 3
+focus_mode = 1
 theme_type_variation = &"PanelContainerDatabaseHeader"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]

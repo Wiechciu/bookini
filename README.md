@@ -1,9 +1,8 @@
 # hotel
  
 TODO:
-	change reservation name to booking?
-	search and filter for database
-	database save backup
+	Change TextEdit to LineEdit
+		Including Theme
 	room management
 	interactive calendar:
 		hover shows basic information
