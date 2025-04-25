@@ -1,9 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://jcj00eruawl0"]
+[gd_scene load_steps=7 format=3 uid="uid://jcj00eruawl0"]
 
 [ext_resource type="Script" uid="uid://blpiht0xuoaa8" path="res://database/database.gd" id="1_8x7pb"]
 [ext_resource type="PackedScene" uid="uid://d26lkxydpbp38" path="res://database/database_header.tscn" id="1_rw4k8"]
 [ext_resource type="PackedScene" uid="uid://cejexibyxff8t" path="res://database/database_item.tscn" id="2_fvenl"]
 [ext_resource type="PackedScene" uid="uid://dx10i03usiffl" path="res://database/database_filter.tscn" id="4_8x7pb"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_8x7pb"]
+ctrl_pressed = true
+pressed = true
+physical_keycode = 68
+
+[sub_resource type="Shortcut" id="Shortcut_eg6c8"]
+events = [SubResource("InputEventKey_8x7pb")]
 
 [node name="Database" type="PanelContainer" node_paths=PackedStringArray("scroll_container", "item_container", "add_button", "database_filter")]
 size_flags_vertical = 3
@@ -126,4 +134,5 @@ custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
+shortcut = SubResource("Shortcut_eg6c8")
 text = "+"

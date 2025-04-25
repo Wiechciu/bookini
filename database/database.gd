@@ -18,9 +18,6 @@ var current_date_string: String
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("add_new_item"):
-		add_new_item()
-	
 	if event.is_action_pressed("ui_cancel"):
 		grab_focus()
 		selected_item = null

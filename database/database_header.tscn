@@ -19,6 +19,7 @@ autowrap_mode = 2
 
 [node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
 layout_mode = 2
+theme_type_variation = &"VSeparatorLight"
 
 [node name="Label14" type="Label" parent="HBoxContainer"]
 custom_minimum_size = Vector2(160, 0)
@@ -30,6 +31,7 @@ autowrap_mode = 2
 
 [node name="VSeparator14" type="VSeparator" parent="HBoxContainer"]
 layout_mode = 2
+theme_type_variation = &"VSeparatorLight"
 
 [node name="Label2" type="Label" parent="HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
@@ -41,6 +43,7 @@ autowrap_mode = 2
 
 [node name="VSeparator2" type="VSeparator" parent="HBoxContainer"]
 layout_mode = 2
+theme_type_variation = &"VSeparatorLight"
 
 [node name="Label3" type="Label" parent="HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
@@ -52,6 +55,7 @@ autowrap_mode = 2
 
 [node name="VSeparator3" type="VSeparator" parent="HBoxContainer"]
 layout_mode = 2
+theme_type_variation = &"VSeparatorLight"
 
 [node name="Label4" type="Label" parent="HBoxContainer"]
 custom_minimum_size = Vector2(70, 0)
@@ -63,6 +67,7 @@ autowrap_mode = 2
 
 [node name="VSeparator4" type="VSeparator" parent="HBoxContainer"]
 layout_mode = 2
+theme_type_variation = &"VSeparatorLight"
 
 [node name="Label5" type="Label" parent="HBoxContainer"]
 custom_minimum_size = Vector2(70, 0)
@@ -74,6 +79,7 @@ autowrap_mode = 2
 
 [node name="VSeparator5" type="VSeparator" parent="HBoxContainer"]
 layout_mode = 2
+theme_type_variation = &"VSeparatorLight"
 
 [node name="Label6" type="Label" parent="HBoxContainer"]
 custom_minimum_size = Vector2(70, 0)
@@ -85,6 +91,7 @@ autowrap_mode = 2
 
 [node name="VSeparator6" type="VSeparator" parent="HBoxContainer"]
 layout_mode = 2
+theme_type_variation = &"VSeparatorLight"
 
 [node name="Label7" type="Label" parent="HBoxContainer"]
 custom_minimum_size = Vector2(70, 0)
@@ -96,6 +103,7 @@ autowrap_mode = 2
 
 [node name="VSeparator7" type="VSeparator" parent="HBoxContainer"]
 layout_mode = 2
+theme_type_variation = &"VSeparatorLight"
 
 [node name="Label8" type="Label" parent="HBoxContainer"]
 custom_minimum_size = Vector2(70, 0)
@@ -107,6 +115,7 @@ autowrap_mode = 2
 
 [node name="VSeparator8" type="VSeparator" parent="HBoxContainer"]
 layout_mode = 2
+theme_type_variation = &"VSeparatorLight"
 
 [node name="Label9" type="Label" parent="HBoxContainer"]
 custom_minimum_size = Vector2(70, 0)
@@ -118,6 +127,7 @@ autowrap_mode = 2
 
 [node name="VSeparator9" type="VSeparator" parent="HBoxContainer"]
 layout_mode = 2
+theme_type_variation = &"VSeparatorLight"
 
 [node name="Label10" type="Label" parent="HBoxContainer"]
 custom_minimum_size = Vector2(70, 0)
@@ -129,6 +139,7 @@ autowrap_mode = 2
 
 [node name="VSeparator10" type="VSeparator" parent="HBoxContainer"]
 layout_mode = 2
+theme_type_variation = &"VSeparatorLight"
 
 [node name="Label11" type="Label" parent="HBoxContainer"]
 custom_minimum_size = Vector2(70, 0)
@@ -140,6 +151,7 @@ autowrap_mode = 2
 
 [node name="VSeparator11" type="VSeparator" parent="HBoxContainer"]
 layout_mode = 2
+theme_type_variation = &"VSeparatorLight"
 
 [node name="Label12" type="Label" parent="HBoxContainer"]
 custom_minimum_size = Vector2(70, 0)
@@ -151,6 +163,7 @@ autowrap_mode = 2
 
 [node name="VSeparator12" type="VSeparator" parent="HBoxContainer"]
 layout_mode = 2
+theme_type_variation = &"VSeparatorLight"
 
 [node name="Label13" type="Label" parent="HBoxContainer"]
 custom_minimum_size = Vector2(70, 0)
@@ -162,3 +175,4 @@ autowrap_mode = 2
 
 [node name="VSeparator13" type="VSeparator" parent="HBoxContainer"]
 layout_mode = 2
+theme_type_variation = &"VSeparatorLight"

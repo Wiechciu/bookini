@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dx10i03usiffl"]
+[gd_scene load_steps=6 format=3 uid="uid://dx10i03usiffl"]
 
-[ext_resource type="Script" uid="uid://chansodt3v1ji" path="res://database/database_item_text_edit.gd" id="1_12qvd"]
 [ext_resource type="Script" uid="uid://b7y06r4o1m5jy" path="res://database/database_filter.gd" id="1_y4xxc"]
 [ext_resource type="Texture2D" uid="uid://cngkt3kjwd3jg" path="res://clear.png" id="2_kuo7r"]
+[ext_resource type="PackedScene" uid="uid://dboq0xx4q6cf2" path="res://database/focus_component.tscn" id="3_6g03t"]
+[ext_resource type="PackedScene" uid="uid://cy6syqbn8oudx" path="res://database/date_entry_component.tscn" id="4_1n5h5"]
+[ext_resource type="PackedScene" uid="uid://db1m1y80aaiaa" path="res://database/date_validation_component.tscn" id="5_3qwab"]
 
 [node name="DatabaseFilter" type="PanelContainer" node_paths=PackedStringArray("clear_button", "label_container", "id_label", "name_label", "phone_label", "pesel_label", "start_date_label", "end_date_label", "room_label", "quantity_label", "prepaid_amount_label", "prepaid_date_label", "payment_amount_label", "payment_date_label", "invoice_label", "invoice_status_label")]
 custom_minimum_size = Vector2(0, 19)
@@ -32,7 +34,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(20, 17)
 layout_mode = 2
 size_flags_horizontal = 0
-size_flags_vertical = 0
+size_flags_vertical = 4
 focus_mode = 0
 flat = true
 
@@ -48,183 +50,224 @@ texture = ExtResource("2_kuo7r")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="Id" type="TextEdit" parent="HBoxContainer"]
+[node name="Id" type="LineEdit" parent="HBoxContainer"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 focus_next = NodePath("../Phone")
-theme_type_variation = &"TextEditDatabaseItem"
-text = "1234"
+theme_type_variation = &"LineEditDatabaseItem"
+alignment = 2
 caret_blink = true
-script = ExtResource("1_12qvd")
+
+[node name="FocusComponent" parent="HBoxContainer/Id" instance=ExtResource("3_6g03t")]
 
 [node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
 layout_mode = 2
+theme_type_variation = &"VSeparatorLight"
 
-[node name="Name" type="TextEdit" parent="HBoxContainer"]
+[node name="Name" type="LineEdit" parent="HBoxContainer"]
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 focus_next = NodePath("../Phone")
-theme_type_variation = &"TextEditDatabaseItem"
-text = "Jakub Wiecheć"
+theme_type_variation = &"LineEditDatabaseItem"
 caret_blink = true
-script = ExtResource("1_12qvd")
+
+[node name="FocusComponent" parent="HBoxContainer/Name" instance=ExtResource("3_6g03t")]
 
 [node name="VSeparator14" type="VSeparator" parent="HBoxContainer"]
 layout_mode = 2
+theme_type_variation = &"VSeparatorLight"
 
-[node name="Phone" type="TextEdit" parent="HBoxContainer"]
+[node name="Phone" type="LineEdit" parent="HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 focus_next = NodePath("../Pesel")
 focus_previous = NodePath("../Name")
-theme_type_variation = &"TextEditDatabaseItem"
+theme_type_variation = &"LineEditDatabaseItem"
 text = "123456789"
 caret_blink = true
-script = ExtResource("1_12qvd")
+
+[node name="FocusComponent" parent="HBoxContainer/Phone" instance=ExtResource("3_6g03t")]
 
 [node name="VSeparator2" type="VSeparator" parent="HBoxContainer"]
 layout_mode = 2
+theme_type_variation = &"VSeparatorLight"
 
-[node name="Pesel" type="TextEdit" parent="HBoxContainer"]
+[node name="Pesel" type="LineEdit" parent="HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 focus_next = NodePath("../StartDate")
 focus_previous = NodePath("../Phone")
-theme_type_variation = &"TextEditDatabaseItem"
+theme_type_variation = &"LineEditDatabaseItem"
 text = "12345"
 caret_blink = true
-script = ExtResource("1_12qvd")
+
+[node name="FocusComponent" parent="HBoxContainer/Pesel" instance=ExtResource("3_6g03t")]
 
 [node name="VSeparator3" type="VSeparator" parent="HBoxContainer"]
 layout_mode = 2
+theme_type_variation = &"VSeparatorLight"
 
-[node name="StartDate" type="TextEdit" parent="HBoxContainer"]
+[node name="StartDate" type="LineEdit" parent="HBoxContainer"]
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 focus_next = NodePath("../EndDate")
 focus_previous = NodePath("../Pesel")
-theme_type_variation = &"TextEditDatabaseItem"
+theme_type_variation = &"LineEditDatabaseItem"
 text = "2025-01-02"
 caret_blink = true
-script = ExtResource("1_12qvd")
-date_entry = true
+
+[node name="DateEntryComponent" parent="HBoxContainer/StartDate" instance=ExtResource("4_1n5h5")]
+
+[node name="ValidateStringComponent" parent="HBoxContainer/StartDate" instance=ExtResource("5_3qwab")]
+
+[node name="FocusComponent" parent="HBoxContainer/StartDate" instance=ExtResource("3_6g03t")]
 
 [node name="VSeparator4" type="VSeparator" parent="HBoxContainer"]
 layout_mode = 2
+theme_type_variation = &"VSeparatorLight"
 
-[node name="EndDate" type="TextEdit" parent="HBoxContainer"]
+[node name="EndDate" type="LineEdit" parent="HBoxContainer"]
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 focus_next = NodePath("../Room")
 focus_previous = NodePath("../StartDate")
-theme_type_variation = &"TextEditDatabaseItem"
+theme_type_variation = &"LineEditDatabaseItem"
 text = "2025-01-10"
 caret_blink = true
-script = ExtResource("1_12qvd")
-date_entry = true
+
+[node name="DateEntryComponent" parent="HBoxContainer/EndDate" instance=ExtResource("4_1n5h5")]
+
+[node name="ValidateStringComponent" parent="HBoxContainer/EndDate" instance=ExtResource("5_3qwab")]
+
+[node name="FocusComponent" parent="HBoxContainer/EndDate" instance=ExtResource("3_6g03t")]
 
 [node name="VSeparator5" type="VSeparator" parent="HBoxContainer"]
 layout_mode = 2
+theme_type_variation = &"VSeparatorLight"
 
-[node name="Room" type="TextEdit" parent="HBoxContainer"]
+[node name="Room" type="LineEdit" parent="HBoxContainer"]
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 focus_next = NodePath("../Quantity")
 focus_previous = NodePath("../EndDate")
-theme_type_variation = &"TextEditDatabaseItem"
+theme_type_variation = &"LineEditDatabaseItem"
 text = "3"
 caret_blink = true
-script = ExtResource("1_12qvd")
+
+[node name="FocusComponent" parent="HBoxContainer/Room" instance=ExtResource("3_6g03t")]
 
 [node name="VSeparator6" type="VSeparator" parent="HBoxContainer"]
 layout_mode = 2
+theme_type_variation = &"VSeparatorLight"
 
-[node name="Quantity" type="TextEdit" parent="HBoxContainer"]
+[node name="Quantity" type="LineEdit" parent="HBoxContainer"]
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 focus_next = NodePath("../PrepaidAmount")
 focus_previous = NodePath("../Room")
-theme_type_variation = &"TextEditDatabaseItem"
+theme_type_variation = &"LineEditDatabaseItem"
 text = "5"
 caret_blink = true
-script = ExtResource("1_12qvd")
+
+[node name="FocusComponent" parent="HBoxContainer/Quantity" instance=ExtResource("3_6g03t")]
 
 [node name="VSeparator7" type="VSeparator" parent="HBoxContainer"]
 layout_mode = 2
+theme_type_variation = &"VSeparatorLight"
 
-[node name="PrepaidAmount" type="TextEdit" parent="HBoxContainer"]
+[node name="PrepaidAmount" type="LineEdit" parent="HBoxContainer"]
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 focus_next = NodePath("../PrepaidDate")
 focus_previous = NodePath("../Quantity")
-theme_type_variation = &"TextEditDatabaseItem"
+theme_type_variation = &"LineEditDatabaseItem"
 text = "500"
 caret_blink = true
-script = ExtResource("1_12qvd")
+
+[node name="FocusComponent" parent="HBoxContainer/PrepaidAmount" instance=ExtResource("3_6g03t")]
 
 [node name="VSeparator8" type="VSeparator" parent="HBoxContainer"]
 layout_mode = 2
+theme_type_variation = &"VSeparatorLight"
 
-[node name="PrepaidDate" type="TextEdit" parent="HBoxContainer"]
+[node name="PrepaidDate" type="LineEdit" parent="HBoxContainer"]
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 focus_next = NodePath("../PaymentAmount")
 focus_previous = NodePath("../PrepaidAmount")
-theme_type_variation = &"TextEditDatabaseItem"
+theme_type_variation = &"LineEditDatabaseItem"
 text = "2025-01-01"
 caret_blink = true
-script = ExtResource("1_12qvd")
+
+[node name="DateValidationComponent" parent="HBoxContainer/PrepaidDate" instance=ExtResource("5_3qwab")]
+
+[node name="DateEntryComponent" parent="HBoxContainer/PrepaidDate" instance=ExtResource("4_1n5h5")]
+
+[node name="FocusComponent" parent="HBoxContainer/PrepaidDate" instance=ExtResource("3_6g03t")]
 
 [node name="VSeparator9" type="VSeparator" parent="HBoxContainer"]
 layout_mode = 2
+theme_type_variation = &"VSeparatorLight"
 
-[node name="PaymentAmount" type="TextEdit" parent="HBoxContainer"]
+[node name="PaymentAmount" type="LineEdit" parent="HBoxContainer"]
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 focus_next = NodePath("../PaymentDate")
 focus_previous = NodePath("../PrepaidDate")
-theme_type_variation = &"TextEditDatabaseItem"
+theme_type_variation = &"LineEditDatabaseItem"
 text = "300"
 caret_blink = true
-script = ExtResource("1_12qvd")
+
+[node name="FocusComponent" parent="HBoxContainer/PaymentAmount" instance=ExtResource("3_6g03t")]
 
 [node name="VSeparator10" type="VSeparator" parent="HBoxContainer"]
 layout_mode = 2
+theme_type_variation = &"VSeparatorLight"
 
-[node name="PaymentDate" type="TextEdit" parent="HBoxContainer"]
+[node name="PaymentDate" type="LineEdit" parent="HBoxContainer"]
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 focus_next = NodePath("../Invoice")
 focus_previous = NodePath("../PaymentAmount")
-theme_type_variation = &"TextEditDatabaseItem"
+theme_type_variation = &"LineEditDatabaseItem"
 text = "2025-01-02"
 caret_blink = true
-script = ExtResource("1_12qvd")
+
+[node name="DateValidationComponent" parent="HBoxContainer/PaymentDate" instance=ExtResource("5_3qwab")]
+
+[node name="DateEntryComponent" parent="HBoxContainer/PaymentDate" instance=ExtResource("4_1n5h5")]
+
+[node name="FocusComponent" parent="HBoxContainer/PaymentDate" instance=ExtResource("3_6g03t")]
 
 [node name="VSeparator11" type="VSeparator" parent="HBoxContainer"]
 layout_mode = 2
+theme_type_variation = &"VSeparatorLight"
 
-[node name="Invoice" type="TextEdit" parent="HBoxContainer"]
+[node name="Invoice" type="LineEdit" parent="HBoxContainer"]
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 focus_next = NodePath("../InvoiceStatus")
 focus_previous = NodePath("../PaymentDate")
-theme_type_variation = &"TextEditDatabaseItem"
+theme_type_variation = &"LineEditDatabaseItem"
 text = "Tak"
 caret_blink = true
-script = ExtResource("1_12qvd")
+
+[node name="FocusComponent" parent="HBoxContainer/Invoice" instance=ExtResource("3_6g03t")]
 
 [node name="VSeparator12" type="VSeparator" parent="HBoxContainer"]
 layout_mode = 2
+theme_type_variation = &"VSeparatorLight"
 
-[node name="InvoiceStatus" type="TextEdit" parent="HBoxContainer"]
+[node name="InvoiceStatus" type="LineEdit" parent="HBoxContainer"]
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 focus_previous = NodePath("../Invoice")
-theme_type_variation = &"TextEditDatabaseItem"
+theme_type_variation = &"LineEditDatabaseItem"
 text = "Opłacona"
 caret_blink = true
-script = ExtResource("1_12qvd")
+
+[node name="FocusComponent" parent="HBoxContainer/InvoiceStatus" instance=ExtResource("3_6g03t")]
 
 [node name="VSeparator13" type="VSeparator" parent="HBoxContainer"]
 layout_mode = 2
+theme_type_variation = &"VSeparatorLight"

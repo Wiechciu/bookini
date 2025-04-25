@@ -1,8 +1,9 @@
 # hotel
  
 TODO:
-	Change TextEdit to LineEdit
-		Including Theme
+	Sorting
+		Default sort by Start date
+	Confirmation window before deletion
 	room management
 	interactive calendar:
 		hover shows basic information

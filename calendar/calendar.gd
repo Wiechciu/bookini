@@ -14,8 +14,8 @@ extends PanelContainer
 @export var calendar_row_labels: Array[CalendarRowLabel]
 @export var rooms: Array[Room]
 
-var current_year: int
-var current_month: int
+var selected_year: int
+var selected_month: int
 
 var month_names: Array[String] = [
 	"styczeń",
@@ -39,8 +39,8 @@ func _ready() -> void:
 	database.item_updated.connect(_on_database_item_updated)
 	previous_button.pressed.connect(_on_previous_button_pressed)
 	next_button.pressed.connect(_on_next_button_pressed)
-	current_year = Time.get_datetime_dict_from_system().year
-	current_month = Time.get_datetime_dict_from_system().month
+	selected_year = Time.get_datetime_dict_from_system().year
+	selected_month = Time.get_datetime_dict_from_system().month
 	update_calendar_header()
 
 
@@ -66,23 +66,23 @@ func fill_containers() -> void:
 
 
 func _on_previous_button_pressed() -> void:
-	current_month = wrapi(current_month - 1, 1, 13)
-	if current_month == 12:
-		current_year -= 1
+	selected_month = wrapi(selected_month - 1, 1, 13)
+	if selected_month == 12:
+		selected_year -= 1
 	update_calendar_header()
 	update_colors()
 
 
 func _on_next_button_pressed() -> void:
-	current_month = wrapi(current_month + 1, 1, 13)
-	if current_month == 1:
-		current_year += 1
+	selected_month = wrapi(selected_month + 1, 1, 13)
+	if selected_month == 1:
+		selected_year += 1
 	update_calendar_header()
 	update_colors()
 
 
 func update_calendar_header() -> void:
-	calendar_header.month_label.text = "%s %d" % [month_names[current_month - 1], current_year]
+	calendar_header.month_label.text = "%s %d" % [month_names[selected_month - 1], selected_year]
 
 
 func _on_database_item_updated() -> void:
@@ -108,7 +108,7 @@ func apply_colors(booking: Booking) -> void:
 		if calendar_row.room.name != booking.room:
 			continue
 		for calendar_field in calendar_row.calendar_fields:
-			var field_unix_time = Time.get_unix_time_from_datetime_string("%04d-%02d-%02d" % [current_year, current_month, calendar_field.day])
+			var field_unix_time = Time.get_unix_time_from_datetime_string("%04d-%02d-%02d" % [selected_year, selected_month, calendar_field.day])
 			if field_unix_time >= start_unix_time and field_unix_time <= end_unix_time and calendar_field.color != Color.WHITE:
 				calendar_field.color = Color.RED
 			elif field_unix_time == start_unix_time:

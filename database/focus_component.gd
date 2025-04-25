@@ -1,11 +1,11 @@
 extends Node
 
 
-var parent_control: TextEdit
+var parent_control: LineEdit
 
 
 func _ready() -> void:
-	if not get_parent() is TextEdit:
+	if not get_parent() is LineEdit:
 		queue_free()
 	
 	parent_control = get_parent()

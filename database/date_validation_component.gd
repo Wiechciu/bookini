@@ -1,15 +1,15 @@
 extends Node
 
 
-var parent_control: TextEdit
+var parent_control: LineEdit
 
 
 func _ready() -> void:
-	if not get_parent() is TextEdit:
+	if not get_parent() is LineEdit:
 		queue_free()
 	
 	parent_control = get_parent()
-	parent_control.text_changed.connect(validate)
+	parent_control.text_changed.connect(validate.unbind(1))
 	
 	validate.call_deferred()
 
@@ -47,8 +47,8 @@ func is_leap_year(year: int) -> bool:
 
 
 func validate_correct() -> void:
-	parent_control.theme_type_variation = "TextEditDatabaseItem"
+	parent_control.theme_type_variation = "LineEditDatabaseItem"
 
 
 func validate_incorrect() -> void:
-	parent_control.theme_type_variation = "TextEditDatabaseItemIncorrectValidation"
+	parent_control.theme_type_variation = "LineEditDatabaseItemIncorrectValidation"

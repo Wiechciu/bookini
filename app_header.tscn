@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dtyiafuie21sr"]
 
-[ext_resource type="Texture2D" uid="uid://dj68ekuciwvdv" path="res://x.png" id="1_ulx4u"]
 [ext_resource type="Script" uid="uid://bicnmtfwnfxmb" path="res://close_button.gd" id="2_q8cqu"]
+[ext_resource type="Texture2D" uid="uid://cngkt3kjwd3jg" path="res://clear.png" id="2_ulx4u"]
 
 [node name="AppHeader" type="PanelContainer"]
 custom_minimum_size = Vector2(0, 30)
@@ -16,12 +16,23 @@ size_flags_horizontal = 3
 text = "Hotel rezerwacje"
 
 [node name="CloseButton" type="Button" parent="HBoxContainer"]
+modulate = Color(0, 0, 0, 1)
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
-icon = ExtResource("1_ulx4u")
 flat = true
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("2_q8cqu")
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/CloseButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ulx4u")
+expand_mode = 1
+stretch_mode = 5
 
 [connection signal="pressed" from="HBoxContainer/CloseButton" to="HBoxContainer/CloseButton" method="_on_pressed"]

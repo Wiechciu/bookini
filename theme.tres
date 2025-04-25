@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=25 format=3 uid="uid://b1p3xo06djhek"]
+[gd_resource type="Theme" load_steps=30 format=3 uid="uid://b1p3xo06djhek"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_05tig"]
 bg_color = Color(0.901961, 0.901961, 0.901961, 1)
@@ -34,6 +34,24 @@ bg_color = Color(0.901961, 0.901961, 0.901961, 1)
 bg_color = Color(0.901961, 0.901961, 0.901961, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wvktn"]
+content_margin_left = 3.0
+content_margin_right = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i1e0v"]
+content_margin_left = 3.0
+content_margin_right = 3.0
+bg_color = Color(0, 0, 0, 0.117647)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aaj76"]
+content_margin_left = 3.0
+content_margin_right = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aaj76"]
+content_margin_left = 3.0
+content_margin_right = 3.0
+bg_color = Color(0, 0, 0, 0.117647)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vhp3g"]
 content_margin_left = 3.0
 content_margin_right = 3.0
 
@@ -111,6 +129,12 @@ grow_begin = 0.0
 grow_end = 0.0
 vertical = true
 
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_e1x85"]
+color = Color(0, 0, 0, 0.196078)
+grow_begin = 0.0
+grow_end = 0.0
+vertical = true
+
 [resource]
 ButtonCalendar/base_type = &"Button"
 ButtonCalendar/colors/font_color = Color(0, 0, 0, 1)
@@ -145,6 +169,19 @@ LabelCalendar/font_sizes/font_size = 12
 LabelDatabaseItem/base_type = &"Label"
 LabelDatabaseItem/font_sizes/font_size = 12
 LabelDatabaseItem/styles/normal = SubResource("StyleBoxEmpty_wvktn")
+LineEditDatabaseItem/base_type = &"LineEdit"
+LineEditDatabaseItem/colors/caret_color = Color(0, 0, 0, 1)
+LineEditDatabaseItem/colors/font_color = Color(0, 0, 0, 1)
+LineEditDatabaseItem/constants/minimum_character_width = 0
+LineEditDatabaseItem/font_sizes/font_size = 12
+LineEditDatabaseItem/styles/focus = SubResource("StyleBoxFlat_i1e0v")
+LineEditDatabaseItem/styles/normal = SubResource("StyleBoxEmpty_aaj76")
+LineEditDatabaseItemIncorrectValidation/base_type = &"LineEdit"
+LineEditDatabaseItemIncorrectValidation/colors/caret_color = Color(0, 0, 0, 1)
+LineEditDatabaseItemIncorrectValidation/colors/font_color = Color(0.678431, 0, 0, 1)
+LineEditDatabaseItemIncorrectValidation/font_sizes/font_size = 12
+LineEditDatabaseItemIncorrectValidation/styles/focus = SubResource("StyleBoxFlat_aaj76")
+LineEditDatabaseItemIncorrectValidation/styles/normal = SubResource("StyleBoxEmpty_vhp3g")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_wvktn")
 PanelContainerCalendarHeader/base_type = &"PanelContainer"
 PanelContainerCalendarHeader/styles/panel = SubResource("StyleBoxFlat_vj6dk")
@@ -161,6 +198,7 @@ PanelContainerHeader/styles/panel = SubResource("StyleBoxFlat_cjfk0")
 TextEditDatabaseItem/base_type = &"TextEdit"
 TextEditDatabaseItem/colors/caret_color = Color(0, 0, 0, 1)
 TextEditDatabaseItem/colors/font_color = Color(0, 0, 0, 1)
+TextEditDatabaseItem/colors/font_placeholder_color = Color(0, 0, 0, 0.392157)
 TextEditDatabaseItem/constants/line_spacing = 0
 TextEditDatabaseItem/font_sizes/font_size = 12
 TextEditDatabaseItem/styles/focus = SubResource("StyleBoxFlat_0ceoj")
@@ -175,3 +213,5 @@ TextEditDatabaseItemIncorrectValidation/styles/normal = SubResource("StyleBoxEmp
 VBoxContainer/constants/separation = 0
 VSeparator/constants/separation = 1
 VSeparator/styles/separator = SubResource("StyleBoxLine_wvktn")
+VSeparatorLight/base_type = &"VSeparator"
+VSeparatorLight/styles/separator = SubResource("StyleBoxLine_e1x85")
