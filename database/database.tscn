@@ -33,7 +33,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 50)
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_vertical = 3
 follow_focus = true
@@ -48,9 +48,11 @@ layout_mode = 2
 
 [node name="DatabaseItem2" parent="VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_fvenl")]
 layout_mode = 2
+theme_type_variation = &"PanelContainerDatabaseItemHovered"
 
 [node name="DatabaseItem3" parent="VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_fvenl")]
 layout_mode = 2
+theme_type_variation = &"PanelContainerDatabaseItemSelected"
 
 [node name="DatabaseItem4" parent="VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_fvenl")]
 layout_mode = 2

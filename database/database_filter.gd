@@ -18,6 +18,7 @@ extends PanelContainer
 @export var payment_date_label: LineEdit
 @export var invoice_label: LineEdit
 @export var invoice_status_label: LineEdit
+@export var remarks_label: LineEdit
 var database: Database
 var cached_content: String
 
@@ -33,6 +34,8 @@ func _ready() -> void:
 
 
 func _on_clear_button_pressed() -> void:
+	if not is_any_filter_applied():
+		return
 	for child: Control in label_container.get_children():
 		if child is LineEdit:
 			child.text = ""

@@ -3,7 +3,7 @@
 TODO:
 	Sorting
 		Default sort by Start date
-	Confirmation window before deletion
+	Split caledar days into 2 - check-in and check-out
 	room management
 	interactive calendar:
 		hover shows basic information
@@ -11,6 +11,5 @@ TODO:
 		drag and drop to move reservation
 	price management
 	occupancy reports
-	add free text remarks
 	optimize
 		don't load all database records, only the latest

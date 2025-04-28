@@ -5,7 +5,7 @@
 
 [node name="AppHeader" type="PanelContainer"]
 custom_minimum_size = Vector2(0, 30)
-theme_type_variation = &"PanelContainerHeader"
+theme_type_variation = &"PanelContainerAppHeader"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -13,10 +13,10 @@ layout_mode = 2
 [node name="HeaderLabel" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_type_variation = &"LabelAppHeader"
 text = "Hotel rezerwacje"
 
 [node name="CloseButton" type="Button" parent="HBoxContainer"]
-modulate = Color(0, 0, 0, 1)
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 flat = true

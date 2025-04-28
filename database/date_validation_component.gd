@@ -1,54 +1,67 @@
 extends Node
 
 
-var parent_control: LineEdit
+enum Relationship {
+	NONE,
+	GREATER,
+	LESS,
+}
+
+const STYLE_CORRECT: String = "LineEditDatabaseItem"
+const STYLE_INCORRECT: String = "LineEditDatabaseItemIncorrectValidation"
+const STYLE_INCORRECT_ORDER: String = "LineEditDatabaseItemIncorrectOrder"
+
+@export var relative_node: LineEdit
+@export var relative_node_relationship: Relationship
+var parent_node: LineEdit
 
 
 func _ready() -> void:
-	if not get_parent() is LineEdit:
+	parent_node = get_parent()
+	if not parent_node is LineEdit:
 		queue_free()
+		return
 	
-	parent_control = get_parent()
-	parent_control.text_changed.connect(validate.unbind(1))
+	parent_node.text_changed.connect(validate.unbind(1))
 	
+	# Call deferred is required to let the table settle first
 	validate.call_deferred()
 
 
 func validate() -> void:
-	if is_valid_date(parent_control.text):
-		validate_correct()
+	# build list of LineEdits to validate
+	var fields := [ parent_node ]
+	var check_relative := relative_node and relative_node_relationship != Relationship.NONE
+	if check_relative:
+		fields.append(relative_node)
+	
+	# precompute validity
+	var valid = {}
+	for f in fields:
+		valid[f] = Utils.is_date_valid(f.text)
+	
+	# only compare order if both dates exist and both parsed OK
+	var order_ok = true
+	if check_relative and valid[parent_node] and valid[relative_node]:
+		order_ok = _compare_dates(parent_node.text, relative_node.text)
+	
+	# now assign styles
+	for f in fields:
+		f.theme_type_variation = _style_for(valid[f], order_ok)
+
+
+func _style_for(is_valid: bool, order_ok: bool) -> String:
+	if not is_valid:
+		return STYLE_INCORRECT
+	if not order_ok:
+		return STYLE_INCORRECT_ORDER
+	return STYLE_CORRECT
+
+
+func _compare_dates(a: String, b: String) -> bool:
+	var ta = Time.get_unix_time_from_datetime_string(a)
+	var tb = Time.get_unix_time_from_datetime_string(b)
+	if relative_node_relationship == Relationship.GREATER:
+		return ta > tb
 	else:
-		validate_incorrect()
-
-
-func is_valid_date(date_string: String) -> bool:
-	var date_regex = RegEx.new()
-	date_regex.compile(r"^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$")
-
-	# Step 1: Check format
-	if not date_regex.search(date_string):
-		return false
-
-	# Step 2: Parse components
-	var parts = date_string.split("-")
-	var year = int(parts[0])
-	var month = int(parts[1])
-	var day = int(parts[2])
-
-	# Step 3: Check if the day is valid for that month and year
-	var days_in_month = [31, 29 if is_leap_year(year) else 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-	if day > days_in_month[month - 1]:
-		return false
-
-	return true
-
-func is_leap_year(year: int) -> bool:
-	return (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0)
-
-
-func validate_correct() -> void:
-	parent_control.theme_type_variation = "LineEditDatabaseItem"
-
-
-func validate_incorrect() -> void:
-	parent_control.theme_type_variation = "LineEditDatabaseItemIncorrectValidation"
+		return ta < tb

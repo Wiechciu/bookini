@@ -165,7 +165,8 @@ func _filter_bookings(booking: Booking):
 		or compare_booking_string(database_filter.payment_amount_label.text, booking.payment_amount) \
 		or compare_booking_string(database_filter.payment_date_label.text, booking.payment_date) \
 		or compare_booking_string(database_filter.invoice_label.text, booking.invoice) \
-		or compare_booking_string(database_filter.invoice_status_label.text, booking.invoice_status):
+		or compare_booking_string(database_filter.invoice_status_label.text, booking.invoice_status) \
+		or compare_booking_string(database_filter.remarks_label.text, booking.remarks):
 		return false
 	else:
 		return true

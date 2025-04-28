@@ -24,11 +24,11 @@ func _input(event: InputEvent) -> void:
 
 
 func check_date_entry(event: InputEvent) -> void:
-	if event.is_action_pressed("current_date"):
-		enter_date()
-	
-	for n in range(1, 10):
-		if event.is_action_pressed("ctrl" + str(n)):
+	#if event.is_action_pressed("current_date"):
+		#enter_date()
+	#
+	for n in range(0, 13):
+		if event.is_action_pressed("current_date_plus_" + str(n)):
 			enter_date(ONE_DAY * n)
 
 

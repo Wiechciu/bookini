@@ -102,6 +102,8 @@ func reset_colors() -> void:
 
 
 func apply_colors(booking: Booking) -> void:
+	if not booking.has_correct_date_order:
+		return
 	var start_unix_time = Time.get_unix_time_from_datetime_string(booking.start_date)
 	var end_unix_time = Time.get_unix_time_from_datetime_string(booking.end_date)
 	for calendar_row: CalendarRow in calendar_rows:

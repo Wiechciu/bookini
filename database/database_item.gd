@@ -3,6 +3,7 @@ extends PanelContainer
 
 signal item_updated
 
+@export var delete_confirmation_scene: PackedScene
 @export var delete_button: Button
 @export var label_container: Container
 @export var id_label: Label
@@ -19,6 +20,7 @@ signal item_updated
 @export var payment_date_label: LineEdit
 @export var invoice_label: LineEdit
 @export var invoice_status_label: LineEdit
+@export var remarks_label: LineEdit
 var booking: Booking
 var database: Database
 var cached_content: String
@@ -37,7 +39,13 @@ func _ready() -> void:
 func _on_delete_button_pressed() -> void:
 	if database.selected_item != self:
 		return
-	database.remove_item(self)
+	
+	var delete_confirmation: DeleteConfirmation = delete_confirmation_scene.instantiate() as DeleteConfirmation
+	delete_confirmation.apply_id(booking.id)
+	get_tree().root.add_child(delete_confirmation)
+	var result: bool = await delete_confirmation.result
+	if result:
+		database.remove_item(self)
 
 
 func _on_focus_entered(child: LineEdit) -> void:
@@ -49,7 +57,7 @@ func _on_focus_entered(child: LineEdit) -> void:
 
 func _on_focus_exited(child: LineEdit) -> void:
 	hide_delete_button()
-	theme_type_variation = ""
+	theme_type_variation = "PanelContainerDatabaseItem"
 	if child.text == cached_content:
 		return
 	update_booking()
@@ -83,6 +91,7 @@ func assign_booking(booking_to_assign: Booking = null) -> void:
 	payment_date_label.text = booking.payment_date
 	invoice_label.text = "tak" if booking.invoice else ""
 	invoice_status_label.text = "opłacona" if booking.invoice_status else ""
+	remarks_label.text = booking.remarks
 
 
 func update_booking() -> void:
@@ -99,7 +108,8 @@ func update_booking() -> void:
 		float(payment_amount_label.text),
 		payment_date_label.text,
 		true if invoice_label.text == "tak" else false,
-		true if invoice_status_label.text == "opłacona" else false
+		true if invoice_status_label.text == "opłacona" else false,
+		remarks_label.text
 		)
 	print("ID %s updated" % id_label.text)
 	item_updated.emit()

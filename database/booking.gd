@@ -16,6 +16,12 @@ extends Resource
 @export_storage var payment_date: String
 @export_storage var invoice: bool
 @export_storage var invoice_status: bool
+@export_storage var remarks: String
+var has_correct_date_order: bool:
+	get:
+		return Utils.is_date_valid(start_date) \
+		and Utils.is_date_valid(end_date) \
+		and Time.get_unix_time_from_datetime_string(start_date) < Time.get_unix_time_from_datetime_string(end_date)
 
 
 static func create_empty() -> Booking:
@@ -39,7 +45,8 @@ static func create(
 		payment_amount: float,
 		payment_date: String,
 		invoice: bool,
-		invoice_status: bool
+		invoice_status: bool,
+		remarks: String
 	) -> Booking:
 	var new_booking: Booking = Booking.new()
 	GlobalRefs.last_id += 1
@@ -57,6 +64,7 @@ static func create(
 	new_booking.payment_date = payment_date
 	new_booking.invoice = invoice
 	new_booking.invoice_status = invoice_status
+	new_booking.remarks = remarks
 	GlobalRefs.bookings.append(new_booking)
 	return new_booking
 
@@ -74,7 +82,8 @@ func update(
 		payment_amount: float,
 		payment_date: String,
 		invoice: bool,
-		invoice_status: bool
+		invoice_status: bool,
+		remarks: String
 	) -> void:
 	self.id = id
 	self.name = name
@@ -90,3 +99,4 @@ func update(
 	self.payment_date = payment_date
 	self.invoice = invoice
 	self.invoice_status = invoice_status
+	self.remarks = remarks
