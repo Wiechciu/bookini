@@ -29,8 +29,9 @@ layout_mode = 2
 [node name="DatabaseHeader" parent="VBoxContainer" instance=ExtResource("1_rw4k8")]
 layout_mode = 2
 
-[node name="DatabaseFilter" parent="VBoxContainer" instance=ExtResource("4_8x7pb")]
+[node name="DatabaseFilter" parent="VBoxContainer" node_paths=PackedStringArray("database") instance=ExtResource("4_8x7pb")]
 layout_mode = 2
+database = NodePath("../..")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)

@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2e2cevo50f71"]
+
+[ext_resource type="Script" uid="uid://bodgp87hwdsby" path="res://tooltip/tooltip.gd" id="1_15sfh"]
+
+[node name="Tooltip" type="PanelContainer" node_paths=PackedStringArray("label")]
+offset_right = 72.0
+offset_bottom = 42.3333
+mouse_filter = 2
+theme_type_variation = &"PanelContainerTooltip"
+script = ExtResource("1_15sfh")
+label = NodePath("Label")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "tooltip"

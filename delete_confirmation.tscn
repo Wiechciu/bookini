@@ -52,12 +52,24 @@ layout_mode = 2
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="CancelButton" type="Button" parent="PanelContainer/VBoxContainer2/HBoxContainer"]
-custom_minimum_size = Vector2(70, 0)
-layout_mode = 2
-text = "Nie"
-
 [node name="ConfirmButton" type="Button" parent="PanelContainer/VBoxContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
+focus_neighbor_left = NodePath("../CancelButton")
+focus_neighbor_top = NodePath("../CancelButton")
+focus_neighbor_right = NodePath("../CancelButton")
+focus_neighbor_bottom = NodePath("../CancelButton")
+focus_next = NodePath("../CancelButton")
+focus_previous = NodePath("../CancelButton")
 text = "Tak"
+
+[node name="CancelButton" type="Button" parent="PanelContainer/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+focus_neighbor_left = NodePath("../ConfirmButton")
+focus_neighbor_top = NodePath("../ConfirmButton")
+focus_neighbor_right = NodePath("../ConfirmButton")
+focus_neighbor_bottom = NodePath("../ConfirmButton")
+focus_next = NodePath("../ConfirmButton")
+focus_previous = NodePath("../ConfirmButton")
+text = "Nie"

@@ -1,8 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://ogbjdpwoo7tr"]
+[gd_scene load_steps=3 format=3 uid="uid://ogbjdpwoo7tr"]
 
 [ext_resource type="Script" uid="uid://joe71rpgm8l0" path="res://calendar/calendar_field.gd" id="1_8j7mv"]
+[ext_resource type="PackedScene" uid="uid://cghapkildl4rr" path="res://tooltip/tooltip_component.tscn" id="2_hn1xr"]
 
-[node name="CalendarField" type="ColorRect"]
-custom_minimum_size = Vector2(20, 20)
-color = Color(1, 0.361596, 0.248365, 1)
+[node name="CalendarField" type="PanelContainer" node_paths=PackedStringArray("field_start", "field_end")]
+custom_minimum_size = Vector2(19, 20)
+offset_right = 20.0
+offset_bottom = 20.0
+theme_type_variation = &"PanelContainerCalendarField"
 script = ExtResource("1_8j7mv")
+field_start = NodePath("HBoxContainer/FieldStart")
+field_end = NodePath("HBoxContainer/FieldEnd")
+
+[node name="TooltipComponent" parent="." instance=ExtResource("2_hn1xr")]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="FieldStart" type="PanelContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelContainerCalendarFieldCheckOut"
+
+[node name="FieldEnd" type="PanelContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(9, 0)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"PanelContainerCalendarFieldCheckIn"

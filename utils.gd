@@ -23,12 +23,16 @@ func is_date_valid(date_string: String) -> bool:
 	var m = int(parts[1])
 	var d = int(parts[2])
 	
-	var days_in_month = [31,
-		(29 if is_leap_year(y) else 28),
-		31,30,31,30,31,31,30,31,30,31
-	]
-	return d >= 1 and d <= days_in_month[m - 1]
+	return d >= 1 and d <= get_number_of_days_in_month(m, y)
 
 
 func is_leap_year(y: int) -> bool:
 	return (y % 4 == 0 and y % 100 != 0) or (y % 400 == 0)
+
+
+func get_number_of_days_in_month(m: int, y: int) -> int:
+	var days_in_month = [31,
+		(29 if is_leap_year(y) else 28),
+		31,30,31,30,31,31,30,31,30,31
+	]
+	return days_in_month[m - 1]

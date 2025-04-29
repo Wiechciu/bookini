@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=27 format=3 uid="uid://b1p3xo06djhek"]
+[gd_resource type="Theme" load_steps=35 format=3 uid="uid://b1p3xo06djhek"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_05tig"]
 bg_color = Color(0.901961, 0.901961, 0.901961, 1)
@@ -77,11 +77,40 @@ border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hqigj"]
+bg_color = Color(1, 1, 1, 1)
+border_width_right = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fsxoa"]
+bg_color = Color(0, 0.258826, 0.511544, 1)
+corner_radius_top_left = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ybu1x"]
+bg_color = Color(0.415741, 0.67849, 0.999992, 1)
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_535ge"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xjl3a"]
+bg_color = Color(0, 0.402347, 0.770637, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5463q"]
+bg_color = Color(0.980392, 0, 0.231373, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vj6dk"]
 bg_color = Color(0.737255, 0.894118, 1, 1)
 border_width_left = 2
 border_width_right = 2
 border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pvf4r"]
+bg_color = Color(0.737255, 0.894118, 1, 1)
+border_width_right = 1
 border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6q1gq"]
@@ -131,6 +160,25 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t3v2v"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 3
+shadow_offset = Vector2(3, 3)
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_wvktn"]
 grow_begin = 0.0
@@ -196,8 +244,22 @@ LineEditDatabaseItemIncorrectValidation/colors/font_color = Color(0.678431, 0, 0
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_wvktn")
 PanelContainerAppHeader/base_type = &"PanelContainer"
 PanelContainerAppHeader/styles/panel = SubResource("StyleBoxFlat_cjfk0")
+PanelContainerCalendarField/base_type = &"PanelContainer"
+PanelContainerCalendarField/styles/panel = SubResource("StyleBoxFlat_hqigj")
+PanelContainerCalendarFieldCheckIn/base_type = &"PanelContainer"
+PanelContainerCalendarFieldCheckIn/styles/panel = SubResource("StyleBoxFlat_fsxoa")
+PanelContainerCalendarFieldCheckOut/base_type = &"PanelContainer"
+PanelContainerCalendarFieldCheckOut/styles/panel = SubResource("StyleBoxFlat_ybu1x")
+PanelContainerCalendarFieldClear/base_type = &"PanelContainer"
+PanelContainerCalendarFieldClear/styles/panel = SubResource("StyleBoxFlat_535ge")
+PanelContainerCalendarFieldFullDay/base_type = &"PanelContainer"
+PanelContainerCalendarFieldFullDay/styles/panel = SubResource("StyleBoxFlat_xjl3a")
+PanelContainerCalendarFieldOverbooking/base_type = &"PanelContainer"
+PanelContainerCalendarFieldOverbooking/styles/panel = SubResource("StyleBoxFlat_5463q")
 PanelContainerCalendarHeader/base_type = &"PanelContainer"
 PanelContainerCalendarHeader/styles/panel = SubResource("StyleBoxFlat_vj6dk")
+PanelContainerCalendarHeaderField/base_type = &"PanelContainer"
+PanelContainerCalendarHeaderField/styles/panel = SubResource("StyleBoxFlat_pvf4r")
 PanelContainerDatabaseFilter/base_type = &"PanelContainer"
 PanelContainerDatabaseFilter/styles/panel = SubResource("StyleBoxFlat_6q1gq")
 PanelContainerDatabaseHeader/base_type = &"PanelContainer"
@@ -210,6 +272,8 @@ PanelContainerDatabaseItemSelected/base_type = &"PanelContainer"
 PanelContainerDatabaseItemSelected/styles/panel = SubResource("StyleBoxFlat_ndmpe")
 PanelContainerPopup/base_type = &"PanelContainer"
 PanelContainerPopup/styles/panel = SubResource("StyleBoxFlat_skm8o")
+PanelContainerTooltip/base_type = &"PanelContainer"
+PanelContainerTooltip/styles/panel = SubResource("StyleBoxFlat_t3v2v")
 VBoxContainer/constants/separation = 0
 VSeparator/constants/separation = 1
 VSeparator/styles/separator = SubResource("StyleBoxLine_wvktn")

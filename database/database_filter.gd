@@ -2,6 +2,7 @@ class_name DatabaseFilter
 extends PanelContainer
 
 
+@export var database: Database
 @export var clear_button: Button
 @export var label_container: Container
 @export var id_label: LineEdit
@@ -19,7 +20,6 @@ extends PanelContainer
 @export var invoice_label: LineEdit
 @export var invoice_status_label: LineEdit
 @export var remarks_label: LineEdit
-var database: Database
 var cached_content: String
 
 
@@ -29,13 +29,12 @@ func _ready() -> void:
 	for child: Control in label_container.get_children():
 		if child is LineEdit:
 			child.clear()
+			child.text_submitted.connect(_on_submit_or_focus_exited.bind(child).unbind(1))
 			child.focus_entered.connect(_on_focus_entered.bind(child))
-			child.focus_exited.connect(_on_focus_exited.bind(child))
+			child.focus_exited.connect(_on_submit_or_focus_exited.bind(child))
 
 
 func _on_clear_button_pressed() -> void:
-	if not is_any_filter_applied():
-		return
 	for child: Control in label_container.get_children():
 		if child is LineEdit:
 			child.text = ""
@@ -47,9 +46,10 @@ func _on_focus_entered(child: LineEdit) -> void:
 	cached_content = child.text
 
 
-func _on_focus_exited(child: LineEdit) -> void:
+func _on_submit_or_focus_exited(child: LineEdit) -> void:
 	if child.text == cached_content:
 		return
+	cached_content = child.text
 	database.filter_database()
 	
 	if is_any_filter_applied():
@@ -60,10 +60,12 @@ func _on_focus_exited(child: LineEdit) -> void:
 
 func hide_clear_button() -> void:
 	clear_button.modulate.a = 0.0
+	clear_button.disabled = true
 
 
 func show_clear_button() -> void:
 	clear_button.modulate.a = 1.0
+	clear_button.disabled = false
 
 
 func is_any_filter_applied() -> bool:

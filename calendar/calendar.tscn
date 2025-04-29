@@ -30,14 +30,16 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Header" type="PanelContainer" parent="HBoxContainer/CalendarRowLabels"]
-custom_minimum_size = Vector2(20, 36)
+custom_minimum_size = Vector2(20, 52)
 layout_mode = 2
 theme_type_variation = &"PanelContainerCalendarHeader"
 
 [node name="Label" type="Label" parent="HBoxContainer/CalendarRowLabels/Header"]
 layout_mode = 2
+size_flags_vertical = 1
 theme_type_variation = &"LabelCalendar"
 text = "Pokoje"
+vertical_alignment = 1
 
 [node name="CalendarRowLabel" parent="HBoxContainer/CalendarRowLabels" instance=ExtResource("9_0p1os")]
 layout_mode = 2
@@ -65,11 +67,12 @@ text = "<"
 alignment = 2
 
 [node name="CalendarRows" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(624, 0)
 layout_mode = 2
-size_flags_horizontal = 3
 
-[node name="CalendarHeader" parent="HBoxContainer/CalendarRows" instance=ExtResource("1_f8ws7")]
+[node name="CalendarHeader" parent="HBoxContainer/CalendarRows" node_paths=PackedStringArray("calendar") instance=ExtResource("1_f8ws7")]
 layout_mode = 2
+calendar = NodePath("../../..")
 
 [node name="CalendarRow" parent="HBoxContainer/CalendarRows" instance=ExtResource("2_74sj6")]
 layout_mode = 2

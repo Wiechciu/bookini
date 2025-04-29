@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://db1m1y80aaiaa" path="res://database/date_validation_component.tscn" id="5_3qwab"]
 
 [node name="DatabaseFilter" type="PanelContainer" node_paths=PackedStringArray("clear_button", "label_container", "id_label", "name_label", "phone_label", "pesel_label", "start_date_label", "end_date_label", "room_label", "quantity_label", "prepaid_amount_label", "prepaid_date_label", "payment_amount_label", "payment_date_label", "invoice_label", "invoice_status_label", "remarks_label")]
-custom_minimum_size = Vector2(0, 19)
+custom_minimum_size = Vector2(0, 27)
 theme_type_variation = &"PanelContainerDatabaseFilter"
 script = ExtResource("1_y4xxc")
 clear_button = NodePath("HBoxContainer/ClearButton")

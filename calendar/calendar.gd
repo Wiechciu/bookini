@@ -2,6 +2,9 @@ class_name Calendar
 extends PanelContainer
 
 
+signal selected_date_changed
+
+
 @export var database: Database
 @export var previous_button: Button
 @export var next_button: Button
@@ -16,21 +19,15 @@ extends PanelContainer
 
 var selected_year: int
 var selected_month: int
-
-var month_names: Array[String] = [
-	"styczeń",
-	"luty",
-	"marzec",
-	"kwiecień",
-	"maj",
-	"czerwiec",
-	"lipies",
-	"sierpień",
-	"wrzesień",
-	"październik",
-	"listopad",
-	"grudzień",
-]
+var current_year: int:
+	get:
+		return Time.get_datetime_dict_from_system().year
+var current_month: int:
+	get:
+		return Time.get_datetime_dict_from_system().month
+var is_current_date_selected: bool:
+	get:
+		return selected_year == current_year and selected_month == current_month
 
 
 func _ready() -> void:
@@ -39,9 +36,7 @@ func _ready() -> void:
 	database.item_updated.connect(_on_database_item_updated)
 	previous_button.pressed.connect(_on_previous_button_pressed)
 	next_button.pressed.connect(_on_next_button_pressed)
-	selected_year = Time.get_datetime_dict_from_system().year
-	selected_month = Time.get_datetime_dict_from_system().month
-	update_calendar_header()
+	reset_calendar()
 
 
 func clear_containers() -> void:
@@ -59,30 +54,38 @@ func fill_containers() -> void:
 		calendar_row_container.add_child(new_calendar_row)
 		calendar_rows.append(new_calendar_row)
 		new_calendar_row.room = room
+		new_calendar_row.calendar = self
+		new_calendar_row.initialize_calendar_fields()
 		var new_calendar_row_label: CalendarRowLabel = calendar_row_label_scene.instantiate() as CalendarRowLabel
 		calendar_row_label_container.add_child(new_calendar_row_label)
 		calendar_row_labels.append(new_calendar_row_label)
 		new_calendar_row_label.label.text = room.name
 
 
+func reset_calendar() -> void:
+	selected_year = Time.get_datetime_dict_from_system().year
+	selected_month = Time.get_datetime_dict_from_system().month
+	update_calendar()
+	update_colors()
+	selected_date_changed.emit()
+
+
 func _on_previous_button_pressed() -> void:
 	selected_month = wrapi(selected_month - 1, 1, 13)
 	if selected_month == 12:
 		selected_year -= 1
-	update_calendar_header()
+	update_calendar()
 	update_colors()
+	selected_date_changed.emit()
 
 
 func _on_next_button_pressed() -> void:
 	selected_month = wrapi(selected_month + 1, 1, 13)
 	if selected_month == 1:
 		selected_year += 1
-	update_calendar_header()
+	update_calendar()
 	update_colors()
-
-
-func update_calendar_header() -> void:
-	calendar_header.month_label.text = "%s %d" % [month_names[selected_month - 1], selected_year]
+	selected_date_changed.emit()
 
 
 func _on_database_item_updated() -> void:
@@ -98,24 +101,21 @@ func update_colors() -> void:
 func reset_colors() -> void:
 	for calendar_row: CalendarRow in calendar_rows:
 		for calendar_field: CalendarField in calendar_row.calendar_fields:
-			calendar_field.color = Color.WHITE
+			calendar_field.bookings.clear()
+			calendar_field.paint_clear()
 
 
 func apply_colors(booking: Booking) -> void:
 	if not booking.has_correct_date_order:
 		return
-	var start_unix_time = Time.get_unix_time_from_datetime_string(booking.start_date)
-	var end_unix_time = Time.get_unix_time_from_datetime_string(booking.end_date)
 	for calendar_row: CalendarRow in calendar_rows:
 		if calendar_row.room.name != booking.room:
 			continue
-		for calendar_field in calendar_row.calendar_fields:
-			var field_unix_time = Time.get_unix_time_from_datetime_string("%04d-%02d-%02d" % [selected_year, selected_month, calendar_field.day])
-			if field_unix_time >= start_unix_time and field_unix_time <= end_unix_time and calendar_field.color != Color.WHITE:
-				calendar_field.color = Color.RED
-			elif field_unix_time == start_unix_time:
-				calendar_field.color = Color.ROYAL_BLUE
-			elif field_unix_time > start_unix_time and field_unix_time < end_unix_time:
-				calendar_field.color = Color.CORNFLOWER_BLUE
-			elif field_unix_time == end_unix_time:
-				calendar_field.color = Color.LIGHT_BLUE
+		for calendar_field: CalendarField in calendar_row.calendar_fields:
+			calendar_field.check_booking(booking)
+
+
+func update_calendar() -> void:
+	calendar_header.update()
+	for calendar_row: CalendarRow in calendar_rows:
+		calendar_row.update()

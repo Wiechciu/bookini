@@ -3,10 +3,10 @@
 TODO:
 	Sorting
 		Default sort by Start date
-	Split caledar days into 2 - check-in and check-out
 	room management
+	vertical scroll container in the calendar area for more rooms
+	buttons for each month on top of the calendar, with highlighted current one
 	interactive calendar:
-		hover shows basic information
 		click focuses on the reservation in the database
 		drag and drop to move reservation
 	price management

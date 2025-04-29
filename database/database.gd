@@ -26,7 +26,6 @@ func _unhandled_input(event: InputEvent) -> void:
 func _ready() -> void:
 	current_date_string = Time.get_date_string_from_system()
 	add_button.pressed.connect(_on_add_button_pressed)
-	database_filter.database = self
 	clear_database_items()
 	clear_database()
 	load_database()
