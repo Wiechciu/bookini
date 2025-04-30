@@ -73,7 +73,7 @@ func show_delete_button() -> void:
 
 func assign_booking(booking_to_assign: Booking = null) -> void:
 	if booking_to_assign == null:
-		booking = Booking.create_empty()
+		booking = Booking.create()
 		id_label.text = str(booking.id)
 		return
 	booking = booking_to_assign
@@ -96,6 +96,7 @@ func assign_booking(booking_to_assign: Booking = null) -> void:
 
 func update_booking() -> void:
 	booking.update(
+		Booking.Status.ACTIVE,
 		name_label.text,
 		phone_label.text,
 		pesel_label.text,

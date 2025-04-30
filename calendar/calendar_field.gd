@@ -1,6 +1,9 @@
 class_name CalendarField
 extends Control
 
+const STYLE_ACTIVE: String = "PanelContainerCalendarField"
+const STYLE_INACTIVE: String = "PanelContainerCalendarFieldInactive"
+
 const STYLE_CLEAR: String = "PanelContainerCalendarFieldClear"
 const STYLE_CHECK_IN: String = "PanelContainerCalendarFieldCheckIn"
 const STYLE_CHECK_OUT: String = "PanelContainerCalendarFieldCheckOut"
@@ -16,7 +19,7 @@ var bookings: Array[Booking]
 
 
 func check_booking(booking_to_check: Booking) -> void:
-	if not visible:
+	if not visible or theme_type_variation == STYLE_INACTIVE:
 		return
 	if room.name != booking_to_check.room:
 		return
@@ -44,6 +47,12 @@ func check_booking(booking_to_check: Booking) -> void:
 		bookings.append(booking_to_check)
 		paint_check_out_overbooking() if is_overbooking else paint_check_out()
 
+
+func paint_active() -> void:
+	theme_type_variation = STYLE_ACTIVE
+
+func paint_inactive() -> void:
+	theme_type_variation = STYLE_INACTIVE
 
 func paint_clear() -> void:
 	field_start.theme_type_variation = STYLE_CLEAR

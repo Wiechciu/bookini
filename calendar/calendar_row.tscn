@@ -3,102 +3,124 @@
 [ext_resource type="Script" uid="uid://dtvofq0chvq8o" path="res://calendar/calendar_row.gd" id="1_mfpya"]
 [ext_resource type="PackedScene" uid="uid://ogbjdpwoo7tr" path="res://calendar/calendar_field.tscn" id="2_0tbxy"]
 
-[node name="CalendarRow" type="PanelContainer" node_paths=PackedStringArray("calendar_fields_container")]
+[node name="CalendarRow" type="PanelContainer" node_paths=PackedStringArray("room_name_label", "calendar_fields_container")]
+theme_type_variation = &"PanelContainerCalendarRow"
 script = ExtResource("1_mfpya")
-calendar_fields_container = NodePath("HBoxContainer")
+room_name_label = NodePath("HBoxContainer/RoomName")
+calendar_fields_container = NodePath("HBoxContainer/PanelContainer/HBoxContainer")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="CalendarField" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+[node name="RoomName" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"LabelCalendar"
+text = "1"
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"PanelContainerCalendarRowFieldsContainer"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/PanelContainer"]
+custom_minimum_size = Vector2(620, 0)
 layout_mode = 2
 
-[node name="CalendarField2" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+[node name="CalendarField" parent="HBoxContainer/PanelContainer/HBoxContainer" instance=ExtResource("2_0tbxy")]
 layout_mode = 2
 
-[node name="CalendarField3" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+[node name="CalendarField2" parent="HBoxContainer/PanelContainer/HBoxContainer" instance=ExtResource("2_0tbxy")]
 layout_mode = 2
 
-[node name="CalendarField4" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+[node name="CalendarField3" parent="HBoxContainer/PanelContainer/HBoxContainer" instance=ExtResource("2_0tbxy")]
 layout_mode = 2
 
-[node name="CalendarField5" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+[node name="CalendarField4" parent="HBoxContainer/PanelContainer/HBoxContainer" instance=ExtResource("2_0tbxy")]
 layout_mode = 2
 
-[node name="CalendarField6" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+[node name="CalendarField5" parent="HBoxContainer/PanelContainer/HBoxContainer" instance=ExtResource("2_0tbxy")]
 layout_mode = 2
 
-[node name="CalendarField7" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+[node name="CalendarField6" parent="HBoxContainer/PanelContainer/HBoxContainer" instance=ExtResource("2_0tbxy")]
 layout_mode = 2
 
-[node name="CalendarField8" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+[node name="CalendarField7" parent="HBoxContainer/PanelContainer/HBoxContainer" instance=ExtResource("2_0tbxy")]
 layout_mode = 2
 
-[node name="CalendarField9" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+[node name="CalendarField8" parent="HBoxContainer/PanelContainer/HBoxContainer" instance=ExtResource("2_0tbxy")]
 layout_mode = 2
 
-[node name="CalendarField10" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+[node name="CalendarField9" parent="HBoxContainer/PanelContainer/HBoxContainer" instance=ExtResource("2_0tbxy")]
 layout_mode = 2
 
-[node name="CalendarField11" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+[node name="CalendarField10" parent="HBoxContainer/PanelContainer/HBoxContainer" instance=ExtResource("2_0tbxy")]
 layout_mode = 2
 
-[node name="CalendarField12" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+[node name="CalendarField11" parent="HBoxContainer/PanelContainer/HBoxContainer" instance=ExtResource("2_0tbxy")]
 layout_mode = 2
 
-[node name="CalendarField13" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+[node name="CalendarField12" parent="HBoxContainer/PanelContainer/HBoxContainer" instance=ExtResource("2_0tbxy")]
 layout_mode = 2
 
-[node name="CalendarField14" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+[node name="CalendarField13" parent="HBoxContainer/PanelContainer/HBoxContainer" instance=ExtResource("2_0tbxy")]
 layout_mode = 2
 
-[node name="CalendarField15" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+[node name="CalendarField14" parent="HBoxContainer/PanelContainer/HBoxContainer" instance=ExtResource("2_0tbxy")]
 layout_mode = 2
 
-[node name="CalendarField16" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+[node name="CalendarField15" parent="HBoxContainer/PanelContainer/HBoxContainer" instance=ExtResource("2_0tbxy")]
 layout_mode = 2
 
-[node name="CalendarField17" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+[node name="CalendarField16" parent="HBoxContainer/PanelContainer/HBoxContainer" instance=ExtResource("2_0tbxy")]
 layout_mode = 2
 
-[node name="CalendarField18" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+[node name="CalendarField17" parent="HBoxContainer/PanelContainer/HBoxContainer" instance=ExtResource("2_0tbxy")]
 layout_mode = 2
 
-[node name="CalendarField19" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+[node name="CalendarField18" parent="HBoxContainer/PanelContainer/HBoxContainer" instance=ExtResource("2_0tbxy")]
 layout_mode = 2
 
-[node name="CalendarField20" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+[node name="CalendarField19" parent="HBoxContainer/PanelContainer/HBoxContainer" instance=ExtResource("2_0tbxy")]
 layout_mode = 2
 
-[node name="CalendarField21" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+[node name="CalendarField20" parent="HBoxContainer/PanelContainer/HBoxContainer" instance=ExtResource("2_0tbxy")]
 layout_mode = 2
 
-[node name="CalendarField22" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+[node name="CalendarField21" parent="HBoxContainer/PanelContainer/HBoxContainer" instance=ExtResource("2_0tbxy")]
 layout_mode = 2
 
-[node name="CalendarField23" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+[node name="CalendarField22" parent="HBoxContainer/PanelContainer/HBoxContainer" instance=ExtResource("2_0tbxy")]
 layout_mode = 2
 
-[node name="CalendarField24" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+[node name="CalendarField23" parent="HBoxContainer/PanelContainer/HBoxContainer" instance=ExtResource("2_0tbxy")]
 layout_mode = 2
 
-[node name="CalendarField25" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+[node name="CalendarField24" parent="HBoxContainer/PanelContainer/HBoxContainer" instance=ExtResource("2_0tbxy")]
 layout_mode = 2
 
-[node name="CalendarField26" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+[node name="CalendarField25" parent="HBoxContainer/PanelContainer/HBoxContainer" instance=ExtResource("2_0tbxy")]
 layout_mode = 2
 
-[node name="CalendarField27" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+[node name="CalendarField26" parent="HBoxContainer/PanelContainer/HBoxContainer" instance=ExtResource("2_0tbxy")]
 layout_mode = 2
 
-[node name="CalendarField28" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+[node name="CalendarField27" parent="HBoxContainer/PanelContainer/HBoxContainer" instance=ExtResource("2_0tbxy")]
 layout_mode = 2
+theme_type_variation = &"PanelContainerCalendarFieldInactive"
 
-[node name="CalendarField29" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+[node name="CalendarField28" parent="HBoxContainer/PanelContainer/HBoxContainer" instance=ExtResource("2_0tbxy")]
 layout_mode = 2
+theme_type_variation = &"PanelContainerCalendarFieldInactive"
 
-[node name="CalendarField30" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+[node name="CalendarField29" parent="HBoxContainer/PanelContainer/HBoxContainer" instance=ExtResource("2_0tbxy")]
 layout_mode = 2
+theme_type_variation = &"PanelContainerCalendarFieldInactive"
 
-[node name="CalendarField31" parent="HBoxContainer" instance=ExtResource("2_0tbxy")]
+[node name="CalendarField30" parent="HBoxContainer/PanelContainer/HBoxContainer" instance=ExtResource("2_0tbxy")]
 layout_mode = 2
+theme_type_variation = &"PanelContainerCalendarFieldInactive"
+
+[node name="CalendarField31" parent="HBoxContainer/PanelContainer/HBoxContainer" instance=ExtResource("2_0tbxy")]
+layout_mode = 2
+theme_type_variation = &"PanelContainerCalendarFieldInactive"

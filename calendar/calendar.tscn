@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c6fm2nlqvb5cy"]
+[gd_scene load_steps=20 format=3 uid="uid://c6fm2nlqvb5cy"]
 
 [ext_resource type="Script" uid="uid://b3sh4bf8xa4yy" path="res://calendar/calendar.gd" id="1_64tpo"]
 [ext_resource type="PackedScene" uid="uid://bcufem7igam2a" path="res://calendar/calendar_header.tscn" id="1_f8ws7"]
@@ -9,92 +9,79 @@
 [ext_resource type="Resource" uid="uid://c2i582ufu3mqb" path="res://room/3.tres" id="6_al83p"]
 [ext_resource type="Resource" uid="uid://b43uc4q44hy6a" path="res://room/4.tres" id="7_1nywg"]
 [ext_resource type="Resource" uid="uid://b0n8w667otpoe" path="res://room/5.tres" id="8_kfdgi"]
-[ext_resource type="PackedScene" uid="uid://cgflx4a5bq6dg" path="res://calendar/calendar_row_label.tscn" id="9_0p1os"]
+[ext_resource type="Resource" uid="uid://bhtoknxuawe4u" path="res://room/6.tres" id="10_buxta"]
+[ext_resource type="Resource" uid="uid://w5gntw8r8wvl" path="res://room/7.tres" id="11_1x83o"]
+[ext_resource type="Resource" uid="uid://c6rp8vmjrei4m" path="res://room/8.tres" id="12_822e6"]
+[ext_resource type="Resource" uid="uid://b6tqfsgsjw3lx" path="res://room/9.tres" id="13_5ujre"]
+[ext_resource type="Resource" uid="uid://cvlo0w5fev1o7" path="res://room/10.tres" id="14_i0k18"]
+[ext_resource type="Resource" uid="uid://cg8bqbsc3gdgr" path="res://room/11.tres" id="15_0hy62"]
+[ext_resource type="Resource" uid="uid://niaqnwm6yw7n" path="res://room/12.tres" id="16_nijkx"]
+[ext_resource type="Resource" uid="uid://c7xtpwp7lniwe" path="res://room/13.tres" id="17_3ovaj"]
+[ext_resource type="Resource" uid="uid://ism2akvqm81l" path="res://room/14.tres" id="18_2ioyc"]
+[ext_resource type="Resource" uid="uid://7gqpf3rx47p" path="res://room/15.tres" id="19_7x4tu"]
 
-[node name="Calendar" type="PanelContainer" node_paths=PackedStringArray("previous_button", "next_button", "calendar_header", "calendar_row_container", "calendar_row_label_container")]
+[node name="Calendar" type="PanelContainer" node_paths=PackedStringArray("calendar_header", "calendar_row_container")]
+offset_right = 704.0
+offset_bottom = 75.0
 script = ExtResource("1_64tpo")
-previous_button = NodePath("HBoxContainer/CalendarPreviousButton")
-next_button = NodePath("HBoxContainer/CalendarNextButton")
-calendar_header = NodePath("HBoxContainer/CalendarRows/CalendarHeader")
+calendar_header = NodePath("HBoxContainer/VBoxContainer/CalendarHeader")
 calendar_row_scene = ExtResource("2_74sj6")
-calendar_row_container = NodePath("HBoxContainer/CalendarRows")
-calendar_row_label_scene = ExtResource("9_0p1os")
-calendar_row_label_container = NodePath("HBoxContainer/CalendarRowLabels")
-rooms = Array[ExtResource("3_ynh3x")]([ExtResource("4_0p1os"), ExtResource("5_apc6p"), ExtResource("6_al83p"), ExtResource("7_1nywg"), ExtResource("8_kfdgi")])
+calendar_row_container = NodePath("HBoxContainer/VBoxContainer/ScrollContainer/CalendarRows")
+rooms = Array[ExtResource("3_ynh3x")]([ExtResource("4_0p1os"), ExtResource("5_apc6p"), ExtResource("6_al83p"), ExtResource("7_1nywg"), ExtResource("8_kfdgi"), ExtResource("10_buxta"), ExtResource("11_1x83o"), ExtResource("12_822e6"), ExtResource("13_5ujre"), ExtResource("14_i0k18"), ExtResource("15_0hy62"), ExtResource("16_nijkx"), ExtResource("17_3ovaj"), ExtResource("18_2ioyc"), ExtResource("19_7x4tu")])
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="CalendarRowLabels" type="VBoxContainer" parent="HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Header" type="PanelContainer" parent="HBoxContainer/CalendarRowLabels"]
-custom_minimum_size = Vector2(20, 52)
-layout_mode = 2
-theme_type_variation = &"PanelContainerCalendarHeader"
-
-[node name="Label" type="Label" parent="HBoxContainer/CalendarRowLabels/Header"]
-layout_mode = 2
-size_flags_vertical = 1
-theme_type_variation = &"LabelCalendar"
-text = "Pokoje"
-vertical_alignment = 1
-
-[node name="CalendarRowLabel" parent="HBoxContainer/CalendarRowLabels" instance=ExtResource("9_0p1os")]
-layout_mode = 2
-
-[node name="CalendarRowLabel2" parent="HBoxContainer/CalendarRowLabels" instance=ExtResource("9_0p1os")]
-layout_mode = 2
-
-[node name="CalendarRowLabel3" parent="HBoxContainer/CalendarRowLabels" instance=ExtResource("9_0p1os")]
-layout_mode = 2
-
-[node name="CalendarRowLabel4" parent="HBoxContainer/CalendarRowLabels" instance=ExtResource("9_0p1os")]
-layout_mode = 2
-
-[node name="CalendarRowLabel5" parent="HBoxContainer/CalendarRowLabels" instance=ExtResource("9_0p1os")]
-layout_mode = 2
-
-[node name="CalendarRowLabel6" parent="HBoxContainer/CalendarRowLabels" instance=ExtResource("9_0p1os")]
-layout_mode = 2
-
-[node name="CalendarPreviousButton" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(15, 0)
-layout_mode = 2
-theme_type_variation = &"ButtonCalendar"
-text = "<"
-alignment = 2
-
-[node name="CalendarRows" type="VBoxContainer" parent="HBoxContainer"]
-custom_minimum_size = Vector2(624, 0)
-layout_mode = 2
-
-[node name="CalendarHeader" parent="HBoxContainer/CalendarRows" node_paths=PackedStringArray("calendar") instance=ExtResource("1_f8ws7")]
+[node name="CalendarHeader" parent="HBoxContainer/VBoxContainer" node_paths=PackedStringArray("calendar") instance=ExtResource("1_f8ws7")]
 layout_mode = 2
 calendar = NodePath("../../..")
 
-[node name="CalendarRow" parent="HBoxContainer/CalendarRows" instance=ExtResource("2_74sj6")]
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 21)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 4
+
+[node name="CalendarRows" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/ScrollContainer"]
+custom_minimum_size = Vector2(624, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CalendarRow" parent="HBoxContainer/VBoxContainer/ScrollContainer/CalendarRows" instance=ExtResource("2_74sj6")]
 layout_mode = 2
 
-[node name="CalendarRow2" parent="HBoxContainer/CalendarRows" instance=ExtResource("2_74sj6")]
+[node name="CalendarRow2" parent="HBoxContainer/VBoxContainer/ScrollContainer/CalendarRows" instance=ExtResource("2_74sj6")]
 layout_mode = 2
 
-[node name="CalendarRow3" parent="HBoxContainer/CalendarRows" instance=ExtResource("2_74sj6")]
+[node name="CalendarRow3" parent="HBoxContainer/VBoxContainer/ScrollContainer/CalendarRows" instance=ExtResource("2_74sj6")]
 layout_mode = 2
 
-[node name="CalendarRow4" parent="HBoxContainer/CalendarRows" instance=ExtResource("2_74sj6")]
+[node name="CalendarRow4" parent="HBoxContainer/VBoxContainer/ScrollContainer/CalendarRows" instance=ExtResource("2_74sj6")]
 layout_mode = 2
 
-[node name="CalendarRow5" parent="HBoxContainer/CalendarRows" instance=ExtResource("2_74sj6")]
+[node name="CalendarRow5" parent="HBoxContainer/VBoxContainer/ScrollContainer/CalendarRows" instance=ExtResource("2_74sj6")]
 layout_mode = 2
 
-[node name="CalendarRow6" parent="HBoxContainer/CalendarRows" instance=ExtResource("2_74sj6")]
+[node name="CalendarRow6" parent="HBoxContainer/VBoxContainer/ScrollContainer/CalendarRows" instance=ExtResource("2_74sj6")]
 layout_mode = 2
 
-[node name="CalendarNextButton" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(15, 0)
+[node name="CalendarRow7" parent="HBoxContainer/VBoxContainer/ScrollContainer/CalendarRows" instance=ExtResource("2_74sj6")]
 layout_mode = 2
-theme_type_variation = &"ButtonCalendar"
-text = ">"
-alignment = 0
+
+[node name="CalendarRow8" parent="HBoxContainer/VBoxContainer/ScrollContainer/CalendarRows" instance=ExtResource("2_74sj6")]
+layout_mode = 2
+
+[node name="CalendarRow9" parent="HBoxContainer/VBoxContainer/ScrollContainer/CalendarRows" instance=ExtResource("2_74sj6")]
+layout_mode = 2
+
+[node name="CalendarRow10" parent="HBoxContainer/VBoxContainer/ScrollContainer/CalendarRows" instance=ExtResource("2_74sj6")]
+layout_mode = 2
+
+[node name="CalendarRow11" parent="HBoxContainer/VBoxContainer/ScrollContainer/CalendarRows" instance=ExtResource("2_74sj6")]
+layout_mode = 2

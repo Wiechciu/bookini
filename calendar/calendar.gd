@@ -6,15 +6,10 @@ signal selected_date_changed
 
 
 @export var database: Database
-@export var previous_button: Button
-@export var next_button: Button
 @export var calendar_header: CalendarHeader
 @export var calendar_row_scene: PackedScene
 @export var calendar_row_container: Container
 @export var calendar_rows: Array[CalendarRow]
-@export var calendar_row_label_scene: PackedScene
-@export var calendar_row_label_container: Container
-@export var calendar_row_labels: Array[CalendarRowLabel]
 @export var rooms: Array[Room]
 
 var selected_year: int
@@ -34,17 +29,14 @@ func _ready() -> void:
 	clear_containers()
 	fill_containers()
 	database.item_updated.connect(_on_database_item_updated)
-	previous_button.pressed.connect(_on_previous_button_pressed)
-	next_button.pressed.connect(_on_next_button_pressed)
+	calendar_header.previous_button.pressed.connect(_on_previous_button_pressed)
+	calendar_header.next_button.pressed.connect(_on_next_button_pressed)
 	reset_calendar()
 
 
 func clear_containers() -> void:
 	for child in calendar_row_container.get_children():
 		if child is CalendarRow:
-			child.queue_free()
-	for child in calendar_row_label_container.get_children():
-		if child is CalendarRowLabel:
 			child.queue_free()
 
 
@@ -53,13 +45,7 @@ func fill_containers() -> void:
 		var new_calendar_row: CalendarRow = calendar_row_scene.instantiate() as CalendarRow
 		calendar_row_container.add_child(new_calendar_row)
 		calendar_rows.append(new_calendar_row)
-		new_calendar_row.room = room
-		new_calendar_row.calendar = self
-		new_calendar_row.initialize_calendar_fields()
-		var new_calendar_row_label: CalendarRowLabel = calendar_row_label_scene.instantiate() as CalendarRowLabel
-		calendar_row_label_container.add_child(new_calendar_row_label)
-		calendar_row_labels.append(new_calendar_row_label)
-		new_calendar_row_label.label.text = room.name
+		new_calendar_row.initialize(self, room)
 
 
 func reset_calendar() -> void:

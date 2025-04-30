@@ -1,8 +1,14 @@
 class_name Booking
 extends Resource
 
+enum Status {
+	ACTIVE,
+	DELETED,
+	CANCELLED,
+}
 
 @export_storage var id: int
+@export_storage var status: Status
 @export_storage var name: String
 @export_storage var phone: String
 @export_storage var pesel: String
@@ -24,33 +30,27 @@ var has_correct_date_order: bool:
 		and Time.get_unix_time_from_datetime_string(start_date) < Time.get_unix_time_from_datetime_string(end_date)
 
 
-static func create_empty() -> Booking:
-	var new_booking: Booking = Booking.new()
-	GlobalRefs.last_id += 1
-	new_booking.id = GlobalRefs.last_id
-	GlobalRefs.bookings.append(new_booking)
-	return new_booking
-
-
 static func create(
-		name: String,
-		phone: String,
-		pesel: String,
-		start_date: String,
-		end_date: String,
-		room: String,
-		quantity: int,
-		prepaid_amount: float,
-		prepaid_date: String,
-		payment_amount: float,
-		payment_date: String,
-		invoice: bool,
-		invoice_status: bool,
-		remarks: String
+		name: String = "",
+		phone: String = "",
+		pesel: String = "",
+		start_date: String = "",
+		end_date: String = "",
+		room: String = "",
+		quantity: int = 1,
+		prepaid_amount: float = 0,
+		prepaid_date: String = "",
+		payment_amount: float = 0,
+		payment_date: String = "",
+		invoice: bool = false,
+		invoice_status: bool = false,
+		remarks: String = ""
 	) -> Booking:
 	var new_booking: Booking = Booking.new()
 	GlobalRefs.last_id += 1
 	new_booking.id = GlobalRefs.last_id
+	new_booking.status = Status.ACTIVE
+	
 	new_booking.name = name
 	new_booking.phone = phone
 	new_booking.pesel = pesel
@@ -70,6 +70,7 @@ static func create(
 
 
 func update(
+		status: Status,
 		name: String,
 		phone: String,
 		pesel: String,
@@ -85,7 +86,7 @@ func update(
 		invoice_status: bool,
 		remarks: String
 	) -> void:
-	self.id = id
+	self.status = status
 	self.name = name
 	self.phone = phone
 	self.pesel = pesel

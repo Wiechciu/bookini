@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=35 format=3 uid="uid://b1p3xo06djhek"]
+[gd_resource type="Theme" load_steps=43 format=3 uid="uid://b1p3xo06djhek"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_05tig"]
 bg_color = Color(0.901961, 0.901961, 0.901961, 1)
@@ -33,6 +33,21 @@ bg_color = Color(0.901961, 0.901961, 0.901961, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n3ikw"]
 bg_color = Color(0.901961, 0.901961, 0.901961, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kl2fn"]
+bg_color = Color(0.409179, 0.648302, 0.663149, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wcq0w"]
+content_margin_left = 5.0
+content_margin_right = 5.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eqfed"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vhp3g"]
 content_margin_left = 3.0
 content_margin_right = 3.0
@@ -63,17 +78,11 @@ border_color = Color(0, 0, 0, 0.196078)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wvktn"]
 bg_color = Color(1, 1, 1, 1)
-border_width_left = 2
-border_width_right = 2
-border_width_bottom = 2
 border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cjfk0"]
 content_margin_left = 5.0
 bg_color = Color(8.90419e-07, 0.245385, 0.365635, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0, 0, 0, 1)
 
@@ -93,18 +102,21 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_535ge"]
-bg_color = Color(1, 1, 1, 1)
+bg_color = Color(1, 1, 1, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xjl3a"]
 bg_color = Color(0, 0.402347, 0.770637, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bkfjj"]
+bg_color = Color(0, 0, 0, 0.392157)
+border_width_right = 1
+border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5463q"]
 bg_color = Color(0.980392, 0, 0.231373, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vj6dk"]
 bg_color = Color(0.737255, 0.894118, 1, 1)
-border_width_left = 2
-border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0, 0, 0, 1)
 
@@ -113,36 +125,45 @@ bg_color = Color(0.737255, 0.894118, 1, 1)
 border_width_right = 1
 border_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x5enr"]
+bg_color = Color(1, 1, 1, 1)
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rb1ns"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_right = 7
+border_color = Color(0, 0, 0, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6q1gq"]
 bg_color = Color(0.823529, 0.823529, 0.823529, 1)
-border_width_left = 2
-border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e1x85"]
 bg_color = Color(0.737018, 0.894531, 1, 1)
-border_width_left = 2
-border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mworl"]
 bg_color = Color(1, 1, 1, 1)
-border_width_left = 2
-border_width_right = 2
 border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ceoj"]
 bg_color = Color(0, 0, 0, 0.0588235)
-border_width_left = 2
-border_width_right = 2
 border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ndmpe"]
 bg_color = Color(0, 0, 0, 0.156863)
-border_width_left = 2
-border_width_right = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rpyt2"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
 border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_skm8o"]
@@ -179,6 +200,11 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 shadow_size = 3
 shadow_offset = Vector2(3, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3j0lc"]
+bg_color = Color(0, 0.247059, 0.364706, 1)
+shadow_size = 5
+shadow_offset = Vector2(1, 1)
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_wvktn"]
 grow_begin = 0.0
@@ -217,6 +243,10 @@ ButtonCalendar/styles/normal = SubResource("StyleBoxFlat_110ce")
 ButtonCalendar/styles/normal_mirrored = SubResource("StyleBoxFlat_504p6")
 ButtonCalendar/styles/pressed = SubResource("StyleBoxFlat_howt0")
 ButtonCalendar/styles/pressed_mirrored = SubResource("StyleBoxFlat_n3ikw")
+ButtonCalendarMonth/base_type = &"Button"
+ButtonCalendarMonth/colors/font_color = Color(0, 0, 0, 1)
+ButtonCalendarMonth/font_sizes/font_size = 10
+ButtonCalendarMonth/styles/normal = SubResource("StyleBoxFlat_kl2fn")
 HBoxContainer/constants/separation = 0
 Label/colors/font_color = Color(0, 0, 0, 1)
 LabelAppHeader/base_type = &"Label"
@@ -224,6 +254,11 @@ LabelAppHeader/colors/font_color = Color(1, 1, 1, 1)
 LabelCalendar/base_type = &"Label"
 LabelCalendar/colors/font_color = Color(0, 0, 0, 1)
 LabelCalendar/font_sizes/font_size = 12
+LabelCalendar/styles/normal = SubResource("StyleBoxFlat_wcq0w")
+LabelCalendarHeaderField/base_type = &"LabelCalendar"
+LabelCalendarHeaderField/styles/normal = SubResource("StyleBoxFlat_eqfed")
+LabelCalendarHeaderFieldInactive/base_type = &"LabelCalendarHeaderField"
+LabelCalendarHeaderFieldInactive/colors/font_color = Color(0, 0, 0, 0.392157)
 LabelDatabaseHeader/base_type = &"Label"
 LabelDatabaseHeader/font_sizes/font_size = 12
 LabelDatabaseHeader/styles/normal = SubResource("StyleBoxFlat_vhp3g")
@@ -254,12 +289,18 @@ PanelContainerCalendarFieldClear/base_type = &"PanelContainer"
 PanelContainerCalendarFieldClear/styles/panel = SubResource("StyleBoxFlat_535ge")
 PanelContainerCalendarFieldFullDay/base_type = &"PanelContainer"
 PanelContainerCalendarFieldFullDay/styles/panel = SubResource("StyleBoxFlat_xjl3a")
+PanelContainerCalendarFieldInactive/base_type = &"PanelContainer"
+PanelContainerCalendarFieldInactive/styles/panel = SubResource("StyleBoxFlat_bkfjj")
 PanelContainerCalendarFieldOverbooking/base_type = &"PanelContainer"
 PanelContainerCalendarFieldOverbooking/styles/panel = SubResource("StyleBoxFlat_5463q")
 PanelContainerCalendarHeader/base_type = &"PanelContainer"
 PanelContainerCalendarHeader/styles/panel = SubResource("StyleBoxFlat_vj6dk")
 PanelContainerCalendarHeaderField/base_type = &"PanelContainer"
 PanelContainerCalendarHeaderField/styles/panel = SubResource("StyleBoxFlat_pvf4r")
+PanelContainerCalendarRow/base_type = &"PanelContainer"
+PanelContainerCalendarRow/styles/panel = SubResource("StyleBoxFlat_x5enr")
+PanelContainerCalendarRowFieldsContainer/base_type = &"PanelContainer"
+PanelContainerCalendarRowFieldsContainer/styles/panel = SubResource("StyleBoxFlat_rb1ns")
 PanelContainerDatabaseFilter/base_type = &"PanelContainer"
 PanelContainerDatabaseFilter/styles/panel = SubResource("StyleBoxFlat_6q1gq")
 PanelContainerDatabaseHeader/base_type = &"PanelContainer"
@@ -270,10 +311,13 @@ PanelContainerDatabaseItemHovered/base_type = &"PanelContainer"
 PanelContainerDatabaseItemHovered/styles/panel = SubResource("StyleBoxFlat_0ceoj")
 PanelContainerDatabaseItemSelected/base_type = &"PanelContainer"
 PanelContainerDatabaseItemSelected/styles/panel = SubResource("StyleBoxFlat_ndmpe")
+PanelContainerMainApp/base_type = &"PanelContainer"
+PanelContainerMainApp/styles/panel = SubResource("StyleBoxFlat_rpyt2")
 PanelContainerPopup/base_type = &"PanelContainer"
 PanelContainerPopup/styles/panel = SubResource("StyleBoxFlat_skm8o")
 PanelContainerTooltip/base_type = &"PanelContainer"
 PanelContainerTooltip/styles/panel = SubResource("StyleBoxFlat_t3v2v")
+SplitContainer/styles/split_bar_background = SubResource("StyleBoxFlat_3j0lc")
 VBoxContainer/constants/separation = 0
 VSeparator/constants/separation = 1
 VSeparator/styles/separator = SubResource("StyleBoxLine_wvktn")

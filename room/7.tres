@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Room" load_steps=2 format=3 uid="uid://w5gntw8r8wvl"]
+
+[ext_resource type="Script" uid="uid://ddyy08blkifoj" path="res://room/room.gd" id="1_j3xcb"]
+
+[resource]
+script = ExtResource("1_j3xcb")
+name = "7"
+price = 100.0
+capacity = 5
+metadata/_custom_type_script = "uid://ddyy08blkifoj"

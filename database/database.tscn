@@ -34,7 +34,7 @@ layout_mode = 2
 database = NodePath("../..")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 100)
+custom_minimum_size = Vector2(0, 21)
 layout_mode = 2
 size_flags_vertical = 3
 follow_focus = true

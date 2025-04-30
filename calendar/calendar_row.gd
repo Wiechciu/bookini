@@ -2,13 +2,20 @@ class_name CalendarRow
 extends PanelContainer
 
 
+
+@export var room_name_label: Label
 @export var calendar_fields_container: Container
 @export var calendar_fields: Array[CalendarField]
 var calendar: Calendar
 var room: Room
 
 
-func initialize_calendar_fields() -> void:
+func initialize(calendar_to_assign: Calendar, room_to_assign: Room) -> void:
+	calendar = calendar_to_assign
+	room = room_to_assign
+	
+	room_name_label.text = room.name
+	
 	var counter: int = 0
 	for calendar_field: CalendarField in calendar_fields_container.get_children():
 		counter += 1
@@ -22,6 +29,7 @@ func initialize_calendar_fields() -> void:
 
 func update() -> void:
 	var counter: int = 0
-	for calendar_field: CalendarField in calendar_fields_container.get_children():
+	for calendar_field: CalendarField in calendar_fields:
 		counter += 1
-		calendar_field.visible = Utils.get_number_of_days_in_month(calendar.selected_month, calendar.selected_year) >= counter
+		var is_active: bool = Utils.get_number_of_days_in_month(calendar.selected_month, calendar.selected_year) >= counter
+		calendar_field.paint_active() if is_active else calendar_field.paint_inactive()
