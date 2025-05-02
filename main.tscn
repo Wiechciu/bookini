@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://ddisvov8kf00b"]
+[gd_scene load_steps=6 format=3 uid="uid://ddisvov8kf00b"]
 
 [ext_resource type="PackedScene" uid="uid://dtyiafuie21sr" path="res://app_header.tscn" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://c6fm2nlqvb5cy" path="res://calendar/calendar.tscn" id="2_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://cvx7d7in0txrc" path="res://room_information.tscn" id="2_lquwl"]
+[ext_resource type="PackedScene" uid="uid://154vvo6i6da8" path="res://navigation/navigation.tscn" id="2_7mycd"]
+[ext_resource type="PackedScene" uid="uid://cvx7d7in0txrc" path="res://room_information/room_information.tscn" id="2_lquwl"]
 [ext_resource type="PackedScene" uid="uid://jcj00eruawl0" path="res://database/database.tscn" id="3_lquwl"]
 
 [node name="Main" type="PanelContainer"]
@@ -17,6 +18,7 @@ theme_type_variation = &"PanelContainerMainApp"
 layout_mode = 2
 
 [node name="AppHeader" parent="VBoxContainer" instance=ExtResource("1_h2yge")]
+visible = false
 layout_mode = 2
 
 [node name="VSplitContainer" type="VSplitContainer" parent="VBoxContainer"]
@@ -27,8 +29,18 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="RoomInformation" parent="VBoxContainer/VSplitContainer/HBoxContainer" instance=ExtResource("2_lquwl")]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/VSplitContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Navigation" parent="VBoxContainer/VSplitContainer/HBoxContainer/HBoxContainer" node_paths=PackedStringArray("database") instance=ExtResource("2_7mycd")]
+layout_mode = 2
+database = NodePath("../../../Database")
+
+[node name="RoomInformation" parent="VBoxContainer/VSplitContainer/HBoxContainer/HBoxContainer" node_paths=PackedStringArray("calendar", "database") instance=ExtResource("2_lquwl")]
+layout_mode = 2
+calendar = NodePath("../../Calendar")
+database = NodePath("../../../Database")
 
 [node name="Calendar" parent="VBoxContainer/VSplitContainer/HBoxContainer" node_paths=PackedStringArray("database") instance=ExtResource("2_1bvp3")]
 layout_mode = 2

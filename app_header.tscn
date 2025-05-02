@@ -14,7 +14,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"LabelAppHeader"
-text = "Hotel rezerwacje"
+text = "Bookini"
 
 [node name="CloseButton" type="Button" parent="HBoxContainer"]
 custom_minimum_size = Vector2(30, 0)

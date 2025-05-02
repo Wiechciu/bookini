@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Room" load_steps=2 format=3 uid="uid://d2m3w55o2a3pw"]
+
+[ext_resource type="Script" uid="uid://ddyy08blkifoj" path="res://room/room.gd" id="1_cf7pi"]
+
+[resource]
+script = ExtResource("1_cf7pi")
+name = "S"
+type = "sala konferencyjna"
+price = 1000.0
+capacity = 25
+metadata/_custom_type_script = "uid://ddyy08blkifoj"

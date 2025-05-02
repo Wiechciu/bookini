@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_lvpjf")
 name = "10"
+type = "góra"
 price = 100.0
 capacity = 5
 metadata/_custom_type_script = "uid://ddyy08blkifoj"

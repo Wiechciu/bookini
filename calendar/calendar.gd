@@ -3,6 +3,7 @@ extends PanelContainer
 
 
 signal selected_date_changed
+signal room_selected(room: Room)
 
 
 @export var database: Database
@@ -12,6 +13,7 @@ signal selected_date_changed
 @export var calendar_rows: Array[CalendarRow]
 @export var rooms: Array[Room]
 
+var selected_calendar_row: CalendarRow
 var selected_year: int
 var selected_month: int
 var current_year: int:
@@ -20,6 +22,12 @@ var current_year: int:
 var current_month: int:
 	get:
 		return Time.get_datetime_dict_from_system().month
+var last_month: int:
+	get:
+		return wrapi(current_month - 1, 1, 13)
+var last_months_year: int:
+	get:
+		return current_year if current_month > last_month else current_year - 1
 var is_current_date_selected: bool:
 	get:
 		return selected_year == current_year and selected_month == current_month
@@ -28,7 +36,7 @@ var is_current_date_selected: bool:
 func _ready() -> void:
 	clear_containers()
 	fill_containers()
-	database.item_updated.connect(_on_database_item_updated)
+	database.item_updated.connect(_on_database_item_updated.unbind(1))
 	calendar_header.previous_button.pressed.connect(_on_previous_button_pressed)
 	calendar_header.next_button.pressed.connect(_on_next_button_pressed)
 	reset_calendar()
@@ -46,6 +54,15 @@ func fill_containers() -> void:
 		calendar_row_container.add_child(new_calendar_row)
 		calendar_rows.append(new_calendar_row)
 		new_calendar_row.initialize(self, room)
+		new_calendar_row.clicked.connect(_on_calendar_row_clicked.bind(new_calendar_row))
+
+
+func _on_calendar_row_clicked(calendar_row: CalendarRow) -> void:
+	if selected_calendar_row != null:
+		selected_calendar_row.unselect()
+	selected_calendar_row = calendar_row
+	selected_calendar_row.select()
+	room_selected.emit(calendar_row.room)
 
 
 func reset_calendar() -> void:
@@ -80,9 +97,7 @@ func _on_database_item_updated() -> void:
 
 func update_colors() -> void:
 	reset_colors()
-	for booking: Booking in GlobalRefs.bookings:
-		if booking.status != Booking.Status.ACTIVE:
-			continue
+	for booking: Booking in GlobalRefs.active_bookings:
 		apply_colors(booking)
 
 

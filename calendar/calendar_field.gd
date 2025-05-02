@@ -1,7 +1,15 @@
 class_name CalendarField
 extends Control
 
+
+enum DateType {
+	CHECK_IN,
+	CHECK_OUT,
+	FULL_DAY,
+}
+
 const STYLE_ACTIVE: String = "PanelContainerCalendarField"
+const STYLE_TODAY: String = "PanelContainerCalendarFieldToday"
 const STYLE_WEEKEND: String = "PanelContainerCalendarFieldWeekend"
 const STYLE_INACTIVE: String = "PanelContainerCalendarFieldInactive"
 
@@ -34,29 +42,54 @@ func check_booking(booking_to_check: Booking) -> void:
 	
 	last_clicked = 0
 	
-	var start_unix_time = Time.get_unix_time_from_datetime_string(booking_to_check.start_date)
-	var end_unix_time = Time.get_unix_time_from_datetime_string(booking_to_check.end_date)
-	var field_unix_time = Time.get_unix_time_from_datetime_string("%04d-%02d-%02d" % [calendar.selected_year, calendar.selected_month, day])
+	var date_string = "%04d-%02d-%02d" % [calendar.selected_year, calendar.selected_month, day]
+	var date_room: Array = [date_string, booking_to_check.room]
+	
+	var date_type: DateType
+	if date_string == booking_to_check.start_date:
+		date_type = DateType.CHECK_IN
+	elif date_string == booking_to_check.end_date:
+		date_type = DateType.CHECK_OUT
+	elif booking_to_check.dates_occupied.has(date_string):
+		date_type = DateType.FULL_DAY
+	else:
+		return
+	
 	var is_overbooking: bool = false
+	match date_type:
+		DateType.CHECK_IN:
+			is_overbooking = GlobalRefs.date_check_in_bookings_dict.has(date_room) and GlobalRefs.date_check_in_bookings_dict[date_room].has(booking_to_check) and GlobalRefs.date_check_in_bookings_dict[date_room].size() > 1 \
+				or GlobalRefs.date_full_day_bookings_dict.has(date_room)
+			paint_check_in_overbooking() if is_overbooking else paint_check_in()
+			bookings.append(booking_to_check)
+		DateType.CHECK_OUT:
+			is_overbooking = GlobalRefs.date_check_out_bookings_dict.has(date_room) and GlobalRefs.date_check_out_bookings_dict[date_room].has(booking_to_check) and GlobalRefs.date_check_out_bookings_dict[date_room].size() > 1 \
+				or GlobalRefs.date_full_day_bookings_dict.has(date_room)
+			paint_check_out_overbooking() if is_overbooking else paint_check_out()
+			bookings.append(booking_to_check)
+		DateType.FULL_DAY:
+			is_overbooking = GlobalRefs.date_check_in_bookings_dict.has(date_room) \
+				or GlobalRefs.date_check_out_bookings_dict.has(date_room) \
+				or GlobalRefs.date_full_day_bookings_dict.has(date_room) and GlobalRefs.date_full_day_bookings_dict[date_room].has(booking_to_check) and GlobalRefs.date_full_day_bookings_dict[date_room].size() > 1
+			paint_full_day_overbooking() if is_overbooking else paint_full_day()
+			bookings.append(booking_to_check)
 	
-	for booking: Booking in bookings:
-		if not (booking.end_date <= booking_to_check.start_date or booking.start_date >= booking_to_check.end_date):
-			is_overbooking = true
-			break
-	
-	if field_unix_time == start_unix_time:
-		bookings.append(booking_to_check)
-		paint_check_in_overbooking() if is_overbooking else paint_check_in()
-	elif field_unix_time > start_unix_time and field_unix_time < end_unix_time:
-		bookings.append(booking_to_check)
-		paint_full_day_overbooking() if is_overbooking else paint_full_day()
-	elif field_unix_time == end_unix_time:
-		bookings.append(booking_to_check)
-		paint_check_out_overbooking() if is_overbooking else paint_check_out()
+	#if date_string == booking_to_check.start_date:
+		#paint_check_in_overbooking() if is_overbooking else paint_check_in()
+		#bookings.append(booking_to_check)
+	#elif date_string == booking_to_check.end_date:
+		#paint_check_out_overbooking() if is_overbooking else paint_check_out()
+		#bookings.append(booking_to_check)
+	#elif booking_to_check.dates_occupied.has(date_string):
+		#paint_full_day_overbooking() if is_overbooking else paint_full_day()
+		#bookings.append(booking_to_check)
 
 
 func paint_active() -> void:
 	theme_type_variation = STYLE_ACTIVE
+
+func paint_today() -> void:
+	theme_type_variation = STYLE_TODAY
 
 func paint_weekend() -> void:
 	theme_type_variation = STYLE_WEEKEND

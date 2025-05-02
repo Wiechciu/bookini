@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c6fm2nlqvb5cy"]
+[gd_scene load_steps=21 format=3 uid="uid://c6fm2nlqvb5cy"]
 
 [ext_resource type="Script" uid="uid://b3sh4bf8xa4yy" path="res://calendar/calendar.gd" id="1_64tpo"]
 [ext_resource type="PackedScene" uid="uid://bcufem7igam2a" path="res://calendar/calendar_header.tscn" id="1_f8ws7"]
@@ -18,6 +18,7 @@
 [ext_resource type="Resource" uid="uid://niaqnwm6yw7n" path="res://room/12.tres" id="16_nijkx"]
 [ext_resource type="Resource" uid="uid://c7xtpwp7lniwe" path="res://room/13.tres" id="17_3ovaj"]
 [ext_resource type="Resource" uid="uid://ism2akvqm81l" path="res://room/14.tres" id="18_2ioyc"]
+[ext_resource type="Resource" uid="uid://d2m3w55o2a3pw" path="res://room/16.tres" id="19_0hy62"]
 [ext_resource type="Resource" uid="uid://7gqpf3rx47p" path="res://room/15.tres" id="19_7x4tu"]
 
 [node name="Calendar" type="PanelContainer" node_paths=PackedStringArray("calendar_header", "calendar_row_container")]
@@ -27,7 +28,7 @@ script = ExtResource("1_64tpo")
 calendar_header = NodePath("HBoxContainer/VBoxContainer/CalendarHeader")
 calendar_row_scene = ExtResource("2_74sj6")
 calendar_row_container = NodePath("HBoxContainer/VBoxContainer/ScrollContainer/CalendarRows")
-rooms = Array[ExtResource("3_ynh3x")]([ExtResource("4_0p1os"), ExtResource("5_apc6p"), ExtResource("6_al83p"), ExtResource("7_1nywg"), ExtResource("8_kfdgi"), ExtResource("10_buxta"), ExtResource("11_1x83o"), ExtResource("12_822e6"), ExtResource("13_5ujre"), ExtResource("14_i0k18"), ExtResource("15_0hy62"), ExtResource("16_nijkx"), ExtResource("17_3ovaj"), ExtResource("18_2ioyc"), ExtResource("19_7x4tu")])
+rooms = Array[ExtResource("3_ynh3x")]([ExtResource("4_0p1os"), ExtResource("5_apc6p"), ExtResource("6_al83p"), ExtResource("7_1nywg"), ExtResource("8_kfdgi"), ExtResource("10_buxta"), ExtResource("11_1x83o"), ExtResource("12_822e6"), ExtResource("13_5ujre"), ExtResource("14_i0k18"), ExtResource("15_0hy62"), ExtResource("16_nijkx"), ExtResource("17_3ovaj"), ExtResource("18_2ioyc"), ExtResource("19_7x4tu"), ExtResource("19_0hy62")])
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2

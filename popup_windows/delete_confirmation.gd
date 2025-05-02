@@ -20,12 +20,10 @@ func apply_id(id: int) -> void:
 
 
 func _on_cancel_button_pressed() -> void:
-	print("_on_cancel_button_pressed")
 	result.emit(false)
 	queue_free()
 
 
 func _on_confirm_button_pressed() -> void:
-	print("_on_confirm_button_pressed")
 	result.emit(true)
 	queue_free()

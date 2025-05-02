@@ -1,6 +1,13 @@
 extends Node
 
+
+const ONE_SECOND: int = 1
+const ONE_MINUTE: int = ONE_SECOND * 60
+const ONE_HOUR: int = ONE_MINUTE * 60
+const ONE_DAY: int = ONE_HOUR * 24
+
 const DATE_PATTERN: String = r"^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$"
+
 var date_regex: RegEx
 
 

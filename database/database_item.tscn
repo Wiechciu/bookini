@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://bqdi3s37ogh3w" path="res://database/database_item.gd" id="1_613yd"]
 [ext_resource type="Texture2D" uid="uid://b28ms02xh6xvk" path="res://trash.png" id="2_faif8"]
-[ext_resource type="PackedScene" uid="uid://c82kmlom2yc2y" path="res://delete_confirmation.tscn" id="2_hbo37"]
+[ext_resource type="PackedScene" uid="uid://c82kmlom2yc2y" path="res://popup_windows/delete_confirmation.tscn" id="2_hbo37"]
 [ext_resource type="PackedScene" uid="uid://cqj2ddgyoysde" path="res://animate_on_hover_component.tscn" id="2_x0xi0"]
-[ext_resource type="Script" uid="uid://vpshvbtok83u" path="res://animate_on_hover_component.gd" id="3_hbo37"]
 [ext_resource type="PackedScene" uid="uid://db1m1y80aaiaa" path="res://database/date_validation_component.tscn" id="4_aneyk"]
+[ext_resource type="PackedScene" uid="uid://cghapkildl4rr" path="res://tooltip/tooltip_component.tscn" id="5_pjot3"]
 [ext_resource type="PackedScene" uid="uid://cy6syqbn8oudx" path="res://database/date_entry_component.tscn" id="6_mohgc"]
 [ext_resource type="PackedScene" uid="uid://dboq0xx4q6cf2" path="res://database/focus_component.tscn" id="7_hbo37"]
 [ext_resource type="PackedScene" uid="uid://cffd6bcgb65et" path="res://tooltip/database_tooltip_component.tscn" id="7_pjot3"]
@@ -47,7 +47,6 @@ invoice_status_label = NodePath("HSplitContainer/HSplitContainer/HSplitContainer
 remarks_label = NodePath("HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/Remarks")
 
 [node name="AnimateOnHoverComponent" parent="." instance=ExtResource("2_x0xi0")]
-script = ExtResource("3_hbo37")
 type_variation_to_apply = &"PanelContainerDatabaseItemHovered"
 type_variation_to_ignore = &"PanelContainerDatabaseItemSelected"
 
@@ -79,6 +78,9 @@ grow_vertical = 2
 texture = ExtResource("2_faif8")
 expand_mode = 5
 stretch_mode = 5
+
+[node name="TooltipComponent" parent="HSplitContainer/HBoxContainer/DeleteButton" instance=ExtResource("5_pjot3")]
+text = "usuń rezerwację"
 
 [node name="Id" type="Label" parent="HSplitContainer/HBoxContainer"]
 custom_minimum_size = Vector2(0, 20)

@@ -1,0 +1,103 @@
+[gd_scene load_steps=2 format=3 uid="uid://47jmg5sgalf1"]
+
+[ext_resource type="Script" uid="uid://bkk2weh22fkub" path="res://popup_windows/help.gd" id="1_2xire"]
+
+[node name="Help" type="Control" node_paths=PackedStringArray("ok_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"PanelContainerPopup"
+script = ExtResource("1_2xire")
+ok_button = NodePath("CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/OkButton")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.588235)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(800, 400)
+layout_mode = 2
+theme_type_variation = &"PanelContainerPopup"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="RichTextLabel" parent="CenterContainer/PanelContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[font_size=16][center][u]Kolory w kalendarzu:[/u][/center][/font_size]
+[ul]
+Zameldowanie					[bgcolor=004282]   [/bgcolor]	
+Zarezerwowany dzień	[bgcolor=0067c5]   [/bgcolor]
+Wymeldowanie				[bgcolor=6aadff]   [/bgcolor]
+Overbooking						[bgcolor=ad0000]   [/bgcolor]
+Weekend							[bgcolor=f7f1ad]   [/bgcolor]
+Dzisiaj									[bgcolor=b3aee7]   [/bgcolor]
+[/ul]
+
+[font_size=16][center][u]Skróty klawiszowe:[/u][/center][/font_size]
+[ul]
+Ctrl + D				- dodaj nowy wpis
+Ctrl + Q				- wpisz dzisiejszą datę
+Ctrl + `				- wpisz dzisiejszą datę
+Ctrl + 1...9			- wpisz dzisiejszą datę + X dni
+F1...F12				- wpisz dzisiejszą datę + X dni
+Tab						- zatwierdź i przejdź do następnego pola
+Shift + Tab			- zatwierdź i przejdź do poprzedniego pola
+Enter					- zatwierdź i zostań w polu
+Strzałki				- przejdź do pola obok
+[/ul]
+
+[font_size=16][center][u]Funkcje:[/u][/center][/font_size]
+[ul]
+Dopasuj szerokość kolumn tabeli poprzez przeciągnięcie myszą granicy między kolumnami. Zresetuj szerokości przyciskiem strzałki w prawym górnym rogu tabeli.
+Dopasuj podział między górną a dolną częścią aplikacji poprzez przeciągnięcie myszą granicy między częściami.
+Zmień wyświetlany miesiąc przyciskami strzałek po lewej i prawej stronie kalendarza. Wróć do aktualnego miesiąca przyciskiem strzałki w prawym górnym rogu kalendarza.
+Najedź myszą na rezerwację w kalendarzu, aby wyświetlić podsumowanie rezerwacji.
+Kliknij na rezerwację w kalendarzu, aby przejść do szczegółów rezerwacji w tabeli.
+Wpisz datę w jednym z akceptowalnych formatów daty:
+[ul]
+YYYY-MM-DD (np. \"2025-06-20\" dla \"20. czerwca 2025\")
+YYMMDD (np. \"250810\" dla \"10. sierpnia 2025\") 
+MMDD (np. \"0701\" dla \"1. lipca bieżącego roku\")
+DD (np. \"08\" dla \"8. dnia bieżącego miesiąca i roku\")
+[/ul]
+Kliknij na kolumnę \"ID\" lub \"Pobyt od\", aby posortować listę po tej kolumnie.
+Znajdź konkretną rezerwację używając filtrów pod nagłówkiem tabeli. Wyczyść filtr przyciskiem po lewej stronie filtra.
+Usuń rezerwację poprzez kliknięcie na rezerwację, a następnie wybranie symbolu kosza po lewej stronie.
+Otwórz szczegóły pokoju poprzez kliknięcie na nazwę pokoju po lewej stronie kalendarza.
+[/ul]"
+fit_content = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="OkButton" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "OK"

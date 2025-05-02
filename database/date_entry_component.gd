@@ -1,11 +1,6 @@
 extends Node
 
 
-const ONE_SECOND: int = 1
-const ONE_MINUTE: int = ONE_SECOND * 60
-const ONE_HOUR: int = ONE_MINUTE * 60
-const ONE_DAY: int = ONE_HOUR * 24
-
 var parent_control: LineEdit
 
 
@@ -29,7 +24,7 @@ func check_date_entry(event: InputEvent) -> void:
 	#
 	for n in range(0, 13):
 		if event.is_action_pressed("current_date_plus_" + str(n)):
-			enter_date(ONE_DAY * n)
+			enter_date(Utils.ONE_DAY * n)
 
 
 func enter_date(day_offset: int = 0) -> void:

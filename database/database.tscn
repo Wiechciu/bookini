@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://jcj00eruawl0"]
+[gd_scene load_steps=9 format=3 uid="uid://jcj00eruawl0"]
 
 [ext_resource type="Script" uid="uid://blpiht0xuoaa8" path="res://database/database.gd" id="1_8x7pb"]
 [ext_resource type="PackedScene" uid="uid://d26lkxydpbp38" path="res://database/database_header.tscn" id="1_rw4k8"]
 [ext_resource type="PackedScene" uid="uid://cejexibyxff8t" path="res://database/database_item.tscn" id="2_fvenl"]
 [ext_resource type="PackedScene" uid="uid://dx10i03usiffl" path="res://database/database_filter.tscn" id="4_8x7pb"]
 [ext_resource type="PackedScene" uid="uid://cghapkildl4rr" path="res://tooltip/tooltip_component.tscn" id="5_eg6c8"]
+[ext_resource type="Texture2D" uid="uid://yeia6p55r0s0" path="res://plus.png" id="6_1c18i"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_8x7pb"]
 ctrl_pressed = true
@@ -139,11 +140,21 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="AddButton" type="Button" parent="VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
-theme_type_variation = &"ButtonDatabaseAdd"
 shortcut = SubResource("Shortcut_eg6c8")
 shortcut_in_tooltip = false
-text = "+"
 
 [node name="TooltipComponent" parent="VBoxContainer/VBoxContainer/AddButton" instance=ExtResource("5_eg6c8")]
 text = "Dodaj nowy (Ctrl+D)"
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/VBoxContainer/AddButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_1c18i")
+expand_mode = 2
+stretch_mode = 5

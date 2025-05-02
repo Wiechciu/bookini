@@ -13,7 +13,14 @@ enum Status {
 @export_storage var phone: String
 @export_storage var pesel: String
 @export_storage var start_date: String
+var start_date_as_unix_time: int:
+	get:
+		return Time.get_unix_time_from_datetime_string(start_date)
 @export_storage var end_date: String
+var end_date_as_unix_time: int:
+	get:
+		return Time.get_unix_time_from_datetime_string(end_date)
+var dates_occupied: Array[String]
 @export_storage var room: String
 @export_storage var quantity: int
 @export_storage var prepaid_amount: float
@@ -86,6 +93,11 @@ func update(
 		invoice_status: bool,
 		remarks: String
 	) -> void:
+	var recalculate_required: bool = false
+	if start_date != self.start_date or end_date != self.end_date or room != self.room:
+		GlobalRefs.remove_booking_dates_from_dicts(self)
+		recalculate_required = true
+	
 	self.status = status
 	self.name = name
 	self.phone = phone
@@ -101,3 +113,6 @@ func update(
 	self.invoice = invoice
 	self.invoice_status = invoice_status
 	self.remarks = remarks
+	
+	if recalculate_required:
+		GlobalRefs.recalculate_dates_for_booking(self)

@@ -1,9 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://d26lkxydpbp38"]
+[gd_scene load_steps=6 format=3 uid="uid://d26lkxydpbp38"]
 
 [ext_resource type="Script" uid="uid://bps73sxuq280n" path="res://database/database_header.gd" id="1_bnybt"]
 [ext_resource type="Texture2D" uid="uid://b04ijkpxcm25m" path="res://refresh.png" id="2_r2268"]
+[ext_resource type="Texture2D" uid="uid://cy7fx6og5lpvv" path="res://arrow_down.png" id="2_ysx1i"]
+[ext_resource type="Texture2D" uid="uid://yugagkd2lk2s" path="res://arrow_up.png" id="3_rd6q3"]
+[ext_resource type="PackedScene" uid="uid://cghapkildl4rr" path="res://tooltip/tooltip_component.tscn" id="3_xnyeb"]
 
-[node name="DatabaseHeader" type="PanelContainer" node_paths=PackedStringArray("reset_button", "id_label", "start_date_label")]
+[node name="DatabaseHeader" type="PanelContainer" node_paths=PackedStringArray("reset_button", "sort_by_id_button", "sort_by_id_texture_rect", "sort_by_start_date_button", "sort_by_start_texture_rect")]
 offset_right = 1500.0
 offset_bottom = 52.0
 size_flags_horizontal = 3
@@ -11,8 +14,12 @@ focus_mode = 1
 theme_type_variation = &"PanelContainerDatabaseHeader"
 script = ExtResource("1_bnybt")
 reset_button = NodePath("ResetButton")
-id_label = NodePath("HSplitContainer1/ID")
-start_date_label = NodePath("HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/StartDate")
+sort_by_id_button = NodePath("HSplitContainer1/ID/SortByIdButton")
+sort_by_id_texture_rect = NodePath("HSplitContainer1/ID/SortByIdButton/TextureRect")
+sort_by_start_date_button = NodePath("HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/StartDate/SortByStartDateButton")
+sort_by_start_texture_rect = NodePath("HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/StartDate/SortByStartDateButton/TextureRect")
+sort_arrow_ascending = ExtResource("2_ysx1i")
+sort_arrow_descending = ExtResource("3_rd6q3")
 
 [node name="HSplitContainer1" type="HSplitContainer" parent="."]
 custom_minimum_size = Vector2(0, 50)
@@ -24,7 +31,6 @@ split_offset = 60
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_vertical = 1
-mouse_filter = 1
 theme_type_variation = &"LabelDatabaseHeader"
 text = "ID"
 horizontal_alignment = 1
@@ -32,6 +38,35 @@ vertical_alignment = 1
 autowrap_mode = 2
 clip_text = true
 text_overrun_behavior = 6
+
+[node name="SortByIdButton" type="Button" parent="HSplitContainer1/ID"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"ButtonEmpty"
+flat = true
+
+[node name="TextureRect" type="TextureRect" parent="HSplitContainer1/ID/SortByIdButton"]
+custom_minimum_size = Vector2(15, 15)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -15.0
+offset_top = -15.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("2_ysx1i")
+expand_mode = 1
+
+[node name="TooltipComponent" parent="HSplitContainer1/ID/SortByIdButton" instance=ExtResource("3_xnyeb")]
+text = "sortuj po tej kolumnie"
 
 [node name="HSplitContainer2" type="HSplitContainer" parent="HSplitContainer1"]
 layout_mode = 2
@@ -93,7 +128,6 @@ split_offset = 70
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_vertical = 1
-mouse_filter = 1
 theme_type_variation = &"LabelDatabaseHeader"
 text = "Pobyt od"
 horizontal_alignment = 1
@@ -101,6 +135,35 @@ vertical_alignment = 1
 autowrap_mode = 2
 clip_text = true
 text_overrun_behavior = 6
+
+[node name="SortByStartDateButton" type="Button" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/StartDate"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"ButtonEmpty"
+flat = true
+
+[node name="TextureRect" type="TextureRect" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/StartDate/SortByStartDateButton"]
+custom_minimum_size = Vector2(15, 15)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -15.0
+offset_top = -15.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("2_ysx1i")
+expand_mode = 1
+
+[node name="TooltipComponent" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/StartDate/SortByStartDateButton" instance=ExtResource("3_xnyeb")]
+text = "sortuj po tej kolumnie"
 
 [node name="HSplitContainer6" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5"]
 layout_mode = 2
@@ -289,3 +352,6 @@ size_flags_vertical = 0
 texture_normal = ExtResource("2_r2268")
 ignore_texture_size = true
 stretch_mode = 0
+
+[node name="TooltipComponent" parent="ResetButton" instance=ExtResource("3_xnyeb")]
+text = "zresetuj szerokość kolumn"

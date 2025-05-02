@@ -6,9 +6,14 @@ enum SortType {
 	BY_ID,
 	BY_START_DATE,
 }
+enum SortDirection {
+	ASCENDING,
+	DESCENDING,
+}
 
 
-signal item_updated
+signal item_updated(DatabaseItem)
+
 
 @export var calendar: Calendar
 @export var scroll_container: ScrollContainer
@@ -25,6 +30,7 @@ var selected_item: DatabaseItem
 var current_date_string: String
 var database_items: Array[DatabaseItem]
 var sort_type: SortType = SortType.BY_ID
+var sort_direction: SortDirection = SortDirection.ASCENDING
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -59,7 +65,9 @@ func add_new_item() -> void:
 func remove_item(item_to_remove: DatabaseItem) -> void:
 	select_previous_item(item_to_remove)
 	#GlobalRefs.bookings.erase(item_to_remove.booking)
+	database_items.erase(item_to_remove)
 	item_to_remove.queue_free()
+	calendar.update_colors()
 	save_database()
 
 
@@ -87,8 +95,8 @@ func scroll_to_bottom() -> void:
 	scroll_container.scroll_vertical = 99999999
 
 
-func _on_item_updated() -> void:
-	item_updated.emit()
+func _on_item_updated(item: DatabaseItem) -> void:
+	item_updated.emit(item)
 	save_database()
 
 
@@ -120,6 +128,7 @@ func save_backup() -> void:
 
 func load_database() -> void:
 	if not save_exists():
+		print("database doesn't exist")
 		return
 	var file = FileAccess.open(save_location + save_name + save_extension, FileAccess.READ)
 	var loaded_data = file.get_var(true)
@@ -127,6 +136,7 @@ func load_database() -> void:
 		print("database incorrect")
 	else:
 		GlobalRefs.bookings = loaded_data
+		GlobalRefs.recalculate_dicts()
 	file.close()
 
 
@@ -143,7 +153,7 @@ func load_database_items() -> void:
 func create_database_item(booking: Booking = null) -> DatabaseItem:
 	var new_item: DatabaseItem = database_item_scene.instantiate() as DatabaseItem
 	new_item.initialize(self, booking)
-	new_item.item_updated.connect(_on_item_updated)
+	new_item.item_updated.connect(_on_item_updated.bind(new_item))
 	database_items_container.add_child(new_item)
 	database_items.append(new_item)
 	return new_item
@@ -192,19 +202,25 @@ func _compare_booking_string(filter_text: String, booking_text: Variant) -> bool
 	return filter_text != "" and not str(booking_text).containsn(filter_text)
 
 
+func change_sort_type(new_sort_type: SortType) -> void:
+	if sort_type == new_sort_type:
+		sort_direction = wrapi(sort_direction + 1, 0, 2)
+	else:
+		sort_type = new_sort_type
+	sort_database()
+
+
 func sort_database() -> void:
 	var sort_method: Callable
 	match sort_type:
 		SortType.BY_ID:
-			sort_method = _sort_bookings_by_id_ascending
+			sort_method = _sort_bookings_by_id
 		SortType.BY_START_DATE:
-			sort_method = _sort_bookings_by_start_date_ascending
+			sort_method = _sort_bookings_by_start_date
 	GlobalRefs.bookings.sort_custom(sort_method)
 	
 	var counter: int = -1
-	for booking: Booking in GlobalRefs.bookings:
-		if booking.status != Booking.Status.ACTIVE:
-			continue
+	for booking: Booking in GlobalRefs.active_bookings:
 		counter += 1
 		for item: DatabaseItem in database_items:
 			if item.booking == booking:
@@ -222,16 +238,16 @@ func _find_database_item_by_booking(item: DatabaseItem, booking: Booking) -> boo
 	return item.booking == booking
 
 
-func _sort_bookings_by_id_ascending(booking1: Booking, booking2: Booking) -> bool:
-	return booking1.id < booking2.id
+func _sort_bookings_by_id(booking1: Booking, booking2: Booking) -> bool:
+	return booking1.id < booking2.id if sort_direction == SortDirection.ASCENDING else booking1.id > booking2.id
 
 
-func _sort_bookings_by_start_date_ascending(booking1: Booking, booking2: Booking) -> bool:
+func _sort_bookings_by_start_date(booking1: Booking, booking2: Booking) -> bool:
 	var booking1_start_date: int = int(booking1.start_date.replace("-", ""))
 	var booking2_start_date: int = int(booking2.start_date.replace("-", ""))
 	if booking1_start_date == booking2_start_date:
-		return booking1.id < booking2.id
-	return booking1_start_date < booking2_start_date
+		return booking1.id < booking2.id if sort_direction == SortDirection.ASCENDING else booking1.id > booking2.id
+	return booking1_start_date < booking2_start_date if sort_direction == SortDirection.ASCENDING else booking1_start_date > booking2_start_date
 
 
 func select_database_item_by_booking(booking: Booking) -> DatabaseItem:

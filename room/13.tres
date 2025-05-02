@@ -4,7 +4,8 @@
 
 [resource]
 script = ExtResource("1_f0mjw")
-name = "13"
-price = 100.0
+name = "2N"
+type = "nowy"
+price = 150.0
 capacity = 5
 metadata/_custom_type_script = "uid://ddyy08blkifoj"

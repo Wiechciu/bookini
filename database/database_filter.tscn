@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dx10i03usiffl"]
+[gd_scene load_steps=8 format=3 uid="uid://dx10i03usiffl"]
 
 [ext_resource type="Script" uid="uid://b7y06r4o1m5jy" path="res://database/database_filter.gd" id="1_y4xxc"]
 [ext_resource type="Texture2D" uid="uid://cngkt3kjwd3jg" path="res://clear.png" id="2_kuo7r"]
+[ext_resource type="PackedScene" uid="uid://cghapkildl4rr" path="res://tooltip/tooltip_component.tscn" id="3_3qwab"]
 [ext_resource type="PackedScene" uid="uid://dboq0xx4q6cf2" path="res://database/focus_component.tscn" id="3_6g03t"]
 [ext_resource type="PackedScene" uid="uid://cy6syqbn8oudx" path="res://database/date_entry_component.tscn" id="4_1n5h5"]
 [ext_resource type="PackedScene" uid="uid://b87p8d3gl8mex" path="res://database/string_validation_component.tscn" id="4_3qwab"]
@@ -57,6 +58,9 @@ grow_vertical = 2
 texture = ExtResource("2_kuo7r")
 expand_mode = 3
 stretch_mode = 5
+
+[node name="TooltipComponent" parent="HSplitContainer/HBoxContainer/ClearButton" instance=ExtResource("3_3qwab")]
+text = "wyczyść filtr"
 
 [node name="Id" type="LineEdit" parent="HSplitContainer/HBoxContainer"]
 custom_minimum_size = Vector2(20, 25)

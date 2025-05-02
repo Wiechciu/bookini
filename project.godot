@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Hotel"
+config/name="Bookini"
 config/version="0.1"
 run/main_scene="uid://ddisvov8kf00b"
 config/features=PackedStringArray("4.5", "GL Compatibility")
@@ -24,6 +24,7 @@ Utils="*res://utils.gd"
 [display]
 
 window/size/viewport_width=1400
+window/size/viewport_height=800
 
 [gui]
 

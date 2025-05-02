@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://154vvo6i6da8"]
+
+[ext_resource type="Script" uid="uid://crknomhrqp6xv" path="res://navigation/navigation.gd" id="1_kgjf5"]
+[ext_resource type="Texture2D" uid="uid://dmhit68fq8v3w" path="res://question.png" id="2_660mv"]
+[ext_resource type="PackedScene" uid="uid://47jmg5sgalf1" path="res://popup_windows/help.tscn" id="2_leccq"]
+[ext_resource type="PackedScene" uid="uid://cghapkildl4rr" path="res://tooltip/tooltip_component.tscn" id="4_avam6"]
+[ext_resource type="Texture2D" uid="uid://cbs1gu14546ux" path="res://folder.png" id="5_moll0"]
+
+[node name="Navigation" type="PanelContainer" node_paths=PackedStringArray("help_button", "open_save_location_button")]
+custom_minimum_size = Vector2(30, 0)
+offset_right = 30.0
+offset_bottom = 200.0
+theme_type_variation = &"PanelContainerNavigation"
+script = ExtResource("1_kgjf5")
+help_scene = ExtResource("2_leccq")
+help_button = NodePath("VBoxContainer/HelpButton")
+open_save_location_button = NodePath("VBoxContainer/OpenSaveLocationButton")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="HelpButton" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HelpButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_660mv")
+expand_mode = 2
+
+[node name="TooltipComponent" parent="VBoxContainer/HelpButton" instance=ExtResource("4_avam6")]
+text = "Skróty klawiszowe, funkcje, legenda"
+
+[node name="OpenSaveLocationButton" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/OpenSaveLocationButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_moll0")
+expand_mode = 2
+
+[node name="TooltipComponent" parent="VBoxContainer/OpenSaveLocationButton" instance=ExtResource("4_avam6")]
+text = "Otwórz lokalizację bazy danych"

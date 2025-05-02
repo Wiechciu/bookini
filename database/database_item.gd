@@ -62,13 +62,15 @@ func _on_delete_button_pressed() -> void:
 func _on_editing_toggled(toggled_on: bool, line_edit: LineEdit) -> void:
 	if toggled_on:
 		line_edit.add_theme_stylebox_override("focus", editing_stylebox_override)
+		cached_content = line_edit.text
 	else:
 		line_edit.remove_theme_stylebox_override("focus")
+		if line_edit.text != cached_content:
+			update_booking()
 
 
 func _on_focus_entered(line_edit: LineEdit) -> void:
 	show_delete_button()
-	cached_content = line_edit.text
 	theme_type_variation = STYLE_SELECTED
 	database.selected_item = self
 
@@ -76,9 +78,6 @@ func _on_focus_entered(line_edit: LineEdit) -> void:
 func _on_focus_exited(line_edit: LineEdit) -> void:
 	hide_delete_button()
 	theme_type_variation = STYLE_NORMAL
-	if line_edit.text == cached_content:
-		return
-	update_booking()
 
 
 func hide_delete_button() -> void:

@@ -1,16 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://bcufem7igam2a"]
+[gd_scene load_steps=9 format=3 uid="uid://bcufem7igam2a"]
 
 [ext_resource type="Script" uid="uid://44je2arga3bp" path="res://calendar/calendar_header.gd" id="1_s7e30"]
+[ext_resource type="Texture2D" uid="uid://c8qf4domdrd2u" path="res://arrow_prev.png" id="2_7gdw2"]
 [ext_resource type="PackedScene" uid="uid://cbhwtxj1wrs61" path="res://calendar/calendar_header_field.tscn" id="2_861vs"]
 [ext_resource type="Texture2D" uid="uid://b04ijkpxcm25m" path="res://refresh.png" id="2_akdfb"]
+[ext_resource type="PackedScene" uid="uid://cghapkildl4rr" path="res://tooltip/tooltip_component.tscn" id="3_cvw8r"]
+[ext_resource type="PackedScene" uid="uid://yxinw0tojmca" path="res://overbooking_warning/overbooking_warning.tscn" id="4_1vokq"]
+[ext_resource type="Texture2D" uid="uid://dnt8c7edjave4" path="res://arrow_next.png" id="4_8myq3"]
 [ext_resource type="PackedScene" uid="uid://bh6dd8xf1ihi1" path="res://calendar/calendar_header_weekday.tscn" id="4_b1rga"]
 
 [node name="CalendarHeader" type="PanelContainer" node_paths=PackedStringArray("previous_button", "next_button", "reset_button", "month_label", "calendar_header_fields_container", "calendar_header_weekdays_container")]
 theme_type_variation = &"PanelContainerCalendarHeader"
 script = ExtResource("1_s7e30")
-previous_button = NodePath("HBoxContainer/CalendarPreviousButton")
-next_button = NodePath("HBoxContainer/CalendarNextButton")
-reset_button = NodePath("HBoxContainer/ResetButtonControl/ResetButton")
+previous_button = NodePath("HBoxContainer/VBoxContainer/MonthButtonsContainer/CalendarPreviousButton")
+next_button = NodePath("HBoxContainer/VBoxContainer/MonthButtonsContainer/CalendarNextButton")
+reset_button = NodePath("HBoxContainer/VBoxContainer/MonthButtonsContainer/ResetButtonControl/ResetButton")
 month_label = NodePath("HBoxContainer/VBoxContainer/MonthButtonsContainer/MonthLabel")
 calendar_header_fields_container = NodePath("HBoxContainer/VBoxContainer/CalendarHeaderFieldsContainer")
 calendar_header_weekdays_container = NodePath("HBoxContainer/VBoxContainer/CalendarHeaderWeekdaysContainer")
@@ -26,12 +30,8 @@ theme_type_variation = &"LabelCalendar"
 text = "Pokoje"
 vertical_alignment = 1
 
-[node name="CalendarPreviousButton" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(15, 0)
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
 layout_mode = 2
-theme_type_variation = &"ButtonCalendar"
-text = "<"
-alignment = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
@@ -40,6 +40,42 @@ mouse_filter = 2
 [node name="MonthButtonsContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
 mouse_filter = 2
+
+[node name="CalendarPreviousButton" type="Button" parent="HBoxContainer/VBoxContainer/MonthButtonsContainer"]
+custom_minimum_size = Vector2(20, 15)
+layout_mode = 2
+text = "<"
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/MonthButtonsContainer/CalendarPreviousButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_7gdw2")
+expand_mode = 2
+
+[node name="TooltipComponent" parent="HBoxContainer/VBoxContainer/MonthButtonsContainer/CalendarPreviousButton" instance=ExtResource("3_cvw8r")]
+text = "poprzedni miesiąc"
+
+[node name="Control" type="Control" parent="HBoxContainer/VBoxContainer/MonthButtonsContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer/MonthButtonsContainer/Control"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 138.0
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="OverbookingWarning" parent="HBoxContainer/VBoxContainer/MonthButtonsContainer/Control/MarginContainer" node_paths=PackedStringArray("calendar_header") instance=ExtResource("4_1vokq")]
+layout_mode = 2
+calendar_header = NodePath("../../../../../..")
 
 [node name="MonthLabel" type="Label" parent="HBoxContainer/VBoxContainer/MonthButtonsContainer"]
 custom_minimum_size = Vector2(0, 30)
@@ -52,101 +88,45 @@ horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
 
-[node name="MonthButton1" type="Button" parent="HBoxContainer/VBoxContainer/MonthButtonsContainer"]
-visible = false
+[node name="ResetButtonControl" type="Control" parent="HBoxContainer/VBoxContainer/MonthButtonsContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
-theme_type_variation = &"ButtonCalendarMonth"
-text = "styczeń"
-clip_text = true
 
-[node name="MonthButton2" type="Button" parent="HBoxContainer/VBoxContainer/MonthButtonsContainer"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-theme_type_variation = &"ButtonCalendarMonth"
-text = "luty"
-clip_text = true
+[node name="ResetButton" type="TextureButton" parent="HBoxContainer/VBoxContainer/MonthButtonsContainer/ResetButtonControl"]
+modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -28.0
+offset_bottom = 28.0
+grow_horizontal = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("2_akdfb")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="MonthButton3" type="Button" parent="HBoxContainer/VBoxContainer/MonthButtonsContainer"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-theme_type_variation = &"ButtonCalendarMonth"
-text = "marzec"
-clip_text = true
+[node name="TooltipComponent" parent="HBoxContainer/VBoxContainer/MonthButtonsContainer/ResetButtonControl/ResetButton" instance=ExtResource("3_cvw8r")]
+text = "wróć do bieżącego miesiąca"
 
-[node name="MonthButton4" type="Button" parent="HBoxContainer/VBoxContainer/MonthButtonsContainer"]
-visible = false
+[node name="CalendarNextButton" type="Button" parent="HBoxContainer/VBoxContainer/MonthButtonsContainer"]
+custom_minimum_size = Vector2(20, 15)
 layout_mode = 2
-size_flags_horizontal = 3
-theme_type_variation = &"ButtonCalendarMonth"
-text = "kwiecień"
-clip_text = true
+text = ">"
 
-[node name="MonthButton5" type="Button" parent="HBoxContainer/VBoxContainer/MonthButtonsContainer"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-theme_type_variation = &"ButtonCalendarMonth"
-text = "maj"
-clip_text = true
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/MonthButtonsContainer/CalendarNextButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_8myq3")
+expand_mode = 2
 
-[node name="MonthButton6" type="Button" parent="HBoxContainer/VBoxContainer/MonthButtonsContainer"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-theme_type_variation = &"ButtonCalendarMonth"
-text = "czerwiec"
-clip_text = true
-
-[node name="MonthButton7" type="Button" parent="HBoxContainer/VBoxContainer/MonthButtonsContainer"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-theme_type_variation = &"ButtonCalendarMonth"
-text = "lipiec"
-clip_text = true
-
-[node name="MonthButton8" type="Button" parent="HBoxContainer/VBoxContainer/MonthButtonsContainer"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-theme_type_variation = &"ButtonCalendarMonth"
-text = "sierpień"
-clip_text = true
-
-[node name="MonthButton9" type="Button" parent="HBoxContainer/VBoxContainer/MonthButtonsContainer"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-theme_type_variation = &"ButtonCalendarMonth"
-text = "wrzesień"
-clip_text = true
-
-[node name="MonthButton10" type="Button" parent="HBoxContainer/VBoxContainer/MonthButtonsContainer"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-theme_type_variation = &"ButtonCalendarMonth"
-text = "październik"
-clip_text = true
-
-[node name="MonthButton11" type="Button" parent="HBoxContainer/VBoxContainer/MonthButtonsContainer"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-theme_type_variation = &"ButtonCalendarMonth"
-text = "listopad"
-clip_text = true
-
-[node name="MonthButton12" type="Button" parent="HBoxContainer/VBoxContainer/MonthButtonsContainer"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-theme_type_variation = &"ButtonCalendarMonth"
-text = "grudzień"
-clip_text = true
+[node name="TooltipComponent" parent="HBoxContainer/VBoxContainer/MonthButtonsContainer/CalendarNextButton" instance=ExtResource("3_cvw8r")]
+text = "następny miesiąc"
 
 [node name="CalendarHeaderFieldsContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(620, 0)
@@ -342,28 +322,6 @@ layout_mode = 2
 [node name="CalendarHeaderWeekday31" parent="HBoxContainer/VBoxContainer/CalendarHeaderWeekdaysContainer" instance=ExtResource("4_b1rga")]
 layout_mode = 2
 
-[node name="ResetButtonControl" type="Control" parent="HBoxContainer"]
-layout_mode = 2
-
-[node name="ResetButton" type="TextureButton" parent="HBoxContainer/ResetButtonControl"]
-modulate = Color(0, 0, 0, 1)
-custom_minimum_size = Vector2(28, 28)
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -28.0
-offset_bottom = 28.0
-grow_horizontal = 0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-texture_normal = ExtResource("2_akdfb")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="CalendarNextButton" type="Button" parent="HBoxContainer"]
+[node name="ScrollMargin" type="Control" parent="HBoxContainer"]
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
-theme_type_variation = &"ButtonCalendarRight"
-text = ">"
-alignment = 0

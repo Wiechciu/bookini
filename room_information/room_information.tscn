@@ -1,0 +1,118 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvx7d7in0txrc"]
+
+[ext_resource type="Script" uid="uid://cose3l6x1mr14" path="res://room_information/room_information.gd" id="1_q2huq"]
+
+[node name="RoomInformation" type="PanelContainer" node_paths=PackedStringArray("name_label", "type_label", "price_label", "capacity_label", "occupancy_this_month_label", "occupancy_last_month_label")]
+offset_right = 500.0
+offset_bottom = 160.0
+size_flags_horizontal = 3
+focus_mode = 1
+theme_type_variation = &"PanelContainerRoomInformation"
+script = ExtResource("1_q2huq")
+name_label = NodePath("HBoxContainer/VBoxContainer2/Name")
+type_label = NodePath("HBoxContainer/VBoxContainer2/Type")
+price_label = NodePath("HBoxContainer/VBoxContainer2/Price")
+capacity_label = NodePath("HBoxContainer/VBoxContainer2/Capacity")
+occupancy_this_month_label = NodePath("HBoxContainer/VBoxContainer2/OccupancyThisMonth")
+occupancy_last_month_label = NodePath("HBoxContainer/VBoxContainer2/OccupancyLastMonth")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Pokój:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Typ:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Cena:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Ilość osób:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Obłożenie w tym miesiącu:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Label6" type="Label" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Obłożenie w zeszłym miesiącu:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Name" type="LineEdit" parent="HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"LineEditDatabaseItem"
+text = "1"
+
+[node name="Type" type="LineEdit" parent="HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"LineEditDatabaseItem"
+text = "apartament"
+
+[node name="Price" type="LineEdit" parent="HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"LineEditDatabaseItem"
+text = "200"
+
+[node name="Capacity" type="LineEdit" parent="HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"LineEditDatabaseItem"
+text = "5"
+
+[node name="OccupancyThisMonth" type="Label" parent="HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "30%"
+vertical_alignment = 1
+
+[node name="OccupancyLastMonth" type="Label" parent="HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "80%"
+vertical_alignment = 1

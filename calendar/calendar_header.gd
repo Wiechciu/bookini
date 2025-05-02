@@ -52,16 +52,24 @@ func update() -> void:
 	month_label.text = "%s %d" % [MONTH_NAMES[calendar.selected_month - 1], calendar.selected_year]
 	
 	var first_weekday = Time.get_datetime_dict_from_datetime_string("%04d-%02d-%02d" % [calendar.selected_year, calendar.selected_month, 1], true).weekday
+	var today_date = Time.get_datetime_string_from_system().left(10)
 	
 	for counter in range(1, 32):
 		var calendar_header_field: CalendarHeaderField = calendar_header_fields_container.get_child(counter - 1)
 		var calendar_header_weekday: CalendarHeaderWeekday = calendar_header_weekdays_container.get_child(counter - 1)
 		
 		var weekday = wrapi(first_weekday + counter - 1, 1, 8)
+		var is_weekend: bool = weekday >= 6
 		calendar_header_weekday.update(weekday)
 		
+		var calendar_header_date = "%04d-%02d-%02d" % [calendar.selected_year, calendar.selected_month, counter]
+		var is_today = calendar_header_date == today_date
+		
 		var is_active: bool = Utils.get_number_of_days_in_month(calendar.selected_month, calendar.selected_year) >= counter
-		if is_active and weekday >= 6:
+		if is_active and is_today:
+			calendar_header_field.paint_today()
+			calendar_header_weekday.paint_today()
+		elif is_active and is_weekend:
 			calendar_header_field.paint_weekend()
 			calendar_header_weekday.paint_weekend()
 		elif is_active:

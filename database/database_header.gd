@@ -4,8 +4,12 @@ extends Control
 
 @export var database: Database
 @export var reset_button: TextureButton
-@export var id_label: Label
-@export var start_date_label: Label
+@export var sort_by_id_button: Button
+@export var sort_by_id_texture_rect: TextureRect
+@export var sort_by_start_date_button: Button
+@export var sort_by_start_texture_rect: TextureRect
+@export var sort_arrow_ascending: Texture
+@export var sort_arrow_descending: Texture
 var split_containers: Array[SplitContainer]
 var default_offsets: Array[int]
 
@@ -14,8 +18,9 @@ func _ready() -> void:
 	reset_button.pressed.connect(_on_reset_button_pressed)
 	reset_button.hide()
 	
-	id_label.gui_input.connect(_on_id_label_gui_input)
-	start_date_label.gui_input.connect(_on_start_date_label_gui_input)
+	sort_by_id_button.pressed.connect(_on_sort_by_id_button_pressed)
+	sort_by_start_date_button.pressed.connect(_on_sort_by_start_date_button_pressed)
+	update_sort_buttons()
 	
 	for split_container: SplitContainer in find_children("*", "SplitContainer", true):
 		split_container.dragged.connect(_on_split_container_dragged.unbind(1))
@@ -23,16 +28,21 @@ func _ready() -> void:
 		default_offsets.append(split_container.split_offset)
 
 
-func _on_id_label_gui_input( event: InputEvent) -> void:
-	if event.is_action_pressed("mouse_click"):
-		database.sort_type = Database.SortType.BY_ID
-		database.sort_database()
+func _on_sort_by_id_button_pressed() -> void:
+	database.change_sort_type(Database.SortType.BY_ID)
+	update_sort_buttons()
 
 
-func _on_start_date_label_gui_input( event: InputEvent) -> void:
-	if event.is_action_pressed("mouse_click"):
-		database.sort_type = Database.SortType.BY_START_DATE
-		database.sort_database()
+func _on_sort_by_start_date_button_pressed() -> void:
+	database.change_sort_type(Database.SortType.BY_START_DATE)
+	update_sort_buttons()
+
+
+func update_sort_buttons() -> void:
+	sort_by_id_button.modulate.a = 1.0 if database.sort_type == Database.SortType.BY_ID else 0.2
+	sort_by_start_date_button.modulate.a = 1.0 if database.sort_type == Database.SortType.BY_START_DATE else 0.2
+	sort_by_id_texture_rect.texture = sort_arrow_ascending if database.sort_direction == Database.SortDirection.ASCENDING else sort_arrow_descending
+	sort_by_start_texture_rect.texture = sort_arrow_ascending if database.sort_direction == Database.SortDirection.ASCENDING else sort_arrow_descending
 
 
 func _on_reset_button_pressed() -> void:

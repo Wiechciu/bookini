@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://evc7i3gpsd3b"]
+[gd_scene load_steps=4 format=3 uid="uid://evc7i3gpsd3b"]
 
 [ext_resource type="Script" uid="uid://dtvofq0chvq8o" path="res://calendar/calendar_row.gd" id="1_mfpya"]
 [ext_resource type="PackedScene" uid="uid://ogbjdpwoo7tr" path="res://calendar/calendar_field.tscn" id="2_0tbxy"]
+[ext_resource type="PackedScene" uid="uid://cqj2ddgyoysde" path="res://animate_on_hover_component.tscn" id="2_7ls38"]
 
 [node name="CalendarRow" type="PanelContainer" node_paths=PackedStringArray("room_name_label", "calendar_fields_container")]
 theme_type_variation = &"PanelContainerCalendarRow"
@@ -16,8 +17,13 @@ layout_mode = 2
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_type_variation = &"LabelCalendar"
+mouse_filter = 1
+theme_type_variation = &"LabelCalendarRow"
 text = "1"
+
+[node name="AnimateOnHoverComponent" parent="HBoxContainer/RoomName" instance=ExtResource("2_7ls38")]
+type_variation_to_apply = &"LabelCalendarRowHover"
+type_variation_to_ignore = &"LabelCalendarRowSelected"
 
 [node name="PanelContainer" type="PanelContainer" parent="HBoxContainer"]
 layout_mode = 2
