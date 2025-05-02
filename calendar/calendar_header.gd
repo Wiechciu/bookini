@@ -50,23 +50,24 @@ func apply_numbers() -> void:
 
 func update() -> void:
 	month_label.text = "%s %d" % [MONTH_NAMES[calendar.selected_month - 1], calendar.selected_year]
-	#var counter: int = 0
-	#for calendar_header_field: CalendarHeaderField in calendar_header_fields_container.get_children():
-		#counter += 1
-		#var is_active: bool = Utils.get_number_of_days_in_month(calendar.selected_month, calendar.selected_year) >= counter
-		#calendar_header_field.paint_active() if is_active else calendar_header_field.paint_inactive()
+	
+	var first_weekday = Time.get_datetime_dict_from_datetime_string("%04d-%02d-%02d" % [calendar.selected_year, calendar.selected_month, 1], true).weekday
 	
 	for counter in range(1, 32):
 		var calendar_header_field: CalendarHeaderField = calendar_header_fields_container.get_child(counter - 1)
 		var calendar_header_weekday: CalendarHeaderWeekday = calendar_header_weekdays_container.get_child(counter - 1)
 		
+		var weekday = wrapi(first_weekday + counter - 1, 1, 8)
+		calendar_header_weekday.update(weekday)
+		
 		var is_active: bool = Utils.get_number_of_days_in_month(calendar.selected_month, calendar.selected_year) >= counter
-		if is_active:
+		if is_active and weekday >= 6:
+			calendar_header_field.paint_weekend()
+			calendar_header_weekday.paint_weekend()
+		elif is_active:
 			calendar_header_field.paint_active()
 			calendar_header_weekday.paint_active()
 		else:
 			calendar_header_field.paint_inactive()
 			calendar_header_weekday.paint_inactive()
 		
-		var weekday = Time.get_datetime_dict_from_datetime_string("%04d-%02d-%02d" % [calendar.selected_year, calendar.selected_month, counter], true).weekday
-		calendar_header_weekday.update(weekday)

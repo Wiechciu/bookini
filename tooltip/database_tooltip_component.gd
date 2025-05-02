@@ -1,11 +1,10 @@
-class_name TooltipComponent
+class_name DatabaseTooltipComponent
 extends Node
 
 
-@export var control_to_check: Control
+@export var control_to_check: LineEdit
 @export var tooltip_scene: PackedScene
 @export var delay: float = 0.5
-@export var text: String = ""
 var tooltip: Tooltip
 
 
@@ -16,7 +15,7 @@ func _ready() -> void:
 
 
 func assign_controls() -> bool:
-	if control_to_check == null and get_parent() is Control:
+	if control_to_check == null and get_parent() is LineEdit:
 		control_to_check = get_parent()
 	
 	return control_to_check != null
@@ -28,16 +27,14 @@ func connect_signals() -> void:
 
 
 func _on_mouse_entered() -> void:
-	var tooltip_string: String = text
-	
-	if tooltip_string == "":
-		tooltip_string = control_to_check.get_tooltip_string()
-	
+	var tooltip_string: String = control_to_check.text
 	if tooltip_string == "":
 		return
-	
 	tooltip = tooltip_scene.instantiate()
 	get_tree().root.add_child(tooltip)
+	if tooltip_string.length() > 20:
+		tooltip.label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		tooltip.label.custom_minimum_size.x = 300
 	tooltip.initialize(tooltip_string, delay)
 
 

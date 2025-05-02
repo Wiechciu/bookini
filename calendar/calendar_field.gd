@@ -2,6 +2,7 @@ class_name CalendarField
 extends Control
 
 const STYLE_ACTIVE: String = "PanelContainerCalendarField"
+const STYLE_WEEKEND: String = "PanelContainerCalendarFieldWeekend"
 const STYLE_INACTIVE: String = "PanelContainerCalendarFieldInactive"
 
 const STYLE_CLEAR: String = "PanelContainerCalendarFieldClear"
@@ -16,6 +17,13 @@ var calendar: Calendar
 var day: int
 var room: Room
 var bookings: Array[Booking]
+var last_clicked: int = 0
+
+
+func _gui_input(event: InputEvent) -> void:
+	if event.is_action_pressed("mouse_click") and not bookings.is_empty():
+		last_clicked = wrapi(last_clicked + 1, 0, bookings.size())
+		calendar.database.select_database_item_by_booking(bookings[last_clicked])
 
 
 func check_booking(booking_to_check: Booking) -> void:
@@ -23,6 +31,8 @@ func check_booking(booking_to_check: Booking) -> void:
 		return
 	if room.name != booking_to_check.room:
 		return
+	
+	last_clicked = 0
 	
 	var start_unix_time = Time.get_unix_time_from_datetime_string(booking_to_check.start_date)
 	var end_unix_time = Time.get_unix_time_from_datetime_string(booking_to_check.end_date)
@@ -34,9 +44,6 @@ func check_booking(booking_to_check: Booking) -> void:
 			is_overbooking = true
 			break
 	
-	#if field_unix_time >= start_unix_time and field_unix_time <= end_unix_time and not bookings.is_empty():
-		#bookings.append(booking_to_check)
-		#paint_full_day_overbooking()
 	if field_unix_time == start_unix_time:
 		bookings.append(booking_to_check)
 		paint_check_in_overbooking() if is_overbooking else paint_check_in()
@@ -50,6 +57,9 @@ func check_booking(booking_to_check: Booking) -> void:
 
 func paint_active() -> void:
 	theme_type_variation = STYLE_ACTIVE
+
+func paint_weekend() -> void:
+	theme_type_variation = STYLE_WEEKEND
 
 func paint_inactive() -> void:
 	theme_type_variation = STYLE_INACTIVE
@@ -82,5 +92,5 @@ func paint_check_out_overbooking() -> void:
 func get_tooltip_string() -> String:
 	var text: String = ""
 	for booking: Booking in bookings:
-		text = text + "\n#%s: %s (%s - %s)" % [booking.id, booking.name, booking.start_date, booking.end_date]
+		text = text + "\n#%s | %s - %s | %s" % [booking.id, booking.start_date, booking.end_date, booking.name]
 	return text.lstrip("\n")

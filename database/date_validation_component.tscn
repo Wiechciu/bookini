@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" uid="uid://bnpav5eril16q" path="res://database/date_validation_component.gd" id="1_o0qno"]
 
-[node name="ValidateStringComponent" type="Node"]
+[node name="DateValidationComponent" type="Node"]
 script = ExtResource("1_o0qno")

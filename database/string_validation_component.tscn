@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b87p8d3gl8mex"]
+
+[ext_resource type="Script" uid="uid://dw4kx2cvn6fd1" path="res://database/string_validation_component.gd" id="1_m7iis"]
+
+[node name="StringValidationComponent" type="Node"]
+script = ExtResource("1_m7iis")

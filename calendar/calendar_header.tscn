@@ -10,7 +10,7 @@ theme_type_variation = &"PanelContainerCalendarHeader"
 script = ExtResource("1_s7e30")
 previous_button = NodePath("HBoxContainer/CalendarPreviousButton")
 next_button = NodePath("HBoxContainer/CalendarNextButton")
-reset_button = NodePath("HBoxContainer/Control/ResetButton")
+reset_button = NodePath("HBoxContainer/ResetButtonControl/ResetButton")
 month_label = NodePath("HBoxContainer/VBoxContainer/MonthButtonsContainer/MonthLabel")
 calendar_header_fields_container = NodePath("HBoxContainer/VBoxContainer/CalendarHeaderFieldsContainer")
 calendar_header_weekdays_container = NodePath("HBoxContainer/VBoxContainer/CalendarHeaderWeekdaysContainer")
@@ -32,21 +32,6 @@ layout_mode = 2
 theme_type_variation = &"ButtonCalendar"
 text = "<"
 alignment = 2
-
-[node name="Control" type="Control" parent="HBoxContainer"]
-layout_mode = 2
-
-[node name="ResetButton" type="TextureButton" parent="HBoxContainer/Control"]
-modulate = Color(0, 0, 0, 1)
-custom_minimum_size = Vector2(28, 28)
-layout_mode = 0
-offset_right = 28.0
-offset_bottom = 28.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-texture_normal = ExtResource("2_akdfb")
-ignore_texture_size = true
-stretch_mode = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
@@ -357,9 +342,28 @@ layout_mode = 2
 [node name="CalendarHeaderWeekday31" parent="HBoxContainer/VBoxContainer/CalendarHeaderWeekdaysContainer" instance=ExtResource("4_b1rga")]
 layout_mode = 2
 
+[node name="ResetButtonControl" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="ResetButton" type="TextureButton" parent="HBoxContainer/ResetButtonControl"]
+modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -28.0
+offset_bottom = 28.0
+grow_horizontal = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("2_akdfb")
+ignore_texture_size = true
+stretch_mode = 0
+
 [node name="CalendarNextButton" type="Button" parent="HBoxContainer"]
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
-theme_type_variation = &"ButtonCalendar"
+theme_type_variation = &"ButtonCalendarRight"
 text = ">"
 alignment = 0

@@ -4,7 +4,6 @@ extends PanelContainer
 
 @export var database: Database
 @export var clear_button: Button
-@export var label_container: Container
 @export var id_label: LineEdit
 @export var name_label: LineEdit
 @export var phone_label: LineEdit
@@ -20,24 +19,25 @@ extends PanelContainer
 @export var invoice_label: LineEdit
 @export var invoice_status_label: LineEdit
 @export var remarks_label: LineEdit
+var line_edits: Array[LineEdit]
 var cached_content: String
 
 
 func _ready() -> void:
 	clear_button.pressed.connect(_on_clear_button_pressed)
 	hide_clear_button()
-	for child: Control in label_container.get_children():
-		if child is LineEdit:
-			child.clear()
-			child.text_submitted.connect(_on_submit_or_focus_exited.bind(child).unbind(1))
-			child.focus_entered.connect(_on_focus_entered.bind(child))
-			child.focus_exited.connect(_on_submit_or_focus_exited.bind(child))
+	for line_edit: LineEdit in find_children("*", "LineEdit", true):
+		line_edits.append(line_edit)
+		line_edit.clear()
+		line_edit.text_submitted.connect(_on_submit_or_focus_exited.bind(line_edit).unbind(1))
+		line_edit.focus_entered.connect(_on_focus_entered.bind(line_edit))
+		line_edit.focus_exited.connect(_on_submit_or_focus_exited.bind(line_edit))
+	connect_split_containers_to_header()
 
 
 func _on_clear_button_pressed() -> void:
-	for child: Control in label_container.get_children():
-		if child is LineEdit:
-			child.text = ""
+	for line_edit: LineEdit in line_edits:
+		line_edit.text = ""
 	database.filter_database()
 	hide_clear_button()
 
@@ -69,7 +69,18 @@ func show_clear_button() -> void:
 
 
 func is_any_filter_applied() -> bool:
-	for child: Control in label_container.get_children():
-		if child is LineEdit and child.text != "":
+	for line_edit: LineEdit in line_edits:
+		if line_edit.text != "":
 			return true
 	return false
+
+
+func connect_split_containers_to_header() -> void:
+	var counter: int = -1
+	for split_container: SplitContainer in find_children("*", "SplitContainer", true):
+		counter += 1
+		database.database_header.split_containers[counter].dragged.connect(update_split_container.bind(split_container))
+
+
+func update_split_container(offset: int, split_container: SplitContainer) -> void:
+	split_container.split_offset = offset

@@ -3,9 +3,12 @@ extends PanelContainer
 
 signal item_updated
 
+const STYLE_NORMAL: String = "PanelContainerDatabaseItem"
+const STYLE_SELECTED: String = "PanelContainerDatabaseItemSelected"
+@export var editing_stylebox_override: StyleBox
+
 @export var delete_confirmation_scene: PackedScene
 @export var delete_button: Button
-@export var label_container: Container
 @export var id_label: Label
 @export var name_label: LineEdit
 @export var phone_label: LineEdit
@@ -24,16 +27,23 @@ signal item_updated
 var booking: Booking
 var database: Database
 var cached_content: String
+var line_edits: Array[LineEdit]
 
 
-func _ready() -> void:
+func initialize(database_to_assign: Database, booking_to_assign: Booking) -> void:
+	for line_edit: LineEdit in find_children("*", "LineEdit", true):
+		line_edits.append(line_edit)
+		line_edit.clear()
+		line_edit.editing_toggled.connect(_on_editing_toggled.bind(line_edit))
+		line_edit.focus_entered.connect(_on_focus_entered.bind(line_edit))
+		line_edit.focus_exited.connect(_on_focus_exited.bind(line_edit))
+	
+	database = database_to_assign
+	assign_booking(booking_to_assign)
+	
 	delete_button.pressed.connect(_on_delete_button_pressed)
 	hide_delete_button()
-	for child: Control in label_container.get_children():
-		if child is LineEdit:
-			child.clear()
-			child.focus_entered.connect(_on_focus_entered.bind(child))
-			child.focus_exited.connect(_on_focus_exited.bind(child))
+	connect_split_containers_to_header()
 
 
 func _on_delete_button_pressed() -> void:
@@ -45,20 +55,28 @@ func _on_delete_button_pressed() -> void:
 	get_tree().root.add_child(delete_confirmation)
 	var result: bool = await delete_confirmation.result
 	if result:
+		booking.status = Booking.Status.DELETED
 		database.remove_item(self)
 
 
-func _on_focus_entered(child: LineEdit) -> void:
+func _on_editing_toggled(toggled_on: bool, line_edit: LineEdit) -> void:
+	if toggled_on:
+		line_edit.add_theme_stylebox_override("focus", editing_stylebox_override)
+	else:
+		line_edit.remove_theme_stylebox_override("focus")
+
+
+func _on_focus_entered(line_edit: LineEdit) -> void:
 	show_delete_button()
-	cached_content = child.text
-	theme_type_variation = "PanelContainerDatabaseItemSelected"
+	cached_content = line_edit.text
+	theme_type_variation = STYLE_SELECTED
 	database.selected_item = self
 
 
-func _on_focus_exited(child: LineEdit) -> void:
+func _on_focus_exited(line_edit: LineEdit) -> void:
 	hide_delete_button()
-	theme_type_variation = "PanelContainerDatabaseItem"
-	if child.text == cached_content:
+	theme_type_variation = STYLE_NORMAL
+	if line_edit.text == cached_content:
 		return
 	update_booking()
 
@@ -76,6 +94,7 @@ func assign_booking(booking_to_assign: Booking = null) -> void:
 		booking = Booking.create()
 		id_label.text = str(booking.id)
 		return
+	
 	booking = booking_to_assign
 	id_label.text = str(booking.id)
 	name_label.text = booking.name
@@ -114,8 +133,21 @@ func update_booking() -> void:
 		)
 	print("ID %s updated" % id_label.text)
 	item_updated.emit()
+	database.sort_database()
 
 
 func start_editing() -> void:
 	await get_tree().process_frame
 	name_label.grab_focus()
+
+
+func connect_split_containers_to_header() -> void:
+	var counter: int = -1
+	for split_container: SplitContainer in find_children("*", "SplitContainer", true):
+		counter += 1
+		database.database_header.split_containers[counter].dragged.connect(update_split_container.bind(split_container))
+		update_split_container(database.database_header.split_containers[counter].split_offset, split_container)
+
+
+func update_split_container(offset: int, split_container: SplitContainer) -> void:
+	split_container.split_offset = offset

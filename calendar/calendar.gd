@@ -81,6 +81,8 @@ func _on_database_item_updated() -> void:
 func update_colors() -> void:
 	reset_colors()
 	for booking: Booking in GlobalRefs.bookings:
+		if booking.status != Booking.Status.ACTIVE:
+			continue
 		apply_colors(booking)
 
 

@@ -3,18 +3,20 @@ extends Control
 
 
 @export var label: Label
-@export var show_delay: float = 0.5
 
-func _ready() -> void:
-	visible = false
-	await get_tree().create_timer(show_delay).timeout
-	visible = true
-
-
-func set_text(new_text: String) -> void:
-	label.text = new_text
+func initialize(text: String, delay: float) -> void:
+	label.text = text
+	hide()
+	await get_tree().create_timer(delay).timeout
+	show()
 
 
 func _process(delta: float) -> void:
 	global_position = get_viewport().get_mouse_position()
-	global_position.x -= size.x
+	
+	# flip vertically
+	if global_position.y + size.y > get_window().size.y:
+		global_position.y -= size.y
+	# flip horizontally
+	if global_position.x - size.x > 0:
+		global_position.x -= size.x

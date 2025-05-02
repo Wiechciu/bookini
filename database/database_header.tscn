@@ -1,26 +1,45 @@
-[gd_scene format=3 uid="uid://d26lkxydpbp38"]
+[gd_scene load_steps=3 format=3 uid="uid://d26lkxydpbp38"]
 
-[node name="DatabaseHeader" type="PanelContainer"]
+[ext_resource type="Script" uid="uid://bps73sxuq280n" path="res://database/database_header.gd" id="1_bnybt"]
+[ext_resource type="Texture2D" uid="uid://b04ijkpxcm25m" path="res://refresh.png" id="2_r2268"]
+
+[node name="DatabaseHeader" type="PanelContainer" node_paths=PackedStringArray("reset_button", "id_label", "start_date_label")]
+offset_right = 1500.0
+offset_bottom = 52.0
 size_flags_horizontal = 3
 focus_mode = 1
 theme_type_variation = &"PanelContainerDatabaseHeader"
+script = ExtResource("1_bnybt")
+reset_button = NodePath("ResetButton")
+id_label = NodePath("HSplitContainer1/ID")
+start_date_label = NodePath("HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/StartDate")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HSplitContainer1" type="HSplitContainer" parent="."]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+theme_type_variation = &"SplitContainerTable"
+split_offset = 60
 
-[node name="Label" type="Label" parent="HBoxContainer"]
-custom_minimum_size = Vector2(60, 0)
+[node name="ID" type="Label" parent="HSplitContainer1"]
+custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_vertical = 1
+mouse_filter = 1
 theme_type_variation = &"LabelDatabaseHeader"
-text = "LP"
+text = "ID"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+clip_text = true
+text_overrun_behavior = 6
 
-[node name="Label14" type="Label" parent="HBoxContainer"]
-custom_minimum_size = Vector2(160, 0)
+[node name="HSplitContainer2" type="HSplitContainer" parent="HSplitContainer1"]
+layout_mode = 2
+theme_type_variation = &"SplitContainerTable"
+split_offset = 160
+
+[node name="Label2" type="Label" parent="HSplitContainer1/HSplitContainer2"]
+custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_vertical = 1
 theme_type_variation = &"LabelDatabaseHeader"
@@ -28,9 +47,16 @@ text = "Imię i nazwisko"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+clip_text = true
+text_overrun_behavior = 6
 
-[node name="Label2" type="Label" parent="HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
+[node name="HSplitContainer3" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2"]
+layout_mode = 2
+theme_type_variation = &"SplitContainerTable"
+split_offset = 100
+
+[node name="Label3" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3"]
+custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_vertical = 1
 theme_type_variation = &"LabelDatabaseHeader"
@@ -38,9 +64,16 @@ text = "Numer telefonu"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+clip_text = true
+text_overrun_behavior = 6
 
-[node name="Label3" type="Label" parent="HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
+[node name="HSplitContainer4" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3"]
+layout_mode = 2
+theme_type_variation = &"SplitContainerTable"
+split_offset = 100
+
+[node name="Label4" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4"]
+custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_vertical = 1
 theme_type_variation = &"LabelDatabaseHeader"
@@ -48,19 +81,34 @@ text = "PESEL"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+clip_text = true
+text_overrun_behavior = 6
 
-[node name="Label4" type="Label" parent="HBoxContainer"]
-custom_minimum_size = Vector2(70, 0)
+[node name="HSplitContainer5" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4"]
+layout_mode = 2
+theme_type_variation = &"SplitContainerTable"
+split_offset = 70
+
+[node name="StartDate" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5"]
+custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_vertical = 1
+mouse_filter = 1
 theme_type_variation = &"LabelDatabaseHeader"
 text = "Pobyt od"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+clip_text = true
+text_overrun_behavior = 6
 
-[node name="Label5" type="Label" parent="HBoxContainer"]
-custom_minimum_size = Vector2(70, 0)
+[node name="HSplitContainer6" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5"]
+layout_mode = 2
+theme_type_variation = &"SplitContainerTable"
+split_offset = 70
+
+[node name="Label6" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6"]
+custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_vertical = 1
 theme_type_variation = &"LabelDatabaseHeader"
@@ -68,9 +116,16 @@ text = "Pobyt do"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+clip_text = true
+text_overrun_behavior = 6
 
-[node name="Label6" type="Label" parent="HBoxContainer"]
-custom_minimum_size = Vector2(70, 0)
+[node name="HSplitContainer7" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6"]
+layout_mode = 2
+theme_type_variation = &"SplitContainerTable"
+split_offset = 70
+
+[node name="Label7" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7"]
+custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_vertical = 1
 theme_type_variation = &"LabelDatabaseHeader"
@@ -78,9 +133,16 @@ text = "Pokój"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+clip_text = true
+text_overrun_behavior = 6
 
-[node name="Label7" type="Label" parent="HBoxContainer"]
-custom_minimum_size = Vector2(70, 0)
+[node name="HSplitContainer8" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7"]
+layout_mode = 2
+theme_type_variation = &"SplitContainerTable"
+split_offset = 70
+
+[node name="Label8" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8"]
+custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_vertical = 1
 theme_type_variation = &"LabelDatabaseHeader"
@@ -88,9 +150,16 @@ text = "Ilość osób"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+clip_text = true
+text_overrun_behavior = 6
 
-[node name="Label8" type="Label" parent="HBoxContainer"]
-custom_minimum_size = Vector2(70, 0)
+[node name="HSplitContainer9" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8"]
+layout_mode = 2
+theme_type_variation = &"SplitContainerTable"
+split_offset = 70
+
+[node name="Label9" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9"]
+custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_vertical = 1
 theme_type_variation = &"LabelDatabaseHeader"
@@ -98,9 +167,16 @@ text = "Zaliczka kwota"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+clip_text = true
+text_overrun_behavior = 6
 
-[node name="Label9" type="Label" parent="HBoxContainer"]
-custom_minimum_size = Vector2(70, 0)
+[node name="HSplitContainer10" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9"]
+layout_mode = 2
+theme_type_variation = &"SplitContainerTable"
+split_offset = 70
+
+[node name="Label10" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10"]
+custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_vertical = 1
 theme_type_variation = &"LabelDatabaseHeader"
@@ -108,9 +184,16 @@ text = "Zaliczka data"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+clip_text = true
+text_overrun_behavior = 6
 
-[node name="Label10" type="Label" parent="HBoxContainer"]
-custom_minimum_size = Vector2(70, 0)
+[node name="HSplitContainer11" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10"]
+layout_mode = 2
+theme_type_variation = &"SplitContainerTable"
+split_offset = 70
+
+[node name="Label11" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11"]
+custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_vertical = 1
 theme_type_variation = &"LabelDatabaseHeader"
@@ -118,9 +201,16 @@ text = "Zapłata kwota"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+clip_text = true
+text_overrun_behavior = 6
 
-[node name="Label11" type="Label" parent="HBoxContainer"]
-custom_minimum_size = Vector2(70, 0)
+[node name="HSplitContainer12" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11"]
+layout_mode = 2
+theme_type_variation = &"SplitContainerTable"
+split_offset = 70
+
+[node name="Label12" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11/HSplitContainer12"]
+custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_vertical = 1
 theme_type_variation = &"LabelDatabaseHeader"
@@ -128,9 +218,16 @@ text = "Zapłata data"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+clip_text = true
+text_overrun_behavior = 6
 
-[node name="Label12" type="Label" parent="HBoxContainer"]
-custom_minimum_size = Vector2(70, 0)
+[node name="HSplitContainer13" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11/HSplitContainer12"]
+layout_mode = 2
+theme_type_variation = &"SplitContainerTable"
+split_offset = 70
+
+[node name="Label13" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11/HSplitContainer12/HSplitContainer13"]
+custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_vertical = 1
 theme_type_variation = &"LabelDatabaseHeader"
@@ -138,9 +235,16 @@ text = "Faktura"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+clip_text = true
+text_overrun_behavior = 6
 
-[node name="Label13" type="Label" parent="HBoxContainer"]
-custom_minimum_size = Vector2(70, 0)
+[node name="HSplitContainer14" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11/HSplitContainer12/HSplitContainer13"]
+layout_mode = 2
+theme_type_variation = &"SplitContainerTable"
+split_offset = 70
+
+[node name="Label14" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11/HSplitContainer12/HSplitContainer13/HSplitContainer14"]
+custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_vertical = 1
 theme_type_variation = &"LabelDatabaseHeader"
@@ -148,9 +252,19 @@ text = "Status faktury"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+clip_text = true
+text_overrun_behavior = 6
 
-[node name="Label15" type="Label" parent="HBoxContainer"]
-custom_minimum_size = Vector2(70, 0)
+[node name="HSplitContainer15" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11/HSplitContainer12/HSplitContainer13/HSplitContainer14"]
+layout_mode = 2
+theme_type_variation = &"SplitContainerTable"
+split_offset = 70
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11/HSplitContainer12/HSplitContainer13/HSplitContainer14/HSplitContainer15"]
+layout_mode = 2
+
+[node name="Label15" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11/HSplitContainer12/HSplitContainer13/HSplitContainer14/HSplitContainer15/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -159,3 +273,19 @@ text = "Notatka"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+clip_text = true
+text_overrun_behavior = 6
+
+[node name="ScrollbarMargin" type="Control" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11/HSplitContainer12/HSplitContainer13/HSplitContainer14/HSplitContainer15/HBoxContainer"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="ResetButton" type="TextureButton" parent="."]
+modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture_normal = ExtResource("2_r2268")
+ignore_texture_size = true
+stretch_mode = 0
