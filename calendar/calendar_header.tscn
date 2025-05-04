@@ -44,7 +44,6 @@ mouse_filter = 2
 [node name="CalendarPreviousButton" type="Button" parent="HBoxContainer/VBoxContainer/MonthButtonsContainer"]
 custom_minimum_size = Vector2(20, 15)
 layout_mode = 2
-text = "<"
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/MonthButtonsContainer/CalendarPreviousButton"]
 layout_mode = 1
@@ -113,7 +112,6 @@ text = "wróć do bieżącego miesiąca"
 [node name="CalendarNextButton" type="Button" parent="HBoxContainer/VBoxContainer/MonthButtonsContainer"]
 custom_minimum_size = Vector2(20, 15)
 layout_mode = 2
-text = ">"
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/MonthButtonsContainer/CalendarNextButton"]
 layout_mode = 1

@@ -63,6 +63,7 @@ stretch_mode = 5
 text = "wyczyść filtr"
 
 [node name="Id" type="LineEdit" parent="HSplitContainer/HBoxContainer"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(20, 25)
 layout_mode = 2
 theme_type_variation = &"LineEditDatabaseItem"
@@ -80,6 +81,7 @@ split_offset = 160
 dragging_enabled = false
 
 [node name="Name" type="LineEdit" parent="HSplitContainer/HSplitContainer"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(40, 25)
 layout_mode = 2
 theme_type_variation = &"LineEditDatabaseItem"
@@ -96,6 +98,7 @@ split_offset = 100
 dragging_enabled = false
 
 [node name="Phone" type="LineEdit" parent="HSplitContainer/HSplitContainer/HSplitContainer"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(40, 25)
 layout_mode = 2
 theme_type_variation = &"LineEditDatabaseItem"
@@ -113,6 +116,7 @@ split_offset = 100
 dragging_enabled = false
 
 [node name="Pesel" type="LineEdit" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(40, 25)
 layout_mode = 2
 theme_type_variation = &"LineEditDatabaseItem"
@@ -133,6 +137,7 @@ split_offset = 70
 dragging_enabled = false
 
 [node name="StartDate" type="LineEdit" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(40, 25)
 layout_mode = 2
 theme_type_variation = &"LineEditDatabaseItem"
@@ -156,6 +161,7 @@ split_offset = 70
 dragging_enabled = false
 
 [node name="EndDate" type="LineEdit" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(40, 25)
 layout_mode = 2
 theme_type_variation = &"LineEditDatabaseItem"
@@ -179,6 +185,7 @@ split_offset = 70
 dragging_enabled = false
 
 [node name="Room" type="OptionButton" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(40, 25)
 layout_mode = 2
 theme_type_variation = &"OptionButtonDatabaseItem"
@@ -198,6 +205,7 @@ split_offset = 70
 dragging_enabled = false
 
 [node name="Quantity" type="LineEdit" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(40, 25)
 layout_mode = 2
 theme_type_variation = &"LineEditDatabaseItem"
@@ -215,6 +223,7 @@ split_offset = 70
 dragging_enabled = false
 
 [node name="PrepaidAmount" type="LineEdit" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(40, 25)
 layout_mode = 2
 theme_type_variation = &"LineEditDatabaseItem"
@@ -232,6 +241,7 @@ split_offset = 70
 dragging_enabled = false
 
 [node name="PrepaidDate" type="LineEdit" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(40, 25)
 layout_mode = 2
 theme_type_variation = &"LineEditDatabaseItem"
@@ -255,6 +265,7 @@ split_offset = 70
 dragging_enabled = false
 
 [node name="PaymentAmount" type="LineEdit" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(40, 25)
 layout_mode = 2
 theme_type_variation = &"LineEditDatabaseItem"
@@ -272,6 +283,7 @@ split_offset = 70
 dragging_enabled = false
 
 [node name="PaymentDate" type="LineEdit" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(40, 25)
 layout_mode = 2
 theme_type_variation = &"LineEditDatabaseItem"
@@ -317,6 +329,7 @@ dragging_enabled = false
 layout_mode = 2
 
 [node name="Remarks" type="LineEdit" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HBoxContainer"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(40, 25)
 layout_mode = 2
 size_flags_horizontal = 3

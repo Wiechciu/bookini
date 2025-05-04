@@ -16,15 +16,26 @@ func _ready() -> void:
 	_on_database_item_updated.call_deferred()
 
 
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_TRANSLATION_CHANGED:
+		if not is_node_ready():
+			await ready
+		update_labels()
+
+
 func _on_database_item_updated() -> void:
 	last_clicked = 0
-	overbookings = GlobalRefs.overbookings #FIXME - should actually find overbookings. Maybe precalculate it in the GlobalRefs dicts instead
+	overbookings = GlobalRefs.overbookings
 	var overbooking_count: int = overbookings.size()
 	if overbooking_count == 0:
 		hide()
 	else:
 		show()
-		label.text = "%s overbookingów" % overbooking_count
+		update_labels()
+
+
+func update_labels() -> void:
+	label.text = atr("{count} overbookingów").format({"count" = overbookings.size()})
 
 
 func _gui_input(event: InputEvent) -> void:

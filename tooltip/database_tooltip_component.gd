@@ -31,7 +31,7 @@ func _on_mouse_entered() -> void:
 	if control_to_check is LineEdit:
 		tooltip_string = control_to_check.text
 	elif control_to_check is OptionButton and control_to_check.selected != -1:
-		tooltip_string = control_to_check.get_item_text(control_to_check.selected)
+		tooltip_string = atr(control_to_check.text)
 	
 	if tooltip_string == "":
 		return

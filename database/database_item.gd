@@ -31,7 +31,7 @@ var cached_content: String
 
 func initialize(database_to_assign: Database, booking_to_assign: Booking) -> void:
 	Utils.add_items_to_option_button(GlobalRefs.room_names, room_label, -1)
-	Utils.add_items_to_option_button(GlobalRefs.INVOICE_STATUS_ITEMS, invoice_status_label, -1)
+	Utils.add_items_to_option_button(GlobalRefs.invoice_status_items, invoice_status_label, -1)
 	for line_edit: LineEdit in find_children("*", "LineEdit", true):
 		line_edit.clear()
 		line_edit.editing_toggled.connect(_on_editing_toggled.bind(line_edit))

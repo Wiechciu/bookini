@@ -28,7 +28,7 @@ func _ready() -> void:
 	hide_clear_button()
 	
 	Utils.add_items_to_option_button(GlobalRefs.room_names, room_label, -1)
-	Utils.add_items_to_option_button(GlobalRefs.INVOICE_STATUS_ITEMS, invoice_status_label, -1)
+	Utils.add_items_to_option_button(GlobalRefs.invoice_status_items, invoice_status_label, -1)
 	for line_edit: LineEdit in find_children("*", "LineEdit", true):
 		line_edits.append(line_edit)
 		line_edit.clear()

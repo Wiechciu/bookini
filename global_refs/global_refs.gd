@@ -1,16 +1,16 @@
 extends Node
 
-const INVOICE_STATUS_ITEMS: Array[String] = [
-	"Nie dotyczy",
-	"Nieopłacona",
-	"Opłacona",
-]
-
 enum OccupancyType {
 	CHECK_IN,
 	CHECK_OUT,
 	FULL_DAY,
 }
+
+var invoice_status_items: Array[String] = [
+	atr("Nie dotyczy"),
+	atr("Nieopłacona"),
+	atr("Opłacona"),
+]
 
 @export var rooms: Array[Room]
 var room_names: Array[String]:

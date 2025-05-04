@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cghapkildl4rr" path="res://tooltip/tooltip_component.tscn" id="4_avam6"]
 [ext_resource type="Texture2D" uid="uid://cbs1gu14546ux" path="res://folder.png" id="5_moll0"]
 
-[node name="Navigation" type="PanelContainer" node_paths=PackedStringArray("help_button", "open_save_location_button")]
+[node name="Navigation" type="PanelContainer" node_paths=PackedStringArray("help_button", "open_save_location_button", "language_button")]
 custom_minimum_size = Vector2(30, 0)
 offset_right = 30.0
 offset_bottom = 200.0
@@ -15,6 +15,7 @@ script = ExtResource("1_kgjf5")
 help_scene = ExtResource("2_leccq")
 help_button = NodePath("VBoxContainer/HelpButton")
 open_save_location_button = NodePath("VBoxContainer/OpenSaveLocationButton")
+language_button = NodePath("VBoxContainer/Language")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -53,3 +54,23 @@ expand_mode = 2
 
 [node name="TooltipComponent" parent="VBoxContainer/OpenSaveLocationButton" instance=ExtResource("4_avam6")]
 text = "Otwórz lokalizację bazy danych"
+
+[node name="Language" type="Button" parent="VBoxContainer"]
+auto_translate_mode = 2
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+text = "PL"
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Language"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_moll0")
+expand_mode = 2
+
+[node name="TooltipComponent" parent="VBoxContainer/Language" instance=ExtResource("4_avam6")]
+text = "Zmień język"

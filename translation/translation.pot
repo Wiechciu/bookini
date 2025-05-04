@@ -16,6 +16,43 @@
 # res://database/focus_component.tscn
 # res://database/string_validation_component.gd
 # res://database/string_validation_component.tscn
+# res://calendar/calendar.gd
+# res://calendar/calendar.tscn
+# res://calendar/calendar_field.gd
+# res://calendar/calendar_field.tscn
+# res://calendar/calendar_header.gd
+# res://calendar/calendar_header.tscn
+# res://calendar/calendar_header_field.gd
+# res://calendar/calendar_header_field.tscn
+# res://calendar/calendar_header_weekday.gd
+# res://calendar/calendar_header_weekday.tscn
+# res://calendar/calendar_row.gd
+# res://calendar/calendar_row.tscn
+# res://global_refs/global_refs.gd
+# res://global_refs/global_refs.tscn
+# res://navigation/navigation.gd
+# res://navigation/navigation.tscn
+# res://overbooking_warning/overbooking_warning.gd
+# res://overbooking_warning/overbooking_warning.tscn
+# res://popup_windows/delete_confirmation.gd
+# res://popup_windows/delete_confirmation.tscn
+# res://popup_windows/help.gd
+# res://popup_windows/help.tscn
+# res://room/room.gd
+# res://room_information/room_information.gd
+# res://room_information/room_information.tscn
+# res://tooltip/database_tooltip_component.gd
+# res://tooltip/database_tooltip_component.tscn
+# res://tooltip/tooltip.gd
+# res://tooltip/tooltip.tscn
+# res://tooltip/tooltip_component.gd
+# res://tooltip/tooltip_component.tscn
+# res://animate_on_hover_component.gd
+# res://animate_on_hover_component.tscn
+# res://app_header.tscn
+# res://close_button.gd
+# res://main.tscn
+# res://utils.gd
 #
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -32,6 +69,7 @@ msgid "Dodaj nowy (Ctrl+D)"
 msgstr ""
 
 #: database/database_filter.gd
+#: room_information/room_information.gd
 msgid ""
 msgstr ""
 
@@ -40,11 +78,8 @@ msgid "wyczyść filtr"
 msgstr ""
 
 #: database/database_filter.tscn
-msgid "1"
-msgstr ""
-
-#: database/database_filter.tscn
 #: database/database_item.tscn
+#: global_refs/global_refs.gd
 msgid "Nieopłacona"
 msgstr ""
 
@@ -116,6 +151,204 @@ msgstr ""
 msgid "usuń rezerwację"
 msgstr ""
 
-#: database/database_item.tscn
-msgid "1234"
+#: calendar/calendar_header.gd
+msgid "styczeń"
+msgstr ""
+
+#: calendar/calendar_header.gd
+msgid "luty"
+msgstr ""
+
+#: calendar/calendar_header.gd
+msgid "marzec"
+msgstr ""
+
+#: calendar/calendar_header.gd
+msgid "kwiecień"
+msgstr ""
+
+#: calendar/calendar_header.gd
+msgid "maj"
+msgstr ""
+
+#: calendar/calendar_header.gd
+msgid "czerwiec"
+msgstr ""
+
+#: calendar/calendar_header.gd
+msgid "lipiec"
+msgstr ""
+
+#: calendar/calendar_header.gd
+msgid "sierpień"
+msgstr ""
+
+#: calendar/calendar_header.gd
+msgid "wrzesień"
+msgstr ""
+
+#: calendar/calendar_header.gd
+msgid "październik"
+msgstr ""
+
+#: calendar/calendar_header.gd
+msgid "listopad"
+msgstr ""
+
+#: calendar/calendar_header.gd
+msgid "grudzień"
+msgstr ""
+
+#: calendar/calendar_header.tscn
+msgid "Pokoje"
+msgstr ""
+
+#: calendar/calendar_header.tscn
+msgid "poprzedni miesiąc"
+msgstr ""
+
+#: calendar/calendar_header.tscn
+msgid "styczeń 2025"
+msgstr ""
+
+#: calendar/calendar_header.tscn
+msgid "wróć do bieżącego miesiąca"
+msgstr ""
+
+#: calendar/calendar_header.tscn
+msgid "następny miesiąc"
+msgstr ""
+
+#: calendar/calendar_header_weekday.gd
+msgid "pn"
+msgstr ""
+
+#: calendar/calendar_header_weekday.gd
+#: calendar/calendar_header_weekday.tscn
+msgid "wt"
+msgstr ""
+
+#: calendar/calendar_header_weekday.gd
+msgid "śr"
+msgstr ""
+
+#: calendar/calendar_header_weekday.gd
+msgid "cz"
+msgstr ""
+
+#: calendar/calendar_header_weekday.gd
+msgid "pt"
+msgstr ""
+
+#: calendar/calendar_header_weekday.gd
+msgid "sb"
+msgstr ""
+
+#: calendar/calendar_header_weekday.gd
+msgid "nd"
+msgstr ""
+
+#: global_refs/global_refs.gd
+msgid "Nie dotyczy"
+msgstr ""
+
+#: global_refs/global_refs.gd
+msgid "Opłacona"
+msgstr ""
+
+#: navigation/navigation.tscn
+msgid "Skróty klawiszowe, funkcje, legenda"
+msgstr ""
+
+#: navigation/navigation.tscn
+msgid "Otwórz lokalizację bazy danych"
+msgstr ""
+
+#: overbooking_warning/overbooking_warning.gd
+#: overbooking_warning/overbooking_warning.tscn
+msgid "{count} overbookingów"
+msgstr ""
+
+#: popup_windows/delete_confirmation.tscn
+msgid "Czy na pewno chcesz usunąć wpis #{ID}?"
+msgstr ""
+
+#: popup_windows/delete_confirmation.tscn
+msgid "Tak"
+msgstr ""
+
+#: popup_windows/delete_confirmation.tscn
+msgid "Nie"
+msgstr ""
+
+#: popup_windows/help.tscn
+msgid ""
+"[font_size=16][center][u]Kolory w kalendarzu:[/u][/center][/font_size]\n"
+"\t[bgcolor=004282]   [/bgcolor]\t\tZameldowanie\n"
+"\t[bgcolor=0067c5]   [/bgcolor]\t\tZarezerwowany dzień\n"
+"\t[bgcolor=6aadff]   [/bgcolor]\t\tWymeldowanie\n"
+"\t[bgcolor=ad0000]   [/bgcolor]\t\tOverbooking\n"
+"\t[bgcolor=f7f1ad]   [/bgcolor]\t\tWeekend\n"
+"\t[bgcolor=b3aee7]   [/bgcolor]\t\tDzisiaj\n"
+"\n"
+"[font_size=16][center][u]Skróty klawiszowe:[/u][/center][/font_size]\n"
+"[ul]\n"
+"Ctrl + D\t\t\t\t- dodaj nowy wpis\n"
+"Ctrl + Q\t\t\t\t- wpisz dzisiejszą datę\n"
+"Ctrl + `\t\t\t\t- wpisz dzisiejszą datę\n"
+"Ctrl + 1...9\t\t\t- wpisz dzisiejszą datę + X dni\n"
+"F1...F12\t\t\t\t- wpisz dzisiejszą datę + X dni\n"
+"Tab\t\t\t\t\t\t- zatwierdź i przejdź do następnego pola\n"
+"Shift + Tab\t\t\t- zatwierdź i przejdź do poprzedniego pola\n"
+"Enter\t\t\t\t\t- zatwierdź i zostań w polu\n"
+"Strzałki\t\t\t\t- przejdź do pola obok\n"
+"[/ul]\n"
+"\n"
+"[font_size=16][center][u]Funkcje:[/u][/center][/font_size]\n"
+"[ul]\n"
+"Dopasuj szerokość kolumn tabeli poprzez przeciągnięcie myszą granicy między kolumnami. Zresetuj szerokości przyciskiem strzałki w prawym górnym rogu tabeli.\n"
+"Dopasuj podział między górną a dolną częścią aplikacji poprzez przeciągnięcie myszą granicy między częściami.\n"
+"Zmień wyświetlany miesiąc przyciskami strzałek po lewej i prawej stronie kalendarza. Wróć do aktualnego miesiąca przyciskiem strzałki w prawym górnym rogu kalendarza.\n"
+"Najedź myszą na rezerwację w kalendarzu, aby wyświetlić podsumowanie rezerwacji.\n"
+"Kliknij na rezerwację w kalendarzu, aby przejść do szczegółów rezerwacji w tabeli.\n"
+"Wpisz datę w jednym z akceptowalnych formatów daty:\n"
+"[ul]\n"
+"YYYY-MM-DD (np. \"2025-06-20\" dla \"20. czerwca 2025\")\n"
+"YYMMDD (np. \"250810\" dla \"10. sierpnia 2025\") \n"
+"MMDD (np. \"0701\" dla \"1. lipca bieżącego roku\")\n"
+"DD (np. \"08\" dla \"8. dnia bieżącego miesiąca i roku\")\n"
+"[/ul]\n"
+"Kliknij na kolumnę \"ID\" lub \"Pobyt od\", aby posortować listę po tej kolumnie.\n"
+"Znajdź konkretną rezerwację używając filtrów pod nagłówkiem tabeli. Wyczyść filtr przyciskiem po lewej stronie filtra.\n"
+"Usuń rezerwację poprzez kliknięcie na rezerwację, a następnie wybranie symbolu kosza po lewej stronie.\n"
+"Otwórz szczegóły pokoju poprzez kliknięcie na nazwę pokoju po lewej stronie kalendarza.\n"
+"[/ul]"
+msgstr ""
+
+#: popup_windows/help.tscn
+msgid "OK"
+msgstr ""
+
+#: room_information/room_information.tscn
+msgid "Pokój:"
+msgstr ""
+
+#: room_information/room_information.tscn
+msgid "Typ:"
+msgstr ""
+
+#: room_information/room_information.tscn
+msgid "Cena:"
+msgstr ""
+
+#: room_information/room_information.tscn
+msgid "Ilość osób:"
+msgstr ""
+
+#: room_information/room_information.tscn
+msgid "Obłożenie w tym miesiącu:"
+msgstr ""
+
+#: room_information/room_information.tscn
+msgid "Obłożenie w zeszłym miesiącu:"
 msgstr ""

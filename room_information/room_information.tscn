@@ -70,6 +70,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Name" type="LineEdit" parent="HBoxContainer/VBoxContainer2"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -77,6 +78,7 @@ theme_type_variation = &"LineEditDatabaseItem"
 text = "1"
 
 [node name="Type" type="LineEdit" parent="HBoxContainer/VBoxContainer2"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -84,6 +86,7 @@ theme_type_variation = &"LineEditDatabaseItem"
 text = "apartament"
 
 [node name="Price" type="LineEdit" parent="HBoxContainer/VBoxContainer2"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -91,6 +94,7 @@ theme_type_variation = &"LineEditDatabaseItem"
 text = "200"
 
 [node name="Capacity" type="LineEdit" parent="HBoxContainer/VBoxContainer2"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -98,6 +102,7 @@ theme_type_variation = &"LineEditDatabaseItem"
 text = "5"
 
 [node name="OccupancyThisMonth" type="Label" parent="HBoxContainer/VBoxContainer2"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -105,6 +110,7 @@ text = "30%"
 vertical_alignment = 1
 
 [node name="OccupancyLastMonth" type="Label" parent="HBoxContainer/VBoxContainer2"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 size_flags_horizontal = 3

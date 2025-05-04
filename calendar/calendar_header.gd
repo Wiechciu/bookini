@@ -2,19 +2,19 @@ class_name CalendarHeader
 extends PanelContainer
 
 
-const MONTH_NAMES: Array[String] = [
-	"styczeń",
-	"luty",
-	"marzec",
-	"kwiecień",
-	"maj",
-	"czerwiec",
-	"lipies",
-	"sierpień",
-	"wrzesień",
-	"październik",
-	"listopad",
-	"grudzień",
+var month_names: Array[String] = [
+	atr("styczeń"),
+	atr("luty"),
+	atr("marzec"),
+	atr("kwiecień"),
+	atr("maj"),
+	atr("czerwiec"),
+	atr("lipiec"),
+	atr("sierpień"),
+	atr("wrzesień"),
+	atr("październik"),
+	atr("listopad"),
+	atr("grudzień"),
 ]
 
 @export var calendar: Calendar
@@ -49,7 +49,7 @@ func apply_numbers() -> void:
 
 
 func update() -> void:
-	month_label.text = "%s %d" % [MONTH_NAMES[calendar.selected_month - 1], calendar.selected_year]
+	update_labels()
 	
 	var first_weekday = Time.get_datetime_dict_from_datetime_string("%04d-%02d-%02d" % [calendar.selected_year, calendar.selected_month, 1], true).weekday
 	var today_date = Time.get_datetime_string_from_system().left(10)
@@ -78,4 +78,14 @@ func update() -> void:
 		else:
 			calendar_header_field.paint_inactive()
 			calendar_header_weekday.paint_inactive()
-		
+
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_TRANSLATION_CHANGED:
+		if not is_node_ready():
+			await ready
+		update_labels()
+
+
+func update_labels() -> void:
+	month_label.text = "%s %d" % [atr(month_names[calendar.selected_month - 1]), calendar.selected_year]

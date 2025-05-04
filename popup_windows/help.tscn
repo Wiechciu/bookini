@@ -49,14 +49,12 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 bbcode_enabled = true
 text = "[font_size=16][center][u]Kolory w kalendarzu:[/u][/center][/font_size]
-[ul]
-Zameldowanie					[bgcolor=004282]   [/bgcolor]	
-Zarezerwowany dzień	[bgcolor=0067c5]   [/bgcolor]
-Wymeldowanie				[bgcolor=6aadff]   [/bgcolor]
-Overbooking						[bgcolor=ad0000]   [/bgcolor]
-Weekend							[bgcolor=f7f1ad]   [/bgcolor]
-Dzisiaj									[bgcolor=b3aee7]   [/bgcolor]
-[/ul]
+	[bgcolor=004282]   [/bgcolor]		Zameldowanie
+	[bgcolor=0067c5]   [/bgcolor]		Zarezerwowany dzień
+	[bgcolor=6aadff]   [/bgcolor]		Wymeldowanie
+	[bgcolor=ad0000]   [/bgcolor]		Overbooking
+	[bgcolor=f7f1ad]   [/bgcolor]		Weekend
+	[bgcolor=b3aee7]   [/bgcolor]		Dzisiaj
 
 [font_size=16][center][u]Skróty klawiszowe:[/u][/center][/font_size]
 [ul]

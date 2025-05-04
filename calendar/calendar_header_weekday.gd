@@ -1,14 +1,14 @@
 class_name CalendarHeaderWeekday
 extends PanelContainer
 
-const WEEKDAY_NAMES: Array[String] = [
-	"pn",
-	"wt",
-	"śr",
-	"cz",
-	"pt",
-	"sb",
-	"nd",
+var weekday_names: Array[String] = [
+	atr("pn"),
+	atr("wt"),
+	atr("śr"),
+	atr("cz"),
+	atr("pt"),
+	atr("sb"),
+	atr("nd"),
 ]
 
 const STYLE_ACTIVE: String = "LabelCalendarHeaderField"
@@ -33,4 +33,4 @@ func paint_inactive() -> void:
 
 
 func update(weekday: int) -> void:
-	label.text = WEEKDAY_NAMES[weekday - 1]
+	label.text = weekday_names[weekday - 1]

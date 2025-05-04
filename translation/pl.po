@@ -41,11 +41,8 @@ msgstr "Dodaj nowy (Ctrl+D)"
 msgid "wyczyść filtr"
 msgstr "wyczyść filtr"
 
-#: database/database_filter.tscn calendar/calendar_row.tscn
-msgid "1"
-msgstr "1"
-
 #: database/database_filter.tscn database/database_item.tscn
+#: global_refs/global_refs.gd
 msgid "Nieopłacona"
 msgstr "Nieopłacona"
 
@@ -117,17 +114,57 @@ msgstr "zresetuj szerokość kolumn"
 msgid "usuń rezerwację"
 msgstr "usuń rezerwację"
 
-#: database/database_item.tscn
-msgid "1234"
-msgstr "1234"
+#: calendar/calendar_header.gd
+msgid "styczeń"
+msgstr "styczeń"
+
+#: calendar/calendar_header.gd
+msgid "luty"
+msgstr "luty"
+
+#: calendar/calendar_header.gd
+msgid "marzec"
+msgstr "marzec"
+
+#: calendar/calendar_header.gd
+msgid "kwiecień"
+msgstr "kwiecień"
+
+#: calendar/calendar_header.gd
+msgid "maj"
+msgstr "maj"
+
+#: calendar/calendar_header.gd
+msgid "czerwiec"
+msgstr "czerwiec"
+
+#: calendar/calendar_header.gd
+msgid "lipiec"
+msgstr "lipiec"
+
+#: calendar/calendar_header.gd
+msgid "sierpień"
+msgstr "sierpień"
+
+#: calendar/calendar_header.gd
+msgid "wrzesień"
+msgstr "wrzesień"
+
+#: calendar/calendar_header.gd
+msgid "październik"
+msgstr "październik"
+
+#: calendar/calendar_header.gd
+msgid "listopad"
+msgstr "listopad"
+
+#: calendar/calendar_header.gd
+msgid "grudzień"
+msgstr "grudzień"
 
 #: calendar/calendar_header.tscn
 msgid "Pokoje"
 msgstr "Pokoje"
-
-#: calendar/calendar_header.tscn
-msgid "<"
-msgstr "<"
 
 #: calendar/calendar_header.tscn
 msgid "poprzedni miesiąc"
@@ -142,21 +179,44 @@ msgid "wróć do bieżącego miesiąca"
 msgstr "wróć do bieżącego miesiąca"
 
 #: calendar/calendar_header.tscn
-msgid ">"
-msgstr ">"
-
-#: calendar/calendar_header.tscn
 msgid "następny miesiąc"
 msgstr "następny miesiąc"
 
-#: calendar/calendar_header_field.tscn
-#| msgid "1"
-msgid "01"
-msgstr "01"
+#: calendar/calendar_header_weekday.gd
+msgid "pn"
+msgstr "pn"
 
-#: calendar/calendar_header_weekday.tscn
+#: calendar/calendar_header_weekday.gd calendar/calendar_header_weekday.tscn
 msgid "wt"
 msgstr "wt"
+
+#: calendar/calendar_header_weekday.gd
+msgid "śr"
+msgstr "śr"
+
+#: calendar/calendar_header_weekday.gd
+msgid "cz"
+msgstr "cz"
+
+#: calendar/calendar_header_weekday.gd
+msgid "pt"
+msgstr "pt"
+
+#: calendar/calendar_header_weekday.gd
+msgid "sb"
+msgstr "sb"
+
+#: calendar/calendar_header_weekday.gd
+msgid "nd"
+msgstr "nd"
+
+#: global_refs/global_refs.gd
+msgid "Nie dotyczy"
+msgstr "Nie dotyczy"
+
+#: global_refs/global_refs.gd
+msgid "Opłacona"
+msgstr "Opłacona"
 
 #: navigation/navigation.tscn
 msgid "Skróty klawiszowe, funkcje, legenda"
@@ -166,9 +226,10 @@ msgstr "Skróty klawiszowe, funkcje, legenda"
 msgid "Otwórz lokalizację bazy danych"
 msgstr "Otwórz lokalizację bazy danych"
 
+#: overbooking_warning/overbooking_warning.gd
 #: overbooking_warning/overbooking_warning.tscn
-msgid "20 overbookingów"
-msgstr "20 overbookingów"
+msgid "{count} overbookingów"
+msgstr "{count} overbookingów"
 
 #: popup_windows/delete_confirmation.tscn
 msgid "Czy na pewno chcesz usunąć wpis #{ID}?"
@@ -185,14 +246,12 @@ msgstr "Nie"
 #: popup_windows/help.tscn
 msgid ""
 "[font_size=16][center][u]Kolory w kalendarzu:[/u][/center][/font_size]\n"
-"[ul]\n"
-"Zameldowanie\t\t\t\t\t[bgcolor=004282]   [/bgcolor]\t\n"
-"Zarezerwowany dzień\t[bgcolor=0067c5]   [/bgcolor]\n"
-"Wymeldowanie\t\t\t\t[bgcolor=6aadff]   [/bgcolor]\n"
-"Overbooking\t\t\t\t\t\t[bgcolor=ad0000]   [/bgcolor]\n"
-"Weekend\t\t\t\t\t\t\t[bgcolor=f7f1ad]   [/bgcolor]\n"
-"Dzisiaj\t\t\t\t\t\t\t\t\t[bgcolor=b3aee7]   [/bgcolor]\n"
-"[/ul]\n"
+"\t[bgcolor=004282]   [/bgcolor]\t\tZameldowanie\n"
+"\t[bgcolor=0067c5]   [/bgcolor]\t\tZarezerwowany dzień\n"
+"\t[bgcolor=6aadff]   [/bgcolor]\t\tWymeldowanie\n"
+"\t[bgcolor=ad0000]   [/bgcolor]\t\tOverbooking\n"
+"\t[bgcolor=f7f1ad]   [/bgcolor]\t\tWeekend\n"
+"\t[bgcolor=b3aee7]   [/bgcolor]\t\tDzisiaj\n"
 "\n"
 "[font_size=16][center][u]Skróty klawiszowe:[/u][/center][/font_size]\n"
 "[ul]\n"
@@ -239,14 +298,12 @@ msgid ""
 "[/ul]"
 msgstr ""
 "[font_size=16][center][u]Kolory w kalendarzu:[/u][/center][/font_size]\n"
-"[ul]\n"
-"Zameldowanie\t\t\t\t\t[bgcolor=004282]   [/bgcolor]\t\n"
-"Zarezerwowany dzień\t[bgcolor=0067c5]   [/bgcolor]\n"
-"Wymeldowanie\t\t\t\t[bgcolor=6aadff]   [/bgcolor]\n"
-"Overbooking\t\t\t\t\t\t[bgcolor=ad0000]   [/bgcolor]\n"
-"Weekend\t\t\t\t\t\t\t[bgcolor=f7f1ad]   [/bgcolor]\n"
-"Dzisiaj\t\t\t\t\t\t\t\t\t[bgcolor=b3aee7]   [/bgcolor]\n"
-"[/ul]\n"
+"\t[bgcolor=004282]   [/bgcolor]\t\tZameldowanie\n"
+"\t[bgcolor=0067c5]   [/bgcolor]\t\tZarezerwowany dzień\n"
+"\t[bgcolor=6aadff]   [/bgcolor]\t\tWymeldowanie\n"
+"\t[bgcolor=ad0000]   [/bgcolor]\t\tOverbooking\n"
+"\t[bgcolor=f7f1ad]   [/bgcolor]\t\tWeekend\n"
+"\t[bgcolor=b3aee7]   [/bgcolor]\t\tDzisiaj\n"
 "\n"
 "[font_size=16][center][u]Skróty klawiszowe:[/u][/center][/font_size]\n"
 "[ul]\n"
@@ -297,7 +354,6 @@ msgid "OK"
 msgstr "OK"
 
 #: room_information/room_information.tscn
-#| msgid "Pokój"
 msgid "Pokój:"
 msgstr "Pokój:"
 
@@ -310,7 +366,6 @@ msgid "Cena:"
 msgstr "Cena:"
 
 #: room_information/room_information.tscn
-#| msgid "Ilość osób"
 msgid "Ilość osób:"
 msgstr "Ilość osób:"
 
@@ -322,22 +377,39 @@ msgstr "Obłożenie w tym miesiącu:"
 msgid "Obłożenie w zeszłym miesiącu:"
 msgstr "Obłożenie w zeszłym miesiącu:"
 
-#: room_information/room_information.tscn
-msgid "30%"
-msgstr "30%"
+#~ msgid "1"
+#~ msgstr "1"
 
-#: room_information/room_information.tscn
-msgid "80%"
-msgstr "80%"
+#~ msgid "1234"
+#~ msgstr "1234"
 
-#: tooltip/tooltip.tscn
-msgid ""
-"tooltip tsarutynaurstny uarnty uarstyu arnystun aryust nayrustnywft nyarsty "
-"arusty "
-msgstr ""
-"tooltip tsarutynaurstny uarnty uarstyu arnystun aryust nayrustnywft nyarsty "
-"arusty "
+#~ msgid "<"
+#~ msgstr "<"
 
-#: app_header.tscn
-msgid "Bookini"
-msgstr "Bookini"
+#~ msgid ">"
+#~ msgstr ">"
+
+#~ msgid "01"
+#~ msgstr "01"
+
+#~ msgid "PL"
+#~ msgstr "PL"
+
+#~ msgid "Zmień język"
+#~ msgstr "Zmień język"
+
+#~ msgid ""
+#~ "tooltip tsarutynaurstny uarnty uarstyu arnystun aryust nayrustnywft "
+#~ "nyarsty arusty "
+#~ msgstr ""
+#~ "tooltip tsarutynaurstny uarnty uarstyu arnystun aryust nayrustnywft "
+#~ "nyarsty arusty "
+
+#~ msgid "Bookini"
+#~ msgstr "Bookini"
+
+#~ msgid "30%"
+#~ msgstr "30%"
+
+#~ msgid "80%"
+#~ msgstr "80%"

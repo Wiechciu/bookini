@@ -82,6 +82,7 @@ stretch_mode = 5
 text = "usuń rezerwację"
 
 [node name="Id" type="Label" parent="HSplitContainer/HBoxContainer"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -99,6 +100,7 @@ split_offset = 160
 dragging_enabled = false
 
 [node name="Name" type="LineEdit" parent="HSplitContainer/HSplitContainer"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(40, 25)
 layout_mode = 2
 mouse_filter = 1
@@ -117,6 +119,7 @@ split_offset = 100
 dragging_enabled = false
 
 [node name="Phone" type="LineEdit" parent="HSplitContainer/HSplitContainer/HSplitContainer"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(40, 25)
 layout_mode = 2
 mouse_filter = 1
@@ -135,6 +138,7 @@ split_offset = 100
 dragging_enabled = false
 
 [node name="Pesel" type="LineEdit" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(40, 25)
 layout_mode = 2
 mouse_filter = 1
@@ -156,6 +160,7 @@ split_offset = 70
 dragging_enabled = false
 
 [node name="StartDate" type="LineEdit" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(40, 25)
 layout_mode = 2
 mouse_filter = 1
@@ -182,6 +187,7 @@ split_offset = 70
 dragging_enabled = false
 
 [node name="EndDate" type="LineEdit" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(40, 25)
 layout_mode = 2
 mouse_filter = 1
@@ -228,6 +234,7 @@ split_offset = 70
 dragging_enabled = false
 
 [node name="Quantity" type="LineEdit" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(40, 25)
 layout_mode = 2
 mouse_filter = 1
@@ -246,6 +253,7 @@ split_offset = 70
 dragging_enabled = false
 
 [node name="PrepaidAmount" type="LineEdit" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(40, 25)
 layout_mode = 2
 mouse_filter = 1
@@ -264,6 +272,7 @@ split_offset = 70
 dragging_enabled = false
 
 [node name="PrepaidDate" type="LineEdit" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(40, 25)
 layout_mode = 2
 mouse_filter = 1
@@ -288,6 +297,7 @@ split_offset = 70
 dragging_enabled = false
 
 [node name="PaymentAmount" type="LineEdit" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(40, 25)
 layout_mode = 2
 mouse_filter = 1
@@ -306,6 +316,7 @@ split_offset = 70
 dragging_enabled = false
 
 [node name="PaymentDate" type="LineEdit" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(40, 25)
 layout_mode = 2
 mouse_filter = 1
@@ -350,6 +361,7 @@ split_offset = 70
 dragging_enabled = false
 
 [node name="Remarks" type="LineEdit" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(40, 25)
 layout_mode = 2
 size_flags_horizontal = 3
