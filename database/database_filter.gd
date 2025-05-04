@@ -10,7 +10,7 @@ extends PanelContainer
 @export var pesel_label: LineEdit
 @export var start_date_label: LineEdit
 @export var end_date_label: LineEdit
-@export var room_label: LineEdit
+@export var room_label: OptionButton
 @export var quantity_label: LineEdit
 @export var prepaid_amount_label: LineEdit
 @export var prepaid_date_label: LineEdit
@@ -27,7 +27,8 @@ func _ready() -> void:
 	clear_button.pressed.connect(_on_clear_button_pressed)
 	hide_clear_button()
 	
-	Utils.add_items_to_option_button(Utils.INVOICE_STATUS_ITEMS, invoice_status_label, -1)
+	Utils.add_items_to_option_button(GlobalRefs.room_names, room_label, -1)
+	Utils.add_items_to_option_button(GlobalRefs.INVOICE_STATUS_ITEMS, invoice_status_label, -1)
 	for line_edit: LineEdit in find_children("*", "LineEdit", true):
 		line_edits.append(line_edit)
 		line_edit.clear()

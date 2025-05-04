@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="Room" load_steps=2 format=3 uid="uid://w5gntw8r8wvl"]
+[gd_resource type="Resource" script_class="Room" load_steps=2 format=3 uid="uid://c6rp8vmjrei4m"]
 
-[ext_resource type="Script" uid="uid://ddyy08blkifoj" path="res://room/room.gd" id="1_j3xcb"]
+[ext_resource type="Script" uid="uid://ddyy08blkifoj" path="res://room/room.gd" id="1_mdiag"]
 
 [resource]
-script = ExtResource("1_j3xcb")
-name = "7"
+script = ExtResource("1_mdiag")
+id = 7
+name = "8"
 type = "góra"
 price = 100.0
 capacity = 5

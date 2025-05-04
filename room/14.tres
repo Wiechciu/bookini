@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="Room" load_steps=2 format=3 uid="uid://ism2akvqm81l"]
+[gd_resource type="Resource" script_class="Room" load_steps=2 format=3 uid="uid://7gqpf3rx47p"]
 
-[ext_resource type="Script" uid="uid://ddyy08blkifoj" path="res://room/room.gd" id="1_tcv3e"]
+[ext_resource type="Script" uid="uid://ddyy08blkifoj" path="res://room/room.gd" id="1_vsin6"]
 
 [resource]
-script = ExtResource("1_tcv3e")
-name = "3N"
+script = ExtResource("1_vsin6")
+id = 14
+name = "4N"
 type = "nowy"
 price = 150.0
 capacity = 5

@@ -11,7 +11,6 @@ signal room_selected(room: Room)
 @export var calendar_row_scene: PackedScene
 @export var calendar_row_container: Container
 @export var calendar_rows: Array[CalendarRow]
-@export var rooms: Array[Room]
 
 var selected_calendar_row: CalendarRow
 var selected_year: int
@@ -49,7 +48,7 @@ func clear_containers() -> void:
 
 
 func fill_containers() -> void:
-	for room in rooms:
+	for room in GlobalRefs.rooms:
 		var new_calendar_row: CalendarRow = calendar_row_scene.instantiate() as CalendarRow
 		calendar_row_container.add_child(new_calendar_row)
 		calendar_rows.append(new_calendar_row)
@@ -112,7 +111,7 @@ func apply_colors(booking: Booking) -> void:
 	if not booking.has_correct_date_order:
 		return
 	for calendar_row: CalendarRow in calendar_rows:
-		if calendar_row.room.name != booking.room:
+		if calendar_row.room.id != booking.room:
 			continue
 		for calendar_field: CalendarField in calendar_row.calendar_fields:
 			calendar_field.check_booking(booking)

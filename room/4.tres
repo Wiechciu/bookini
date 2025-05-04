@@ -1,11 +1,12 @@
-[gd_resource type="Resource" script_class="Room" load_steps=2 format=3 uid="uid://b43uc4q44hy6a"]
+[gd_resource type="Resource" script_class="Room" load_steps=2 format=3 uid="uid://b0n8w667otpoe"]
 
-[ext_resource type="Script" uid="uid://ddyy08blkifoj" path="res://room/room.gd" id="1_2rtcy"]
+[ext_resource type="Script" uid="uid://ddyy08blkifoj" path="res://room/room.gd" id="1_1axie"]
 
 [resource]
-script = ExtResource("1_2rtcy")
-name = "4"
-type = "dół"
-price = 100.0
+script = ExtResource("1_1axie")
+id = 4
+name = "5"
+type = "plażowy dół"
+price = 150.0
 capacity = 5
 metadata/_custom_type_script = "uid://ddyy08blkifoj"

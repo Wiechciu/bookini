@@ -2,7 +2,7 @@ class_name DatabaseTooltipComponent
 extends Node
 
 
-@export var control_to_check: LineEdit
+@export var control_to_check: Control
 @export var tooltip_scene: PackedScene
 @export var delay: float = 0.5
 var tooltip: Tooltip
@@ -15,7 +15,7 @@ func _ready() -> void:
 
 
 func assign_controls() -> bool:
-	if control_to_check == null and get_parent() is LineEdit:
+	if control_to_check == null and (get_parent() is LineEdit or get_parent() is OptionButton):
 		control_to_check = get_parent()
 	
 	return control_to_check != null
@@ -27,7 +27,12 @@ func connect_signals() -> void:
 
 
 func _on_mouse_entered() -> void:
-	var tooltip_string: String = control_to_check.text
+	var tooltip_string: String
+	if control_to_check is LineEdit:
+		tooltip_string = control_to_check.text
+	elif control_to_check is OptionButton and control_to_check.selected != -1:
+		tooltip_string = control_to_check.get_item_text(control_to_check.selected)
+	
 	if tooltip_string == "":
 		return
 	tooltip = tooltip_scene.instantiate()

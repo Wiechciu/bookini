@@ -16,7 +16,7 @@ const STYLE_SELECTED: String = "PanelContainerDatabaseItemSelected"
 @export var pesel_label: LineEdit
 @export var start_date_label: LineEdit
 @export var end_date_label: LineEdit
-@export var room_label: LineEdit
+@export var room_label: OptionButton
 @export var quantity_label: LineEdit
 @export var prepaid_amount_label: LineEdit
 @export var prepaid_date_label: LineEdit
@@ -30,7 +30,8 @@ var cached_content: String
 
 
 func initialize(database_to_assign: Database, booking_to_assign: Booking) -> void:
-	Utils.add_items_to_option_button(Utils.INVOICE_STATUS_ITEMS, invoice_status_label, 0)
+	Utils.add_items_to_option_button(GlobalRefs.room_names, room_label, -1)
+	Utils.add_items_to_option_button(GlobalRefs.INVOICE_STATUS_ITEMS, invoice_status_label, -1)
 	for line_edit: LineEdit in find_children("*", "LineEdit", true):
 		line_edit.clear()
 		line_edit.editing_toggled.connect(_on_editing_toggled.bind(line_edit))
@@ -62,7 +63,6 @@ func _on_delete_button_pressed() -> void:
 		booking.status = Booking.Status.DELETED
 		print("ID %s deleted" % id_label.text)
 		database.remove_item(self)
-
 
 
 func _on_editing_toggled(toggled_on: bool, control: Control) -> void:
@@ -120,7 +120,7 @@ func assign_booking(booking_to_assign: Booking = null) -> void:
 	pesel_label.text = booking.pesel
 	start_date_label.text = booking.start_date
 	end_date_label.text = booking.end_date
-	room_label.text = booking.room
+	room_label.select(booking.room)
 	quantity_label.text = str(booking.quantity) if booking.quantity else ""
 	prepaid_amount_label.text = str(booking.prepaid_amount) if booking.prepaid_amount else ""
 	prepaid_date_label.text = booking.prepaid_date
@@ -138,7 +138,7 @@ func update_booking() -> void:
 		pesel_label.text,
 		start_date_label.text,
 		end_date_label.text,
-		room_label.text,
+		room_label.selected,
 		int(quantity_label.text),
 		float(prepaid_amount_label.text),
 		prepaid_date_label.text,

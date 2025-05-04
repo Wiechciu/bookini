@@ -2,16 +2,6 @@ class_name Database
 extends PanelContainer
 
 
-enum SortType {
-	BY_ID,
-	BY_START_DATE,
-}
-enum SortDirection {
-	ASCENDING,
-	DESCENDING,
-}
-
-
 signal item_updated(DatabaseItem)
 
 
@@ -29,8 +19,8 @@ var save_extension: String = ".save"
 var selected_item: DatabaseItem
 var current_date_string: String
 var database_items: Array[DatabaseItem]
-var sort_type: SortType = SortType.BY_ID
-var sort_direction: SortDirection = SortDirection.ASCENDING
+var sort_type: Utils.SortType = Utils.SortType.BY_ID
+var sort_direction: Utils.SortDirection = Utils.SortDirection.ASCENDING
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -212,9 +202,9 @@ func _compare_booking_string(control: Control, booking_text: Variant) -> bool:
 		return control.selected != -1 and not str(booking_text).containsn(str(control.selected))
 
 
-func change_sort_type(new_sort_type: SortType) -> void:
+func change_sort_type(new_sort_type: Utils.SortType) -> void:
 	if sort_type == new_sort_type:
-		sort_direction = wrapi(sort_direction + 1, 0, 2) as SortDirection
+		sort_direction = wrapi(sort_direction + 1, 0, 2) as Utils.SortDirection
 	else:
 		sort_type = new_sort_type
 	sort_database()
@@ -223,11 +213,11 @@ func change_sort_type(new_sort_type: SortType) -> void:
 func sort_database() -> void:
 	var sort_method: Callable
 	match sort_type:
-		SortType.BY_ID:
-			sort_method = _sort_bookings_by_id
-		SortType.BY_START_DATE:
-			sort_method = _sort_bookings_by_start_date
-	GlobalRefs.bookings.sort_custom(sort_method)
+		Utils.SortType.BY_ID:
+			sort_method = Utils._sort_bookings_by_id
+		Utils.SortType.BY_START_DATE:
+			sort_method = Utils._sort_bookings_by_start_date
+	GlobalRefs.bookings.sort_custom(sort_method.bind(sort_direction))
 	
 	var counter: int = -1
 	for booking: Booking in GlobalRefs.active_bookings:
@@ -242,22 +232,6 @@ func sort_database() -> void:
 	if current_focus_owner != null:
 		current_focus_owner.release_focus()
 		current_focus_owner.grab_focus()
-
-
-func _find_database_item_by_booking(item: DatabaseItem, booking: Booking) -> bool:
-	return item.booking == booking
-
-
-func _sort_bookings_by_id(booking1: Booking, booking2: Booking) -> bool:
-	return booking1.id < booking2.id if sort_direction == SortDirection.ASCENDING else booking1.id > booking2.id
-
-
-func _sort_bookings_by_start_date(booking1: Booking, booking2: Booking) -> bool:
-	var booking1_start_date: int = int(booking1.start_date.replace("-", ""))
-	var booking2_start_date: int = int(booking2.start_date.replace("-", ""))
-	if booking1_start_date == booking2_start_date:
-		return booking1.id < booking2.id if sort_direction == SortDirection.ASCENDING else booking1.id > booking2.id
-	return booking1_start_date < booking2_start_date if sort_direction == SortDirection.ASCENDING else booking1_start_date > booking2_start_date
 
 
 func select_database_item_by_booking(booking: Booking) -> DatabaseItem:

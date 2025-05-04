@@ -1,0 +1,121 @@
+# LANGUAGE translation for Bookini for the following files:
+# res://database/booking.gd
+# res://database/database.gd
+# res://database/database.tscn
+# res://database/database_filter.gd
+# res://database/database_filter.tscn
+# res://database/database_header.gd
+# res://database/database_header.tscn
+# res://database/database_item.gd
+# res://database/database_item.tscn
+# res://database/date_entry_component.gd
+# res://database/date_entry_component.tscn
+# res://database/date_validation_component.gd
+# res://database/date_validation_component.tscn
+# res://database/focus_component.gd
+# res://database/focus_component.tscn
+# res://database/string_validation_component.gd
+# res://database/string_validation_component.tscn
+#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Bookini\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8-bit\n"
+
+#: database/database.tscn
+msgid "Dodaj nowy (Ctrl+D)"
+msgstr ""
+
+#: database/database_filter.gd
+msgid ""
+msgstr ""
+
+#: database/database_filter.tscn
+msgid "wyczyść filtr"
+msgstr ""
+
+#: database/database_filter.tscn
+msgid "1"
+msgstr ""
+
+#: database/database_filter.tscn
+#: database/database_item.tscn
+msgid "Nieopłacona"
+msgstr ""
+
+#: database/database_header.tscn
+msgid "ID"
+msgstr ""
+
+#: database/database_header.tscn
+msgid "sortuj po tej kolumnie"
+msgstr ""
+
+#: database/database_header.tscn
+msgid "Imię i nazwisko"
+msgstr ""
+
+#: database/database_header.tscn
+msgid "Numer telefonu"
+msgstr ""
+
+#: database/database_header.tscn
+msgid "PESEL"
+msgstr ""
+
+#: database/database_header.tscn
+msgid "Pobyt od"
+msgstr ""
+
+#: database/database_header.tscn
+msgid "Pobyt do"
+msgstr ""
+
+#: database/database_header.tscn
+msgid "Pokój"
+msgstr ""
+
+#: database/database_header.tscn
+msgid "Ilość osób"
+msgstr ""
+
+#: database/database_header.tscn
+msgid "Zaliczka kwota"
+msgstr ""
+
+#: database/database_header.tscn
+msgid "Zaliczka data"
+msgstr ""
+
+#: database/database_header.tscn
+msgid "Zapłata kwota"
+msgstr ""
+
+#: database/database_header.tscn
+msgid "Zapłata data"
+msgstr ""
+
+#: database/database_header.tscn
+msgid "Status faktury"
+msgstr ""
+
+#: database/database_header.tscn
+msgid "Notatka"
+msgstr ""
+
+#: database/database_header.tscn
+msgid "zresetuj szerokość kolumn"
+msgstr ""
+
+#: database/database_item.tscn
+msgid "usuń rezerwację"
+msgstr ""
+
+#: database/database_item.tscn
+msgid "1234"
+msgstr ""

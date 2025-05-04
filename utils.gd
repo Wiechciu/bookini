@@ -1,11 +1,15 @@
 extends Node
 
 
-const INVOICE_STATUS_ITEMS: Array[String] = [
-	"Nie dotyczy",
-	"Nieopłacona",
-	"Opłacona",
-]
+enum SortType {
+	BY_ID,
+	BY_START_DATE,
+}
+enum SortDirection {
+	ASCENDING,
+	DESCENDING,
+}
+
 
 const ONE_SECOND: int = 1
 const ONE_MINUTE: int = ONE_SECOND * 60
@@ -77,3 +81,15 @@ func add_items_to_option_button(items: Array[String], option_button: OptionButto
 	for text: String in items:
 		option_button.add_item(text)
 	option_button.select(selected_item)
+
+
+func _sort_bookings_by_id(booking1: Booking, booking2: Booking, sort_direction: SortDirection) -> bool:
+	return booking1.id < booking2.id if sort_direction == SortDirection.ASCENDING else booking1.id > booking2.id
+
+
+func _sort_bookings_by_start_date(booking1: Booking, booking2: Booking, sort_direction: SortDirection) -> bool:
+	var booking1_start_date: int = int(booking1.start_date.replace("-", ""))
+	var booking2_start_date: int = int(booking2.start_date.replace("-", ""))
+	if booking1_start_date == booking2_start_date:
+		return booking1.id < booking2.id if sort_direction == SortDirection.ASCENDING else booking1.id > booking2.id
+	return booking1_start_date < booking2_start_date if sort_direction == SortDirection.ASCENDING else booking1_start_date > booking2_start_date

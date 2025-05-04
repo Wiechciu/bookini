@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpu4067av5dqw"]
+
+[ext_resource type="Script" uid="uid://bcgmejoxhhi1m" path="res://app_manager/app_manager.gd" id="1_n4o8q"]
+
+[node name="AppManager" type="Node"]
+script = ExtResource("1_n4o8q")

@@ -60,7 +60,6 @@ expand_mode = 2
 text = "poprzedni miesiąc"
 
 [node name="OverbookingWarningControl" type="Control" parent="HBoxContainer/VBoxContainer/MonthButtonsContainer"]
-visible = false
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer/MonthButtonsContainer/OverbookingWarningControl"]

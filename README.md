@@ -10,9 +10,6 @@ FIX:
 	-
 
 TODO:
-	implement OptionButton for fields
-		room
-	alert window to check for all overbookings
 	implement cancelling bookings
 	jump to entered date in the calendar
 	translate to English - post on forum
@@ -24,6 +21,7 @@ TODO:
 		add chart for month
 	optimize
 		don't load all database records, only the latest
+		don't recalculate overbookings on each bookings update
 	tutorial explaining functions and tips and tricks
 		should run at the first start of the app
 

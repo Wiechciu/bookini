@@ -5,7 +5,7 @@ extends Control
 @export var label: Label
 var calendar: Calendar
 var database: Database
-var bookings: Array[Booking]
+var overbookings: Array[Booking]
 var last_clicked: int = 0
 
 
@@ -18,8 +18,8 @@ func _ready() -> void:
 
 func _on_database_item_updated() -> void:
 	last_clicked = 0
-	bookings = GlobalRefs.active_bookings #FIXME - should actually find overbookings. Maybe precalculate it in the GlobalRefs dicts instead
-	var overbooking_count: int = bookings.size()
+	overbookings = GlobalRefs.overbookings #FIXME - should actually find overbookings. Maybe precalculate it in the GlobalRefs dicts instead
+	var overbooking_count: int = overbookings.size()
 	if overbooking_count == 0:
 		hide()
 	else:
@@ -28,13 +28,13 @@ func _on_database_item_updated() -> void:
 
 
 func _gui_input(event: InputEvent) -> void:
-	if event.is_action_pressed("mouse_click") and not bookings.is_empty():
-		last_clicked = wrapi(last_clicked + 1, 0, bookings.size())
-		calendar.database.select_database_item_by_booking(bookings[last_clicked])
+	if event.is_action_pressed("mouse_click") and not overbookings.is_empty():
+		last_clicked = wrapi(last_clicked + 1, 0, overbookings.size())
+		calendar.database.select_database_item_by_booking(overbookings[last_clicked])
 
 
 func get_tooltip_string() -> String:
 	var text: String = ""
-	for booking: Booking in bookings:
+	for booking: Booking in overbookings:
 		text = text + "\n#%s | %s - %s | %s" % [booking.id, booking.start_date, booking.end_date, booking.name]
 	return text.lstrip("\n")

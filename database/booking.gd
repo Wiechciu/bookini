@@ -21,7 +21,7 @@ var end_date_as_unix_time: int:
 	get:
 		return Time.get_unix_time_from_datetime_string(end_date)
 var dates_occupied: Array[String]
-@export_storage var room: String
+@export_storage var room: int
 @export_storage var quantity: int
 @export_storage var prepaid_amount: float
 @export_storage var prepaid_date: String
@@ -42,7 +42,7 @@ static func create(
 		pesel: String = "",
 		start_date: String = "",
 		end_date: String = "",
-		room: String = "",
+		room: int = -1,
 		quantity: int = 1,
 		prepaid_amount: float = 0,
 		prepaid_date: String = "",
@@ -80,7 +80,7 @@ func update(
 		pesel: String,
 		start_date: String,
 		end_date: String,
-		room: String,
+		room: int,
 		quantity: int,
 		prepaid_amount: float,
 		prepaid_date: String,
@@ -110,4 +110,4 @@ func update(
 	self.remarks = remarks
 	
 	if recalculate_required:
-		GlobalRefs.recalculate_dates_for_booking(self)
+		GlobalRefs.recalculate_dicts_for_booking(self)

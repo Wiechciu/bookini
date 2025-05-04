@@ -2,6 +2,7 @@ class_name Room
 extends Resource
 
 
+@export var id: int
 @export var name: String
 @export var type: String
 @export var price: float
@@ -14,7 +15,7 @@ func calculate_occupancy(year: int, month: int) -> Dictionary[String, float]:
 	
 	for counter in range(1, 32):
 		var date_string: String = "%04d-%02d-%02d" % [year, month, counter]
-		var date_room: Array = [date_string, self.name]
+		var date_room: Array = [date_string, self.id]
 		
 		if Utils.is_date_valid(date_string):
 			days_total += 1

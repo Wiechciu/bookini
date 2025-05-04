@@ -27,10 +27,10 @@ func _on_room_selected(room: Room):
 
 
 func _on_database_item_updated(item: DatabaseItem):
-	if selected_room == null:
+	if selected_room == null or item.booking.room == -1:
 		return
 	
-	if item.booking.room == selected_room.name:
+	if item.booking.room == selected_room.id:
 		update_information()
 
 func clear_information():

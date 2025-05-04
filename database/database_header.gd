@@ -29,20 +29,20 @@ func _ready() -> void:
 
 
 func _on_sort_by_id_button_pressed() -> void:
-	database.change_sort_type(Database.SortType.BY_ID)
+	database.change_sort_type(Utils.SortType.BY_ID)
 	update_sort_buttons()
 
 
 func _on_sort_by_start_date_button_pressed() -> void:
-	database.change_sort_type(Database.SortType.BY_START_DATE)
+	database.change_sort_type(Utils.SortType.BY_START_DATE)
 	update_sort_buttons()
 
 
 func update_sort_buttons() -> void:
-	sort_by_id_button.modulate.a = 1.0 if database.sort_type == Database.SortType.BY_ID else 0.2
-	sort_by_start_date_button.modulate.a = 1.0 if database.sort_type == Database.SortType.BY_START_DATE else 0.2
-	sort_by_id_texture_rect.texture = sort_arrow_ascending if database.sort_direction == Database.SortDirection.ASCENDING else sort_arrow_descending
-	sort_by_start_texture_rect.texture = sort_arrow_ascending if database.sort_direction == Database.SortDirection.ASCENDING else sort_arrow_descending
+	sort_by_id_button.modulate.a = 1.0 if database.sort_type == Utils.SortType.BY_ID else 0.2
+	sort_by_start_date_button.modulate.a = 1.0 if database.sort_type == Utils.SortType.BY_START_DATE else 0.2
+	sort_by_id_texture_rect.texture = sort_arrow_ascending if database.sort_direction == Utils.SortDirection.ASCENDING else sort_arrow_descending
+	sort_by_start_texture_rect.texture = sort_arrow_ascending if database.sort_direction == Utils.SortDirection.ASCENDING else sort_arrow_descending
 
 
 func _on_reset_button_pressed() -> void:

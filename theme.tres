@@ -1,4 +1,6 @@
-[gd_resource type="Theme" load_steps=86 format=3 uid="uid://b1p3xo06djhek"]
+[gd_resource type="Theme" load_steps=87 format=3 uid="uid://b1p3xo06djhek"]
+
+[ext_resource type="Texture2D" uid="uid://c5voeo7nugwy2" path="res://arrow_down_12x10.png" id="1_e1x85"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vehsp"]
 bg_color = Color(0.384314, 0.588235, 0.505882, 1)
@@ -489,6 +491,8 @@ OptionButtonDatabaseItem/colors/font_focus_color = Color(0, 0, 0, 1)
 OptionButtonDatabaseItem/colors/font_hover_color = Color(0, 0, 0, 1)
 OptionButtonDatabaseItem/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 OptionButtonDatabaseItem/colors/font_pressed_color = Color(0, 0, 0, 1)
+OptionButtonDatabaseItem/constants/arrow_margin = 2
+OptionButtonDatabaseItem/icons/arrow = ExtResource("1_e1x85")
 OptionButtonDatabaseItem/styles/focus = SubResource("StyleBoxFlat_2jy5k")
 OptionButtonDatabaseItem/styles/hover = SubResource("StyleBoxFlat_31npd")
 OptionButtonDatabaseItem/styles/hover_pressed = SubResource("StyleBoxFlat_tpqrl")

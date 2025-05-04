@@ -20,6 +20,7 @@ config/icon="uid://c70swulrrps4y"
 
 [autoload]
 
+AppManager="*res://app_manager/app_manager.tscn"
 GlobalRefs="*res://global_refs/global_refs.tscn"
 Utils="*res://utils.gd"
 
@@ -123,6 +124,11 @@ mouse_click={
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(132, 19),"global_position":Vector2(141, 67),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
 ]
 }
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://translation/en.po", "res://translation/pl.po")
+locale/translations_pot_files=PackedStringArray("res://database/booking.gd", "res://database/database.gd", "res://database/database.tscn", "res://database/database_filter.gd", "res://database/database_filter.tscn", "res://database/database_header.gd", "res://database/database_header.tscn", "res://database/database_item.gd", "res://database/database_item.tscn", "res://database/date_entry_component.gd", "res://database/date_entry_component.tscn", "res://database/date_validation_component.gd", "res://database/date_validation_component.tscn", "res://database/focus_component.gd", "res://database/focus_component.tscn", "res://database/string_validation_component.gd", "res://database/string_validation_component.tscn", "res://calendar/calendar.gd", "res://calendar/calendar.tscn", "res://calendar/calendar_field.gd", "res://calendar/calendar_field.tscn", "res://calendar/calendar_header.gd", "res://calendar/calendar_header.tscn", "res://calendar/calendar_header_field.gd", "res://calendar/calendar_header_field.tscn", "res://calendar/calendar_header_weekday.gd", "res://calendar/calendar_header_weekday.tscn", "res://calendar/calendar_row.gd", "res://calendar/calendar_row.tscn", "res://global_refs/global_refs.gd", "res://global_refs/global_refs.tscn", "res://navigation/navigation.gd", "res://navigation/navigation.tscn", "res://overbooking_warning/overbooking_warning.gd", "res://overbooking_warning/overbooking_warning.tscn", "res://popup_windows/delete_confirmation.gd", "res://popup_windows/delete_confirmation.tscn", "res://popup_windows/help.gd", "res://popup_windows/help.tscn", "res://room/room.gd", "res://room_information/room_information.gd", "res://room_information/room_information.tscn", "res://tooltip/database_tooltip_component.gd", "res://tooltip/database_tooltip_component.tscn", "res://tooltip/tooltip.gd", "res://tooltip/tooltip.tscn", "res://tooltip/tooltip_component.gd", "res://tooltip/tooltip_component.tscn", "res://animate_on_hover_component.gd", "res://animate_on_hover_component.tscn", "res://app_header.tscn", "res://close_button.gd", "res://main.tscn", "res://utils.gd")
 
 [rendering]
 

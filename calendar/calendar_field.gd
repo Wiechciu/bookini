@@ -37,7 +37,7 @@ func _gui_input(event: InputEvent) -> void:
 func check_booking(booking_to_check: Booking) -> void:
 	if not visible or theme_type_variation == STYLE_INACTIVE:
 		return
-	if room.name != booking_to_check.room:
+	if room.id != booking_to_check.room:
 		return
 	
 	last_clicked = 0
