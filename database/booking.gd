@@ -27,8 +27,7 @@ var dates_occupied: Array[String]
 @export_storage var prepaid_date: String
 @export_storage var payment_amount: float
 @export_storage var payment_date: String
-@export_storage var invoice: bool
-@export_storage var invoice_status: bool
+@export_storage var invoice_status: int
 @export_storage var remarks: String
 var has_correct_date_order: bool:
 	get:
@@ -49,8 +48,7 @@ static func create(
 		prepaid_date: String = "",
 		payment_amount: float = 0,
 		payment_date: String = "",
-		invoice: bool = false,
-		invoice_status: bool = false,
+		invoice_status: int = -1,
 		remarks: String = ""
 	) -> Booking:
 	var new_booking: Booking = Booking.new()
@@ -69,7 +67,6 @@ static func create(
 	new_booking.prepaid_date = prepaid_date
 	new_booking.payment_amount = payment_amount
 	new_booking.payment_date = payment_date
-	new_booking.invoice = invoice
 	new_booking.invoice_status = invoice_status
 	new_booking.remarks = remarks
 	GlobalRefs.bookings.append(new_booking)
@@ -89,8 +86,7 @@ func update(
 		prepaid_date: String,
 		payment_amount: float,
 		payment_date: String,
-		invoice: bool,
-		invoice_status: bool,
+		invoice_status: int,
 		remarks: String
 	) -> void:
 	var recalculate_required: bool = false
@@ -110,7 +106,6 @@ func update(
 	self.prepaid_date = prepaid_date
 	self.payment_amount = payment_amount
 	self.payment_date = payment_date
-	self.invoice = invoice
 	self.invoice_status = invoice_status
 	self.remarks = remarks
 	

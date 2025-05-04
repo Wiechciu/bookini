@@ -1,16 +1,13 @@
 extends Node
 
 
-var parent_control: LineEdit
+var parent_control: Control
 
 
 func _ready() -> void:
 	parent_control = get_parent()
-	if not parent_control is LineEdit:
-		queue_free()
-		return
-	
-	parent_control.editing_toggled.connect(_on_editing_toggled)
+	if parent_control is LineEdit:
+		parent_control.editing_toggled.connect(_on_editing_toggled)
 
 
 func _on_editing_toggled(toggled: bool) -> void:

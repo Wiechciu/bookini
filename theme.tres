@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=81 format=3 uid="uid://b1p3xo06djhek"]
+[gd_resource type="Theme" load_steps=86 format=3 uid="uid://b1p3xo06djhek"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vehsp"]
 bg_color = Color(0.384314, 0.588235, 0.505882, 1)
@@ -161,6 +161,26 @@ bg_color = Color(0, 0, 0, 0.117647)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3n26i"]
 content_margin_left = 3.0
 content_margin_right = 3.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2jy5k"]
+content_margin_left = 3.0
+bg_color = Color(0.6, 0.6, 0.6, 0.117647)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_31npd"]
+content_margin_left = 3.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tpqrl"]
+content_margin_left = 3.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fsjwi"]
+content_margin_left = 3.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wl2di"]
+content_margin_left = 3.0
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wvktn"]
@@ -463,6 +483,17 @@ LineEditDatabaseItemIncorrectOrder/base_type = &"LineEditDatabaseItem"
 LineEditDatabaseItemIncorrectOrder/colors/font_color = Color(0.478095, 0.372672, 0.95225, 1)
 LineEditDatabaseItemIncorrectValidation/base_type = &"LineEditDatabaseItem"
 LineEditDatabaseItemIncorrectValidation/colors/font_color = Color(0.678431, 0, 0, 1)
+OptionButtonDatabaseItem/base_type = &"OptionButton"
+OptionButtonDatabaseItem/colors/font_color = Color(0, 0, 0, 1)
+OptionButtonDatabaseItem/colors/font_focus_color = Color(0, 0, 0, 1)
+OptionButtonDatabaseItem/colors/font_hover_color = Color(0, 0, 0, 1)
+OptionButtonDatabaseItem/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+OptionButtonDatabaseItem/colors/font_pressed_color = Color(0, 0, 0, 1)
+OptionButtonDatabaseItem/styles/focus = SubResource("StyleBoxFlat_2jy5k")
+OptionButtonDatabaseItem/styles/hover = SubResource("StyleBoxFlat_31npd")
+OptionButtonDatabaseItem/styles/hover_pressed = SubResource("StyleBoxFlat_tpqrl")
+OptionButtonDatabaseItem/styles/normal = SubResource("StyleBoxFlat_fsjwi")
+OptionButtonDatabaseItem/styles/pressed = SubResource("StyleBoxFlat_wl2di")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_wvktn")
 PanelContainerAppHeader/base_type = &"PanelContainer"
 PanelContainerAppHeader/styles/panel = SubResource("StyleBoxFlat_cjfk0")

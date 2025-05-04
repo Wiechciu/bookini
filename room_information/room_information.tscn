@@ -18,7 +18,7 @@ occupancy_last_month_label = NodePath("HBoxContainer/VBoxContainer2/OccupancyLas
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
-theme_override_constants/separation = 5
+theme_override_constants/separation = 10
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
@@ -28,7 +28,6 @@ custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Pokój:"
-horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer"]
@@ -36,7 +35,6 @@ custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Typ:"
-horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="Label3" type="Label" parent="HBoxContainer/VBoxContainer"]
@@ -44,7 +42,6 @@ custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Cena:"
-horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="Label4" type="Label" parent="HBoxContainer/VBoxContainer"]
@@ -52,7 +49,6 @@ custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Ilość osób:"
-horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="Label5" type="Label" parent="HBoxContainer/VBoxContainer"]
@@ -60,7 +56,6 @@ custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Obłożenie w tym miesiącu:"
-horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="Label6" type="Label" parent="HBoxContainer/VBoxContainer"]
@@ -68,7 +63,6 @@ custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Obłożenie w zeszłym miesiącu:"
-horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]

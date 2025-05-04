@@ -59,10 +59,11 @@ expand_mode = 2
 [node name="TooltipComponent" parent="HBoxContainer/VBoxContainer/MonthButtonsContainer/CalendarPreviousButton" instance=ExtResource("3_cvw8r")]
 text = "poprzedni miesiąc"
 
-[node name="Control" type="Control" parent="HBoxContainer/VBoxContainer/MonthButtonsContainer"]
+[node name="OverbookingWarningControl" type="Control" parent="HBoxContainer/VBoxContainer/MonthButtonsContainer"]
+visible = false
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer/MonthButtonsContainer/Control"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer/MonthButtonsContainer/OverbookingWarningControl"]
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
@@ -73,7 +74,7 @@ theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = 2
 theme_override_constants/margin_bottom = 2
 
-[node name="OverbookingWarning" parent="HBoxContainer/VBoxContainer/MonthButtonsContainer/Control/MarginContainer" node_paths=PackedStringArray("calendar_header") instance=ExtResource("4_1vokq")]
+[node name="OverbookingWarning" parent="HBoxContainer/VBoxContainer/MonthButtonsContainer/OverbookingWarningControl/MarginContainer" node_paths=PackedStringArray("calendar_header") instance=ExtResource("4_1vokq")]
 layout_mode = 2
 calendar_header = NodePath("../../../../../..")
 

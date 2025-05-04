@@ -118,6 +118,7 @@ func save_database() -> void:
 	file.store_var(GlobalRefs.bookings, true)
 	file.close()
 	save_backup()
+	print("Database saved")
 
 
 func save_backup() -> void:
@@ -128,15 +129,16 @@ func save_backup() -> void:
 
 func load_database() -> void:
 	if not save_exists():
-		print("database doesn't exist")
+		print("Database doesn't exist")
 		return
 	var file = FileAccess.open(save_location + save_name + save_extension, FileAccess.READ)
 	var loaded_data = file.get_var(true)
 	if not loaded_data is Array[Booking]:
-		print("database incorrect")
+		print("Database incorrect")
 	else:
 		GlobalRefs.bookings = loaded_data
 		GlobalRefs.recalculate_dicts()
+		print("Database loaded")
 	file.close()
 
 
@@ -165,6 +167,12 @@ func save_exists() -> bool:
 	return false
 
 
+func unfilter_database() -> void:
+	for item: DatabaseItem in database_items:
+		item.show()
+	return
+
+
 func filter_database() -> void:
 	var filtered_bookings: Array[Booking] = GlobalRefs.bookings.filter(_filter_bookings)
 	
@@ -178,33 +186,35 @@ func filter_database() -> void:
 
 
 func _filter_bookings(booking: Booking) -> bool:
-	if _compare_booking_string(database_filter.id_label.text, booking.id) \
-		or _compare_booking_string(database_filter.name_label.text, booking.name) \
-		or _compare_booking_string(database_filter.phone_label.text, booking.phone) \
-		or _compare_booking_string(database_filter.pesel_label.text, booking.pesel) \
-		or _compare_booking_string(database_filter.start_date_label.text, booking.start_date) \
-		or _compare_booking_string(database_filter.end_date_label.text, booking.end_date) \
-		or _compare_booking_string(database_filter.room_label.text, booking.room) \
-		or _compare_booking_string(database_filter.quantity_label.text, booking.quantity) \
-		or _compare_booking_string(database_filter.prepaid_amount_label.text, booking.prepaid_amount) \
-		or _compare_booking_string(database_filter.prepaid_date_label.text, booking.prepaid_date) \
-		or _compare_booking_string(database_filter.payment_amount_label.text, booking.payment_amount) \
-		or _compare_booking_string(database_filter.payment_date_label.text, booking.payment_date) \
-		or _compare_booking_string(database_filter.invoice_label.text, booking.invoice) \
-		or _compare_booking_string(database_filter.invoice_status_label.text, booking.invoice_status) \
-		or _compare_booking_string(database_filter.remarks_label.text, booking.remarks):
+	if _compare_booking_string(database_filter.id_label, booking.id) \
+		or _compare_booking_string(database_filter.name_label, booking.name) \
+		or _compare_booking_string(database_filter.phone_label, booking.phone) \
+		or _compare_booking_string(database_filter.pesel_label, booking.pesel) \
+		or _compare_booking_string(database_filter.start_date_label, booking.start_date) \
+		or _compare_booking_string(database_filter.end_date_label, booking.end_date) \
+		or _compare_booking_string(database_filter.room_label, booking.room) \
+		or _compare_booking_string(database_filter.quantity_label, booking.quantity) \
+		or _compare_booking_string(database_filter.prepaid_amount_label, booking.prepaid_amount) \
+		or _compare_booking_string(database_filter.prepaid_date_label, booking.prepaid_date) \
+		or _compare_booking_string(database_filter.payment_amount_label, booking.payment_amount) \
+		or _compare_booking_string(database_filter.payment_date_label, booking.payment_date) \
+		or _compare_booking_string(database_filter.invoice_status_label, booking.invoice_status) \
+		or _compare_booking_string(database_filter.remarks_label, booking.remarks):
 		return false
 	else:
 		return true
 
 
-func _compare_booking_string(filter_text: String, booking_text: Variant) -> bool:
-	return filter_text != "" and not str(booking_text).containsn(filter_text)
+func _compare_booking_string(control: Control, booking_text: Variant) -> bool:
+	if control is LineEdit:
+		return control.text != "" and not str(booking_text).containsn(control.text)
+	else: # control is OptionButton:
+		return control.selected != -1 and not str(booking_text).containsn(str(control.selected))
 
 
 func change_sort_type(new_sort_type: SortType) -> void:
 	if sort_type == new_sort_type:
-		sort_direction = wrapi(sort_direction + 1, 0, 2)
+		sort_direction = wrapi(sort_direction + 1, 0, 2) as SortDirection
 	else:
 		sort_type = new_sort_type
 	sort_database()

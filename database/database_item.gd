@@ -3,6 +3,7 @@ extends PanelContainer
 
 signal item_updated
 
+
 const STYLE_NORMAL: String = "PanelContainerDatabaseItem"
 const STYLE_SELECTED: String = "PanelContainerDatabaseItemSelected"
 @export var editing_stylebox_override: StyleBox
@@ -21,22 +22,25 @@ const STYLE_SELECTED: String = "PanelContainerDatabaseItemSelected"
 @export var prepaid_date_label: LineEdit
 @export var payment_amount_label: LineEdit
 @export var payment_date_label: LineEdit
-@export var invoice_label: LineEdit
-@export var invoice_status_label: LineEdit
+@export var invoice_status_label: OptionButton
 @export var remarks_label: LineEdit
 var booking: Booking
 var database: Database
 var cached_content: String
-var line_edits: Array[LineEdit]
 
 
 func initialize(database_to_assign: Database, booking_to_assign: Booking) -> void:
+	Utils.add_items_to_option_button(Utils.INVOICE_STATUS_ITEMS, invoice_status_label, 0)
 	for line_edit: LineEdit in find_children("*", "LineEdit", true):
-		line_edits.append(line_edit)
 		line_edit.clear()
 		line_edit.editing_toggled.connect(_on_editing_toggled.bind(line_edit))
-		line_edit.focus_entered.connect(_on_focus_entered.bind(line_edit))
-		line_edit.focus_exited.connect(_on_focus_exited.bind(line_edit))
+		line_edit.focus_entered.connect(_on_focus_entered)
+		line_edit.focus_exited.connect(_on_focus_exited)
+	for option_button: OptionButton in find_children("*", "OptionButton", true):
+		option_button.toggled.connect(_on_editing_toggled.bind(option_button))
+		option_button.item_selected.connect(_on_item_selected)
+		option_button.focus_entered.connect(_on_focus_entered)
+		option_button.focus_exited.connect(_on_focus_exited)
 	
 	database = database_to_assign
 	assign_booking(booking_to_assign)
@@ -56,26 +60,41 @@ func _on_delete_button_pressed() -> void:
 	var result: bool = await delete_confirmation.result
 	if result:
 		booking.status = Booking.Status.DELETED
+		print("ID %s deleted" % id_label.text)
 		database.remove_item(self)
 
 
-func _on_editing_toggled(toggled_on: bool, line_edit: LineEdit) -> void:
+
+func _on_editing_toggled(toggled_on: bool, control: Control) -> void:
 	if toggled_on:
-		line_edit.add_theme_stylebox_override("focus", editing_stylebox_override)
-		cached_content = line_edit.text
+		control.add_theme_stylebox_override("focus", editing_stylebox_override)
+		if control is LineEdit:
+			cached_content = control.text
+		elif control is OptionButton:
+			cached_content = str(control.selected)
 	else:
-		line_edit.remove_theme_stylebox_override("focus")
-		if line_edit.text != cached_content:
-			update_booking()
+		control.remove_theme_stylebox_override("focus")
+		if control is LineEdit and control.text == cached_content:
+			return
+		if control is OptionButton:
+			# handled in _on_item_selected()
+			return
+		update_booking()
 
 
-func _on_focus_entered(line_edit: LineEdit) -> void:
+func _on_item_selected(item_selected: int) -> void:
+	if str(item_selected) == cached_content:
+		return
+	update_booking()
+
+
+func _on_focus_entered() -> void:
 	show_delete_button()
 	theme_type_variation = STYLE_SELECTED
 	database.selected_item = self
 
 
-func _on_focus_exited(line_edit: LineEdit) -> void:
+func _on_focus_exited() -> void:
 	hide_delete_button()
 	theme_type_variation = STYLE_NORMAL
 
@@ -107,8 +126,7 @@ func assign_booking(booking_to_assign: Booking = null) -> void:
 	prepaid_date_label.text = booking.prepaid_date
 	payment_amount_label.text = str(booking.payment_amount) if booking.payment_amount else ""
 	payment_date_label.text = booking.payment_date
-	invoice_label.text = "tak" if booking.invoice else ""
-	invoice_status_label.text = "opłacona" if booking.invoice_status else ""
+	invoice_status_label.select(booking.invoice_status)
 	remarks_label.text = booking.remarks
 
 
@@ -126,8 +144,7 @@ func update_booking() -> void:
 		prepaid_date_label.text,
 		float(payment_amount_label.text),
 		payment_date_label.text,
-		true if invoice_label.text == "tak" else false,
-		true if invoice_status_label.text == "opłacona" else false,
+		invoice_status_label.selected,
 		remarks_label.text
 		)
 	print("ID %s updated" % id_label.text)

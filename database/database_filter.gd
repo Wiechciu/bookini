@@ -16,45 +16,67 @@ extends PanelContainer
 @export var prepaid_date_label: LineEdit
 @export var payment_amount_label: LineEdit
 @export var payment_date_label: LineEdit
-@export var invoice_label: LineEdit
-@export var invoice_status_label: LineEdit
+@export var invoice_status_label: OptionButton
 @export var remarks_label: LineEdit
 var line_edits: Array[LineEdit]
+var option_buttons: Array[OptionButton]
 var cached_content: String
 
 
 func _ready() -> void:
 	clear_button.pressed.connect(_on_clear_button_pressed)
 	hide_clear_button()
+	
+	Utils.add_items_to_option_button(Utils.INVOICE_STATUS_ITEMS, invoice_status_label, -1)
 	for line_edit: LineEdit in find_children("*", "LineEdit", true):
 		line_edits.append(line_edit)
 		line_edit.clear()
 		line_edit.text_submitted.connect(_on_submit_or_focus_exited.bind(line_edit).unbind(1))
 		line_edit.focus_entered.connect(_on_focus_entered.bind(line_edit))
 		line_edit.focus_exited.connect(_on_submit_or_focus_exited.bind(line_edit))
+	for option_button: OptionButton in find_children("*", "OptionButton", true):
+		option_buttons.append(option_button)
+		option_button.item_selected.connect(_on_submit_or_focus_exited.bind(option_button).unbind(1))
+		option_button.focus_entered.connect(_on_focus_entered.bind(option_button))
+		option_button.focus_exited.connect(_on_submit_or_focus_exited.bind(option_button))
+	
 	connect_split_containers_to_header()
 
 
 func _on_clear_button_pressed() -> void:
 	for line_edit: LineEdit in line_edits:
 		line_edit.text = ""
-	database.filter_database()
+	for option_button: OptionButton in option_buttons:
+		option_button.select(-1)
+	database.unfilter_database()
 	hide_clear_button()
 
 
-func _on_focus_entered(child: LineEdit) -> void:
-	cached_content = child.text
+func _on_focus_entered(control: Control) -> void:
+	if control is LineEdit:
+		cached_content = control.text
+	if control is OptionButton:
+		cached_content = str(control.selected)
 
-
-func _on_submit_or_focus_exited(child: LineEdit) -> void:
-	if child.text == cached_content:
-		return
-	cached_content = child.text
-	database.filter_database()
+func _on_submit_or_focus_exited(control: Control) -> void:
+	if control is LineEdit:
+		if control.text == cached_content:
+			return
+		else:
+			cached_content = control.text
+	
+	if control is OptionButton:
+		if str(control.selected) == cached_content:
+			return
+		else:
+			cached_content = str(control.selected)
+	
 	
 	if is_any_filter_applied():
+		database.filter_database()
 		show_clear_button()
 	else:
+		database.unfilter_database()
 		hide_clear_button()
 
 
@@ -71,6 +93,9 @@ func show_clear_button() -> void:
 func is_any_filter_applied() -> bool:
 	for line_edit: LineEdit in line_edits:
 		if line_edit.text != "":
+			return true
+	for option_button: OptionButton in option_buttons:
+		if option_button.selected != -1:
 			return true
 	return false
 
