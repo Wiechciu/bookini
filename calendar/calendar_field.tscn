@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ogbjdpwoo7tr"]
 
 [ext_resource type="Script" uid="uid://joe71rpgm8l0" path="res://calendar/calendar_field.gd" id="1_8j7mv"]
-[ext_resource type="PackedScene" uid="uid://cghapkildl4rr" path="res://tooltip/tooltip_component.tscn" id="2_hn1xr"]
+[ext_resource type="PackedScene" uid="uid://cghapkildl4rr" path="res://components/tooltip_component.tscn" id="2_hn1xr"]
 
 [node name="CalendarField" type="PanelContainer" node_paths=PackedStringArray("field_start", "field_end")]
 custom_minimum_size = Vector2(19, 20)

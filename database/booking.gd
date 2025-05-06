@@ -21,6 +21,9 @@ var end_date_as_unix_time: int:
 	get:
 		return Time.get_unix_time_from_datetime_string(end_date)
 var dates_occupied: Array[String]
+var nights: int:
+	get:
+		return dates_occupied.size() - 1
 @export_storage var room: int
 @export_storage var quantity: int
 @export_storage var prepaid_amount: float
@@ -90,7 +93,7 @@ func update(
 		remarks: String
 	) -> void:
 	var recalculate_required: bool = false
-	if start_date != self.start_date or end_date != self.end_date or room != self.room:
+	if start_date != self.start_date or end_date != self.end_date or room != self.room or status != self.status:
 		GlobalRefs.remove_booking_dates_from_dicts(self)
 		recalculate_required = true
 	
@@ -111,3 +114,13 @@ func update(
 	
 	if recalculate_required:
 		GlobalRefs.recalculate_dicts_for_booking(self)
+
+
+func change_status(new_status: Status) -> void:
+	if status == new_status:
+		return
+	
+	status = new_status
+	
+	GlobalRefs.remove_booking_dates_from_dicts(self)
+	GlobalRefs.recalculate_dicts_for_booking(self)

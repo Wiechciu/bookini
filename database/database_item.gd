@@ -16,6 +16,7 @@ const STYLE_SELECTED: String = "PanelContainerDatabaseItemSelected"
 @export var pesel_label: LineEdit
 @export var start_date_label: LineEdit
 @export var end_date_label: LineEdit
+@export var nights_label: LineEdit
 @export var room_label: OptionButton
 @export var quantity_label: LineEdit
 @export var prepaid_amount_label: LineEdit
@@ -60,8 +61,9 @@ func _on_delete_button_pressed() -> void:
 	get_tree().root.add_child(delete_confirmation)
 	var result: bool = await delete_confirmation.result
 	if result:
-		booking.status = Booking.Status.DELETED
 		print("ID %s deleted" % id_label.text)
+		booking.change_status(Booking.Status.DELETED)
+		item_updated.emit()
 		database.remove_item(self)
 
 
@@ -132,7 +134,7 @@ func assign_booking(booking_to_assign: Booking = null) -> void:
 
 func update_booking() -> void:
 	booking.update(
-		Booking.Status.ACTIVE,
+		booking.status,
 		name_label.text,
 		phone_label.text,
 		pesel_label.text,

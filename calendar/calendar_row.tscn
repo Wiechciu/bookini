@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dtvofq0chvq8o" path="res://calendar/calendar_row.gd" id="1_mfpya"]
 [ext_resource type="PackedScene" uid="uid://ogbjdpwoo7tr" path="res://calendar/calendar_field.tscn" id="2_0tbxy"]
-[ext_resource type="PackedScene" uid="uid://cqj2ddgyoysde" path="res://animate_on_hover_component.tscn" id="2_7ls38"]
+[ext_resource type="PackedScene" uid="uid://cqj2ddgyoysde" path="res://components/animate_on_hover_component.tscn" id="2_7ls38"]
 
 [node name="CalendarRow" type="PanelContainer" node_paths=PackedStringArray("room_name_label", "calendar_fields_container")]
 theme_type_variation = &"PanelContainerCalendarRow"

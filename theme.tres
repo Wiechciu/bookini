@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=87 format=3 uid="uid://b1p3xo06djhek"]
+[gd_resource type="Theme" load_steps=88 format=3 uid="uid://b1p3xo06djhek"]
 
 [ext_resource type="Texture2D" uid="uid://c5voeo7nugwy2" path="res://arrow_down_12x10.png" id="1_e1x85"]
 
@@ -154,6 +154,9 @@ draw_center = false
 content_margin_left = 3.0
 content_margin_right = 3.0
 draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6kwnv"]
+bg_color = Color(0.701961, 0.682353, 0.905882, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i1e0v"]
 content_margin_left = 3.0
@@ -472,6 +475,8 @@ LabelDatabaseHeader/base_type = &"Label"
 LabelDatabaseHeader/styles/normal = SubResource("StyleBoxFlat_vhp3g")
 LabelDatabaseItem/base_type = &"Label"
 LabelDatabaseItem/styles/normal = SubResource("StyleBoxFlat_aaj76")
+LabelDatePickerToday/base_type = &"Label"
+LabelDatePickerToday/styles/normal = SubResource("StyleBoxFlat_6kwnv")
 LabelRedText/base_type = &"Label"
 LabelRedText/colors/font_color = Color(0.746338, 0.166976, 0.277214, 1)
 LineEditDatabaseItem/base_type = &"LineEdit"

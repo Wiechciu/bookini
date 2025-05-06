@@ -265,6 +265,11 @@ msgid "Otwórz lokalizację bazy danych"
 msgstr ""
 
 #: overbooking_warning/overbooking_warning.gd
+msgid "{count} overbooking"
+msgid_plural "{count} overbookingów"
+msgstr[0] ""
+msgstr[1] ""
+
 #: overbooking_warning/overbooking_warning.tscn
 msgid "{count} overbookingów"
 msgstr ""

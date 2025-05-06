@@ -6,6 +6,21 @@ enum OccupancyType {
 	FULL_DAY,
 }
 
+var month_names: Array[String] = [
+	atr("styczeń"),
+	atr("luty"),
+	atr("marzec"),
+	atr("kwiecień"),
+	atr("maj"),
+	atr("czerwiec"),
+	atr("lipiec"),
+	atr("sierpień"),
+	atr("wrzesień"),
+	atr("październik"),
+	atr("listopad"),
+	atr("grudzień"),
+]
+
 var invoice_status_items: Array[String] = [
 	atr("Nie dotyczy"),
 	atr("Nieopłacona"),
@@ -42,7 +57,7 @@ func recalculate_dicts() -> void:
 
 
 func recalculate_dicts_for_booking(booking: Booking) -> void:
-	if not booking.has_correct_date_order:
+	if booking.status != Booking.Status.ACTIVE or not booking.has_correct_date_order:
 		recalculate_overbookings()
 		return
 	

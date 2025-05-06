@@ -10,6 +10,9 @@ FIX:
 	-
 
 TODO:
+	Bigger font
+	Yacht
+	
 	implement cancelling bookings
 	jump to entered date in the calendar
 	translate to English - post on forum

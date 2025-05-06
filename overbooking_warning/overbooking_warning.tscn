@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b8u8ygox48qk0" path="res://exclamation.png" id="1_81voh"]
 [ext_resource type="Script" uid="uid://biwgivm0b75qg" path="res://overbooking_warning/overbooking_warning.gd" id="1_h7ae4"]
-[ext_resource type="PackedScene" uid="uid://cghapkildl4rr" path="res://tooltip/tooltip_component.tscn" id="3_cgwf2"]
+[ext_resource type="PackedScene" uid="uid://cghapkildl4rr" path="res://components/tooltip_component.tscn" id="3_cgwf2"]
 
 [node name="OverbookingWarning" type="PanelContainer" node_paths=PackedStringArray("label")]
 theme_type_variation = &"PanelContainerOverbookingWarning"

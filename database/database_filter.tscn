@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" uid="uid://b7y06r4o1m5jy" path="res://database/database_filter.gd" id="1_y4xxc"]
 [ext_resource type="Texture2D" uid="uid://cngkt3kjwd3jg" path="res://clear.png" id="2_kuo7r"]
-[ext_resource type="PackedScene" uid="uid://cghapkildl4rr" path="res://tooltip/tooltip_component.tscn" id="3_3qwab"]
-[ext_resource type="PackedScene" uid="uid://dboq0xx4q6cf2" path="res://database/focus_component.tscn" id="3_6g03t"]
-[ext_resource type="PackedScene" uid="uid://cy6syqbn8oudx" path="res://database/date_entry_component.tscn" id="4_1n5h5"]
-[ext_resource type="PackedScene" uid="uid://b87p8d3gl8mex" path="res://database/string_validation_component.tscn" id="4_3qwab"]
-[ext_resource type="PackedScene" uid="uid://db1m1y80aaiaa" path="res://database/date_validation_component.tscn" id="5_3qwab"]
-[ext_resource type="PackedScene" uid="uid://cffd6bcgb65et" path="res://tooltip/database_tooltip_component.tscn" id="5_4ukt5"]
+[ext_resource type="PackedScene" uid="uid://cghapkildl4rr" path="res://components/tooltip_component.tscn" id="3_3qwab"]
+[ext_resource type="PackedScene" uid="uid://dboq0xx4q6cf2" path="res://components/focus_component.tscn" id="3_6g03t"]
+[ext_resource type="PackedScene" uid="uid://cy6syqbn8oudx" path="res://components/date_entry_component.tscn" id="4_1n5h5"]
+[ext_resource type="PackedScene" uid="uid://b87p8d3gl8mex" path="res://components/string_validation_component.tscn" id="4_3qwab"]
+[ext_resource type="PackedScene" uid="uid://db1m1y80aaiaa" path="res://components/date_validation_component.tscn" id="5_3qwab"]
+[ext_resource type="PackedScene" uid="uid://cffd6bcgb65et" path="res://components/database_tooltip_component.tscn" id="5_4ukt5"]
 
-[node name="DatabaseFilter" type="PanelContainer" node_paths=PackedStringArray("clear_button", "id_label", "name_label", "phone_label", "pesel_label", "start_date_label", "end_date_label", "room_label", "quantity_label", "prepaid_amount_label", "prepaid_date_label", "payment_amount_label", "payment_date_label", "invoice_status_label", "remarks_label")]
+[node name="DatabaseFilter" type="PanelContainer" node_paths=PackedStringArray("clear_button", "id_label", "name_label", "phone_label", "pesel_label", "start_date_label", "end_date_label", "nights_label", "room_label", "quantity_label", "prepaid_amount_label", "prepaid_date_label", "payment_amount_label", "payment_date_label", "invoice_status_label", "remarks_label")]
 custom_minimum_size = Vector2(0, 27)
 theme_type_variation = &"PanelContainerDatabaseFilter"
 script = ExtResource("1_y4xxc")
@@ -20,14 +20,15 @@ phone_label = NodePath("HSplitContainer/HSplitContainer/HSplitContainer/Phone")
 pesel_label = NodePath("HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/Pesel")
 start_date_label = NodePath("HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/StartDate")
 end_date_label = NodePath("HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/EndDate")
-room_label = NodePath("HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/Room")
-quantity_label = NodePath("HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/Quantity")
-prepaid_amount_label = NodePath("HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/PrepaidAmount")
-prepaid_date_label = NodePath("HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/PrepaidDate")
-payment_amount_label = NodePath("HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/PaymentAmount")
-payment_date_label = NodePath("HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/PaymentDate")
-invoice_status_label = NodePath("HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/InvoiceStatus")
-remarks_label = NodePath("HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HBoxContainer/Remarks")
+nights_label = NodePath("HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/Nights")
+room_label = NodePath("HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/Room")
+quantity_label = NodePath("HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/Quantity")
+prepaid_amount_label = NodePath("HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/PrepaidAmount")
+prepaid_date_label = NodePath("HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/PrepaidDate")
+payment_amount_label = NodePath("HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/PaymentAmount")
+payment_date_label = NodePath("HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/PaymentDate")
+invoice_status_label = NodePath("HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/InvoiceStatus")
+remarks_label = NodePath("HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HBoxContainer/Remarks")
 
 [node name="HSplitContainer" type="HSplitContainer" parent="."]
 layout_mode = 2
@@ -178,13 +179,31 @@ caret_blink = true
 
 [node name="TooltipComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/EndDate" instance=ExtResource("5_4ukt5")]
 
-[node name="HSplitContainer" type="HSplitContainer" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer"]
+[node name="HSplitContainer2" type="HSplitContainer" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer"]
 layout_mode = 2
 theme_type_variation = &"SplitContainerTable"
 split_offset = 70
 dragging_enabled = false
 
-[node name="Room" type="OptionButton" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer"]
+[node name="Nights" type="LineEdit" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2"]
+auto_translate_mode = 2
+custom_minimum_size = Vector2(40, 25)
+layout_mode = 2
+theme_type_variation = &"LineEditDatabaseItem"
+text = "5"
+caret_blink = true
+
+[node name="FocusComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/Nights" instance=ExtResource("3_6g03t")]
+
+[node name="TooltipComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/Nights" instance=ExtResource("5_4ukt5")]
+
+[node name="HSplitContainer" type="HSplitContainer" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2"]
+layout_mode = 2
+theme_type_variation = &"SplitContainerTable"
+split_offset = 70
+dragging_enabled = false
+
+[node name="Room" type="OptionButton" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer"]
 auto_translate_mode = 2
 custom_minimum_size = Vector2(40, 25)
 layout_mode = 2
@@ -196,15 +215,15 @@ item_count = 1
 popup/item_0/text = "1"
 popup/item_0/id = 0
 
-[node name="TooltipComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/Room" instance=ExtResource("5_4ukt5")]
+[node name="TooltipComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/Room" instance=ExtResource("5_4ukt5")]
 
-[node name="HSplitContainer" type="HSplitContainer" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer"]
+[node name="HSplitContainer" type="HSplitContainer" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer"]
 layout_mode = 2
 theme_type_variation = &"SplitContainerTable"
 split_offset = 70
 dragging_enabled = false
 
-[node name="Quantity" type="LineEdit" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer"]
+[node name="Quantity" type="LineEdit" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer"]
 auto_translate_mode = 2
 custom_minimum_size = Vector2(40, 25)
 layout_mode = 2
@@ -212,17 +231,17 @@ theme_type_variation = &"LineEditDatabaseItem"
 text = "5"
 caret_blink = true
 
-[node name="FocusComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/Quantity" instance=ExtResource("3_6g03t")]
+[node name="FocusComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/Quantity" instance=ExtResource("3_6g03t")]
 
-[node name="TooltipComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/Quantity" instance=ExtResource("5_4ukt5")]
+[node name="TooltipComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/Quantity" instance=ExtResource("5_4ukt5")]
 
-[node name="HSplitContainer" type="HSplitContainer" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer"]
+[node name="HSplitContainer" type="HSplitContainer" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer"]
 layout_mode = 2
 theme_type_variation = &"SplitContainerTable"
 split_offset = 70
 dragging_enabled = false
 
-[node name="PrepaidAmount" type="LineEdit" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer"]
+[node name="PrepaidAmount" type="LineEdit" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer"]
 auto_translate_mode = 2
 custom_minimum_size = Vector2(40, 25)
 layout_mode = 2
@@ -230,17 +249,17 @@ theme_type_variation = &"LineEditDatabaseItem"
 text = "500"
 caret_blink = true
 
-[node name="FocusComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/PrepaidAmount" instance=ExtResource("3_6g03t")]
+[node name="FocusComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/PrepaidAmount" instance=ExtResource("3_6g03t")]
 
-[node name="TooltipComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/PrepaidAmount" instance=ExtResource("5_4ukt5")]
+[node name="TooltipComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/PrepaidAmount" instance=ExtResource("5_4ukt5")]
 
-[node name="HSplitContainer" type="HSplitContainer" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer"]
+[node name="HSplitContainer" type="HSplitContainer" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer"]
 layout_mode = 2
 theme_type_variation = &"SplitContainerTable"
 split_offset = 70
 dragging_enabled = false
 
-[node name="PrepaidDate" type="LineEdit" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer"]
+[node name="PrepaidDate" type="LineEdit" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer"]
 auto_translate_mode = 2
 custom_minimum_size = Vector2(40, 25)
 layout_mode = 2
@@ -248,23 +267,23 @@ theme_type_variation = &"LineEditDatabaseItem"
 text = "2025-01-01"
 caret_blink = true
 
-[node name="StringValidationComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/PrepaidDate" instance=ExtResource("4_3qwab")]
+[node name="StringValidationComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/PrepaidDate" instance=ExtResource("4_3qwab")]
 
-[node name="DateValidationComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/PrepaidDate" instance=ExtResource("5_3qwab")]
+[node name="DateValidationComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/PrepaidDate" instance=ExtResource("5_3qwab")]
 
-[node name="DateEntryComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/PrepaidDate" instance=ExtResource("4_1n5h5")]
+[node name="DateEntryComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/PrepaidDate" instance=ExtResource("4_1n5h5")]
 
-[node name="FocusComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/PrepaidDate" instance=ExtResource("3_6g03t")]
+[node name="FocusComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/PrepaidDate" instance=ExtResource("3_6g03t")]
 
-[node name="TooltipComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/PrepaidDate" instance=ExtResource("5_4ukt5")]
+[node name="TooltipComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/PrepaidDate" instance=ExtResource("5_4ukt5")]
 
-[node name="HSplitContainer" type="HSplitContainer" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer"]
+[node name="HSplitContainer" type="HSplitContainer" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer"]
 layout_mode = 2
 theme_type_variation = &"SplitContainerTable"
 split_offset = 70
 dragging_enabled = false
 
-[node name="PaymentAmount" type="LineEdit" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer"]
+[node name="PaymentAmount" type="LineEdit" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer"]
 auto_translate_mode = 2
 custom_minimum_size = Vector2(40, 25)
 layout_mode = 2
@@ -272,17 +291,17 @@ theme_type_variation = &"LineEditDatabaseItem"
 text = "300"
 caret_blink = true
 
-[node name="FocusComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/PaymentAmount" instance=ExtResource("3_6g03t")]
+[node name="FocusComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/PaymentAmount" instance=ExtResource("3_6g03t")]
 
-[node name="TooltipComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/PaymentAmount" instance=ExtResource("5_4ukt5")]
+[node name="TooltipComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/PaymentAmount" instance=ExtResource("5_4ukt5")]
 
-[node name="HSplitContainer" type="HSplitContainer" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer"]
+[node name="HSplitContainer" type="HSplitContainer" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer"]
 layout_mode = 2
 theme_type_variation = &"SplitContainerTable"
 split_offset = 70
 dragging_enabled = false
 
-[node name="PaymentDate" type="LineEdit" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer"]
+[node name="PaymentDate" type="LineEdit" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer"]
 auto_translate_mode = 2
 custom_minimum_size = Vector2(40, 25)
 layout_mode = 2
@@ -290,23 +309,23 @@ theme_type_variation = &"LineEditDatabaseItem"
 text = "2025-01-02"
 caret_blink = true
 
-[node name="StringValidationComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/PaymentDate" instance=ExtResource("4_3qwab")]
+[node name="StringValidationComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/PaymentDate" instance=ExtResource("4_3qwab")]
 
-[node name="DateValidationComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/PaymentDate" instance=ExtResource("5_3qwab")]
+[node name="DateValidationComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/PaymentDate" instance=ExtResource("5_3qwab")]
 
-[node name="DateEntryComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/PaymentDate" instance=ExtResource("4_1n5h5")]
+[node name="DateEntryComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/PaymentDate" instance=ExtResource("4_1n5h5")]
 
-[node name="FocusComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/PaymentDate" instance=ExtResource("3_6g03t")]
+[node name="FocusComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/PaymentDate" instance=ExtResource("3_6g03t")]
 
-[node name="TooltipComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/PaymentDate" instance=ExtResource("5_4ukt5")]
+[node name="TooltipComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/PaymentDate" instance=ExtResource("5_4ukt5")]
 
-[node name="HSplitContainer" type="HSplitContainer" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer"]
+[node name="HSplitContainer" type="HSplitContainer" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer"]
 layout_mode = 2
 theme_type_variation = &"SplitContainerTable"
 split_offset = 70
 dragging_enabled = false
 
-[node name="InvoiceStatus" type="OptionButton" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer"]
+[node name="InvoiceStatus" type="OptionButton" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer"]
 custom_minimum_size = Vector2(40, 25)
 layout_mode = 2
 theme_type_variation = &"OptionButtonDatabaseItem"
@@ -317,18 +336,18 @@ item_count = 1
 popup/item_0/text = "Nieopłacona"
 popup/item_0/id = 0
 
-[node name="TooltipComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/InvoiceStatus" instance=ExtResource("5_4ukt5")]
+[node name="TooltipComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/InvoiceStatus" instance=ExtResource("5_4ukt5")]
 
-[node name="HSplitContainer" type="HSplitContainer" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer"]
+[node name="HSplitContainer" type="HSplitContainer" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer"]
 layout_mode = 2
 theme_type_variation = &"SplitContainerTable"
 split_offset = 70
 dragging_enabled = false
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer"]
 layout_mode = 2
 
-[node name="Remarks" type="LineEdit" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HBoxContainer"]
+[node name="Remarks" type="LineEdit" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HBoxContainer"]
 auto_translate_mode = 2
 custom_minimum_size = Vector2(40, 25)
 layout_mode = 2
@@ -337,10 +356,10 @@ theme_type_variation = &"LineEditDatabaseItem"
 text = "Notatka"
 caret_blink = true
 
-[node name="FocusComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HBoxContainer/Remarks" instance=ExtResource("3_6g03t")]
+[node name="FocusComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HBoxContainer/Remarks" instance=ExtResource("3_6g03t")]
 
-[node name="TooltipComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HBoxContainer/Remarks" instance=ExtResource("5_4ukt5")]
+[node name="TooltipComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HBoxContainer/Remarks" instance=ExtResource("5_4ukt5")]
 
-[node name="ScrollbarMargin" type="Control" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HBoxContainer"]
+[node name="ScrollbarMargin" type="Control" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HBoxContainer"]
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2

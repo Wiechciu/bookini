@@ -2,21 +2,6 @@ class_name CalendarHeader
 extends PanelContainer
 
 
-var month_names: Array[String] = [
-	atr("styczeń"),
-	atr("luty"),
-	atr("marzec"),
-	atr("kwiecień"),
-	atr("maj"),
-	atr("czerwiec"),
-	atr("lipiec"),
-	atr("sierpień"),
-	atr("wrzesień"),
-	atr("październik"),
-	atr("listopad"),
-	atr("grudzień"),
-]
-
 @export var calendar: Calendar
 @export var previous_button: Button
 @export var next_button: Button
@@ -88,4 +73,4 @@ func _notification(what: int) -> void:
 
 
 func update_labels() -> void:
-	month_label.text = "%s %d" % [atr(month_names[calendar.selected_month - 1]), calendar.selected_year]
+	month_label.text = "%s %d" % [atr(GlobalRefs.month_names[calendar.selected_month - 1]), calendar.selected_year]

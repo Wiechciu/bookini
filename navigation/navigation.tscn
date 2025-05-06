@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://crknomhrqp6xv" path="res://navigation/navigation.gd" id="1_kgjf5"]
 [ext_resource type="Texture2D" uid="uid://dmhit68fq8v3w" path="res://question.png" id="2_660mv"]
 [ext_resource type="PackedScene" uid="uid://47jmg5sgalf1" path="res://popup_windows/help.tscn" id="2_leccq"]
-[ext_resource type="PackedScene" uid="uid://cghapkildl4rr" path="res://tooltip/tooltip_component.tscn" id="4_avam6"]
+[ext_resource type="PackedScene" uid="uid://cghapkildl4rr" path="res://components/tooltip_component.tscn" id="4_avam6"]
 [ext_resource type="Texture2D" uid="uid://cbs1gu14546ux" path="res://folder.png" id="5_moll0"]
 
 [node name="Navigation" type="PanelContainer" node_paths=PackedStringArray("help_button", "open_save_location_button", "language_button")]

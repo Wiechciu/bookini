@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://db1m1y80aaiaa"]
 
-[ext_resource type="Script" uid="uid://bnpav5eril16q" path="res://database/date_validation_component.gd" id="1_o0qno"]
+[ext_resource type="Script" uid="uid://bnpav5eril16q" path="res://components/date_validation_component.gd" id="1_o0qno"]
 
 [node name="DateValidationComponent" type="Node"]
 script = ExtResource("1_o0qno")

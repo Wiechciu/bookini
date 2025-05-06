@@ -10,6 +10,7 @@ extends PanelContainer
 @export var pesel_label: LineEdit
 @export var start_date_label: LineEdit
 @export var end_date_label: LineEdit
+@export var nights_label: LineEdit
 @export var room_label: OptionButton
 @export var quantity_label: LineEdit
 @export var prepaid_amount_label: LineEdit

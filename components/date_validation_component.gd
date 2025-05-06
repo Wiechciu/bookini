@@ -16,6 +16,8 @@ const STYLE_INCORRECT_ORDER: String = "LineEditDatabaseItemIncorrectOrder"
 var parent_node: LineEdit
 var illegal_characters_regex: RegEx
 
+var recursion_block: bool
+
 
 func _ready() -> void:
 	parent_node = get_parent()
@@ -31,34 +33,37 @@ func _ready() -> void:
 
 
 func _on_editing_toggled(toggled_on: bool) -> void:
-	if toggled_on:
+	if recursion_block:
 		return
 	
-	var text = parent_node.text
+	if toggled_on:
+		return
+		
+	if Utils.is_date_valid(parent_node.text):
+		return
+	
+	var text = parent_node.text.remove_chars("-")
 	if not text.is_valid_int():
 		return
 	
-	if text.length() <= 2:
+	var combined_date: String
+	if text.length() <= 2: # format D and DD
 		var current_date_dict: Dictionary = Time.get_datetime_dict_from_system()
-		var combined_date: String = "%04d-%02d-%02d" % [current_date_dict.year, current_date_dict.month, int(text)]
-		if Utils.is_date_valid(combined_date):
-			parent_node.text = combined_date
-	elif text.length() == 4:
+		combined_date = "%04d-%02d-%02d" % [current_date_dict.year, current_date_dict.month, int(text)]
+	elif text.length() == 4: # format MMDD
 		var current_date_dict: Dictionary = Time.get_datetime_dict_from_system()
-		var combined_date: String = "%04d-%02d-%02d" % [current_date_dict.year, int(text.substr(0, 2)), int(text.substr(2, 2))]
-		if Utils.is_date_valid(combined_date):
-			parent_node.text = combined_date
-	elif text.length() == 6:
-		var combined_date: String = "%04d-%02d-%02d" % [int(text.substr(0, 2)) + 2000, int(text.substr(2, 2)), int(text.substr(4, 2))]
-		if Utils.is_date_valid(combined_date):
-			parent_node.text = combined_date
-	elif text.length() == 8:
-		var combined_date: String = "%04d-%02d-%02d" % [int(text.substr(0, 4)), int(text.substr(4, 2)), int(text.substr(6, 2))]
-		if Utils.is_date_valid(combined_date):
-			parent_node.text = combined_date
+		combined_date = "%04d-%02d-%02d" % [current_date_dict.year, int(text.substr(0, 2)), int(text.substr(2, 2))]
+	elif text.length() == 6: # format YYMMDD
+		combined_date = "%04d-%02d-%02d" % [int(text.substr(0, 2)) + 2000, int(text.substr(2, 2)), int(text.substr(4, 2))]
+	elif text.length() == 8: # format YYYYMMDD
+		combined_date = "%04d-%02d-%02d" % [int(text.substr(0, 4)), int(text.substr(4, 2)), int(text.substr(6, 2))]
 	
-	if parent_node.text != text:
-		parent_node.text_changed.emit(text)
+	if combined_date != "" and Utils.is_date_valid(combined_date):
+		parent_node.text = combined_date
+		parent_node.text_changed.emit(parent_node.text)
+		recursion_block = true
+		parent_node.editing_toggled.emit(false)
+		recursion_block = false
 
 
 func validate() -> void:

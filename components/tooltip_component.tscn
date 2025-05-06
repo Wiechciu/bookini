@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cghapkildl4rr"]
 
-[ext_resource type="Script" uid="uid://dgdkvr8tdsq2h" path="res://tooltip/tooltip_component.gd" id="1_02yox"]
+[ext_resource type="Script" uid="uid://dgdkvr8tdsq2h" path="res://components/tooltip_component.gd" id="1_02yox"]
 [ext_resource type="PackedScene" uid="uid://b2e2cevo50f71" path="res://tooltip/tooltip.tscn" id="2_syl40"]
 
 [node name="TooltipComponent" type="Node"]

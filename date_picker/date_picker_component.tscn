@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cllik4y48xqq1"]
+
+[ext_resource type="Script" uid="uid://dsm0yxtvutist" path="res://date_picker/date_picker_component.gd" id="1_fx33c"]
+[ext_resource type="PackedScene" uid="uid://cc2p6lu76hlyl" path="res://date_picker/date_picker.tscn" id="2_xpddk"]
+
+[node name="DatePickerComponent" type="Node"]
+script = ExtResource("1_fx33c")
+date_picker_scene = ExtResource("2_xpddk")

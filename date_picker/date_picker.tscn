@@ -1,0 +1,474 @@
+[gd_scene load_steps=4 format=3 uid="uid://cc2p6lu76hlyl"]
+
+[ext_resource type="Script" uid="uid://qkr56viifhq5" path="res://date_picker/date_picker.gd" id="1_cevaq"]
+[ext_resource type="Texture2D" uid="uid://c8qf4domdrd2u" path="res://arrow_prev.png" id="2_dxgfc"]
+[ext_resource type="Texture2D" uid="uid://dnt8c7edjave4" path="res://arrow_next.png" id="3_lub7d"]
+
+[node name="DatePicker" type="PanelContainer" node_paths=PackedStringArray("month_label", "weeks_container", "previous_button", "next_button")]
+offset_right = 140.0
+offset_bottom = 120.0
+theme_type_variation = &"PanelContainerPopup"
+script = ExtResource("1_cevaq")
+month_label = NodePath("VBoxContainer/Buttons/Month")
+weeks_container = NodePath("VBoxContainer/Weeks")
+previous_button = NodePath("VBoxContainer/Buttons/PreviousButton")
+next_button = NodePath("VBoxContainer/Buttons/NextButton")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Buttons" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="Month" type="Label" parent="VBoxContainer/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "październik 2025"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PreviousButton" type="Button" parent="VBoxContainer/Buttons"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme_type_variation = &"ButtonEmpty"
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Buttons/PreviousButton"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_dxgfc")
+expand_mode = 3
+
+[node name="NextButton" type="Button" parent="VBoxContainer/Buttons"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme_type_variation = &"ButtonEmpty"
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Buttons/NextButton"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_lub7d")
+expand_mode = 3
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/Buttons"]
+layout_mode = 2
+
+[node name="Weekdays" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Weekday1" type="Label" parent="VBoxContainer/Weekdays"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+text = "pn"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Weekday2" type="Label" parent="VBoxContainer/Weekdays"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+text = "wt"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Weekday3" type="Label" parent="VBoxContainer/Weekdays"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+text = "śr"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Weekday4" type="Label" parent="VBoxContainer/Weekdays"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+text = "cz"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Weekday5" type="Label" parent="VBoxContainer/Weekdays"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+text = "pt"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Weekday6" type="Label" parent="VBoxContainer/Weekdays"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+text = "so"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Weekday7" type="Label" parent="VBoxContainer/Weekdays"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+text = "nd"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Weeks" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Week1" type="HBoxContainer" parent="VBoxContainer/Weeks"]
+layout_mode = 2
+
+[node name="Day1" type="Label" parent="VBoxContainer/Weeks/Week1"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+mouse_filter = 1
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day2" type="Label" parent="VBoxContainer/Weeks/Week1"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+mouse_filter = 1
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day3" type="Label" parent="VBoxContainer/Weeks/Week1"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+mouse_filter = 1
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day4" type="Label" parent="VBoxContainer/Weeks/Week1"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+mouse_filter = 1
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day5" type="Label" parent="VBoxContainer/Weeks/Week1"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+mouse_filter = 1
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day6" type="Label" parent="VBoxContainer/Weeks/Week1"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+mouse_filter = 1
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day7" type="Label" parent="VBoxContainer/Weeks/Week1"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+mouse_filter = 1
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Week2" type="HBoxContainer" parent="VBoxContainer/Weeks"]
+layout_mode = 2
+
+[node name="Day1" type="Label" parent="VBoxContainer/Weeks/Week2"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+mouse_filter = 1
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day2" type="Label" parent="VBoxContainer/Weeks/Week2"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+mouse_filter = 1
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day3" type="Label" parent="VBoxContainer/Weeks/Week2"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+mouse_filter = 1
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day4" type="Label" parent="VBoxContainer/Weeks/Week2"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+mouse_filter = 1
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day5" type="Label" parent="VBoxContainer/Weeks/Week2"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"LabelDatePickerToday"
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day6" type="Label" parent="VBoxContainer/Weeks/Week2"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+mouse_filter = 1
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day7" type="Label" parent="VBoxContainer/Weeks/Week2"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+mouse_filter = 1
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Week3" type="HBoxContainer" parent="VBoxContainer/Weeks"]
+layout_mode = 2
+
+[node name="Day1" type="Label" parent="VBoxContainer/Weeks/Week3"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+mouse_filter = 1
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day2" type="Label" parent="VBoxContainer/Weeks/Week3"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+mouse_filter = 1
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day3" type="Label" parent="VBoxContainer/Weeks/Week3"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+mouse_filter = 1
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day4" type="Label" parent="VBoxContainer/Weeks/Week3"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+mouse_filter = 1
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day5" type="Label" parent="VBoxContainer/Weeks/Week3"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+mouse_filter = 1
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day6" type="Label" parent="VBoxContainer/Weeks/Week3"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+mouse_filter = 1
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day7" type="Label" parent="VBoxContainer/Weeks/Week3"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+mouse_filter = 1
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Week4" type="HBoxContainer" parent="VBoxContainer/Weeks"]
+layout_mode = 2
+
+[node name="Day1" type="Label" parent="VBoxContainer/Weeks/Week4"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+mouse_filter = 1
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day2" type="Label" parent="VBoxContainer/Weeks/Week4"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+mouse_filter = 1
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day3" type="Label" parent="VBoxContainer/Weeks/Week4"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+mouse_filter = 1
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day4" type="Label" parent="VBoxContainer/Weeks/Week4"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+mouse_filter = 1
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day5" type="Label" parent="VBoxContainer/Weeks/Week4"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+mouse_filter = 1
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day6" type="Label" parent="VBoxContainer/Weeks/Week4"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+mouse_filter = 1
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day7" type="Label" parent="VBoxContainer/Weeks/Week4"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+mouse_filter = 1
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Week5" type="HBoxContainer" parent="VBoxContainer/Weeks"]
+layout_mode = 2
+
+[node name="Day1" type="Label" parent="VBoxContainer/Weeks/Week5"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+mouse_filter = 1
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day2" type="Label" parent="VBoxContainer/Weeks/Week5"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+mouse_filter = 1
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day3" type="Label" parent="VBoxContainer/Weeks/Week5"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+mouse_filter = 1
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day4" type="Label" parent="VBoxContainer/Weeks/Week5"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+mouse_filter = 1
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day5" type="Label" parent="VBoxContainer/Weeks/Week5"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+mouse_filter = 1
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day6" type="Label" parent="VBoxContainer/Weeks/Week5"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+mouse_filter = 1
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day7" type="Label" parent="VBoxContainer/Weeks/Week5"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+mouse_filter = 1
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Week6" type="HBoxContainer" parent="VBoxContainer/Weeks"]
+layout_mode = 2
+
+[node name="Day1" type="Label" parent="VBoxContainer/Weeks/Week6"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+mouse_filter = 1
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day2" type="Label" parent="VBoxContainer/Weeks/Week6"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+mouse_filter = 1
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day3" type="Label" parent="VBoxContainer/Weeks/Week6"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+mouse_filter = 1
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day4" type="Label" parent="VBoxContainer/Weeks/Week6"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+mouse_filter = 1
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day5" type="Label" parent="VBoxContainer/Weeks/Week6"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+mouse_filter = 1
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day6" type="Label" parent="VBoxContainer/Weeks/Week6"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+mouse_filter = 1
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Day7" type="Label" parent="VBoxContainer/Weeks/Week6"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+mouse_filter = 1
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1

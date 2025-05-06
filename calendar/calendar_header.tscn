@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c8qf4domdrd2u" path="res://arrow_prev.png" id="2_7gdw2"]
 [ext_resource type="PackedScene" uid="uid://cbhwtxj1wrs61" path="res://calendar/calendar_header_field.tscn" id="2_861vs"]
 [ext_resource type="Texture2D" uid="uid://b04ijkpxcm25m" path="res://refresh.png" id="2_akdfb"]
-[ext_resource type="PackedScene" uid="uid://cghapkildl4rr" path="res://tooltip/tooltip_component.tscn" id="3_cvw8r"]
+[ext_resource type="PackedScene" uid="uid://cghapkildl4rr" path="res://components/tooltip_component.tscn" id="3_cvw8r"]
 [ext_resource type="PackedScene" uid="uid://yxinw0tojmca" path="res://overbooking_warning/overbooking_warning.tscn" id="4_1vokq"]
 [ext_resource type="Texture2D" uid="uid://dnt8c7edjave4" path="res://arrow_next.png" id="4_8myq3"]
 [ext_resource type="PackedScene" uid="uid://bh6dd8xf1ihi1" path="res://calendar/calendar_header_weekday.tscn" id="4_b1rga"]

@@ -182,6 +182,7 @@ func _filter_bookings(booking: Booking) -> bool:
 		or _compare_booking_string(database_filter.pesel_label, booking.pesel) \
 		or _compare_booking_string(database_filter.start_date_label, booking.start_date) \
 		or _compare_booking_string(database_filter.end_date_label, booking.end_date) \
+		or _compare_booking_string(database_filter.nights_label, booking.nights) \
 		or _compare_booking_string(database_filter.room_label, booking.room) \
 		or _compare_booking_string(database_filter.quantity_label, booking.quantity) \
 		or _compare_booking_string(database_filter.prepaid_amount_label, booking.prepaid_amount) \

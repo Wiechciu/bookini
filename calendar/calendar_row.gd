@@ -47,8 +47,8 @@ func unselect() -> void:
 
 func update() -> void:
 	var counter: int = 0
-	var first_weekday = Time.get_datetime_dict_from_datetime_string("%04d-%02d-%02d" % [calendar.selected_year, calendar.selected_month, 1], true).weekday
-	var today_date = Time.get_datetime_string_from_system().left(10)
+	var first_weekday: int = Time.get_datetime_dict_from_datetime_string("%04d-%02d-%02d" % [calendar.selected_year, calendar.selected_month, 1], true).weekday
+	var today_date: String = Time.get_datetime_string_from_system().left(10)
 
 	for calendar_field: CalendarField in calendar_fields:
 		counter += 1

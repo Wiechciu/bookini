@@ -35,7 +35,7 @@ func _on_database_item_updated() -> void:
 
 
 func update_labels() -> void:
-	label.text = atr("{count} overbookingów").format({"count" = overbookings.size()})
+	label.text = atr_n("{count} overbooking", "{count} overbookingów", overbookings.size()).format({"count" = overbookings.size()})
 
 
 func _gui_input(event: InputEvent) -> void:
