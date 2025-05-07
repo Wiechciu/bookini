@@ -35,7 +35,11 @@ func initialize(database_to_assign: Database, booking_to_assign: Booking) -> voi
 	Utils.add_items_to_option_button(GlobalRefs.invoice_status_items, invoice_status_label, -1)
 	for line_edit: LineEdit in find_children("*", "LineEdit", true):
 		line_edit.clear()
-		line_edit.editing_toggled.connect(_on_editing_toggled.bind(line_edit))
+		
+		if line_edit is LineEditDateEntry:
+			line_edit.date_validated.connect(_on_editing_toggled.bind(false, line_edit))
+		else:
+			line_edit.editing_toggled.connect(_on_editing_toggled.bind(line_edit))
 		line_edit.focus_entered.connect(_on_focus_entered)
 		line_edit.focus_exited.connect(_on_focus_exited)
 	for option_button: OptionButton in find_children("*", "OptionButton", true):

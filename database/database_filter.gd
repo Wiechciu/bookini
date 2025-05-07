@@ -107,6 +107,7 @@ func connect_split_containers_to_header() -> void:
 	for split_container: SplitContainer in find_children("*", "SplitContainer", true):
 		counter += 1
 		database.database_header.split_containers[counter].dragged.connect(update_split_container.bind(split_container))
+		update_split_container(database.database_header.split_containers[counter].split_offset, split_container)
 
 
 func update_split_container(offset: int, split_container: SplitContainer) -> void:

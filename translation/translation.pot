@@ -1,21 +1,10 @@
 # LANGUAGE translation for Bookini for the following files:
-# res://database/booking.gd
-# res://database/database.gd
-# res://database/database.tscn
-# res://database/database_filter.gd
-# res://database/database_filter.tscn
-# res://database/database_header.gd
-# res://database/database_header.tscn
-# res://database/database_item.gd
-# res://database/database_item.tscn
-# res://database/date_entry_component.gd
-# res://database/date_entry_component.tscn
-# res://database/date_validation_component.gd
-# res://database/date_validation_component.tscn
-# res://database/focus_component.gd
-# res://database/focus_component.tscn
-# res://database/string_validation_component.gd
-# res://database/string_validation_component.tscn
+# res://app_header.tscn
+# res://close_button.gd
+# res://main.tscn
+# res://utils.gd
+# res://app_manager/app_manager.gd
+# res://app_manager/app_manager.tscn
 # res://calendar/calendar.gd
 # res://calendar/calendar.tscn
 # res://calendar/calendar_field.gd
@@ -28,6 +17,35 @@
 # res://calendar/calendar_header_weekday.tscn
 # res://calendar/calendar_row.gd
 # res://calendar/calendar_row.tscn
+# res://components/animate_on_hover_component.gd
+# res://components/animate_on_hover_component.tscn
+# res://components/database_tooltip_component.gd
+# res://components/database_tooltip_component.tscn
+# res://components/date_entry_component.gd
+# res://components/date_entry_component.tscn
+# res://components/date_validation_component.gd
+# res://components/date_validation_component.tscn
+# res://components/focus_component.gd
+# res://components/focus_component.tscn
+# res://components/nights_component.gd
+# res://components/nights_component.tscn
+# res://components/string_validation_component.gd
+# res://components/string_validation_component.tscn
+# res://components/tooltip_component.gd
+# res://components/tooltip_component.tscn
+# res://database/booking.gd
+# res://database/database.gd
+# res://database/database.tscn
+# res://database/database_filter.gd
+# res://database/database_filter.tscn
+# res://database/database_header.gd
+# res://database/database_header.tscn
+# res://database/database_item.gd
+# res://database/database_item.tscn
+# res://date_picker/date_picker.gd
+# res://date_picker/date_picker.tscn
+# res://date_picker/date_picker_component.gd
+# res://date_picker/date_picker_component.tscn
 # res://global_refs/global_refs.gd
 # res://global_refs/global_refs.tscn
 # res://navigation/navigation.gd
@@ -41,18 +59,8 @@
 # res://room/room.gd
 # res://room_information/room_information.gd
 # res://room_information/room_information.tscn
-# res://tooltip/database_tooltip_component.gd
-# res://tooltip/database_tooltip_component.tscn
 # res://tooltip/tooltip.gd
 # res://tooltip/tooltip.tscn
-# res://tooltip/tooltip_component.gd
-# res://tooltip/tooltip_component.tscn
-# res://animate_on_hover_component.gd
-# res://animate_on_hover_component.tscn
-# res://app_header.tscn
-# res://close_button.gd
-# res://main.tscn
-# res://utils.gd
 #
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -64,13 +72,66 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8-bit\n"
 
-#: database/database.tscn
-msgid "Dodaj nowy (Ctrl+D)"
+#: calendar/calendar_header.tscn
+msgid "Pokoje"
 msgstr ""
 
+#: calendar/calendar_header.tscn
+msgid "poprzedni miesiąc"
+msgstr ""
+
+#: calendar/calendar_header.tscn
+msgid "wróć do bieżącego miesiąca"
+msgstr ""
+
+#: calendar/calendar_header.tscn
+msgid "następny miesiąc"
+msgstr ""
+
+#: calendar/calendar_header_weekday.gd
+#: date_picker/date_picker.tscn
+msgid "pn"
+msgstr ""
+
+#: calendar/calendar_header_weekday.gd
+#: calendar/calendar_header_weekday.tscn
+#: date_picker/date_picker.tscn
+msgid "wt"
+msgstr ""
+
+#: calendar/calendar_header_weekday.gd
+#: date_picker/date_picker.tscn
+msgid "śr"
+msgstr ""
+
+#: calendar/calendar_header_weekday.gd
+#: date_picker/date_picker.tscn
+msgid "cz"
+msgstr ""
+
+#: calendar/calendar_header_weekday.gd
+#: date_picker/date_picker.tscn
+msgid "pt"
+msgstr ""
+
+#: calendar/calendar_header_weekday.gd
+#: date_picker/date_picker.tscn
+msgid "sb"
+msgstr ""
+
+#: calendar/calendar_header_weekday.gd
+#: date_picker/date_picker.tscn
+msgid "nd"
+msgstr ""
+
+#: components/nights_component.gd
 #: database/database_filter.gd
 #: room_information/room_information.gd
 msgid ""
+msgstr ""
+
+#: database/database.tscn
+msgid "Dodaj nowy (Ctrl+D)"
 msgstr ""
 
 #: database/database_filter.tscn
@@ -109,6 +170,10 @@ msgstr ""
 
 #: database/database_header.tscn
 msgid "Pobyt do"
+msgstr ""
+
+#: database/database_header.tscn
+msgid "Ilość nocy"
 msgstr ""
 
 #: database/database_header.tscn
@@ -151,101 +216,52 @@ msgstr ""
 msgid "usuń rezerwację"
 msgstr ""
 
-#: calendar/calendar_header.gd
+#: global_refs/global_refs.gd
 msgid "styczeń"
 msgstr ""
 
-#: calendar/calendar_header.gd
+#: global_refs/global_refs.gd
 msgid "luty"
 msgstr ""
 
-#: calendar/calendar_header.gd
+#: global_refs/global_refs.gd
 msgid "marzec"
 msgstr ""
 
-#: calendar/calendar_header.gd
+#: global_refs/global_refs.gd
 msgid "kwiecień"
 msgstr ""
 
-#: calendar/calendar_header.gd
+#: global_refs/global_refs.gd
 msgid "maj"
 msgstr ""
 
-#: calendar/calendar_header.gd
+#: global_refs/global_refs.gd
 msgid "czerwiec"
 msgstr ""
 
-#: calendar/calendar_header.gd
+#: global_refs/global_refs.gd
 msgid "lipiec"
 msgstr ""
 
-#: calendar/calendar_header.gd
+#: global_refs/global_refs.gd
 msgid "sierpień"
 msgstr ""
 
-#: calendar/calendar_header.gd
+#: global_refs/global_refs.gd
 msgid "wrzesień"
 msgstr ""
 
-#: calendar/calendar_header.gd
+#: global_refs/global_refs.gd
 msgid "październik"
 msgstr ""
 
-#: calendar/calendar_header.gd
+#: global_refs/global_refs.gd
 msgid "listopad"
 msgstr ""
 
-#: calendar/calendar_header.gd
+#: global_refs/global_refs.gd
 msgid "grudzień"
-msgstr ""
-
-#: calendar/calendar_header.tscn
-msgid "Pokoje"
-msgstr ""
-
-#: calendar/calendar_header.tscn
-msgid "poprzedni miesiąc"
-msgstr ""
-
-#: calendar/calendar_header.tscn
-msgid "styczeń 2025"
-msgstr ""
-
-#: calendar/calendar_header.tscn
-msgid "wróć do bieżącego miesiąca"
-msgstr ""
-
-#: calendar/calendar_header.tscn
-msgid "następny miesiąc"
-msgstr ""
-
-#: calendar/calendar_header_weekday.gd
-msgid "pn"
-msgstr ""
-
-#: calendar/calendar_header_weekday.gd
-#: calendar/calendar_header_weekday.tscn
-msgid "wt"
-msgstr ""
-
-#: calendar/calendar_header_weekday.gd
-msgid "śr"
-msgstr ""
-
-#: calendar/calendar_header_weekday.gd
-msgid "cz"
-msgstr ""
-
-#: calendar/calendar_header_weekday.gd
-msgid "pt"
-msgstr ""
-
-#: calendar/calendar_header_weekday.gd
-msgid "sb"
-msgstr ""
-
-#: calendar/calendar_header_weekday.gd
-msgid "nd"
 msgstr ""
 
 #: global_refs/global_refs.gd
@@ -265,14 +281,11 @@ msgid "Otwórz lokalizację bazy danych"
 msgstr ""
 
 #: overbooking_warning/overbooking_warning.gd
+#: overbooking_warning/overbooking_warning.tscn
 msgid "{count} overbooking"
 msgid_plural "{count} overbookingów"
 msgstr[0] ""
 msgstr[1] ""
-
-#: overbooking_warning/overbooking_warning.tscn
-msgid "{count} overbookingów"
-msgstr ""
 
 #: popup_windows/delete_confirmation.tscn
 msgid "Czy na pewno chcesz usunąć wpis #{ID}?"

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Room" load_steps=2 format=3 uid="uid://dckb1656w2uco"]
+
+[ext_resource type="Script" uid="uid://ddyy08blkifoj" path="res://room/room.gd" id="1_2oc5u"]
+
+[resource]
+script = ExtResource("1_2oc5u")
+id = 9
+name = "Foxtrot"
+type = "Sasanka"
+price = 100.0
+capacity = 5
+metadata/_custom_type_script = "uid://ddyy08blkifoj"

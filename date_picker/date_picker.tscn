@@ -22,6 +22,7 @@ layout_mode = 2
 theme_override_constants/separation = 3
 
 [node name="Month" type="Label" parent="VBoxContainer/Buttons"]
+auto_translate_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 text = "październik 2025"
@@ -104,7 +105,7 @@ vertical_alignment = 1
 [node name="Weekday6" type="Label" parent="VBoxContainer/Weekdays"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
-text = "so"
+text = "sb"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -121,354 +122,353 @@ layout_mode = 2
 [node name="Week1" type="HBoxContainer" parent="VBoxContainer/Weeks"]
 layout_mode = 2
 
-[node name="Day1" type="Label" parent="VBoxContainer/Weeks/Week1"]
+[node name="Day1" type="Button" parent="VBoxContainer/Weeks/Week1"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 mouse_filter = 1
+theme_type_variation = &"ButtonEmptyWithHover"
 text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Day2" type="Label" parent="VBoxContainer/Weeks/Week1"]
+[node name="Day2" type="Button" parent="VBoxContainer/Weeks/Week1"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 mouse_filter = 1
+theme_type_variation = &"ButtonEmptyWithHover"
 text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Day3" type="Label" parent="VBoxContainer/Weeks/Week1"]
+[node name="Day3" type="Button" parent="VBoxContainer/Weeks/Week1"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 mouse_filter = 1
+theme_type_variation = &"ButtonEmptyWithHover"
 text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Day4" type="Label" parent="VBoxContainer/Weeks/Week1"]
+[node name="Day4" type="Button" parent="VBoxContainer/Weeks/Week1"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 mouse_filter = 1
+theme_type_variation = &"ButtonEmptyWithHover"
 text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Day5" type="Label" parent="VBoxContainer/Weeks/Week1"]
+[node name="Day5" type="Button" parent="VBoxContainer/Weeks/Week1"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 mouse_filter = 1
+theme_type_variation = &"ButtonEmptyWithHover"
 text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Day6" type="Label" parent="VBoxContainer/Weeks/Week1"]
+[node name="Day6" type="Button" parent="VBoxContainer/Weeks/Week1"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 mouse_filter = 1
+theme_type_variation = &"ButtonEmptyWithHover"
 text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Day7" type="Label" parent="VBoxContainer/Weeks/Week1"]
+[node name="Day7" type="Button" parent="VBoxContainer/Weeks/Week1"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 mouse_filter = 1
+theme_type_variation = &"ButtonEmptyWithHover"
 text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Week2" type="HBoxContainer" parent="VBoxContainer/Weeks"]
 layout_mode = 2
 
-[node name="Day1" type="Label" parent="VBoxContainer/Weeks/Week2"]
+[node name="Day1" type="Button" parent="VBoxContainer/Weeks/Week2"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 mouse_filter = 1
+theme_type_variation = &"ButtonEmptyWithHover"
 text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Day2" type="Label" parent="VBoxContainer/Weeks/Week2"]
+[node name="Day2" type="Button" parent="VBoxContainer/Weeks/Week2"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 mouse_filter = 1
+theme_type_variation = &"ButtonEmptyWithHover"
 text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Day3" type="Label" parent="VBoxContainer/Weeks/Week2"]
+[node name="Day3" type="Button" parent="VBoxContainer/Weeks/Week2"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 mouse_filter = 1
+theme_type_variation = &"ButtonEmptyWithHover"
 text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Day4" type="Label" parent="VBoxContainer/Weeks/Week2"]
+[node name="Day4" type="Button" parent="VBoxContainer/Weeks/Week2"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 mouse_filter = 1
+theme_type_variation = &"ButtonDatePickerToday"
 text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Day5" type="Label" parent="VBoxContainer/Weeks/Week2"]
+[node name="Day5" type="Button" parent="VBoxContainer/Weeks/Week2"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 mouse_filter = 1
-theme_type_variation = &"LabelDatePickerToday"
+theme_type_variation = &"ButtonDatePickerSelected"
 text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Day6" type="Label" parent="VBoxContainer/Weeks/Week2"]
+[node name="Day6" type="Button" parent="VBoxContainer/Weeks/Week2"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 mouse_filter = 1
+theme_type_variation = &"ButtonEmptyWithHover"
 text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Day7" type="Label" parent="VBoxContainer/Weeks/Week2"]
+[node name="Day7" type="Button" parent="VBoxContainer/Weeks/Week2"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 mouse_filter = 1
+theme_type_variation = &"ButtonEmptyWithHover"
 text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Week3" type="HBoxContainer" parent="VBoxContainer/Weeks"]
 layout_mode = 2
 
-[node name="Day1" type="Label" parent="VBoxContainer/Weeks/Week3"]
+[node name="Day1" type="Button" parent="VBoxContainer/Weeks/Week3"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 mouse_filter = 1
+theme_type_variation = &"ButtonEmptyWithHover"
 text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Day2" type="Label" parent="VBoxContainer/Weeks/Week3"]
+[node name="Day2" type="Button" parent="VBoxContainer/Weeks/Week3"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 mouse_filter = 1
+theme_type_variation = &"ButtonEmptyWithHover"
 text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Day3" type="Label" parent="VBoxContainer/Weeks/Week3"]
+[node name="Day3" type="Button" parent="VBoxContainer/Weeks/Week3"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 mouse_filter = 1
+theme_type_variation = &"ButtonEmptyWithHover"
 text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Day4" type="Label" parent="VBoxContainer/Weeks/Week3"]
+[node name="Day4" type="Button" parent="VBoxContainer/Weeks/Week3"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 mouse_filter = 1
+theme_type_variation = &"ButtonEmptyWithHover"
 text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Day5" type="Label" parent="VBoxContainer/Weeks/Week3"]
+[node name="Day5" type="Button" parent="VBoxContainer/Weeks/Week3"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 mouse_filter = 1
+theme_type_variation = &"ButtonEmptyWithHover"
 text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Day6" type="Label" parent="VBoxContainer/Weeks/Week3"]
+[node name="Day6" type="Button" parent="VBoxContainer/Weeks/Week3"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 mouse_filter = 1
+theme_type_variation = &"ButtonEmptyWithHover"
 text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Day7" type="Label" parent="VBoxContainer/Weeks/Week3"]
+[node name="Day7" type="Button" parent="VBoxContainer/Weeks/Week3"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 mouse_filter = 1
+theme_type_variation = &"ButtonEmptyWithHover"
 text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Week4" type="HBoxContainer" parent="VBoxContainer/Weeks"]
 layout_mode = 2
 
-[node name="Day1" type="Label" parent="VBoxContainer/Weeks/Week4"]
+[node name="Day1" type="Button" parent="VBoxContainer/Weeks/Week4"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 mouse_filter = 1
+theme_type_variation = &"ButtonEmptyWithHover"
 text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Day2" type="Label" parent="VBoxContainer/Weeks/Week4"]
+[node name="Day2" type="Button" parent="VBoxContainer/Weeks/Week4"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 mouse_filter = 1
+theme_type_variation = &"ButtonEmptyWithHover"
 text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Day3" type="Label" parent="VBoxContainer/Weeks/Week4"]
+[node name="Day3" type="Button" parent="VBoxContainer/Weeks/Week4"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 mouse_filter = 1
+theme_type_variation = &"ButtonEmptyWithHover"
 text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Day4" type="Label" parent="VBoxContainer/Weeks/Week4"]
+[node name="Day4" type="Button" parent="VBoxContainer/Weeks/Week4"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 mouse_filter = 1
+theme_type_variation = &"ButtonEmptyWithHover"
 text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Day5" type="Label" parent="VBoxContainer/Weeks/Week4"]
+[node name="Day5" type="Button" parent="VBoxContainer/Weeks/Week4"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 mouse_filter = 1
+theme_type_variation = &"ButtonEmptyWithHover"
 text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Day6" type="Label" parent="VBoxContainer/Weeks/Week4"]
+[node name="Day6" type="Button" parent="VBoxContainer/Weeks/Week4"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 mouse_filter = 1
+theme_type_variation = &"ButtonEmptyWithHover"
 text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Day7" type="Label" parent="VBoxContainer/Weeks/Week4"]
+[node name="Day7" type="Button" parent="VBoxContainer/Weeks/Week4"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 mouse_filter = 1
+theme_type_variation = &"ButtonEmptyWithHover"
 text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Week5" type="HBoxContainer" parent="VBoxContainer/Weeks"]
 layout_mode = 2
 
-[node name="Day1" type="Label" parent="VBoxContainer/Weeks/Week5"]
+[node name="Day1" type="Button" parent="VBoxContainer/Weeks/Week5"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 mouse_filter = 1
+theme_type_variation = &"ButtonEmptyWithHover"
 text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Day2" type="Label" parent="VBoxContainer/Weeks/Week5"]
+[node name="Day2" type="Button" parent="VBoxContainer/Weeks/Week5"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 mouse_filter = 1
+theme_type_variation = &"ButtonEmptyWithHover"
 text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Day3" type="Label" parent="VBoxContainer/Weeks/Week5"]
+[node name="Day3" type="Button" parent="VBoxContainer/Weeks/Week5"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 mouse_filter = 1
+theme_type_variation = &"ButtonEmptyWithHover"
 text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Day4" type="Label" parent="VBoxContainer/Weeks/Week5"]
+[node name="Day4" type="Button" parent="VBoxContainer/Weeks/Week5"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 mouse_filter = 1
+theme_type_variation = &"ButtonEmptyWithHover"
 text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Day5" type="Label" parent="VBoxContainer/Weeks/Week5"]
+[node name="Day5" type="Button" parent="VBoxContainer/Weeks/Week5"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 mouse_filter = 1
+theme_type_variation = &"ButtonEmptyWithHover"
 text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Day6" type="Label" parent="VBoxContainer/Weeks/Week5"]
+[node name="Day6" type="Button" parent="VBoxContainer/Weeks/Week5"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 mouse_filter = 1
+theme_type_variation = &"ButtonEmptyWithHover"
 text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Day7" type="Label" parent="VBoxContainer/Weeks/Week5"]
+[node name="Day7" type="Button" parent="VBoxContainer/Weeks/Week5"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 mouse_filter = 1
+theme_type_variation = &"ButtonEmptyWithHover"
 text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Week6" type="HBoxContainer" parent="VBoxContainer/Weeks"]
 layout_mode = 2
 
-[node name="Day1" type="Label" parent="VBoxContainer/Weeks/Week6"]
+[node name="Day1" type="Button" parent="VBoxContainer/Weeks/Week6"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 mouse_filter = 1
+theme_type_variation = &"ButtonEmptyWithHover"
 text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Day2" type="Label" parent="VBoxContainer/Weeks/Week6"]
+[node name="Day2" type="Button" parent="VBoxContainer/Weeks/Week6"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 mouse_filter = 1
+theme_type_variation = &"ButtonEmptyWithHover"
 text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Day3" type="Label" parent="VBoxContainer/Weeks/Week6"]
+[node name="Day3" type="Button" parent="VBoxContainer/Weeks/Week6"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 mouse_filter = 1
+theme_type_variation = &"ButtonEmptyWithHover"
 text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Day4" type="Label" parent="VBoxContainer/Weeks/Week6"]
+[node name="Day4" type="Button" parent="VBoxContainer/Weeks/Week6"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 mouse_filter = 1
+theme_type_variation = &"ButtonEmptyWithHover"
 text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Day5" type="Label" parent="VBoxContainer/Weeks/Week6"]
+[node name="Day5" type="Button" parent="VBoxContainer/Weeks/Week6"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 mouse_filter = 1
+theme_type_variation = &"ButtonEmptyWithHover"
 text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Day6" type="Label" parent="VBoxContainer/Weeks/Week6"]
+[node name="Day6" type="Button" parent="VBoxContainer/Weeks/Week6"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 mouse_filter = 1
+theme_type_variation = &"ButtonEmptyWithHover"
 text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Day7" type="Label" parent="VBoxContainer/Weeks/Week6"]
+[node name="Day7" type="Button" parent="VBoxContainer/Weeks/Week6"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 mouse_filter = 1
+theme_type_variation = &"ButtonEmptyWithHover"
 text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1

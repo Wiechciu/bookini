@@ -13,8 +13,8 @@ signal item_updated(DatabaseItem)
 @export var database_header: DatabaseHeader
 @export var database_filter: DatabaseFilter
 var save_location: String = "user://"
-var save_name: String = "database"
-var backup_save_name: String = "database_backup_{DATE}"
+var save_name: String = "database_rooms"
+var backup_save_name: String = "database_rooms_backup_{DATE}"
 var save_extension: String = ".save"
 var selected_item: DatabaseItem
 var current_date_string: String

@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cghapkildl4rr" path="res://components/tooltip_component.tscn" id="2_hn1xr"]
 
 [node name="CalendarField" type="PanelContainer" node_paths=PackedStringArray("field_start", "field_end")]
-custom_minimum_size = Vector2(19, 20)
+custom_minimum_size = Vector2(29, 30)
 offset_right = 20.0
 offset_bottom = 20.0
 theme_type_variation = &"PanelContainerCalendarField"
@@ -18,13 +18,13 @@ field_end = NodePath("HBoxContainer/FieldEnd")
 layout_mode = 2
 
 [node name="FieldStart" type="PanelContainer" parent="HBoxContainer"]
-custom_minimum_size = Vector2(10, 0)
+custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 mouse_filter = 1
 theme_type_variation = &"PanelContainerCalendarFieldCheckOut"
 
 [node name="FieldEnd" type="PanelContainer" parent="HBoxContainer"]
-custom_minimum_size = Vector2(9, 0)
+custom_minimum_size = Vector2(14, 0)
 layout_mode = 2
 mouse_filter = 1
 theme_type_variation = &"PanelContainerCalendarFieldCheckIn"

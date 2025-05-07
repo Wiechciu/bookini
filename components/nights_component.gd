@@ -2,8 +2,8 @@ extends Node
 
 
 @export var nights_node: LineEdit
-@export var start_date_node: LineEdit
-@export var end_date_node: LineEdit
+@export var start_date_node: LineEditDateEntry
+@export var end_date_node: LineEditDateEntry
 
 
 func _ready() -> void:
@@ -13,18 +13,20 @@ func _ready() -> void:
 		queue_free()
 		return
 	
-	nights_node.text_changed.connect(_on_nights_text_changed.unbind(1))
-	start_date_node.text_changed.connect(_on_dates_text_changed.unbind(1))
-	end_date_node.text_changed.connect(_on_dates_text_changed.unbind(1))
+	nights_node.editing_toggled.connect(_on_nights_editing_toggled)
+	start_date_node.date_validated.connect(_on_dates_validated)
+	end_date_node.date_validated.connect(_on_dates_validated)
 	
 	recalculate_nights()
 
 
-func _on_nights_text_changed() -> void:
+func _on_nights_editing_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		return
 	recalculate_dates()
 
 
-func _on_dates_text_changed() -> void:
+func _on_dates_validated() -> void:
 	recalculate_nights()
 
 
@@ -44,6 +46,7 @@ func recalculate_dates() -> void:
 	var end_date_unix: int = start_date_unix + nights * Utils.ONE_DAY
 	
 	end_date_node.text = Time.get_datetime_string_from_unix_time(end_date_unix).left(10)
+	end_date_node.text_changed.emit(end_date_node.text)
 
 
 func recalculate_nights() -> void:
@@ -61,3 +64,4 @@ func recalculate_nights() -> void:
 		nights_node.text = "%s" % difference
 	else:
 		nights_node.text = ""
+	nights_node.text_changed.emit(nights_node.text)

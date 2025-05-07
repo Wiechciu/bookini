@@ -21,6 +21,6 @@ expand_mode = 3
 [node name="Label" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 theme_type_variation = &"LabelRedText"
-text = "{count} overbookingów"
+text = "{count} overbooking"
 
 [node name="TooltipComponent" parent="." instance=ExtResource("3_cgwf2")]

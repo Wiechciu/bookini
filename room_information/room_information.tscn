@@ -24,42 +24,42 @@ theme_override_constants/separation = 10
 layout_mode = 2
 
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 25)
+custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Pokój:"
 vertical_alignment = 1
 
 [node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 25)
+custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Typ:"
 vertical_alignment = 1
 
 [node name="Label3" type="Label" parent="HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 25)
+custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Cena:"
 vertical_alignment = 1
 
 [node name="Label4" type="Label" parent="HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 25)
+custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Ilość osób:"
 vertical_alignment = 1
 
 [node name="Label5" type="Label" parent="HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 25)
+custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Obłożenie w tym miesiącu:"
 vertical_alignment = 1
 
 [node name="Label6" type="Label" parent="HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 25)
+custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Obłożenie w zeszłym miesiącu:"
@@ -103,7 +103,7 @@ text = "5"
 
 [node name="OccupancyThisMonth" type="Label" parent="HBoxContainer/VBoxContainer2"]
 auto_translate_mode = 2
-custom_minimum_size = Vector2(0, 25)
+custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "30%"
@@ -111,7 +111,7 @@ vertical_alignment = 1
 
 [node name="OccupancyLastMonth" type="Label" parent="HBoxContainer/VBoxContainer2"]
 auto_translate_mode = 2
-custom_minimum_size = Vector2(0, 25)
+custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "80%"

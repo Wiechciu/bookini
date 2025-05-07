@@ -18,9 +18,11 @@ auto_translate_mode = 2
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 1
 mouse_filter = 1
 theme_type_variation = &"LabelCalendarRow"
 text = "1"
+vertical_alignment = 1
 
 [node name="AnimateOnHoverComponent" parent="HBoxContainer/RoomName" instance=ExtResource("2_7ls38")]
 type_variation_to_apply = &"LabelCalendarRowHover"

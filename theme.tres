@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=88 format=3 uid="uid://b1p3xo06djhek"]
+[gd_resource type="Theme" load_steps=93 format=3 uid="uid://b1p3xo06djhek"]
 
 [ext_resource type="Texture2D" uid="uid://c5voeo7nugwy2" path="res://arrow_down_12x10.png" id="1_e1x85"]
 
@@ -84,6 +84,44 @@ border_color = Color(0, 0, 0, 1)
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qs3ia"]
+bg_color = Color(0, 0, 0, 0.0784314)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 0.588235)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p8v22"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 0.588235)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sl0tf"]
+bg_color = Color(0, 0, 0, 0.235294)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mdj6r"]
+bg_color = Color(0, 0, 0, 0.156863)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wvktn"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e1x85"]
@@ -105,6 +143,13 @@ corner_radius_bottom_right = 10
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ttqs8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wdt2l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mip2"]
+bg_color = Color(0, 0, 0, 0.0784314)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xbk2q"]
 bg_color = Color(0.76632, 0.153117, 0.343208, 1)
@@ -156,7 +201,11 @@ content_margin_right = 3.0
 draw_center = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6kwnv"]
-bg_color = Color(0.701961, 0.682353, 0.905882, 1)
+bg_color = Color(0.86, 0.86, 0.86, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i1e0v"]
 content_margin_left = 3.0
@@ -205,13 +254,13 @@ border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fsxoa"]
 bg_color = Color(0, 0.258826, 0.511544, 1)
-corner_radius_top_left = 10
-corner_radius_bottom_left = 10
+corner_radius_top_left = 15
+corner_radius_bottom_left = 15
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ybu1x"]
 bg_color = Color(0.415741, 0.67849, 0.999992, 1)
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_535ge"]
 bg_color = Color(1, 1, 1, 0)
@@ -395,7 +444,6 @@ Button/colors/font_focus_color = Color(1, 1, 1, 1)
 Button/colors/font_hover_color = Color(1, 1, 1, 1)
 Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 Button/colors/font_pressed_color = Color(1, 1, 1, 1)
-Button/font_sizes/font_size = 12
 Button/styles/focus = SubResource("StyleBoxFlat_vehsp")
 Button/styles/hover = SubResource("StyleBoxFlat_36sxv")
 Button/styles/hover_pressed = SubResource("StyleBoxFlat_fx7fk")
@@ -422,7 +470,6 @@ ButtonCalendar/styles/normal = SubResource("StyleBoxFlat_mihib")
 ButtonCalendar/styles/pressed = SubResource("StyleBoxFlat_yin2u")
 ButtonCalendarMonth/base_type = &"Button"
 ButtonCalendarMonth/colors/font_color = Color(0, 0, 0, 1)
-ButtonCalendarMonth/font_sizes/font_size = 10
 ButtonCalendarMonth/styles/normal = SubResource("StyleBoxFlat_kl2fn")
 ButtonCalendarRight/base_type = &"ButtonCalendar"
 ButtonCalendarRight/styles/focus = SubResource("StyleBoxFlat_ttqs8")
@@ -430,7 +477,26 @@ ButtonCalendarRight/styles/hover = SubResource("StyleBoxFlat_wdt2l")
 ButtonCalendarRight/styles/hover_pressed = SubResource("StyleBoxFlat_6cw85")
 ButtonCalendarRight/styles/normal = SubResource("StyleBoxFlat_504p6")
 ButtonCalendarRight/styles/pressed = SubResource("StyleBoxFlat_howt0")
+ButtonDatePickerSelected/base_type = &"ButtonEmptyWithHover"
+ButtonDatePickerSelected/styles/hover = SubResource("StyleBoxFlat_qs3ia")
+ButtonDatePickerSelected/styles/normal = SubResource("StyleBoxFlat_p8v22")
+ButtonDatePickerToday/base_type = &"ButtonEmptyWithHover"
+ButtonDatePickerToday/styles/hover = SubResource("StyleBoxFlat_sl0tf")
+ButtonDatePickerToday/styles/normal = SubResource("StyleBoxFlat_mdj6r")
 ButtonEmpty/base_type = &"Button"
+ButtonEmpty/colors/font_color = Color(0, 0, 0, 1)
+ButtonEmpty/colors/font_disabled_color = Color(0, 0, 0, 1)
+ButtonEmpty/colors/font_focus_color = Color(0, 0, 0, 1)
+ButtonEmpty/colors/font_hover_color = Color(0, 0, 0, 1)
+ButtonEmpty/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+ButtonEmpty/colors/font_outline_color = Color(0, 0, 0, 1)
+ButtonEmpty/colors/font_pressed_color = Color(0, 0, 0, 1)
+ButtonEmpty/colors/icon_disabled_color = Color(0, 0, 0, 1)
+ButtonEmpty/colors/icon_focus_color = Color(0, 0, 0, 1)
+ButtonEmpty/colors/icon_hover_color = Color(0, 0, 0, 1)
+ButtonEmpty/colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+ButtonEmpty/colors/icon_normal_color = Color(0, 0, 0, 1)
+ButtonEmpty/colors/icon_pressed_color = Color(0, 0, 0, 1)
 ButtonEmpty/styles/disabled = SubResource("StyleBoxEmpty_wvktn")
 ButtonEmpty/styles/disabled_mirrored = SubResource("StyleBoxEmpty_e1x85")
 ButtonEmpty/styles/focus = SubResource("StyleBoxEmpty_cjfk0")
@@ -442,6 +508,8 @@ ButtonEmpty/styles/normal = SubResource("StyleBoxEmpty_mihib")
 ButtonEmpty/styles/normal_mirrored = SubResource("StyleBoxEmpty_yin2u")
 ButtonEmpty/styles/pressed = SubResource("StyleBoxEmpty_ttqs8")
 ButtonEmpty/styles/pressed_mirrored = SubResource("StyleBoxEmpty_wdt2l")
+ButtonEmptyWithHover/base_type = &"ButtonEmpty"
+ButtonEmptyWithHover/styles/hover = SubResource("StyleBoxFlat_7mip2")
 ButtonPopupConfirm/base_type = &"Button"
 ButtonRed/base_type = &"Button"
 ButtonRed/styles/focus = SubResource("StyleBoxFlat_xbk2q")
@@ -451,10 +519,8 @@ ButtonRed/styles/normal = SubResource("StyleBoxFlat_8rqbg")
 ButtonRed/styles/pressed = SubResource("StyleBoxFlat_0e2f8")
 HBoxContainer/constants/separation = 0
 Label/colors/font_color = Color(0, 0, 0, 1)
-Label/font_sizes/font_size = 12
 LabelAppHeader/base_type = &"Label"
 LabelAppHeader/colors/font_color = Color(1, 1, 1, 1)
-LabelAppHeader/font_sizes/font_size = 16
 LabelCalendar/base_type = &"Label"
 LabelCalendar/colors/font_color = Color(0, 0, 0, 1)
 LabelCalendar/styles/normal = SubResource("StyleBoxFlat_wcq0w")
@@ -483,7 +549,6 @@ LineEditDatabaseItem/base_type = &"LineEdit"
 LineEditDatabaseItem/colors/caret_color = Color(0, 0, 0, 1)
 LineEditDatabaseItem/colors/font_color = Color(0, 0, 0, 1)
 LineEditDatabaseItem/constants/minimum_character_width = 0
-LineEditDatabaseItem/font_sizes/font_size = 12
 LineEditDatabaseItem/styles/focus = SubResource("StyleBoxFlat_i1e0v")
 LineEditDatabaseItem/styles/normal = SubResource("StyleBoxFlat_3n26i")
 LineEditDatabaseItemIncorrectOrder/base_type = &"LineEditDatabaseItem"
@@ -555,11 +620,6 @@ PanelContainerRoomInformation/styles/panel = SubResource("StyleBoxFlat_ih1e2")
 PanelContainerTooltip/base_type = &"PanelContainer"
 PanelContainerTooltip/styles/panel = SubResource("StyleBoxFlat_t3v2v")
 RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
-RichTextLabel/font_sizes/bold_font_size = 12
-RichTextLabel/font_sizes/bold_italics_font_size = 12
-RichTextLabel/font_sizes/italics_font_size = 12
-RichTextLabel/font_sizes/mono_font_size = 12
-RichTextLabel/font_sizes/normal_font_size = 12
 SplitContainer/constants/separation = 8
 SplitContainer/styles/split_bar_background = SubResource("StyleBoxFlat_3j0lc")
 SplitContainerTable/base_type = &"HSplitContainer"

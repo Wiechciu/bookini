@@ -4,6 +4,8 @@ extends Node
 @export var date_picker_scene: PackedScene
 @export var parent_node: LineEdit
 var date_picker: DatePicker
+var recursion_block: bool
+
 
 func _ready() -> void:
 	parent_node = get_parent()
@@ -15,6 +17,9 @@ func _ready() -> void:
 
 
 func _on_parent_editing_toggled(toggled_on: bool) -> void:
+	if recursion_block:
+		return
+	
 	if not toggled_on:
 		return
 	
@@ -36,7 +41,10 @@ func _on_parent_editing_toggled(toggled_on: bool) -> void:
 		date_picker.global_position.x -= date_picker.size.x
 	
 	var date_picked: String = await date_picker.date_picked
-	
 	parent_node.text = date_picked
 	parent_node.text_changed.emit(parent_node.text)
+	
+	recursion_block = true
+	parent_node.grab_focus()
 	parent_node.unedit()
+	recursion_block = false

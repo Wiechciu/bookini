@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://c13m2ib8ylvtl"]
+
+[ext_resource type="Script" uid="uid://digtqowgwj43n" path="res://database/line_edit_date_entry.gd" id="1_ihnf6"]
+[ext_resource type="PackedScene" uid="uid://cc2p6lu76hlyl" path="res://date_picker/date_picker.tscn" id="2_q4xid"]
+
+[node name="LineEditDateEntry" type="LineEdit"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ihnf6")
+date_picker_scene = ExtResource("2_q4xid")

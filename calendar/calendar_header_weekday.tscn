@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://46b533nu6u5t" path="res://calendar/calendar_header_weekday.gd" id="1_c0ebt"]
 
 [node name="CalendarHeaderWeekday" type="PanelContainer" node_paths=PackedStringArray("label")]
-custom_minimum_size = Vector2(20, 20)
+custom_minimum_size = Vector2(30, 30)
 theme_type_variation = &"PanelContainerCalendarHeaderField"
 script = ExtResource("1_c0ebt")
 label = NodePath("Label")

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dpv7g1vuwnte3" path="res://calendar/calendar_header_field.gd" id="1_t50d2"]
 
 [node name="CalendarHeaderField" type="PanelContainer" node_paths=PackedStringArray("label")]
-custom_minimum_size = Vector2(20, 20)
+custom_minimum_size = Vector2(30, 30)
 offset_right = 15.0
 offset_bottom = 16.75
 theme_type_variation = &"PanelContainerCalendarHeaderField"

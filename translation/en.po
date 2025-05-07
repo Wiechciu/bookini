@@ -34,6 +34,51 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.6\n"
 
+#: calendar/calendar_header.tscn
+msgid "Pokoje"
+msgstr "Rooms"
+
+#: calendar/calendar_header.tscn
+msgid "poprzedni miesiąc"
+msgstr "previous month"
+
+#: calendar/calendar_header.tscn
+msgid "wróć do bieżącego miesiąca"
+msgstr "back to current month"
+
+#: calendar/calendar_header.tscn
+msgid "następny miesiąc"
+msgstr "next month"
+
+#: calendar/calendar_header_weekday.gd date_picker/date_picker.tscn
+msgid "pn"
+msgstr "Mo"
+
+#: calendar/calendar_header_weekday.gd calendar/calendar_header_weekday.tscn
+#: date_picker/date_picker.tscn
+msgid "wt"
+msgstr "Tu"
+
+#: calendar/calendar_header_weekday.gd date_picker/date_picker.tscn
+msgid "śr"
+msgstr "We"
+
+#: calendar/calendar_header_weekday.gd date_picker/date_picker.tscn
+msgid "cz"
+msgstr "Th"
+
+#: calendar/calendar_header_weekday.gd date_picker/date_picker.tscn
+msgid "pt"
+msgstr "Fr"
+
+#: calendar/calendar_header_weekday.gd date_picker/date_picker.tscn
+msgid "sb"
+msgstr "Sa"
+
+#: calendar/calendar_header_weekday.gd date_picker/date_picker.tscn
+msgid "nd"
+msgstr "Su"
+
 #: database/database.tscn
 msgid "Dodaj nowy (Ctrl+D)"
 msgstr "Add new (Ctrl+D)"
@@ -76,6 +121,10 @@ msgid "Pobyt do"
 msgstr "Check out date"
 
 #: database/database_header.tscn
+msgid "Ilość nocy"
+msgstr "Nights count"
+
+#: database/database_header.tscn
 msgid "Pokój"
 msgstr "Room"
 
@@ -115,101 +164,53 @@ msgstr "reset column width"
 msgid "usuń rezerwację"
 msgstr "delete booking"
 
-#: calendar/calendar_header.gd
+#: global_refs/global_refs.gd
 msgid "styczeń"
 msgstr "January"
 
-#: calendar/calendar_header.gd
+#: global_refs/global_refs.gd
 msgid "luty"
 msgstr "February"
 
-#: calendar/calendar_header.gd
+#: global_refs/global_refs.gd
 msgid "marzec"
 msgstr "March"
 
-#: calendar/calendar_header.gd
+#: global_refs/global_refs.gd
 msgid "kwiecień"
 msgstr "April"
 
-#: calendar/calendar_header.gd
+#: global_refs/global_refs.gd
 msgid "maj"
 msgstr "May"
 
-#: calendar/calendar_header.gd
+#: global_refs/global_refs.gd
 msgid "czerwiec"
 msgstr "June"
 
-#: calendar/calendar_header.gd
+#: global_refs/global_refs.gd
 msgid "lipiec"
 msgstr "July"
 
-#: calendar/calendar_header.gd
+#: global_refs/global_refs.gd
 msgid "sierpień"
 msgstr "August"
 
-#: calendar/calendar_header.gd
+#: global_refs/global_refs.gd
 msgid "wrzesień"
 msgstr "September"
 
-#: calendar/calendar_header.gd
+#: global_refs/global_refs.gd
 msgid "październik"
 msgstr "October"
 
-#: calendar/calendar_header.gd
+#: global_refs/global_refs.gd
 msgid "listopad"
 msgstr "November"
 
-#: calendar/calendar_header.gd
+#: global_refs/global_refs.gd
 msgid "grudzień"
 msgstr "December"
-
-#: calendar/calendar_header.tscn
-msgid "Pokoje"
-msgstr "Rooms"
-
-#: calendar/calendar_header.tscn
-msgid "poprzedni miesiąc"
-msgstr "previous month"
-
-#: calendar/calendar_header.tscn
-msgid "styczeń 2025"
-msgstr "January 2025"
-
-#: calendar/calendar_header.tscn
-msgid "wróć do bieżącego miesiąca"
-msgstr "back to current month"
-
-#: calendar/calendar_header.tscn
-msgid "następny miesiąc"
-msgstr "next month"
-
-#: calendar/calendar_header_weekday.gd
-msgid "pn"
-msgstr "Mo"
-
-#: calendar/calendar_header_weekday.gd calendar/calendar_header_weekday.tscn
-msgid "wt"
-msgstr "Tu"
-
-#: calendar/calendar_header_weekday.gd
-msgid "śr"
-msgstr "We"
-
-#: calendar/calendar_header_weekday.gd
-msgid "cz"
-msgstr "Th"
-
-#: calendar/calendar_header_weekday.gd
-msgid "pt"
-msgstr "Fr"
-
-#: calendar/calendar_header_weekday.gd
-msgid "sb"
-msgstr "Sa"
-
-#: calendar/calendar_header_weekday.gd
-msgid "nd"
-msgstr "Su"
 
 #: global_refs/global_refs.gd
 msgid "Nie dotyczy"
@@ -228,14 +229,11 @@ msgid "Otwórz lokalizację bazy danych"
 msgstr "Open location of the database file"
 
 #: overbooking_warning/overbooking_warning.gd
+#: overbooking_warning/overbooking_warning.tscn
 msgid "{count} overbooking"
 msgid_plural "{count} overbookingów"
 msgstr[0] "{count} overbooking"
 msgstr[1] "{count} overbookings"
-
-#: overbooking_warning/overbooking_warning.tscn
-msgid "{count} overbookingów"
-msgstr "{count} overbookings"
 
 #: popup_windows/delete_confirmation.tscn
 msgid "Czy na pewno chcesz usunąć wpis #{ID}?"
@@ -381,6 +379,21 @@ msgstr "Occupancy this month:"
 #: room_information/room_information.tscn
 msgid "Obłożenie w zeszłym miesiącu:"
 msgstr "Occupancy last month:"
+
+#~ msgid "Jachty"
+#~ msgstr "Yachts"
+
+#~ msgid "Jacht"
+#~ msgstr "Yacht"
+
+#~ msgid "Jacht:"
+#~ msgstr "Yacht:"
+
+#~ msgid "styczeń 2025"
+#~ msgstr "January 2025"
+
+#~ msgid "{count} overbookingów"
+#~ msgstr "{count} overbookings"
 
 #~ msgid "1"
 #~ msgstr "1"
