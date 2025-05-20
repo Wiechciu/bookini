@@ -31,7 +31,13 @@ var invoice_status_items: Array[String] = [
 var room_names: Array[String]:
 	get:
 		var array: Array[String]
+		var last_type: String
 		for room: Room in rooms:
+			if last_type == "":
+				last_type = room.type
+			elif last_type != room.type:
+				last_type = room.type
+				array.append("{separator}")
 			array.append(room.name)
 		return array
 var bookings: Array[Booking]

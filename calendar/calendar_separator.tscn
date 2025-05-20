@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://d4hmb7gjahvpq"]
+
+[ext_resource type="Script" uid="uid://dlw08oa7q4iii" path="res://calendar/calendar_separator.gd" id="1_7peoy"]
+
+[node name="CalendarSeparator" type="PanelContainer"]
+custom_minimum_size = Vector2(0, 2)
+offset_right = 100.0
+offset_bottom = 3.0
+theme_type_variation = &"PanelContainerCalendarSeparator"
+script = ExtResource("1_7peoy")

@@ -200,7 +200,7 @@ func _compare_booking_string(control: Control, booking_text: Variant) -> bool:
 	if control is LineEdit:
 		return control.text != "" and not str(booking_text).containsn(control.text)
 	else: # control is OptionButton:
-		return control.selected != -1 and not str(booking_text).containsn(str(control.selected))
+		return control.get_selected_id() != -1 and not str(booking_text).containsn(str(control.get_selected_id()))
 
 
 func change_sort_type(new_sort_type: Utils.SortType) -> void:

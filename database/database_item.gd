@@ -33,6 +33,7 @@ var cached_content: String
 func initialize(database_to_assign: Database, booking_to_assign: Booking) -> void:
 	Utils.add_items_to_option_button(GlobalRefs.room_names, room_label, -1)
 	Utils.add_items_to_option_button(GlobalRefs.invoice_status_items, invoice_status_label, -1)
+	
 	for line_edit: LineEdit in find_children("*", "LineEdit", true):
 		line_edit.clear()
 		
@@ -42,6 +43,7 @@ func initialize(database_to_assign: Database, booking_to_assign: Booking) -> voi
 			line_edit.editing_toggled.connect(_on_editing_toggled.bind(line_edit))
 		line_edit.focus_entered.connect(_on_focus_entered)
 		line_edit.focus_exited.connect(_on_focus_exited)
+	
 	for option_button: OptionButton in find_children("*", "OptionButton", true):
 		option_button.toggled.connect(_on_editing_toggled.bind(option_button))
 		option_button.item_selected.connect(_on_item_selected)
@@ -144,13 +146,13 @@ func update_booking() -> void:
 		pesel_label.text,
 		start_date_label.text,
 		end_date_label.text,
-		room_label.selected,
+		room_label.get_selected_id(),
 		int(quantity_label.text),
 		float(prepaid_amount_label.text),
 		prepaid_date_label.text,
 		float(payment_amount_label.text),
 		payment_date_label.text,
-		invoice_status_label.selected,
+		invoice_status_label.get_selected_id(),
 		remarks_label.text
 		)
 	print("ID %s updated" % id_label.text)

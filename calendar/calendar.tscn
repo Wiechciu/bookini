@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c6fm2nlqvb5cy"]
+[gd_scene load_steps=5 format=3 uid="uid://c6fm2nlqvb5cy"]
 
 [ext_resource type="Script" uid="uid://b3sh4bf8xa4yy" path="res://calendar/calendar.gd" id="1_64tpo"]
 [ext_resource type="PackedScene" uid="uid://bcufem7igam2a" path="res://calendar/calendar_header.tscn" id="1_f8ws7"]
 [ext_resource type="PackedScene" uid="uid://evc7i3gpsd3b" path="res://calendar/calendar_row.tscn" id="2_74sj6"]
+[ext_resource type="PackedScene" uid="uid://d4hmb7gjahvpq" path="res://calendar/calendar_separator.tscn" id="3_8ghgs"]
 
 [node name="Calendar" type="PanelContainer" node_paths=PackedStringArray("calendar_header", "calendar_row_container")]
 offset_right = 704.0
@@ -10,6 +11,7 @@ offset_bottom = 75.0
 script = ExtResource("1_64tpo")
 calendar_header = NodePath("HBoxContainer/VBoxContainer/CalendarHeader")
 calendar_row_scene = ExtResource("2_74sj6")
+calendar_separator_scene = ExtResource("3_8ghgs")
 calendar_row_container = NodePath("HBoxContainer/VBoxContainer/ScrollContainer/CalendarRows")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]

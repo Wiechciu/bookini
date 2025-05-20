@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=93 format=3 uid="uid://b1p3xo06djhek"]
+[gd_resource type="Theme" load_steps=94 format=3 uid="uid://b1p3xo06djhek"]
 
 [ext_resource type="Texture2D" uid="uid://c5voeo7nugwy2" path="res://arrow_down_12x10.png" id="1_e1x85"]
 
@@ -306,6 +306,9 @@ bg_color = Color(1, 1, 1, 1)
 border_width_left = 2
 border_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2olw7"]
+bg_color = Color(0, 0, 0, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6q1gq"]
 bg_color = Color(0.823529, 0.823529, 0.823529, 1)
 border_width_bottom = 2
@@ -597,6 +600,8 @@ PanelContainerCalendarRow/base_type = &"PanelContainer"
 PanelContainerCalendarRow/styles/panel = SubResource("StyleBoxFlat_x5enr")
 PanelContainerCalendarRowFieldsContainer/base_type = &"PanelContainer"
 PanelContainerCalendarRowFieldsContainer/styles/panel = SubResource("StyleBoxFlat_rb1ns")
+PanelContainerCalendarSeparator/base_type = &"PanelContainer"
+PanelContainerCalendarSeparator/styles/panel = SubResource("StyleBoxFlat_2olw7")
 PanelContainerDatabaseFilter/base_type = &"PanelContainer"
 PanelContainerDatabaseFilter/styles/panel = SubResource("StyleBoxFlat_6q1gq")
 PanelContainerDatabaseHeader/base_type = &"PanelContainer"

@@ -9,6 +9,7 @@ signal room_selected(room: Room)
 @export var database: Database
 @export var calendar_header: CalendarHeader
 @export var calendar_row_scene: PackedScene
+@export var calendar_separator_scene: PackedScene
 @export var calendar_row_container: Container
 @export var calendar_rows: Array[CalendarRow]
 
@@ -43,12 +44,20 @@ func _ready() -> void:
 
 func clear_containers() -> void:
 	for child in calendar_row_container.get_children():
-		if child is CalendarRow:
+		if child is CalendarRow or child is CalendarSeparator:
 			child.queue_free()
 
 
 func fill_containers() -> void:
+	var last_type: String
 	for room in GlobalRefs.rooms:
+		if last_type == "":
+			last_type = room.type
+		elif last_type != room.type:
+			last_type = room.type
+			var new_calendar_separator: CalendarSeparator = calendar_separator_scene.instantiate() as CalendarSeparator
+			calendar_row_container.add_child(new_calendar_separator)
+		
 		var new_calendar_row: CalendarRow = calendar_row_scene.instantiate() as CalendarRow
 		calendar_row_container.add_child(new_calendar_row)
 		calendar_rows.append(new_calendar_row)

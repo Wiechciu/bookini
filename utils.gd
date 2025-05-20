@@ -78,8 +78,13 @@ func get_child_of_type(parent: Node, type: Variant) -> Node:
 
 func add_items_to_option_button(items: Array[String], option_button: OptionButton, selected_item: int) -> void:
 	option_button.clear()
+	var counter: int = -1
 	for text: String in items:
-		option_button.add_item(text)
+		if text == "{separator}":
+			option_button.add_separator()
+		else:
+			counter += 1
+			option_button.add_item(text, counter)
 	option_button.select(selected_item)
 
 

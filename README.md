@@ -10,9 +10,12 @@ FIX:
 	-
 
 TODO:
+	Auto-fill customer data from previous bookings
+	Waiting list - customers who are waiting for cancellation of other bookings
+		Additional calendar row at the beginning showing waiting list - bookings with only date w/o room selected
+	
 	implement cancelling bookings
 	jump to entered date in the calendar
-	translate to English - post on forum
 	save layout of split containers and load on start
 	room management
 		add possibility to change room params and add/remove rooms
