@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=94 format=3 uid="uid://b1p3xo06djhek"]
+[gd_resource type="Theme" load_steps=95 format=3 uid="uid://b1p3xo06djhek"]
 
 [ext_resource type="Texture2D" uid="uid://c5voeo7nugwy2" path="res://arrow_down_12x10.png" id="1_e1x85"]
 
@@ -309,6 +309,15 @@ border_color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2olw7"]
 bg_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x6qjx"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6q1gq"]
 bg_color = Color(0.823529, 0.823529, 0.823529, 1)
 border_width_bottom = 2
@@ -544,6 +553,10 @@ LabelDatabaseHeader/base_type = &"Label"
 LabelDatabaseHeader/styles/normal = SubResource("StyleBoxFlat_vhp3g")
 LabelDatabaseItem/base_type = &"Label"
 LabelDatabaseItem/styles/normal = SubResource("StyleBoxFlat_aaj76")
+LabelDatabaseItemCustomerAutoFillNextMatch/base_type = &"Label"
+LabelDatabaseItemCustomerAutoFillNextMatch/colors/font_color = Color(0.5729883, 0.5729883, 0.57298815, 1)
+LabelDatabaseItemCustomerAutoFillNoMatch/base_type = &"Label"
+LabelDatabaseItemCustomerAutoFillNoMatch/colors/font_color = Color(0.78775924, 0.78775924, 0.78775924, 1)
 LabelDatePickerToday/base_type = &"Label"
 LabelDatePickerToday/styles/normal = SubResource("StyleBoxFlat_6kwnv")
 LabelRedText/base_type = &"Label"
@@ -602,6 +615,8 @@ PanelContainerCalendarRowFieldsContainer/base_type = &"PanelContainer"
 PanelContainerCalendarRowFieldsContainer/styles/panel = SubResource("StyleBoxFlat_rb1ns")
 PanelContainerCalendarSeparator/base_type = &"PanelContainer"
 PanelContainerCalendarSeparator/styles/panel = SubResource("StyleBoxFlat_2olw7")
+PanelContainerCustomerAutoFill/base_type = &"PanelContainer"
+PanelContainerCustomerAutoFill/styles/panel = SubResource("StyleBoxFlat_x6qjx")
 PanelContainerDatabaseFilter/base_type = &"PanelContainer"
 PanelContainerDatabaseFilter/styles/panel = SubResource("StyleBoxFlat_6q1gq")
 PanelContainerDatabaseHeader/base_type = &"PanelContainer"

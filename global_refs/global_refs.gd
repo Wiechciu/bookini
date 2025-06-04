@@ -40,6 +40,7 @@ var room_names: Array[String]:
 				array.append("{separator}")
 			array.append(room.name)
 		return array
+
 var bookings: Array[Booking]
 var active_bookings: Array[Booking]:
 	get:
@@ -52,13 +53,15 @@ var date_check_out_bookings_dict: Dictionary[Array, Array]
 var date_full_day_bookings_dict: Dictionary[Array, Array]
 var date_overbooking_bookings_dict: Dictionary[Array, Array]
 
+var customers: Array[Customer]
+
 
 func _filter_active_bookings(booking: Booking) -> bool:
 	return booking.status == Booking.Status.ACTIVE
 
 
 func recalculate_dicts() -> void:
-	for booking: Booking in GlobalRefs.active_bookings:
+	for booking: Booking in active_bookings:
 		recalculate_dicts_for_booking(booking)
 
 
@@ -139,7 +142,7 @@ func erase_from_dict(dict: Dictionary, date_room: Array, booking: Booking) -> vo
 func recalculate_overbookings() -> void:
 	date_overbooking_bookings_dict.clear()
 	overbookings.clear()
-	for booking: Booking in GlobalRefs.active_bookings:
+	for booking: Booking in active_bookings:
 		recalculate_overbookings_for_booking(booking)
 
 

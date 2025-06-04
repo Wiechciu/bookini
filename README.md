@@ -7,7 +7,10 @@ NAMES:
 	VibInn
 
 FIX:
-	-
+	CustomerAutoFillComponent - remake as LineEdit extension class
+	translations - months, tooltips on buttons
+	database item without text is smaller in Y size than with text
+	
 
 TODO:
 	Auto-fill customer data from previous bookings

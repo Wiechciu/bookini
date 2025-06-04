@@ -158,6 +158,7 @@ func update_booking() -> void:
 	print("ID %s updated" % id_label.text)
 	item_updated.emit()
 	database.sort_database()
+	Customer.add_or_update_customer_from_booking(booking)
 
 
 func start_editing() -> void:

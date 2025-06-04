@@ -128,8 +128,14 @@ func load_database() -> void:
 	else:
 		GlobalRefs.bookings = loaded_data
 		GlobalRefs.recalculate_dicts()
+		load_customers()
 		print("Database loaded")
 	file.close()
+
+
+func load_customers() -> void:
+	for booking: Booking in GlobalRefs.active_bookings:
+		Customer.add_or_update_customer_from_booking(booking)
 
 
 func load_database_items() -> void:

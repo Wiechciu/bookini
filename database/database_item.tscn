@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cejexibyxff8t"]
+[gd_scene load_steps=13 format=3 uid="uid://cejexibyxff8t"]
 
 [ext_resource type="Script" uid="uid://bqdi3s37ogh3w" path="res://database/database_item.gd" id="1_613yd"]
 [ext_resource type="Texture2D" uid="uid://b28ms02xh6xvk" path="res://trash.png" id="2_faif8"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cghapkildl4rr" path="res://components/tooltip_component.tscn" id="5_pjot3"]
 [ext_resource type="PackedScene" uid="uid://dboq0xx4q6cf2" path="res://components/focus_component.tscn" id="7_hbo37"]
 [ext_resource type="PackedScene" uid="uid://cffd6bcgb65et" path="res://components/database_tooltip_component.tscn" id="7_pjot3"]
+[ext_resource type="PackedScene" uid="uid://dme53o5lo5s5l" path="res://components/customer_auto_fill_component.tscn" id="8_242e5"]
 [ext_resource type="PackedScene" uid="uid://b87p8d3gl8mex" path="res://components/string_validation_component.tscn" id="8_pjot3"]
 [ext_resource type="PackedScene" uid="uid://c13m2ib8ylvtl" path="res://database/line_edit_date_entry.tscn" id="9_ifdyh"]
 [ext_resource type="PackedScene" uid="uid://3o1avee1gsly" path="res://components/nights_component.tscn" id="11_242e5"]
@@ -111,6 +112,11 @@ caret_blink = true
 [node name="FocusComponent" parent="HSplitContainer/HSplitContainer/Name" instance=ExtResource("7_hbo37")]
 
 [node name="TooltipComponent" parent="HSplitContainer/HSplitContainer/Name" instance=ExtResource("7_pjot3")]
+
+[node name="CustomerAutoFillComponent" parent="HSplitContainer/HSplitContainer/Name" node_paths=PackedStringArray("phone_field", "pesel_field") instance=ExtResource("8_242e5")]
+layout_mode = 1
+phone_field = NodePath("../../HSplitContainer/Phone")
+pesel_field = NodePath("../../HSplitContainer/HSplitContainer/Pesel")
 
 [node name="HSplitContainer" type="HSplitContainer" parent="HSplitContainer/HSplitContainer"]
 layout_mode = 2
