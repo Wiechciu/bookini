@@ -1,32 +1,42 @@
-# hotel
+# Booking System Development Notes
 
-NAMES:
-	>Bookini<
-	CheckMate
-	ReserVibe
-	VibInn
+## ✅ FIXES
 
-FIX:
-	CustomerAutoFillComponent - remake as LineEdit extension class
+- Refactor `CustomerAutoFillComponent` as a subclass of `LineEdit`
 
-TODO:
-	Auto-fill customer data from previous bookings
-	Waiting list - customers who are waiting for cancellation of other bookings
-		Additional calendar row at the beginning showing waiting list - bookings with only date w/o room selected
-	
-	implement cancelling bookings
-	jump to entered date in the calendar
-	save layout of split containers and load on start
-	room management
-		add possibility to change room params and add/remove rooms
-	occupancy reports
-		add occupancy overview per day in the calendar (new row)
-		add chart for month
-	optimize
-		don't load all database records, only the latest
-		don't recalculate overbookings on each bookings update
-	tutorial explaining functions and tips and tricks
-		should run at the first start of the app
+---
 
-MAYBE:
-	Make bookings in the calendar view its own object instead of coloring calendar fields
+## 🧩 TODO
+
+### 📋 Booking Features
+- Auto-fill customer data from previous bookings
+- Implement waiting list feature:
+  - Customers waiting for cancellations
+  - Add additional calendar row at the top showing waiting list (bookings with only a date and no room selected)
+- Implement booking cancellation functionality
+- Allow jumping to a specific entered date in the calendar
+
+### 🖼️ UI/UX Improvements
+- Save layout of split containers and restore on app start
+
+### 🏨 Room Management
+- Add ability to change room parameters
+- Add/remove rooms dynamically
+
+### 📊 Reporting
+- Add occupancy overview per day in the calendar (new row)
+- Include a monthly occupancy chart
+
+### 🚀 Optimization
+- Load only the latest records from the database (avoid loading everything)
+- Avoid recalculating overbookings on every booking update
+
+### 🧑‍🏫 Tutorial
+- Add an interactive tutorial explaining features, tips, and tricks
+- Should run on the first launch of the app
+
+---
+
+## 💡 MAYBE
+
+- Refactor bookings in the calendar view into their own objects, instead of simply coloring calendar fields
