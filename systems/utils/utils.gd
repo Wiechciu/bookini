@@ -1,6 +1,15 @@
 extends Node
 
 
+class OptionButtonItem:
+	var name: String
+	var id: int
+	@warning_ignore("shadowed_variable")
+	func _init(name: String, id: int = -1) -> void:
+		self.name = name
+		self.id = id
+
+
 enum SortType {
 	BY_ID,
 	BY_START_DATE,
@@ -76,16 +85,14 @@ func get_child_of_type(parent: Node, type: Variant) -> Node:
 	return null
 
 
-func add_items_to_option_button(items: Array[String], option_button: OptionButton, selected_item: int) -> void:
+func add_items_to_option_button(items: Array[OptionButtonItem], option_button: OptionButton, selected_item_id: int) -> void:
 	option_button.clear()
-	var counter: int = -1
-	for text: String in items:
-		if text == "{separator}":
+	for item: OptionButtonItem in items:
+		if item.name == "{separator}":
 			option_button.add_separator()
 		else:
-			counter += 1
-			option_button.add_item(text, counter)
-	option_button.select(selected_item)
+			option_button.add_item(item.name, item.id)
+	option_button.select(option_button.get_item_index(selected_item_id))
 
 
 func _sort_bookings_by_id(booking1: Booking, booking2: Booking, sort_direction: SortDirection) -> bool:

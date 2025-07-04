@@ -19,8 +19,11 @@ func _ready() -> void:
 	connect_signals()
 	clear_container()
 	hide()
-	
-	position.y = name_field.size.y
+
+
+func _process(_delta: float) -> void:
+	if visible:
+		position.y = name_field.size.y
 
 
 func assign_controls() -> bool:

@@ -1,6 +1,5 @@
-[gd_scene load_steps=6 format=3 uid="uid://ddisvov8kf00b"]
+[gd_scene load_steps=5 format=3 uid="uid://ddisvov8kf00b"]
 
-[ext_resource type="PackedScene" uid="uid://dtyiafuie21sr" path="res://app_header.tscn" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://c6fm2nlqvb5cy" path="res://calendar/calendar.tscn" id="2_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://154vvo6i6da8" path="res://navigation/navigation.tscn" id="2_7mycd"]
 [ext_resource type="PackedScene" uid="uid://cvx7d7in0txrc" path="res://room_information/room_information.tscn" id="2_lquwl"]
@@ -15,10 +14,6 @@ grow_vertical = 2
 theme_type_variation = &"PanelContainerMainApp"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 2
-
-[node name="AppHeader" parent="VBoxContainer" instance=ExtResource("1_h2yge")]
-visible = false
 layout_mode = 2
 
 [node name="VSplitContainer" type="VSplitContainer" parent="VBoxContainer"]

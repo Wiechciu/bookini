@@ -28,7 +28,7 @@ func connect_signals() -> void:
 
 
 func _on_mouse_entered() -> void:
-	var tooltip_string: String = text
+	var tooltip_string: String = atr(text)
 	
 	if tooltip_string == "":
 		tooltip_string = control_to_check.get_tooltip_string()

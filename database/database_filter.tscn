@@ -1,17 +1,28 @@
-[gd_scene load_steps=8 format=3 uid="uid://dx10i03usiffl"]
+[gd_scene load_steps=9 format=3 uid="uid://dx10i03usiffl"]
 
 [ext_resource type="Script" uid="uid://b7y06r4o1m5jy" path="res://database/database_filter.gd" id="1_y4xxc"]
-[ext_resource type="Texture2D" uid="uid://cngkt3kjwd3jg" path="res://clear.png" id="2_kuo7r"]
+[ext_resource type="Texture2D" uid="uid://cngkt3kjwd3jg" path="res://art/clear.png" id="2_kuo7r"]
 [ext_resource type="PackedScene" uid="uid://cghapkildl4rr" path="res://components/tooltip_component.tscn" id="3_3qwab"]
 [ext_resource type="PackedScene" uid="uid://dboq0xx4q6cf2" path="res://components/focus_component.tscn" id="3_6g03t"]
 [ext_resource type="PackedScene" uid="uid://b87p8d3gl8mex" path="res://components/string_validation_component.tscn" id="4_3qwab"]
 [ext_resource type="PackedScene" uid="uid://cffd6bcgb65et" path="res://components/database_tooltip_component.tscn" id="5_4ukt5"]
 [ext_resource type="PackedScene" uid="uid://c13m2ib8ylvtl" path="res://database/line_edit_date_entry.tscn" id="7_3qwab"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3qwab"]
+content_margin_left = 3.0
+content_margin_right = 3.0
+bg_color = Color(0.817314, 0.887553, 0.999999, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
 [node name="DatabaseFilter" type="PanelContainer" node_paths=PackedStringArray("clear_button", "id_label", "name_label", "phone_label", "pesel_label", "start_date_label", "end_date_label", "nights_label", "room_label", "quantity_label", "prepaid_amount_label", "prepaid_date_label", "payment_amount_label", "payment_date_label", "invoice_status_label", "remarks_label")]
 custom_minimum_size = Vector2(0, 27)
 theme_type_variation = &"PanelContainerDatabaseFilter"
 script = ExtResource("1_y4xxc")
+editing_stylebox_override = SubResource("StyleBoxFlat_3qwab")
 clear_button = NodePath("HSplitContainer/HBoxContainer/ClearButton")
 id_label = NodePath("HSplitContainer/HBoxContainer/Id")
 name_label = NodePath("HSplitContainer/HSplitContainer/Name")
@@ -64,7 +75,7 @@ text = "wyczyść filtr"
 
 [node name="Id" type="LineEdit" parent="HSplitContainer/HBoxContainer"]
 auto_translate_mode = 2
-custom_minimum_size = Vector2(40, 25)
+custom_minimum_size = Vector2(40, 31)
 layout_mode = 2
 theme_type_variation = &"LineEditDatabaseItem"
 alignment = 2
@@ -82,7 +93,7 @@ dragging_enabled = false
 
 [node name="Name" type="LineEdit" parent="HSplitContainer/HSplitContainer"]
 auto_translate_mode = 2
-custom_minimum_size = Vector2(40, 25)
+custom_minimum_size = Vector2(40, 31)
 layout_mode = 2
 theme_type_variation = &"LineEditDatabaseItem"
 caret_blink = true
@@ -99,10 +110,9 @@ dragging_enabled = false
 
 [node name="Phone" type="LineEdit" parent="HSplitContainer/HSplitContainer/HSplitContainer"]
 auto_translate_mode = 2
-custom_minimum_size = Vector2(40, 25)
+custom_minimum_size = Vector2(40, 31)
 layout_mode = 2
 theme_type_variation = &"LineEditDatabaseItem"
-text = "123456789"
 caret_blink = true
 
 [node name="FocusComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/Phone" instance=ExtResource("3_6g03t")]
@@ -117,10 +127,9 @@ dragging_enabled = false
 
 [node name="Pesel" type="LineEdit" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer"]
 auto_translate_mode = 2
-custom_minimum_size = Vector2(40, 25)
+custom_minimum_size = Vector2(40, 31)
 layout_mode = 2
 theme_type_variation = &"LineEditDatabaseItem"
-text = "12345"
 caret_blink = true
 
 [node name="StringValidationComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/Pesel" instance=ExtResource("4_3qwab")]
@@ -137,10 +146,9 @@ split_offset = 70
 dragging_enabled = false
 
 [node name="StartDate" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer" instance=ExtResource("7_3qwab")]
-custom_minimum_size = Vector2(40, 25)
+custom_minimum_size = Vector2(40, 31)
 layout_mode = 2
 theme_type_variation = &"LineEditDatabaseItem"
-text = "2025-01-02"
 caret_blink = true
 
 [node name="FocusComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/StartDate" instance=ExtResource("3_6g03t")]
@@ -154,10 +162,9 @@ split_offset = 70
 dragging_enabled = false
 
 [node name="EndDate" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer" instance=ExtResource("7_3qwab")]
-custom_minimum_size = Vector2(40, 25)
+custom_minimum_size = Vector2(40, 31)
 layout_mode = 2
 theme_type_variation = &"LineEditDatabaseItem"
-text = "2025-01-02"
 caret_blink = true
 
 [node name="FocusComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/EndDate" instance=ExtResource("3_6g03t")]
@@ -172,10 +179,9 @@ dragging_enabled = false
 
 [node name="Nights" type="LineEdit" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2"]
 auto_translate_mode = 2
-custom_minimum_size = Vector2(40, 25)
+custom_minimum_size = Vector2(40, 31)
 layout_mode = 2
 theme_type_variation = &"LineEditDatabaseItem"
-text = "5"
 caret_blink = true
 
 [node name="FocusComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/Nights" instance=ExtResource("3_6g03t")]
@@ -210,10 +216,9 @@ dragging_enabled = false
 
 [node name="Quantity" type="LineEdit" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer"]
 auto_translate_mode = 2
-custom_minimum_size = Vector2(40, 25)
+custom_minimum_size = Vector2(40, 31)
 layout_mode = 2
 theme_type_variation = &"LineEditDatabaseItem"
-text = "5"
 caret_blink = true
 
 [node name="FocusComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/Quantity" instance=ExtResource("3_6g03t")]
@@ -228,10 +233,9 @@ dragging_enabled = false
 
 [node name="PrepaidAmount" type="LineEdit" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer"]
 auto_translate_mode = 2
-custom_minimum_size = Vector2(40, 25)
+custom_minimum_size = Vector2(40, 31)
 layout_mode = 2
 theme_type_variation = &"LineEditDatabaseItem"
-text = "500"
 caret_blink = true
 
 [node name="FocusComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/PrepaidAmount" instance=ExtResource("3_6g03t")]
@@ -245,10 +249,9 @@ split_offset = 70
 dragging_enabled = false
 
 [node name="PrepaidDate" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer" instance=ExtResource("7_3qwab")]
-custom_minimum_size = Vector2(40, 25)
+custom_minimum_size = Vector2(40, 31)
 layout_mode = 2
 theme_type_variation = &"LineEditDatabaseItem"
-text = "2025-01-02"
 caret_blink = true
 
 [node name="FocusComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/PrepaidDate" instance=ExtResource("3_6g03t")]
@@ -263,10 +266,9 @@ dragging_enabled = false
 
 [node name="PaymentAmount" type="LineEdit" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer"]
 auto_translate_mode = 2
-custom_minimum_size = Vector2(40, 25)
+custom_minimum_size = Vector2(40, 31)
 layout_mode = 2
 theme_type_variation = &"LineEditDatabaseItem"
-text = "300"
 caret_blink = true
 
 [node name="FocusComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/PaymentAmount" instance=ExtResource("3_6g03t")]
@@ -280,10 +282,9 @@ split_offset = 70
 dragging_enabled = false
 
 [node name="PaymentDate" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer" instance=ExtResource("7_3qwab")]
-custom_minimum_size = Vector2(40, 25)
+custom_minimum_size = Vector2(40, 31)
 layout_mode = 2
 theme_type_variation = &"LineEditDatabaseItem"
-text = "2025-01-02"
 caret_blink = true
 
 [node name="FocusComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/PaymentDate" instance=ExtResource("3_6g03t")]
@@ -320,11 +321,10 @@ layout_mode = 2
 
 [node name="Remarks" type="LineEdit" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HBoxContainer"]
 auto_translate_mode = 2
-custom_minimum_size = Vector2(40, 25)
+custom_minimum_size = Vector2(40, 31)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"LineEditDatabaseItem"
-text = "Notatka"
 caret_blink = true
 
 [node name="FocusComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HBoxContainer/Remarks" instance=ExtResource("3_6g03t")]

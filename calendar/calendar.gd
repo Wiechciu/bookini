@@ -36,6 +36,7 @@ var is_current_date_selected: bool:
 func _ready() -> void:
 	clear_containers()
 	fill_containers()
+	database.database_loaded.connect(_on_database_item_updated)
 	database.item_updated.connect(_on_database_item_updated.unbind(1))
 	calendar_header.previous_button.pressed.connect(_on_previous_button_pressed)
 	calendar_header.next_button.pressed.connect(_on_next_button_pressed)

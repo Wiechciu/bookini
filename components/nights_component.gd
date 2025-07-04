@@ -58,6 +58,7 @@ func recalculate_nights() -> void:
 	
 	var start_date_unix: int = Time.get_unix_time_from_datetime_string(start_date_node.text)
 	var end_date_unix: int = Time.get_unix_time_from_datetime_string(end_date_node.text)
+	@warning_ignore("integer_division")
 	var difference: int = (end_date_unix - start_date_unix) / Utils.ONE_DAY
 	
 	if difference > 0:
@@ -65,3 +66,4 @@ func recalculate_nights() -> void:
 	else:
 		nights_node.text = ""
 	nights_node.text_changed.emit(nights_node.text)
+	

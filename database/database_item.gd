@@ -31,13 +31,14 @@ var cached_content: String
 
 
 func initialize(database_to_assign: Database, booking_to_assign: Booking) -> void:
-	Utils.add_items_to_option_button(GlobalRefs.room_names, room_label, -1)
+	Utils.add_items_to_option_button(GlobalRefs.room_option_button_items, room_label, -1)
 	Utils.add_items_to_option_button(GlobalRefs.invoice_status_items, invoice_status_label, -1)
 	
 	for line_edit: LineEdit in find_children("*", "LineEdit", true):
 		line_edit.clear()
 		
 		if line_edit is LineEditDateEntry:
+			line_edit.editing_toggled.connect(_on_line_edit_date_entry_editing_toggled.bind(line_edit))
 			line_edit.date_validated.connect(_on_editing_toggled.bind(false, line_edit))
 		else:
 			line_edit.editing_toggled.connect(_on_editing_toggled.bind(line_edit))
@@ -71,6 +72,11 @@ func _on_delete_button_pressed() -> void:
 		booking.change_status(Booking.Status.DELETED)
 		item_updated.emit()
 		database.remove_item(self)
+
+
+func _on_line_edit_date_entry_editing_toggled(toggled_on: bool, control: Control) -> void:
+	if toggled_on:
+		_on_editing_toggled(toggled_on, control)
 
 
 func _on_editing_toggled(toggled_on: bool, control: Control) -> void:
@@ -128,13 +134,13 @@ func assign_booking(booking_to_assign: Booking = null) -> void:
 	pesel_label.text = booking.pesel
 	start_date_label.text = booking.start_date
 	end_date_label.text = booking.end_date
-	room_label.select(booking.room)
+	room_label.select(room_label.get_item_index(booking.room))
 	quantity_label.text = str(booking.quantity) if booking.quantity else ""
 	prepaid_amount_label.text = str(booking.prepaid_amount) if booking.prepaid_amount else ""
 	prepaid_date_label.text = booking.prepaid_date
 	payment_amount_label.text = str(booking.payment_amount) if booking.payment_amount else ""
 	payment_date_label.text = booking.payment_date
-	invoice_status_label.select(booking.invoice_status)
+	invoice_status_label.select(invoice_status_label.get_item_index(booking.invoice_status))
 	remarks_label.text = booking.remarks
 
 

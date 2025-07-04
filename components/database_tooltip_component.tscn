@@ -3,6 +3,6 @@
 [ext_resource type="Script" uid="uid://d2ortuu0mvim0" path="res://components/database_tooltip_component.gd" id="1_imhpe"]
 [ext_resource type="PackedScene" uid="uid://b2e2cevo50f71" path="res://tooltip/tooltip.tscn" id="2_wph25"]
 
-[node name="TooltipComponent" type="Node"]
+[node name="DatabaseTooltipComponent" type="Node"]
 script = ExtResource("1_imhpe")
 tooltip_scene = ExtResource("2_wph25")

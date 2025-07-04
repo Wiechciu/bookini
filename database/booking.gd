@@ -39,6 +39,7 @@ var has_correct_date_order: bool:
 		and Time.get_unix_time_from_datetime_string(start_date) < Time.get_unix_time_from_datetime_string(end_date)
 
 
+@warning_ignore("shadowed_variable")
 static func create(
 		name: String = "",
 		phone: String = "",
@@ -76,6 +77,7 @@ static func create(
 	return new_booking
 
 
+@warning_ignore("shadowed_variable")
 func update(
 		status: Status,
 		name: String,

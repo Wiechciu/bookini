@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3xq0oax8fpk1"]
+
+[ext_resource type="Texture2D" uid="uid://b04ijkpxcm25m" path="res://art/refresh.png" id="1_mggpi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lxc3o"]
+bg_color = Color(0, 0, 0, 0.5568628)
+
+[node name="LoadingScreen" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lxc3o")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("1_mggpi")
+stretch_mode = 5

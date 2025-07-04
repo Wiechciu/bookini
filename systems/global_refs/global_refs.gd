@@ -6,39 +6,40 @@ enum OccupancyType {
 	FULL_DAY,
 }
 
+
 var month_names: Array[String] = [
-	atr("styczeń"),
-	atr("luty"),
-	atr("marzec"),
-	atr("kwiecień"),
-	atr("maj"),
-	atr("czerwiec"),
-	atr("lipiec"),
-	atr("sierpień"),
-	atr("wrzesień"),
-	atr("październik"),
-	atr("listopad"),
-	atr("grudzień"),
+	"styczeń",
+	"luty",
+	"marzec",
+	"kwiecień",
+	"maj",
+	"czerwiec",
+	"lipiec",
+	"sierpień",
+	"wrzesień",
+	"październik",
+	"listopad",
+	"grudzień",
 ]
 
-var invoice_status_items: Array[String] = [
-	atr("Nie dotyczy"),
-	atr("Nieopłacona"),
-	atr("Opłacona"),
+@onready var invoice_status_items: Array[Utils.OptionButtonItem] = [
+	Utils.OptionButtonItem.new("Nie dotyczy"),
+	Utils.OptionButtonItem.new("Nieopłacona"),
+	Utils.OptionButtonItem.new("Opłacona"),
 ]
 
 @export var rooms: Array[Room]
-var room_names: Array[String]:
+var room_option_button_items: Array[Utils.OptionButtonItem]:
 	get:
-		var array: Array[String]
+		var array: Array[Utils.OptionButtonItem]
 		var last_type: String
 		for room: Room in rooms:
 			if last_type == "":
 				last_type = room.type
 			elif last_type != room.type:
 				last_type = room.type
-				array.append("{separator}")
-			array.append(room.name)
+				array.append(Utils.OptionButtonItem.new("{separator}"))
+			array.append(Utils.OptionButtonItem.new(room.name, room.id))
 		return array
 
 var bookings: Array[Booking]
@@ -61,6 +62,13 @@ func _filter_active_bookings(booking: Booking) -> bool:
 
 
 func recalculate_dicts() -> void:
+	overbookings.clear()
+	date_bookings_dict.clear()
+	date_check_in_bookings_dict.clear()
+	date_check_out_bookings_dict.clear()
+	date_full_day_bookings_dict.clear()
+	date_overbooking_bookings_dict.clear()
+	
 	for booking: Booking in active_bookings:
 		recalculate_dicts_for_booking(booking)
 
@@ -192,3 +200,10 @@ func append_to_overbookings(occupancy_type: OccupancyType, date_room: Array, boo
 	for booking_found: Booking in overbookings_found.keys():
 		if not overbookings.has(booking_found):
 			overbookings.append(booking_found)
+
+
+func get_room_by_id(id: int) -> Room:
+	for room: Room in rooms:
+		if room.id == id:
+			return room
+	return null

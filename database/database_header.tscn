@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://d26lkxydpbp38"]
 
 [ext_resource type="Script" uid="uid://bps73sxuq280n" path="res://database/database_header.gd" id="1_bnybt"]
-[ext_resource type="Texture2D" uid="uid://b04ijkpxcm25m" path="res://refresh.png" id="2_r2268"]
-[ext_resource type="Texture2D" uid="uid://cy7fx6og5lpvv" path="res://arrow_down.png" id="2_ysx1i"]
-[ext_resource type="Texture2D" uid="uid://yugagkd2lk2s" path="res://arrow_up.png" id="3_rd6q3"]
+[ext_resource type="Texture2D" uid="uid://b04ijkpxcm25m" path="res://art/refresh.png" id="2_r2268"]
+[ext_resource type="Texture2D" uid="uid://cy7fx6og5lpvv" path="res://art/arrow_down.png" id="2_ysx1i"]
+[ext_resource type="Texture2D" uid="uid://yugagkd2lk2s" path="res://art/arrow_up.png" id="3_rd6q3"]
 [ext_resource type="PackedScene" uid="uid://cghapkildl4rr" path="res://components/tooltip_component.tscn" id="3_xnyeb"]
 
 [node name="DatabaseHeader" type="PanelContainer" node_paths=PackedStringArray("reset_button", "sort_by_id_button", "sort_by_id_texture_rect", "sort_by_start_date_button", "sort_by_start_texture_rect")]
@@ -209,7 +209,7 @@ custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_vertical = 1
 theme_type_variation = &"LabelDatabaseHeader"
-text = "Pokój"
+text = "Jacht"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2

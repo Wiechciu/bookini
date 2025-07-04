@@ -40,6 +40,7 @@ func _on_mouse_entered() -> void:
 	if tooltip_string.length() > 20:
 		tooltip.label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		tooltip.label.custom_minimum_size.x = 300
+		tooltip.label.size = Vector2.ZERO
 	tooltip.initialize(tooltip_string, delay)
 
 

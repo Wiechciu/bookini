@@ -21,9 +21,9 @@ config/windows_native_icon="res://art/logo_icon_transparent_bg.ico"
 
 [autoload]
 
-AppManager="*res://app_manager/app_manager.tscn"
-GlobalRefs="*res://global_refs/global_refs.tscn"
-Utils="*res://utils.gd"
+AppManager="*res://systems/app_manager/app_manager.tscn"
+GlobalRefs="*res://systems/global_refs/global_refs.tscn"
+Utils="*res://systems/utils/utils.gd"
 
 [display]
 
@@ -33,8 +33,8 @@ window/size/mode=2
 
 [gui]
 
-theme/custom="uid://b1p3xo06djhek"
 theme/default_font_multichannel_signed_distance_field=true
+theme/custom="uid://b1p3xo06djhek"
 
 [input]
 
@@ -130,7 +130,7 @@ mouse_click={
 [internationalization]
 
 locale/translations=PackedStringArray("res://translation/en.po", "res://translation/pl.po")
-locale/translations_pot_files=PackedStringArray("res://app_header.tscn", "res://close_button.gd", "res://main.tscn", "res://utils.gd", "res://app_manager/app_manager.gd", "res://app_manager/app_manager.tscn", "res://calendar/calendar.gd", "res://calendar/calendar.tscn", "res://calendar/calendar_field.gd", "res://calendar/calendar_field.tscn", "res://calendar/calendar_header.gd", "res://calendar/calendar_header.tscn", "res://calendar/calendar_header_field.gd", "res://calendar/calendar_header_field.tscn", "res://calendar/calendar_header_weekday.gd", "res://calendar/calendar_header_weekday.tscn", "res://calendar/calendar_row.gd", "res://calendar/calendar_row.tscn", "res://components/animate_on_hover_component.gd", "res://components/animate_on_hover_component.tscn", "res://components/database_tooltip_component.gd", "res://components/database_tooltip_component.tscn", "res://components/date_entry_component.gd", "res://components/date_entry_component.tscn", "res://components/date_validation_component.gd", "res://components/date_validation_component.tscn", "res://components/focus_component.gd", "res://components/focus_component.tscn", "res://components/nights_component.gd", "res://components/nights_component.tscn", "res://components/string_validation_component.gd", "res://components/string_validation_component.tscn", "res://components/tooltip_component.gd", "res://components/tooltip_component.tscn", "res://database/booking.gd", "res://database/database.gd", "res://database/database.tscn", "res://database/database_filter.gd", "res://database/database_filter.tscn", "res://database/database_header.gd", "res://database/database_header.tscn", "res://database/database_item.gd", "res://database/database_item.tscn", "res://date_picker/date_picker.gd", "res://date_picker/date_picker.tscn", "res://date_picker/date_picker_component.gd", "res://date_picker/date_picker_component.tscn", "res://global_refs/global_refs.gd", "res://global_refs/global_refs.tscn", "res://navigation/navigation.gd", "res://navigation/navigation.tscn", "res://overbooking_warning/overbooking_warning.gd", "res://overbooking_warning/overbooking_warning.tscn", "res://popup_windows/delete_confirmation.gd", "res://popup_windows/delete_confirmation.tscn", "res://popup_windows/help.gd", "res://popup_windows/help.tscn", "res://room/room.gd", "res://room_information/room_information.gd", "res://room_information/room_information.tscn", "res://tooltip/tooltip.gd", "res://tooltip/tooltip.tscn")
+locale/translations_pot_files=PackedStringArray("res://app_header.tscn", "res://close_button.gd", "res://main.tscn", "res://utils.gd", "res://app_manager/app_manager.gd", "res://app_manager/app_manager.tscn", "res://calendar/calendar.gd", "res://calendar/calendar.tscn", "res://calendar/calendar_field.gd", "res://calendar/calendar_field.tscn", "res://calendar/calendar_header.gd", "res://calendar/calendar_header.tscn", "res://calendar/calendar_header_field.gd", "res://calendar/calendar_header_field.tscn", "res://calendar/calendar_header_weekday.gd", "res://calendar/calendar_header_weekday.tscn", "res://calendar/calendar_row.gd", "res://calendar/calendar_row.tscn", "res://components/animate_on_hover_component.gd", "res://components/animate_on_hover_component.tscn", "res://components/database_tooltip_component.gd", "res://components/database_tooltip_component.tscn", "res://components/date_entry_component.gd", "res://components/date_entry_component.tscn", "res://components/date_validation_component.gd", "res://components/date_validation_component.tscn", "res://components/focus_component.gd", "res://components/focus_component.tscn", "res://components/nights_component.gd", "res://components/nights_component.tscn", "res://components/string_validation_component.gd", "res://components/string_validation_component.tscn", "res://components/tooltip_component.gd", "res://components/tooltip_component.tscn", "res://database/booking.gd", "res://database/database.gd", "res://database/database.tscn", "res://database/database_filter.gd", "res://database/database_filter.tscn", "res://database/database_header.gd", "res://database/database_header.tscn", "res://database/database_item.gd", "res://database/database_item.tscn", "res://date_picker/date_picker.gd", "res://date_picker/date_picker.tscn", "res://date_picker/date_picker_component.gd", "res://date_picker/date_picker_component.tscn", "res://global_refs/global_refs.gd", "res://global_refs/global_refs.tscn", "res://navigation/navigation.gd", "res://navigation/navigation.tscn", "res://overbooking_warning/overbooking_warning.gd", "res://overbooking_warning/overbooking_warning.tscn", "res://popup_windows/delete_confirmation.gd", "res://popup_windows/delete_confirmation.tscn", "res://popup_windows/help.gd", "res://popup_windows/help.tscn", "res://room/room.gd", "res://room_information/room_information.gd", "res://room_information/room_information.tscn", "res://tooltip/tooltip.gd", "res://tooltip/tooltip.tscn", "res://components/customer_auto_fill_component.gd", "res://components/customer_auto_fill_component.tscn", "res://calendar/calendar_separator.gd", "res://calendar/calendar_separator.tscn", "res://database/customer.gd", "res://database/line_edit_date_entry.gd", "res://database/line_edit_date_entry.tscn")
 
 [rendering]
 

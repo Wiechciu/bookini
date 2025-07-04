@@ -2,6 +2,8 @@ class_name DatabaseFilter
 extends PanelContainer
 
 
+@export var editing_stylebox_override: StyleBox
+
 @export var database: Database
 @export var clear_button: Button
 @export var id_label: LineEdit
@@ -28,7 +30,7 @@ func _ready() -> void:
 	clear_button.pressed.connect(_on_clear_button_pressed)
 	hide_clear_button()
 	
-	Utils.add_items_to_option_button(GlobalRefs.room_names, room_label, -1)
+	Utils.add_items_to_option_button(GlobalRefs.room_option_button_items, room_label, -1)
 	Utils.add_items_to_option_button(GlobalRefs.invoice_status_items, invoice_status_label, -1)
 	
 	for line_edit: LineEdit in find_children("*", "LineEdit", true):
@@ -36,6 +38,7 @@ func _ready() -> void:
 		line_edit.clear()
 		
 		if line_edit is LineEditDateEntry:
+			line_edit.editing_toggled.connect(_on_line_edit_date_entry_editing_toggled.bind(line_edit))
 			line_edit.date_validated.connect(_on_editing_toggled.bind(false, line_edit))
 		else:
 			line_edit.editing_toggled.connect(_on_editing_toggled.bind(line_edit))
@@ -56,9 +59,14 @@ func _on_clear_button_pressed() -> void:
 	hide_clear_button()
 
 
+func _on_line_edit_date_entry_editing_toggled(toggled_on: bool, control: Control) -> void:
+	if toggled_on:
+		_on_editing_toggled(toggled_on, control)
+
+
 func _on_editing_toggled(toggled_on: bool, control: Control) -> void:
 	if toggled_on:
-		#control.add_theme_stylebox_override("focus", editing_stylebox_override)
+		control.add_theme_stylebox_override("focus", editing_stylebox_override)
 		if control is LineEdit:
 			cached_content = control.text
 		elif control is OptionButton:

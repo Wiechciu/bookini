@@ -33,11 +33,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 "
 "|| n%100>14) ? 1 : 2);\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #: calendar/calendar_header.tscn
-msgid "Pokoje"
-msgstr "Pokoje"
+msgid "Jachty"
+msgstr "Jachty"
 
 #: calendar/calendar_header.tscn
 msgid "poprzedni miesiąc"
@@ -126,8 +126,8 @@ msgid "Ilość nocy"
 msgstr "Ilość nocy"
 
 #: database/database_header.tscn
-msgid "Pokój"
-msgstr "Pokój"
+msgid "Jacht"
+msgstr "Jacht"
 
 #: database/database_header.tscn
 msgid "Ilość osób"
@@ -360,8 +360,8 @@ msgid "OK"
 msgstr "OK"
 
 #: room_information/room_information.tscn
-msgid "Pokój:"
-msgstr "Pokój:"
+msgid "Jacht:"
+msgstr "Jacht:"
 
 #: room_information/room_information.tscn
 msgid "Typ:"
@@ -383,14 +383,19 @@ msgstr "Obłożenie w tym miesiącu:"
 msgid "Obłożenie w zeszłym miesiącu:"
 msgstr "Obłożenie w zeszłym miesiącu:"
 
-#~ msgid "Jachty"
-#~ msgstr "Jachty"
+#: components/customer_auto_fill_component.gd
+#: components/customer_auto_fill_component.tscn
+msgid "---"
+msgstr "---"
 
-#~ msgid "Jacht"
-#~ msgstr "Jacht"
+#~ msgid "Pokoje"
+#~ msgstr "Pokoje"
 
-#~ msgid "Jacht:"
-#~ msgstr "Jacht:"
+#~ msgid "Pokój"
+#~ msgstr "Pokój"
+
+#~ msgid "Pokój:"
+#~ msgstr "Pokój:"
 
 #~ msgid "{count} overbookingów"
 #~ msgstr "{count} overbookingów"

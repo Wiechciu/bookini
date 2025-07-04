@@ -12,8 +12,8 @@ var last_clicked: int = 0
 func _ready() -> void:
 	calendar = calendar_header.calendar
 	database = calendar.database
+	database.database_loaded.connect(_on_database_item_updated)
 	database.item_updated.connect(_on_database_item_updated.unbind(1))
-	_on_database_item_updated.call_deferred()
 
 
 func _notification(what: int) -> void:
@@ -47,5 +47,12 @@ func _gui_input(event: InputEvent) -> void:
 func get_tooltip_string() -> String:
 	var text: String = ""
 	for booking: Booking in overbookings:
-		text = text + "\n#%s | %s - %s | %s" % [booking.id, booking.start_date, booking.end_date, booking.name]
+		var booking_room: Room = GlobalRefs.get_room_by_id(booking.room)
+		text = text + "\n#%s | %s - %s | %s | %s" % [
+			booking.id,
+			booking.start_date,
+			booking.end_date,
+			booking_room.name if booking_room else "",
+			booking.name
+		]
 	return text.lstrip("\n")

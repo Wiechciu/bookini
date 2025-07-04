@@ -48,10 +48,12 @@ func _on_editing_toggled(toggled_on: bool) -> void:
 
 func correct_date_format() -> void:
 	if Utils.is_date_valid(text):
+		date_validated.emit()
 		return
 	
 	var text_without_dashes = text.remove_chars("-")
 	if not text_without_dashes.is_valid_int():
+		date_validated.emit()
 		return
 	
 	var combined_date: String
@@ -66,6 +68,7 @@ func correct_date_format() -> void:
 	elif text_without_dashes.length() == 8: # format YYYYMMDD
 		combined_date = "%04d-%02d-%02d" % [int(text_without_dashes.substr(0, 4)), int(text_without_dashes.substr(4, 2)), int(text_without_dashes.substr(6, 2))]
 	
+
 	if combined_date != "" and Utils.is_date_valid(combined_date):
 		text = combined_date
 		text_changed.emit(text)

@@ -85,6 +85,7 @@ func update() -> void:
 	
 	month_label.text = "%s %d" % [atr(GlobalRefs.month_names[selected_month - 1]), selected_year]
 	
+	
 	var number_of_days_in_month: int = Utils.get_number_of_days_in_month(selected_month, selected_year)
 	
 	var first_weekday: int = Time.get_datetime_dict_from_datetime_string("%04d-%02d-%02d" % [selected_year, selected_month, 1], true).weekday

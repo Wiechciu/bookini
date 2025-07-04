@@ -3,6 +3,7 @@ extends PanelContainer
 
 
 signal item_updated(DatabaseItem)
+signal database_loaded()
 
 
 @export var calendar: Calendar
@@ -13,14 +14,17 @@ signal item_updated(DatabaseItem)
 @export var database_header: DatabaseHeader
 @export var database_filter: DatabaseFilter
 var save_location: String = "user://"
-var save_name: String = "database_rooms"
-var backup_save_name: String = "database_rooms_backup_{DATE}"
+var save_name: String = "database"
+var backup_save_name: String = "database_backup_{DATE}"
 var save_extension: String = ".save"
 var selected_item: DatabaseItem
 var current_date_string: String
 var database_items: Array[DatabaseItem]
 var sort_type: Utils.SortType = Utils.SortType.BY_ID
 var sort_direction: Utils.SortDirection = Utils.SortDirection.ASCENDING
+
+var load_all: bool = true # TODO: change to false when LoadAll button is reimplemented
+var day_limit: int = 7
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -32,15 +36,22 @@ func _unhandled_input(event: InputEvent) -> void:
 func _ready() -> void:
 	for child: DatabaseItem in find_children("*", "DatabaseItem", true):
 		database_items.append(child)
+	clear_database_items()
 	current_date_string = Time.get_date_string_from_system()
 	add_button.pressed.connect(_on_add_button_pressed)
+	reload_database()
+
+
+func reload_database() -> void:
+	await AppManager.show_loading_screen()
 	clear_database_items()
 	clear_database()
 	load_database()
 	load_database_items()
 	sort_database()
-	calendar.update_colors()
 	scroll_to_bottom()
+	database_loaded.emit()
+	AppManager.hide_loading_screen()
 
 
 func _on_add_button_pressed() -> void:
@@ -144,6 +155,8 @@ func load_database_items() -> void:
 			GlobalRefs.last_id = booking.id
 		if booking.status != Booking.Status.ACTIVE:
 			continue
+		if not load_all and booking.end_date_as_unix_time < Time.get_unix_time_from_system() - day_limit * Utils.ONE_DAY:
+			continue
 		create_database_item(booking)
 	scroll_to_bottom()
 
@@ -182,31 +195,31 @@ func filter_database() -> void:
 
 
 func _filter_bookings(booking: Booking) -> bool:
-	if _compare_booking_string(database_filter.id_label, booking.id) \
-		or _compare_booking_string(database_filter.name_label, booking.name) \
-		or _compare_booking_string(database_filter.phone_label, booking.phone) \
-		or _compare_booking_string(database_filter.pesel_label, booking.pesel) \
-		or _compare_booking_string(database_filter.start_date_label, booking.start_date) \
-		or _compare_booking_string(database_filter.end_date_label, booking.end_date) \
-		or _compare_booking_string(database_filter.nights_label, booking.nights) \
-		or _compare_booking_string(database_filter.room_label, booking.room) \
-		or _compare_booking_string(database_filter.quantity_label, booking.quantity) \
-		or _compare_booking_string(database_filter.prepaid_amount_label, booking.prepaid_amount) \
-		or _compare_booking_string(database_filter.prepaid_date_label, booking.prepaid_date) \
-		or _compare_booking_string(database_filter.payment_amount_label, booking.payment_amount) \
-		or _compare_booking_string(database_filter.payment_date_label, booking.payment_date) \
-		or _compare_booking_string(database_filter.invoice_status_label, booking.invoice_status) \
-		or _compare_booking_string(database_filter.remarks_label, booking.remarks):
+	if _compare_booking_by_string_contains(database_filter.id_label, booking.id) \
+		or _compare_booking_by_string_contains(database_filter.name_label, booking.name) \
+		or _compare_booking_by_string_contains(database_filter.phone_label, booking.phone) \
+		or _compare_booking_by_string_contains(database_filter.pesel_label, booking.pesel) \
+		or _compare_booking_by_string_contains(database_filter.start_date_label, booking.start_date) \
+		or _compare_booking_by_string_contains(database_filter.end_date_label, booking.end_date) \
+		or _compare_booking_by_string_contains(database_filter.nights_label, booking.nights) \
+		or _compare_booking_by_string_contains(database_filter.room_label, booking.room) \
+		or _compare_booking_by_string_contains(database_filter.quantity_label, booking.quantity) \
+		or _compare_booking_by_string_contains(database_filter.prepaid_amount_label, booking.prepaid_amount) \
+		or _compare_booking_by_string_contains(database_filter.prepaid_date_label, booking.prepaid_date) \
+		or _compare_booking_by_string_contains(database_filter.payment_amount_label, booking.payment_amount) \
+		or _compare_booking_by_string_contains(database_filter.payment_date_label, booking.payment_date) \
+		or _compare_booking_by_string_contains(database_filter.invoice_status_label, booking.invoice_status) \
+		or _compare_booking_by_string_contains(database_filter.remarks_label, booking.remarks):
 		return false
 	else:
 		return true
 
 
-func _compare_booking_string(control: Control, booking_text: Variant) -> bool:
-	if control is LineEdit:
+func _compare_booking_by_string_contains(control: Control, booking_text: Variant) -> bool:
+	if control is OptionButton:
+		return control.get_selected_id() != -1 and not str(booking_text) == (str(control.get_selected_id()))
+	else: # control is LineEdit:
 		return control.text != "" and not str(booking_text).containsn(control.text)
-	else: # control is OptionButton:
-		return control.get_selected_id() != -1 and not str(booking_text).containsn(str(control.get_selected_id()))
 
 
 func change_sort_type(new_sort_type: Utils.SortType) -> void:
@@ -228,9 +241,9 @@ func sort_database() -> void:
 	
 	var counter: int = -1
 	for booking: Booking in GlobalRefs.active_bookings:
-		counter += 1
 		for item: DatabaseItem in database_items:
 			if item.booking == booking:
+				counter += 1
 				database_items_container.move_child(item, counter)
 				break
 	

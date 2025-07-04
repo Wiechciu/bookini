@@ -2,22 +2,24 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cm3y5xoh5iwo2"
-path="res://.godot/imported/arrow_down_16x16.png-3338bb1cf015e03ccb00eda4d94160a2.ctex"
+uid="uid://c5voeo7nugwy2"
+path="res://.godot/imported/arrow_down_12x10.png-06a9284bd3519fafadbd99b5ca599392.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://arrow_down_16x16.png"
-dest_files=["res://.godot/imported/arrow_down_16x16.png-3338bb1cf015e03ccb00eda4d94160a2.ctex"]
+source_file="res://art/arrow_down_12x10.png"
+dest_files=["res://.godot/imported/arrow_down_12x10.png-06a9284bd3519fafadbd99b5ca599392.ctex"]
 
 [params]
 
 compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
@@ -25,6 +27,10 @@ mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

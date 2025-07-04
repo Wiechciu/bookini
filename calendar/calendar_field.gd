@@ -60,17 +60,20 @@ func check_booking(booking_to_check: Booking) -> void:
 		DateType.CHECK_IN:
 			is_overbooking = GlobalRefs.date_check_in_bookings_dict.has(date_room) and GlobalRefs.date_check_in_bookings_dict[date_room].has(booking_to_check) and GlobalRefs.date_check_in_bookings_dict[date_room].size() > 1 \
 				or GlobalRefs.date_full_day_bookings_dict.has(date_room)
+			@warning_ignore("standalone_ternary")
 			paint_check_in_overbooking() if is_overbooking else paint_check_in()
 			bookings.append(booking_to_check)
 		DateType.CHECK_OUT:
 			is_overbooking = GlobalRefs.date_check_out_bookings_dict.has(date_room) and GlobalRefs.date_check_out_bookings_dict[date_room].has(booking_to_check) and GlobalRefs.date_check_out_bookings_dict[date_room].size() > 1 \
 				or GlobalRefs.date_full_day_bookings_dict.has(date_room)
+			@warning_ignore("standalone_ternary")
 			paint_check_out_overbooking() if is_overbooking else paint_check_out()
 			bookings.append(booking_to_check)
 		DateType.FULL_DAY:
 			is_overbooking = GlobalRefs.date_check_in_bookings_dict.has(date_room) \
 				or GlobalRefs.date_check_out_bookings_dict.has(date_room) \
 				or GlobalRefs.date_full_day_bookings_dict.has(date_room) and GlobalRefs.date_full_day_bookings_dict[date_room].has(booking_to_check) and GlobalRefs.date_full_day_bookings_dict[date_room].size() > 1
+			@warning_ignore("standalone_ternary")
 			paint_full_day_overbooking() if is_overbooking else paint_full_day()
 			bookings.append(booking_to_check)
 	
@@ -125,5 +128,12 @@ func paint_check_out_overbooking() -> void:
 func get_tooltip_string() -> String:
 	var text: String = ""
 	for booking: Booking in bookings:
-		text = text + "\n#%s | %s - %s | %s" % [booking.id, booking.start_date, booking.end_date, booking.name]
+		var booking_room: Room = GlobalRefs.get_room_by_id(booking.room)
+		text = text + "\n#%s | %s - %s | %s | %s" % [
+			booking.id,
+			booking.start_date,
+			booking.end_date,
+			booking_room.name if booking_room else "",
+			booking.name
+		]
 	return text.lstrip("\n")

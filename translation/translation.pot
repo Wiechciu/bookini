@@ -61,6 +61,13 @@
 # res://room_information/room_information.tscn
 # res://tooltip/tooltip.gd
 # res://tooltip/tooltip.tscn
+# res://components/customer_auto_fill_component.gd
+# res://components/customer_auto_fill_component.tscn
+# res://calendar/calendar_separator.gd
+# res://calendar/calendar_separator.tscn
+# res://database/customer.gd
+# res://database/line_edit_date_entry.gd
+# res://database/line_edit_date_entry.tscn
 #
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -73,7 +80,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8-bit\n"
 
 #: calendar/calendar_header.tscn
-msgid "Pokoje"
+msgid "Jachty"
 msgstr ""
 
 #: calendar/calendar_header.tscn
@@ -177,7 +184,7 @@ msgid "Ilość nocy"
 msgstr ""
 
 #: database/database_header.tscn
-msgid "Pokój"
+msgid "Jacht"
 msgstr ""
 
 #: database/database_header.tscn
@@ -348,7 +355,7 @@ msgid "OK"
 msgstr ""
 
 #: room_information/room_information.tscn
-msgid "Pokój:"
+msgid "Jacht:"
 msgstr ""
 
 #: room_information/room_information.tscn
@@ -369,4 +376,9 @@ msgstr ""
 
 #: room_information/room_information.tscn
 msgid "Obłożenie w zeszłym miesiącu:"
+msgstr ""
+
+#: components/customer_auto_fill_component.gd
+#: components/customer_auto_fill_component.tscn
+msgid "---"
 msgstr ""
