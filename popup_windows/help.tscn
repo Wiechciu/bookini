@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bkk2weh22fkub" path="res://popup_windows/help.gd" id="1_2xire"]
 
-[node name="Help" type="Control" node_paths=PackedStringArray("ok_button")]
+[node name="Help" type="Control" node_paths=PackedStringArray("ok_button", "version_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,6 +12,7 @@ grow_vertical = 2
 theme_type_variation = &"PanelContainerPopup"
 script = ExtResource("1_2xire")
 ok_button = NodePath("CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/OkButton")
+version_label = NodePath("CenterContainer/PanelContainer/VersionLabel")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -92,10 +93,16 @@ fit_content = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 10
 alignment = 1
 
 [node name="OkButton" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 text = "OK"
+
+[node name="VersionLabel" type="Label" parent="CenterContainer/PanelContainer"]
+modulate = Color(1, 1, 1, 0.21568628)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "v0.1"
