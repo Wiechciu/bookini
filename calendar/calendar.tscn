@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://d4hmb7gjahvpq" path="res://calendar/calendar_separator.tscn" id="3_8ghgs"]
 
 [node name="Calendar" type="PanelContainer" node_paths=PackedStringArray("calendar_header", "calendar_row_container")]
-offset_right = 704.0
-offset_bottom = 75.0
+offset_right = 1005.0
+offset_bottom = 200.0
 script = ExtResource("1_64tpo")
 calendar_header = NodePath("HBoxContainer/VBoxContainer/CalendarHeader")
 calendar_row_scene = ExtResource("2_74sj6")

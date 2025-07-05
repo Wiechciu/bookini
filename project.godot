@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Bookini"
-config/version="0.2"
+config/version="0.3"
 run/main_scene="uid://ddisvov8kf00b"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 boot_splash/bg_color=Color(0.984314, 0.964706, 0.92549, 1)
@@ -27,8 +27,8 @@ Utils="*res://systems/utils/utils.gd"
 
 [display]
 
-window/size/viewport_width=1400
-window/size/viewport_height=800
+window/size/viewport_width=1800
+window/size/viewport_height=900
 window/size/mode=2
 
 [gui]

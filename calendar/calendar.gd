@@ -2,6 +2,7 @@ class_name Calendar
 extends PanelContainer
 
 
+signal color_update_triggered
 signal selected_date_changed
 signal room_selected(room: Room)
 
@@ -105,6 +106,7 @@ func _on_database_item_updated() -> void:
 
 
 func update_colors() -> void:
+	color_update_triggered.emit()
 	reset_colors()
 	for booking: Booking in GlobalRefs.active_bookings:
 		apply_colors(booking)

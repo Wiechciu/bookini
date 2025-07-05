@@ -59,14 +59,14 @@ func correct_date_format() -> void:
 	var combined_date: String
 	if text_without_dashes.length() <= 2: # format D and DD
 		var current_date_dict: Dictionary = Time.get_datetime_dict_from_system()
-		combined_date = "%04d-%02d-%02d" % [current_date_dict.year, current_date_dict.month, int(text_without_dashes)]
+		combined_date = Utils.get_date_string(current_date_dict.year, current_date_dict.month, int(text_without_dashes))
 	elif text_without_dashes.length() == 4: # format MMDD
 		var current_date_dict: Dictionary = Time.get_datetime_dict_from_system()
-		combined_date = "%04d-%02d-%02d" % [current_date_dict.year, int(text_without_dashes.substr(0, 2)), int(text_without_dashes.substr(2, 2))]
+		combined_date = Utils.get_date_string(current_date_dict.year, int(text_without_dashes.substr(0, 2)), int(text_without_dashes.substr(2, 2)))
 	elif text_without_dashes.length() == 6: # format YYMMDD
-		combined_date = "%04d-%02d-%02d" % [int(text_without_dashes.substr(0, 2)) + 2000, int(text_without_dashes.substr(2, 2)), int(text_without_dashes.substr(4, 2))]
+		combined_date = Utils.get_date_string(int(text_without_dashes.substr(0, 2)) + 2000, int(text_without_dashes.substr(2, 2)), int(text_without_dashes.substr(4, 2)))
 	elif text_without_dashes.length() == 8: # format YYYYMMDD
-		combined_date = "%04d-%02d-%02d" % [int(text_without_dashes.substr(0, 4)), int(text_without_dashes.substr(4, 2)), int(text_without_dashes.substr(6, 2))]
+		combined_date = Utils.get_date_string(int(text_without_dashes.substr(0, 4)), int(text_without_dashes.substr(4, 2)), int(text_without_dashes.substr(6, 2)))
 	
 
 	if combined_date != "" and Utils.is_date_valid(combined_date):
@@ -139,7 +139,7 @@ func enter_date(day_offset: int = 0) -> void:
 	var unix_time_current = Time.get_unix_time_from_datetime_dict(Time.get_datetime_dict_from_system())
 	var unix_time_to_print = unix_time_current + day_offset
 	var time_dict = Time.get_datetime_dict_from_unix_time(unix_time_to_print)
-	text = "%04d-%02d-%02d" % [time_dict.year, time_dict.month, time_dict.day]
+	text = Utils.get_date_string(time_dict.year, time_dict.month, time_dict.day)
 	caret_column = 999999
 	text_changed.emit(text)
 

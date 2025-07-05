@@ -1,0 +1,62 @@
+[gd_scene load_steps=10 format=3 uid="uid://w81suten2e3m"]
+
+[ext_resource type="Script" uid="uid://dyyyxbw8yu5g5" path="res://calendar/calendar_occupancy_item.gd" id="1_pujg6"]
+[ext_resource type="PackedScene" uid="uid://cghapkildl4rr" path="res://components/tooltip_component.tscn" id="2_4iisi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pujg6"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4iisi"]
+bg_color = Color(1, 0.39215687, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bnswy"]
+bg_color = Color(1, 0.67058825, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iulwb"]
+bg_color = Color(1, 1, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d1sx8"]
+bg_color = Color(1, 1, 0.7411765, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t1672"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7xeq3"]
+bg_color = Color(1, 0, 0, 0.5529412)
+
+[node name="CalendarOccupancyItem" type="PanelContainer" node_paths=PackedStringArray("percentage_label", "progress_bar")]
+custom_minimum_size = Vector2(30, 30)
+theme_type_variation = &"PanelContainerCalendarHeaderOccupancyItem"
+script = ExtResource("1_pujg6")
+fill_stylebox_100 = SubResource("StyleBoxFlat_pujg6")
+fill_stylebox_80 = SubResource("StyleBoxFlat_4iisi")
+fill_stylebox_50 = SubResource("StyleBoxFlat_bnswy")
+fill_stylebox_20 = SubResource("StyleBoxFlat_iulwb")
+fill_stylebox_0 = SubResource("StyleBoxFlat_d1sx8")
+percentage_label = NodePath("VBoxContainer/Percentage")
+progress_bar = NodePath("ProgressBar")
+
+[node name="TooltipComponent" parent="." instance=ExtResource("2_4iisi")]
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+theme_override_styles/background = SubResource("StyleBoxFlat_t1672")
+theme_override_styles/fill = SubResource("StyleBoxFlat_7xeq3")
+value = 20.0
+fill_mode = 3
+show_percentage = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Percentage" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 10
+text = "100%"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bcufem7igam2a"]
+[gd_scene load_steps=10 format=3 uid="uid://bcufem7igam2a"]
 
 [ext_resource type="Script" uid="uid://44je2arga3bp" path="res://calendar/calendar_header.gd" id="1_s7e30"]
 [ext_resource type="Texture2D" uid="uid://c8qf4domdrd2u" path="res://art/arrow_prev.png" id="2_7gdw2"]
@@ -8,8 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://yxinw0tojmca" path="res://overbooking_warning/overbooking_warning.tscn" id="4_1vokq"]
 [ext_resource type="Texture2D" uid="uid://dnt8c7edjave4" path="res://art/arrow_next.png" id="4_8myq3"]
 [ext_resource type="PackedScene" uid="uid://bh6dd8xf1ihi1" path="res://calendar/calendar_header_weekday.tscn" id="4_b1rga"]
+[ext_resource type="PackedScene" uid="uid://w81suten2e3m" path="res://calendar/calendar_occupancy_item.tscn" id="9_k42nv"]
 
-[node name="CalendarHeader" type="PanelContainer" node_paths=PackedStringArray("previous_button", "next_button", "reset_button", "month_label", "calendar_header_fields_container", "calendar_header_weekdays_container")]
+[node name="CalendarHeader" type="PanelContainer" node_paths=PackedStringArray("previous_button", "next_button", "reset_button", "month_label", "calendar_header_fields_container", "calendar_header_weekdays_container", "calendar_occupancy_items_container")]
 theme_type_variation = &"PanelContainerCalendarHeader"
 script = ExtResource("1_s7e30")
 previous_button = NodePath("HBoxContainer/VBoxContainer/MonthButtonsContainer/CalendarPreviousButton")
@@ -18,6 +19,7 @@ reset_button = NodePath("HBoxContainer/VBoxContainer/MonthButtonsContainer/Reset
 month_label = NodePath("HBoxContainer/VBoxContainer/MonthButtonsContainer/MonthLabel")
 calendar_header_fields_container = NodePath("HBoxContainer/VBoxContainer/CalendarHeaderFieldsContainer")
 calendar_header_weekdays_container = NodePath("HBoxContainer/VBoxContainer/CalendarHeaderWeekdaysContainer")
+calendar_occupancy_items_container = NodePath("HBoxContainer/VBoxContainer/CalendarOccupancyItemsContainer")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -319,6 +321,103 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="CalendarHeaderWeekday31" parent="HBoxContainer/VBoxContainer/CalendarHeaderWeekdaysContainer" instance=ExtResource("4_b1rga")]
+layout_mode = 2
+
+[node name="CalendarOccupancyItemsContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(620, 0)
+layout_mode = 2
+
+[node name="CalendarOccupancyItem" parent="HBoxContainer/VBoxContainer/CalendarOccupancyItemsContainer" instance=ExtResource("9_k42nv")]
+layout_mode = 2
+
+[node name="CalendarOccupancyItem2" parent="HBoxContainer/VBoxContainer/CalendarOccupancyItemsContainer" instance=ExtResource("9_k42nv")]
+layout_mode = 2
+
+[node name="CalendarOccupancyItem3" parent="HBoxContainer/VBoxContainer/CalendarOccupancyItemsContainer" instance=ExtResource("9_k42nv")]
+layout_mode = 2
+
+[node name="CalendarOccupancyItem4" parent="HBoxContainer/VBoxContainer/CalendarOccupancyItemsContainer" instance=ExtResource("9_k42nv")]
+layout_mode = 2
+
+[node name="CalendarOccupancyItem5" parent="HBoxContainer/VBoxContainer/CalendarOccupancyItemsContainer" instance=ExtResource("9_k42nv")]
+layout_mode = 2
+
+[node name="CalendarOccupancyItem6" parent="HBoxContainer/VBoxContainer/CalendarOccupancyItemsContainer" instance=ExtResource("9_k42nv")]
+layout_mode = 2
+
+[node name="CalendarOccupancyItem7" parent="HBoxContainer/VBoxContainer/CalendarOccupancyItemsContainer" instance=ExtResource("9_k42nv")]
+layout_mode = 2
+
+[node name="CalendarOccupancyItem8" parent="HBoxContainer/VBoxContainer/CalendarOccupancyItemsContainer" instance=ExtResource("9_k42nv")]
+layout_mode = 2
+
+[node name="CalendarOccupancyItem9" parent="HBoxContainer/VBoxContainer/CalendarOccupancyItemsContainer" instance=ExtResource("9_k42nv")]
+layout_mode = 2
+
+[node name="CalendarOccupancyItem10" parent="HBoxContainer/VBoxContainer/CalendarOccupancyItemsContainer" instance=ExtResource("9_k42nv")]
+layout_mode = 2
+
+[node name="CalendarOccupancyItem11" parent="HBoxContainer/VBoxContainer/CalendarOccupancyItemsContainer" instance=ExtResource("9_k42nv")]
+layout_mode = 2
+
+[node name="CalendarOccupancyItem12" parent="HBoxContainer/VBoxContainer/CalendarOccupancyItemsContainer" instance=ExtResource("9_k42nv")]
+layout_mode = 2
+
+[node name="CalendarOccupancyItem13" parent="HBoxContainer/VBoxContainer/CalendarOccupancyItemsContainer" instance=ExtResource("9_k42nv")]
+layout_mode = 2
+
+[node name="CalendarOccupancyItem14" parent="HBoxContainer/VBoxContainer/CalendarOccupancyItemsContainer" instance=ExtResource("9_k42nv")]
+layout_mode = 2
+
+[node name="CalendarOccupancyItem15" parent="HBoxContainer/VBoxContainer/CalendarOccupancyItemsContainer" instance=ExtResource("9_k42nv")]
+layout_mode = 2
+
+[node name="CalendarOccupancyItem16" parent="HBoxContainer/VBoxContainer/CalendarOccupancyItemsContainer" instance=ExtResource("9_k42nv")]
+layout_mode = 2
+
+[node name="CalendarOccupancyItem17" parent="HBoxContainer/VBoxContainer/CalendarOccupancyItemsContainer" instance=ExtResource("9_k42nv")]
+layout_mode = 2
+
+[node name="CalendarOccupancyItem18" parent="HBoxContainer/VBoxContainer/CalendarOccupancyItemsContainer" instance=ExtResource("9_k42nv")]
+layout_mode = 2
+
+[node name="CalendarOccupancyItem19" parent="HBoxContainer/VBoxContainer/CalendarOccupancyItemsContainer" instance=ExtResource("9_k42nv")]
+layout_mode = 2
+
+[node name="CalendarOccupancyItem20" parent="HBoxContainer/VBoxContainer/CalendarOccupancyItemsContainer" instance=ExtResource("9_k42nv")]
+layout_mode = 2
+
+[node name="CalendarOccupancyItem21" parent="HBoxContainer/VBoxContainer/CalendarOccupancyItemsContainer" instance=ExtResource("9_k42nv")]
+layout_mode = 2
+
+[node name="CalendarOccupancyItem22" parent="HBoxContainer/VBoxContainer/CalendarOccupancyItemsContainer" instance=ExtResource("9_k42nv")]
+layout_mode = 2
+
+[node name="CalendarOccupancyItem23" parent="HBoxContainer/VBoxContainer/CalendarOccupancyItemsContainer" instance=ExtResource("9_k42nv")]
+layout_mode = 2
+
+[node name="CalendarOccupancyItem24" parent="HBoxContainer/VBoxContainer/CalendarOccupancyItemsContainer" instance=ExtResource("9_k42nv")]
+layout_mode = 2
+
+[node name="CalendarOccupancyItem25" parent="HBoxContainer/VBoxContainer/CalendarOccupancyItemsContainer" instance=ExtResource("9_k42nv")]
+layout_mode = 2
+
+[node name="CalendarOccupancyItem26" parent="HBoxContainer/VBoxContainer/CalendarOccupancyItemsContainer" instance=ExtResource("9_k42nv")]
+layout_mode = 2
+
+[node name="CalendarOccupancyItem27" parent="HBoxContainer/VBoxContainer/CalendarOccupancyItemsContainer" instance=ExtResource("9_k42nv")]
+layout_mode = 2
+
+[node name="CalendarOccupancyItem28" parent="HBoxContainer/VBoxContainer/CalendarOccupancyItemsContainer" instance=ExtResource("9_k42nv")]
+layout_mode = 2
+
+[node name="CalendarOccupancyItem29" parent="HBoxContainer/VBoxContainer/CalendarOccupancyItemsContainer" instance=ExtResource("9_k42nv")]
+layout_mode = 2
+
+[node name="CalendarOccupancyItem30" parent="HBoxContainer/VBoxContainer/CalendarOccupancyItemsContainer" instance=ExtResource("9_k42nv")]
+layout_mode = 2
+
+[node name="CalendarOccupancyItem31" parent="HBoxContainer/VBoxContainer/CalendarOccupancyItemsContainer" instance=ExtResource("9_k42nv")]
 layout_mode = 2
 
 [node name="ScrollMargin" type="Control" parent="HBoxContainer"]

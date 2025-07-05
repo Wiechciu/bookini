@@ -42,7 +42,7 @@ func check_booking(booking_to_check: Booking) -> void:
 	
 	last_clicked = 0
 	
-	var date_string = "%04d-%02d-%02d" % [calendar.selected_year, calendar.selected_month, day]
+	var date_string = Utils.get_date_string(calendar.selected_year, calendar.selected_month, day)
 	var date_room: Array = [date_string, booking_to_check.room]
 	
 	var date_type: DateType

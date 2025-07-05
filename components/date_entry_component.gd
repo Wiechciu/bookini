@@ -31,6 +31,6 @@ func enter_date(day_offset: int = 0) -> void:
 	var unix_time_current = Time.get_unix_time_from_datetime_dict(Time.get_datetime_dict_from_system())
 	var unix_time_to_print = unix_time_current + day_offset
 	var time_dict = Time.get_datetime_dict_from_unix_time(unix_time_to_print)
-	parent_control.text = "%04d-%02d-%02d" % [time_dict.year, time_dict.month, time_dict.day]
+	parent_control.text = Utils.get_date_string(time_dict.year, time_dict.month, time_dict.day)
 	parent_control.caret_column = 999999
 	parent_control.text_changed.emit(parent_control.text)

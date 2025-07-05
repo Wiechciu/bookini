@@ -39,6 +39,10 @@ func initialize_regex() -> void:
 	date_regex.compile(DATE_PATTERN)
 
 
+func get_date_string(year: int, month: int, day: int) -> String:
+	return "%04d-%02d-%02d" % [year, month, day]
+
+
 func is_date_valid(date_string: String) -> bool:
 	# quick regex check, then day-of-month check
 	if not date_regex.search(date_string):
@@ -64,6 +68,19 @@ func get_number_of_days_in_month(m: int, y: int) -> int:
 	return days_in_month[m - 1]
 
 
+## This function checks all exported properties of a Node to see if there are any unassigned in the editor.
+## If there are unassigned properties, it will run into an error and pause the editor.
+func assert_all_exported_properties(node: Node) -> void:
+	var script: Script = node.get_script()
+	var property_list: Array[Dictionary] = script.get_script_property_list()
+	for property: Dictionary in property_list:
+		if property.usage == 4102: #4102 is an exported property 
+			var error_message: String = "-\"%s\"- property on node: -\"%s\"- is missing assignment"
+			var property_name: String = property.name
+			var property_value: Variant = node.get(property_name)
+			assert(property_value != null, error_message % [property.name, str(node.get_path())])
+
+
 ## Returns all children of given type.
 ## The returned Array is untyped, so it has to be assigned to a typed array later.
 func get_children_of_type(parent: Node, type: Variant) -> Array:
@@ -83,6 +100,18 @@ func get_child_of_type(parent: Node, type: Variant) -> Node:
 		if is_instance_of(child, type):
 			return child
 	return null
+
+
+## Returns the first node's parent of given type, will be checked recursively until the given type parent is found or return null otherwise.
+func get_parent_of_type(source_node: Node, type: Variant) -> Node:
+	if source_node == null:
+		return null
+	var parent: Node = source_node.get_parent()
+	while parent != null:
+		if is_instance_of(parent, type):
+			return parent
+		parent = parent.get_parent()
+	return null 
 
 
 func add_items_to_option_button(items: Array[OptionButtonItem], option_button: OptionButton, selected_item_id: int) -> void:

@@ -60,7 +60,7 @@ func _on_next_button_pressed() -> void:
 
 
 func _on_day_button_pressed(day: Button) -> void:
-	var date_string: String = "%04d-%02d-%02d" % [selected_year, selected_month, int(day.text)]
+	var date_string: String = Utils.get_date_string(selected_year, selected_month, int(day.text))
 	date_picked.emit(date_string)
 	if quit_after_pick:
 		queue_free()
@@ -88,7 +88,7 @@ func update() -> void:
 	
 	var number_of_days_in_month: int = Utils.get_number_of_days_in_month(selected_month, selected_year)
 	
-	var first_weekday: int = Time.get_datetime_dict_from_datetime_string("%04d-%02d-%02d" % [selected_year, selected_month, 1], true).weekday
+	var first_weekday: int = Time.get_datetime_dict_from_datetime_string(Utils.get_date_string(selected_year, selected_month, 1), true).weekday
 	if first_weekday == 0:
 		first_weekday = 7
 	
@@ -105,7 +105,7 @@ func update() -> void:
 			counter += 1
 			weekday += 1
 			var day_number: int = counter - first_weekday + 1
-			var date_string: String = "%04d-%02d-%02d" % [selected_year, selected_month, day_number]
+			var date_string: String = Utils.get_date_string(selected_year, selected_month, day_number)
 			if day_number > 0 and day_number <= number_of_days_in_month:
 				day.text = "%s" % day_number
 				day.modulate.a = 1

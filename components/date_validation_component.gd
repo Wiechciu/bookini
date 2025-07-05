@@ -49,14 +49,14 @@ func _on_editing_toggled(toggled_on: bool) -> void:
 	var combined_date: String
 	if text.length() <= 2: # format D and DD
 		var current_date_dict: Dictionary = Time.get_datetime_dict_from_system()
-		combined_date = "%04d-%02d-%02d" % [current_date_dict.year, current_date_dict.month, int(text)]
+		combined_date = Utils.get_date_string(current_date_dict.year, current_date_dict.month, int(text))
 	elif text.length() == 4: # format MMDD
 		var current_date_dict: Dictionary = Time.get_datetime_dict_from_system()
-		combined_date = "%04d-%02d-%02d" % [current_date_dict.year, int(text.substr(0, 2)), int(text.substr(2, 2))]
+		combined_date = Utils.get_date_string(current_date_dict.year, int(text.substr(0, 2)), int(text.substr(2, 2)))
 	elif text.length() == 6: # format YYMMDD
-		combined_date = "%04d-%02d-%02d" % [int(text.substr(0, 2)) + 2000, int(text.substr(2, 2)), int(text.substr(4, 2))]
+		combined_date = Utils.get_date_string(int(text.substr(0, 2)) + 2000, int(text.substr(2, 2)), int(text.substr(4, 2)))
 	elif text.length() == 8: # format YYYYMMDD
-		combined_date = "%04d-%02d-%02d" % [int(text.substr(0, 4)), int(text.substr(4, 2)), int(text.substr(6, 2))]
+		combined_date = Utils.get_date_string(int(text.substr(0, 4)), int(text.substr(4, 2)), int(text.substr(6, 2)))
 	
 	if combined_date != "" and Utils.is_date_valid(combined_date):
 		parent_node.text = combined_date
