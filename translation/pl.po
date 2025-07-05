@@ -388,6 +388,22 @@ msgstr "Obłożenie w zeszłym miesiącu:"
 msgid "---"
 msgstr "---"
 
+#: calendar/calendar_occupancy_item.gd
+msgid "Obłożenie"
+msgstr "Obłożenie"
+
+#: calendar/calendar_occupancy_item.gd
+msgid "Wolne jachty - pełny dzień"
+msgstr "Wolne jachty - pełny dzień"
+
+#: calendar/calendar_occupancy_item.gd
+msgid "Wolne jachty - pół dnia"
+msgstr "Wolne jachty - pół dnia"
+
+#: calendar/calendar_occupancy_item.gd
+msgid "Zabukowane jachty"
+msgstr "Zabukowane jachty"
+
 #~ msgid "Pokoje"
 #~ msgstr "Pokoje"
 

@@ -6,7 +6,7 @@ extends Node
 
 func _ready() -> void:
 	TranslationServer.set_locale(OS.get_locale_language())
-	#TranslationServer.set_locale("en")
+	#TranslationServer.set_locale("pl")
 	#print(TranslationServer.get_locale())
 
 

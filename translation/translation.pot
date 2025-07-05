@@ -382,3 +382,19 @@ msgstr ""
 #: components/customer_auto_fill_component.tscn
 msgid "---"
 msgstr ""
+
+#: calendar/calendar_occupancy_item.gd
+msgid "Obłożenie"
+msgstr ""
+
+#: calendar/calendar_occupancy_item.gd
+msgid "Wolne jachty - pełny dzień"
+msgstr ""
+
+#: calendar/calendar_occupancy_item.gd
+msgid "Wolne jachty - pół dnia"
+msgstr ""
+
+#: calendar/calendar_occupancy_item.gd
+msgid "Zabukowane jachty"
+msgstr ""

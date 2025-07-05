@@ -385,6 +385,22 @@ msgstr "Occupancy last month:"
 msgid "---"
 msgstr "---"
 
+#: calendar/calendar_occupancy_item.gd
+msgid "Obłożenie"
+msgstr "Occupancy"
+
+#: calendar/calendar_occupancy_item.gd
+msgid "Wolne jachty - pełny dzień"
+msgstr "Free yachts - full day"
+
+#: calendar/calendar_occupancy_item.gd
+msgid "Wolne jachty - pół dnia"
+msgstr "Free yachts - half day"
+
+#: calendar/calendar_occupancy_item.gd
+msgid "Zabukowane jachty"
+msgstr "Booked yachts"
+
 #~ msgid "Pokoje"
 #~ msgstr "Rooms"
 
