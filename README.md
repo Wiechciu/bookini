@@ -3,10 +3,18 @@
 ## ✅ FIXES
 
 - Refactor `CustomerAutoFillComponent` as a subclass of `LineEdit`
+- Fix date updates - when date is changed, booking is not immediately updated.
 
 ---
 
 ## 🧩 TODO
+
+- Change color of the booking in the calendar when prepayment is done
+- Selecting booking in the database should select the item in the Calendar
+- Selected items should have a different color in the calendar.
+- Online synchronize.
+- Automatic cost calculation based on room parameters.
+
 
 ### 📋 Booking Features
 - Auto-fill customer data from previous bookings
@@ -22,9 +30,9 @@
 ### 🏨 Room Management
 - Add ability to change room parameters
 - Add/remove rooms dynamically
+- Add room price calculation
 
 ### 📊 Reporting
-- Add occupancy overview per day in the calendar (new row)
 - Include a monthly occupancy chart
 
 ### 🚀 Optimization

@@ -1,6 +1,7 @@
 extends Node
 
 
+@export var yachts: bool
 @export var loading_screen: Control
 
 

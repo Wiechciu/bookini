@@ -10,6 +10,7 @@ extends Control
 @export var sort_by_start_texture_rect: TextureRect
 @export var sort_arrow_ascending: Texture
 @export var sort_arrow_descending: Texture
+@export var rooms_label: Label
 var split_containers: Array[SplitContainer]
 var default_offsets: Array[int]
 
@@ -26,7 +27,11 @@ func _ready() -> void:
 		split_container.dragged.connect(_on_split_container_dragged.unbind(1))
 		split_containers.append(split_container)
 		default_offsets.append(split_container.split_offset)
-
+	
+	if AppManager.yachts:
+		rooms_label.text = "Jacht"
+	else:
+		rooms_label.text = "Pokój"
 
 func _on_sort_by_id_button_pressed() -> void:
 	database.change_sort_type(Utils.SortType.BY_ID)

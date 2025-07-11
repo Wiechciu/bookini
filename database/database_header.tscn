@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://yugagkd2lk2s" path="res://art/arrow_up.png" id="3_rd6q3"]
 [ext_resource type="PackedScene" uid="uid://cghapkildl4rr" path="res://components/tooltip_component.tscn" id="3_xnyeb"]
 
-[node name="DatabaseHeader" type="PanelContainer" node_paths=PackedStringArray("reset_button", "sort_by_id_button", "sort_by_id_texture_rect", "sort_by_start_date_button", "sort_by_start_texture_rect")]
+[node name="DatabaseHeader" type="PanelContainer" node_paths=PackedStringArray("reset_button", "sort_by_id_button", "sort_by_id_texture_rect", "sort_by_start_date_button", "sort_by_start_texture_rect", "rooms_label")]
 custom_minimum_size = Vector2(0, 70)
 offset_right = 1500.0
 offset_bottom = 52.0
@@ -21,6 +21,7 @@ sort_by_start_date_button = NodePath("HSplitContainer1/HSplitContainer2/HSplitCo
 sort_by_start_texture_rect = NodePath("HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/StartDate/SortByStartDateButton/TextureRect")
 sort_arrow_ascending = ExtResource("2_ysx1i")
 sort_arrow_descending = ExtResource("3_rd6q3")
+rooms_label = NodePath("HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer/HSplitContainer7/Label7")
 
 [node name="HSplitContainer1" type="HSplitContainer" parent="."]
 layout_mode = 2

@@ -5,6 +5,7 @@
 
 [node name="AppManager" type="Node" node_paths=PackedStringArray("loading_screen")]
 script = ExtResource("1_n4o8q")
+yachts = true
 loading_screen = NodePath("LoadingScreen")
 
 [node name="LoadingScreen" parent="." instance=ExtResource("2_ivc57")]
