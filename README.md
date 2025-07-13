@@ -14,6 +14,7 @@
 - Selected items should have a different color in the calendar.
 - Online synchronize.
 - Automatic cost calculation based on room parameters.
+- Hiding personal data after 1 min of inactivity.
 
 
 ### 📋 Booking Features
