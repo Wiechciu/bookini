@@ -111,7 +111,7 @@ func _on_database_item_updated() -> void:
 
 
 func _on_database_item_selected(selected_item: DatabaseItem) -> void:
-	if selected_item != null:
+	if selected_item != null and selected_item.booking.start_date != "":
 		var time_dict: Dictionary = Time.get_datetime_dict_from_datetime_string(selected_item.booking.start_date, false)
 		select_month_year(time_dict.month, time_dict.year)
 	update_colors()
