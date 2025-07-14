@@ -8,6 +8,7 @@
 
 ## 🧩 TODO
 
+- Change tooltip to RichTextLabel and change the day occupancy tooltip to be stylized with free rooms highlighted
 - Automatic cost calculation based on room parameters.
 - Change color of the booking in the calendar when prepayment is done
 - Online synchronize.

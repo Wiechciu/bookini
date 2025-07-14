@@ -13,8 +13,8 @@ func _ready() -> void:
 
 func show_loading_screen() -> void:
 	await get_tree().process_frame
-	await get_tree().process_frame
 	loading_screen.show()
+	await get_tree().process_frame
 
 
 func hide_loading_screen() -> void:

@@ -29,6 +29,8 @@ func show_inactivity_screen() -> void:
 
 
 func hide_inactivity_screen() -> void:
+	if Utils.is_tween_running(fade_tween):
+		return
 	create_fade_tween(0.0, fade_out_tween_duration)
 	Utils.kill_tween_if_running(pulse_tween)
 	timer.start()
