@@ -40,6 +40,7 @@ func initialize(database_to_assign: Database, booking_to_assign: Booking) -> voi
 		if line_edit is LineEditDateEntry:
 			line_edit.editing_toggled.connect(_on_line_edit_date_entry_editing_toggled.bind(line_edit))
 			line_edit.date_validated.connect(_on_editing_toggled.bind(false, line_edit))
+			line_edit.date_selected.connect(_on_line_edit_date_entry_date_selected)
 		else:
 			line_edit.editing_toggled.connect(_on_editing_toggled.bind(line_edit))
 		line_edit.focus_entered.connect(_on_focus_entered)
@@ -90,8 +91,9 @@ func _on_editing_toggled(toggled_on: bool, control: Control) -> void:
 		control.remove_theme_stylebox_override("focus")
 		if control is LineEdit and control.text == cached_content:
 			return
-		if control is OptionButton:
+		if control is OptionButton or control is LineEditDateEntry:
 			# handled in _on_item_selected()
+			# handled in _on_line_edit_date_entry_date_selected()
 			return
 		update_booking()
 
@@ -99,6 +101,10 @@ func _on_editing_toggled(toggled_on: bool, control: Control) -> void:
 func _on_item_selected(item_selected: int) -> void:
 	if str(item_selected) == cached_content:
 		return
+	update_booking()
+
+
+func _on_line_edit_date_entry_date_selected() -> void:
 	update_booking()
 
 
@@ -111,6 +117,7 @@ func _on_focus_entered() -> void:
 func _on_focus_exited() -> void:
 	hide_delete_button()
 	theme_type_variation = STYLE_NORMAL
+	database.selected_item = null
 
 
 func hide_delete_button() -> void:

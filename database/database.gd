@@ -2,6 +2,7 @@ class_name Database
 extends PanelContainer
 
 
+signal item_selected(DatabaseItem)
 signal item_updated(DatabaseItem)
 signal database_loaded()
 
@@ -13,11 +14,15 @@ signal database_loaded()
 @export var add_button: Button
 @export var database_header: DatabaseHeader
 @export var database_filter: DatabaseFilter
+
 var save_location: String = "user://"
 var save_name: String = "database"
 var backup_save_name: String = "database_backup_{DATE}"
 var save_extension: String = ".save"
-var selected_item: DatabaseItem
+var selected_item: DatabaseItem:
+	set(value):
+		selected_item = value
+		item_selected.emit(selected_item)
 var current_date_string: String
 var database_items: Array[DatabaseItem]
 var sort_type: Utils.SortType = Utils.SortType.BY_ID

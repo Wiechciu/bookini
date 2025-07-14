@@ -3,6 +3,7 @@ extends LineEdit
 
 
 signal date_validated
+signal date_selected
 
 
 enum Relationship {
@@ -174,3 +175,4 @@ func create_date_picker() -> void:
 	grab_focus()
 	#unedit()
 	date_validated.emit()
+	date_selected.emit()

@@ -257,11 +257,13 @@ border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fsxoa"]
 bg_color = Color(0, 0.258826, 0.511544, 1)
+border_color = Color(0, 0.019607844, 0.27058825, 1)
 corner_radius_top_left = 15
 corner_radius_bottom_left = 15
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ybu1x"]
 bg_color = Color(0.415741, 0.67849, 0.999992, 1)
+border_color = Color(0, 0.019607844, 0.27058825, 1)
 corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 
@@ -270,6 +272,7 @@ bg_color = Color(1, 1, 1, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xjl3a"]
 bg_color = Color(0, 0.402347, 0.770637, 1)
+border_color = Color(0, 0.019607844, 0.27058825, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bkfjj"]
 bg_color = Color(0, 0, 0, 0.196078)
@@ -277,7 +280,7 @@ border_width_right = 1
 border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5463q"]
-bg_color = Color(0.678431, 0, 0, 1)
+bg_color = Color(0.48127356, 7.099286e-07, 2.4065375e-07, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g3mbl"]
 bg_color = Color(0.872165, 0.866552, 0.963267, 1)

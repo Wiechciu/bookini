@@ -1,13 +1,69 @@
-[gd_scene load_steps=3 format=3 uid="uid://dpu4067av5dqw"]
+[gd_scene load_steps=9 format=3 uid="uid://dpu4067av5dqw"]
 
 [ext_resource type="Script" uid="uid://bcgmejoxhhi1m" path="res://systems/app_manager/app_manager.gd" id="1_n4o8q"]
 [ext_resource type="PackedScene" uid="uid://b3xq0oax8fpk1" path="res://loading_screen.tscn" id="2_ivc57"]
+[ext_resource type="Script" uid="uid://b0cjapvsqsthu" path="res://systems/app_manager/inactivity_screen.gd" id="3_ty0jx"]
+[ext_resource type="Texture2D" uid="uid://y7hahvprqk6a" path="res://art/sleepmode.png" id="4_ai82t"]
+[ext_resource type="Texture2D" uid="uid://c70swulrrps4y" path="res://art/logo_icon_transparent_bg.png" id="4_uil2c"]
+
+[sub_resource type="Gradient" id="Gradient_ai82t"]
+colors = PackedColorArray(0.20511743, 0.20511743, 0.20511743, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_d2uxy"]
+gradient = SubResource("Gradient_ai82t")
+fill = 1
+fill_to = Vector2(1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8wvjq"]
+texture = SubResource("GradientTexture2D_d2uxy")
 
 [node name="AppManager" type="Node" node_paths=PackedStringArray("loading_screen")]
 script = ExtResource("1_n4o8q")
 yachts = true
 loading_screen = NodePath("LoadingScreen")
 
+[node name="InactivityScreen" type="PanelContainer" parent="." node_paths=PackedStringArray("timer", "sleep_icon")]
+top_level = true
+z_index = 100
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_8wvjq")
+script = ExtResource("3_ty0jx")
+timer = NodePath("Timer")
+sleep_icon = NodePath("Logo/SleepIcon")
+
+[node name="Timer" type="Timer" parent="InactivityScreen"]
+wait_time = 60.0
+
+[node name="Logo" type="TextureRect" parent="InactivityScreen"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("4_uil2c")
+expand_mode = 2
+
+[node name="SleepIcon" type="TextureRect" parent="InactivityScreen/Logo"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 335.0
+offset_top = -272.00006
+offset_right = 635.0
+offset_bottom = 27.999939
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.38288045
+texture = ExtResource("4_ai82t")
+expand_mode = 1
+stretch_mode = 5
+
 [node name="LoadingScreen" parent="." instance=ExtResource("2_ivc57")]
+visible = false
 top_level = true
 z_index = 100

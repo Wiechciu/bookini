@@ -38,6 +38,7 @@ func _ready() -> void:
 	clear_containers()
 	fill_containers()
 	database.database_loaded.connect(_on_database_item_updated)
+	database.item_selected.connect(_on_database_item_selected)
 	database.item_updated.connect(_on_database_item_updated.unbind(1))
 	calendar_header.previous_button.pressed.connect(_on_previous_button_pressed)
 	calendar_header.next_button.pressed.connect(_on_next_button_pressed)
@@ -76,32 +77,43 @@ func _on_calendar_row_clicked(calendar_row: CalendarRow) -> void:
 
 
 func reset_calendar() -> void:
-	selected_year = Time.get_datetime_dict_from_system().year
-	selected_month = Time.get_datetime_dict_from_system().month
-	update_calendar()
-	update_colors()
-	selected_date_changed.emit()
+	var month: int = Time.get_datetime_dict_from_system().month
+	var year: int = Time.get_datetime_dict_from_system().year
+	select_month_year(month, year)
 
 
 func _on_previous_button_pressed() -> void:
-	selected_month = wrapi(selected_month - 1, 1, 13)
-	if selected_month == 12:
-		selected_year -= 1
-	update_calendar()
-	update_colors()
-	selected_date_changed.emit()
+	var month: int = wrapi(selected_month - 1, 1, 13)
+	var year: int = selected_year
+	if month == 12:
+		year -= 1
+	select_month_year(month, year)
 
 
 func _on_next_button_pressed() -> void:
-	selected_month = wrapi(selected_month + 1, 1, 13)
-	if selected_month == 1:
-		selected_year += 1
+	var month: int = wrapi(selected_month + 1, 1, 13)
+	var year: int = selected_year
+	if month == 1:
+		year += 1
+	select_month_year(month, year)
+
+
+func select_month_year(month: int, year: int) -> void:
+	selected_month = wrapi(month, 1, 13)
+	selected_year = year
 	update_calendar()
 	update_colors()
 	selected_date_changed.emit()
 
 
 func _on_database_item_updated() -> void:
+	update_colors()
+
+
+func _on_database_item_selected(selected_item: DatabaseItem) -> void:
+	if selected_item != null:
+		var time_dict: Dictionary = Time.get_datetime_dict_from_datetime_string(selected_item.booking.start_date, false)
+		select_month_year(time_dict.month, time_dict.year)
 	update_colors()
 
 

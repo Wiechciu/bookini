@@ -134,3 +134,12 @@ func _sort_bookings_by_start_date(booking1: Booking, booking2: Booking, sort_dir
 	if booking1_start_date == booking2_start_date:
 		return booking1.id < booking2.id if sort_direction == SortDirection.ASCENDING else booking1.id > booking2.id
 	return booking1_start_date < booking2_start_date if sort_direction == SortDirection.ASCENDING else booking1_start_date > booking2_start_date
+
+
+func is_tween_running(tween: Tween) -> bool:
+	return tween != null and tween.is_running()
+
+
+func kill_tween_if_running(tween: Tween) -> void:
+	if is_tween_running(tween):
+		tween.kill()
