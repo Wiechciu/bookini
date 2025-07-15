@@ -2,11 +2,47 @@ class_name Room
 extends Resource
 
 
+enum Status {
+	ACTIVE,
+	INACTIVE
+}
+
+
 @export var id: int
+@export var sorting_id: int
 @export var name: String
 @export var type: String
 @export var price: float
 @export var capacity: int
+@export var status: Status
+
+
+@warning_ignore("shadowed_variable")
+static func create_new(name: String, type: String, price: float, capacity: int) -> Room:
+	var new_room: Room = Room.new()
+	new_room.id = RoomManager.get_next_id()
+	new_room.name = name
+	new_room.type = type
+	new_room.price = price
+	new_room.capacity = capacity
+	new_room.status = Status.ACTIVE
+	
+	RoomManager.rooms.append(new_room)
+	RoomManager.save_room(new_room)
+	
+	return new_room
+
+
+@warning_ignore("shadowed_variable")
+static func update_room(room: Room, name: String = "", type: String = "", price: float = -1.0, capacity: int = -1) -> Room:
+	room.name = name if name != "" else room.name
+	room.type = type if type != "" else room.type
+	room.price = price if price != -1.0 else room.price
+	room.capacity = capacity if capacity != -1 else room.capacity
+	
+	RoomManager.save_room(room)
+	
+	return room
 
 
 ## Returns Dictionary[String, float] with the following items: occupancy_percentage, days_occupied, days_total.

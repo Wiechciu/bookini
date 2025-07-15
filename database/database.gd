@@ -44,6 +44,8 @@ func _ready() -> void:
 	clear_database_items()
 	current_date_string = Time.get_date_string_from_system()
 	add_button.pressed.connect(_on_add_button_pressed)
+	RoomManager.load_rooms_from_save_or_default()
+	RoomManager.rooms_updated.connect(reload_database)
 	reload_database()
 
 
@@ -124,7 +126,7 @@ func save_database() -> void:
 	file.store_var(GlobalRefs.bookings, true)
 	file.close()
 	save_backup()
-	print("Database saved")
+	print("Database saved - %s items." % GlobalRefs.bookings.size())
 
 
 func save_backup() -> void:
@@ -135,17 +137,18 @@ func save_backup() -> void:
 
 func load_database() -> void:
 	if not save_exists():
-		print("Database doesn't exist")
+		print("Database doesn't exist.")
 		return
 	var file = FileAccess.open(save_location + save_name + save_extension, FileAccess.READ)
 	var loaded_data = file.get_var(true)
 	if not loaded_data is Array[Booking]:
-		print("Database incorrect")
+		print("Database incorrect.")
 	else:
 		GlobalRefs.bookings = loaded_data
 		GlobalRefs.recalculate_dicts()
+		print("Database loaded - %s items." % GlobalRefs.bookings.size())
 		load_customers()
-		print("Database loaded")
+		print("Customers loaded - %s items." % GlobalRefs.customers.size())
 	file.close()
 
 

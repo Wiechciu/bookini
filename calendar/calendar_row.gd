@@ -20,7 +20,7 @@ func initialize(calendar_to_assign: Calendar, room_to_assign: Room) -> void:
 	
 	room_name_label.text = room.name
 	room_name_label.gui_input.connect(_on_room_name_label_gui_input)
-	
+
 	var counter: int = 0
 	for calendar_field: CalendarField in calendar_fields_container.get_children():
 		counter += 1
@@ -38,11 +38,13 @@ func _on_room_name_label_gui_input(event: InputEvent) -> void:
 
 
 func select() -> void:
-	room_name_label.theme_type_variation = STYLE_SELECTED
+	pass
+	#room_name_label.theme_type_variation = STYLE_SELECTED
 
 
 func unselect() -> void:
-	room_name_label.theme_type_variation = STYLE_NORMAL
+	pass
+	#room_name_label.theme_type_variation = STYLE_NORMAL
 
 
 func update() -> void:

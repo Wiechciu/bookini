@@ -17,7 +17,7 @@ var day: int
 var occupancy: float = 0.0
 var room_count: int = 0:
 	get:
-		return GlobalRefs.rooms.size()
+		return RoomManager.rooms.size()
 var free_rooms_full_day: Array[Room]
 var free_rooms_half_day: Array[Room]
 var busy_rooms: Array[Room]
@@ -52,7 +52,7 @@ func update() -> void:
 	free_rooms_half_day.clear()
 	busy_rooms.clear()
 	
-	for room: Room in GlobalRefs.rooms:
+	for room: Room in RoomManager.rooms:
 		var room_occupancy: float = room.get_occupancy_on_day(Utils.get_date_string(calendar.selected_year, calendar.selected_month, day))
 		occupancy += room_occupancy
 		if room_occupancy == 0.0:

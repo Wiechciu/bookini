@@ -24,6 +24,7 @@ config/windows_native_icon="res://art/logo_icon_transparent_bg.ico"
 AppManager="*res://systems/app_manager/app_manager.tscn"
 GlobalRefs="*res://systems/global_refs/global_refs.tscn"
 Utils="*res://systems/utils/utils.gd"
+RoomManager="*res://room/room_manager.tscn"
 
 [display]
 

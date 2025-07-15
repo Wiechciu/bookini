@@ -37,7 +37,7 @@ var is_current_date_selected: bool:
 func _ready() -> void:
 	clear_containers()
 	fill_containers()
-	database.database_loaded.connect(_on_database_item_updated)
+	database.database_loaded.connect(reload_calendar)
 	database.item_selected.connect(_on_database_item_selected)
 	database.item_updated.connect(_on_database_item_updated.unbind(1))
 	calendar_header.previous_button.pressed.connect(_on_previous_button_pressed)
@@ -45,15 +45,23 @@ func _ready() -> void:
 	reset_calendar()
 
 
+func reload_calendar() -> void:
+	clear_containers()
+	fill_containers()
+	update_calendar()
+	update_colors()
+
+
 func clear_containers() -> void:
 	for child in calendar_row_container.get_children():
 		if child is CalendarRow or child is CalendarSeparator:
 			child.queue_free()
+	calendar_rows.clear()
 
 
 func fill_containers() -> void:
 	var last_type: String
-	for room in GlobalRefs.rooms:
+	for room in RoomManager.rooms:
 		if last_type == "":
 			last_type = room.type
 		elif last_type != room.type:

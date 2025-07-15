@@ -17,7 +17,7 @@ static func add_or_update_customer_from_booking(booking: Booking) -> void:
 				customer.phone = booking.phone
 			if booking.pesel != "":
 				customer.pesel = booking.pesel
-			print("updated customer || %s || %s || %s ||" % [customer.name, customer.phone, customer.pesel])
+			#print("updated customer || %s || %s || %s ||" % [customer.name, customer.phone, customer.pesel])
 			return
 	
 	var customer = Customer.new()
@@ -25,4 +25,4 @@ static func add_or_update_customer_from_booking(booking: Booking) -> void:
 	customer.phone = booking.phone
 	customer.pesel = booking.pesel
 	GlobalRefs.customers.append(customer)
-	print("created new customer || %s || %s || %s ||" % [customer.name, customer.phone, customer.pesel])
+	#print("created new customer || %s || %s || %s ||" % [customer.name, customer.phone, customer.pesel])

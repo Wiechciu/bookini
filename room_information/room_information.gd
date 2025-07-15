@@ -14,13 +14,30 @@ var selected_room: Room
 
 func _ready() -> void:
 	calendar.room_selected.connect(_on_room_selected)
+	database.item_selected.connect(_on_database_item_selected)
 	database.item_updated.connect(_on_database_item_updated)
+	
+	name_label.text_submitted.connect(_on_room_information_updated.unbind(1))
+	type_label.text_submitted.connect(_on_room_information_updated.unbind(1))
+	price_label.text_submitted.connect(_on_room_information_updated.unbind(1))
+	capacity_label.text_submitted.connect(_on_room_information_updated.unbind(1))
+	
 	clear_information()
 
 
 func _on_room_selected(room: Room):
 	selected_room = room
-	if room == null:
+	if selected_room == null:
+		clear_information()
+		return
+	update_information()
+
+
+func _on_database_item_selected(item: DatabaseItem):
+	if item == null:
+		return
+	selected_room = RoomManager.get_room_by_id(item.booking.room)
+	if selected_room == null:
 		clear_information()
 		return
 	update_information()
@@ -32,6 +49,13 @@ func _on_database_item_updated(item: DatabaseItem):
 	
 	if item.booking.room == selected_room.id:
 		update_information()
+
+
+func _on_room_information_updated() -> void:
+	if selected_room == null:
+		return
+	Room.update_room(selected_room, name_label.text, type_label.text, float(price_label.text), int(capacity_label.text))
+
 
 func clear_information():
 	name_label.text = ""

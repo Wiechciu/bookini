@@ -164,7 +164,7 @@ func paint_borders(control: Control, borders: bool) -> void:
 func get_tooltip_string() -> String:
 	var text: String = ""
 	for booking: Booking in bookings:
-		var booking_room: Room = GlobalRefs.get_room_by_id(booking.room)
+		var booking_room: Room = RoomManager.get_room_by_id(booking.room)
 		text = text + "\n#%s | %s - %s | %s | %s" % [
 			booking.id,
 			booking.start_date,

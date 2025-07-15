@@ -1,13 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://c6fm2nlqvb5cy"]
+[gd_scene load_steps=6 format=3 uid="uid://c6fm2nlqvb5cy"]
 
 [ext_resource type="Script" uid="uid://b3sh4bf8xa4yy" path="res://calendar/calendar.gd" id="1_64tpo"]
 [ext_resource type="PackedScene" uid="uid://bcufem7igam2a" path="res://calendar/calendar_header.tscn" id="1_f8ws7"]
 [ext_resource type="PackedScene" uid="uid://evc7i3gpsd3b" path="res://calendar/calendar_row.tscn" id="2_74sj6"]
 [ext_resource type="PackedScene" uid="uid://d4hmb7gjahvpq" path="res://calendar/calendar_separator.tscn" id="3_8ghgs"]
+[ext_resource type="Script" uid="uid://mtup4kb0s0f5" path="res://calendar/add_new_room_button.gd" id="5_64tpo"]
 
 [node name="Calendar" type="PanelContainer" node_paths=PackedStringArray("calendar_header", "calendar_row_container")]
 offset_right = 1005.0
-offset_bottom = 200.0
+offset_bottom = 500.0
 script = ExtResource("1_64tpo")
 calendar_header = NodePath("HBoxContainer/VBoxContainer/CalendarHeader")
 calendar_row_scene = ExtResource("2_74sj6")
@@ -70,3 +71,8 @@ layout_mode = 2
 
 [node name="CalendarRow11" parent="HBoxContainer/VBoxContainer/ScrollContainer/CalendarRows" instance=ExtResource("2_74sj6")]
 layout_mode = 2
+
+[node name="AddNewRoomButton" type="Button" parent="HBoxContainer/VBoxContainer/ScrollContainer/CalendarRows"]
+layout_mode = 2
+text = "+"
+script = ExtResource("5_64tpo")

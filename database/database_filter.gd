@@ -30,7 +30,7 @@ func _ready() -> void:
 	clear_button.pressed.connect(_on_clear_button_pressed)
 	hide_clear_button()
 	
-	Utils.add_items_to_option_button(GlobalRefs.room_option_button_items, room_label, -1)
+	Utils.add_items_to_option_button(RoomManager.room_option_button_items, room_label, -1)
 	Utils.add_items_to_option_button(GlobalRefs.invoice_status_items, invoice_status_label, -1)
 	
 	for line_edit: LineEdit in find_children("*", "LineEdit", true):

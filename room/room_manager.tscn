@@ -1,0 +1,19 @@
+[gd_scene load_steps=14 format=3 uid="uid://ef84n8pb5vkt"]
+
+[ext_resource type="Script" uid="uid://d0m2wod5wss8e" path="res://room/room_manager.gd" id="1_viuuf"]
+[ext_resource type="Script" uid="uid://ddyy08blkifoj" path="res://room/room.gd" id="2_umoey"]
+[ext_resource type="Resource" uid="uid://duap60hdyin31" path="res://room/yacht/0.tres" id="3_74yk7"]
+[ext_resource type="Resource" uid="uid://doe34t6w0fluh" path="res://room/yacht/1.tres" id="4_wjk68"]
+[ext_resource type="Resource" uid="uid://bahsnbsspp33h" path="res://room/yacht/2.tres" id="5_v8yp4"]
+[ext_resource type="Resource" uid="uid://xq1b2bjlb6oa" path="res://room/yacht/3.tres" id="6_vws32"]
+[ext_resource type="Resource" uid="uid://b23wm0b67ou4b" path="res://room/yacht/4.tres" id="7_x1edf"]
+[ext_resource type="Resource" uid="uid://mpmxymn3uhvs" path="res://room/yacht/5.tres" id="8_3asd8"]
+[ext_resource type="Resource" uid="uid://drj83o1eq4ng8" path="res://room/yacht/6.tres" id="9_3ln2s"]
+[ext_resource type="Resource" uid="uid://4qj071jdrbei" path="res://room/yacht/7.tres" id="10_jr4su"]
+[ext_resource type="Resource" uid="uid://bne7p00lud6yn" path="res://room/yacht/8.tres" id="11_rtby5"]
+[ext_resource type="Resource" uid="uid://dckb1656w2uco" path="res://room/yacht/9.tres" id="12_kjt16"]
+[ext_resource type="Resource" uid="uid://bbfcx8ui1ruqk" path="res://room/yacht/10.tres" id="13_fen1o"]
+
+[node name="RoomManager" type="Node"]
+script = ExtResource("1_viuuf")
+rooms = Array[ExtResource("2_umoey")]([ExtResource("3_74yk7"), ExtResource("4_wjk68"), ExtResource("5_v8yp4"), ExtResource("6_vws32"), ExtResource("7_x1edf"), ExtResource("8_3asd8"), ExtResource("9_3ln2s"), ExtResource("10_jr4su"), ExtResource("11_rtby5"), ExtResource("12_kjt16"), ExtResource("13_fen1o")])

@@ -47,7 +47,7 @@ func _gui_input(event: InputEvent) -> void:
 func get_tooltip_string() -> String:
 	var text: String = ""
 	for booking: Booking in overbookings:
-		var booking_room: Room = GlobalRefs.get_room_by_id(booking.room)
+		var booking_room: Room = RoomManager.get_room_by_id(booking.room)
 		text = text + "\n#%s | %s - %s | %s | %s" % [
 			booking.id,
 			booking.start_date,

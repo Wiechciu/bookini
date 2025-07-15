@@ -1,5 +1,6 @@
 extends Node
 
+
 enum OccupancyType {
 	CHECK_IN,
 	CHECK_OUT,
@@ -27,20 +28,6 @@ var month_names: Array[String] = [
 	Utils.OptionButtonItem.new("Nieopłacona"),
 	Utils.OptionButtonItem.new("Opłacona"),
 ]
-
-@export var rooms: Array[Room]
-var room_option_button_items: Array[Utils.OptionButtonItem]:
-	get:
-		var array: Array[Utils.OptionButtonItem]
-		var last_type: String
-		for room: Room in rooms:
-			if last_type == "":
-				last_type = room.type
-			elif last_type != room.type:
-				last_type = room.type
-				array.append(Utils.OptionButtonItem.new("{separator}"))
-			array.append(Utils.OptionButtonItem.new(room.name, room.id))
-		return array
 
 var bookings: Array[Booking]
 var active_bookings: Array[Booking]:
@@ -200,10 +187,3 @@ func append_to_overbookings(occupancy_type: OccupancyType, date_room: Array, boo
 	for booking_found: Booking in overbookings_found.keys():
 		if not overbookings.has(booking_found):
 			overbookings.append(booking_found)
-
-
-func get_room_by_id(id: int) -> Room:
-	for room: Room in rooms:
-		if room.id == id:
-			return room
-	return null
