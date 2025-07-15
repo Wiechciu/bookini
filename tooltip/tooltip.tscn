@@ -8,9 +8,12 @@ offset_bottom = 42.3333
 mouse_filter = 2
 theme_type_variation = &"PanelContainerTooltip"
 script = ExtResource("1_15sfh")
-label = NodePath("Label")
+label = NodePath("RichTextLabel")
 
-[node name="Label" type="Label" parent="."]
-auto_translate_mode = 2
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 2
-text = "tooltip"
+bbcode_enabled = true
+text = "[color=#ff00ff]sortuj po tej kolumnie"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0

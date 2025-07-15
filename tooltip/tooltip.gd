@@ -2,7 +2,7 @@ class_name Tooltip
 extends Control
 
 
-@export var label: Label
+@export var label: RichTextLabel
 var offset: Vector2 = Vector2(10, 10)
 
 

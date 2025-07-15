@@ -86,19 +86,19 @@ func get_tooltip_string() -> String:
 	var text: String = ""
 	text += "%s: %d%% (%.1f / %d)" % [atr("Obłożenie"), percentage, occupancy, room_count]
 	
-	text += get_room_names(free_rooms_full_day, atr("Wolne jachty - pełny dzień"))
-	text += get_room_names(free_rooms_half_day, tr("Wolne jachty - pół dnia"))
-	text += get_room_names(busy_rooms, atr("Zabukowane jachty"))
+	text += get_room_names(free_rooms_full_day, atr("Wolne jachty - pełny dzień"), 15, Color.DARK_GREEN, 13, Color.WEB_GREEN)
+	text += get_room_names(free_rooms_half_day, atr("Wolne jachty - pół dnia"), 15, Color.ROYAL_BLUE, 13, Color.CORNFLOWER_BLUE)
+	text += get_room_names(busy_rooms, atr("Zabukowane jachty"), 13, Color.DIM_GRAY, 11, Color.WEB_GRAY)
 	
 	return text
 
 
-func get_room_names(array: Array[Room], header: String) -> String:
+func get_room_names(array: Array[Room], header: String, header_size: int, header_color: Color, regular_size: int, regular_color: Color) -> String:
 	if array.is_empty():
 		return ""
 	
 	var text: String = ""
-	text += "\n\n%s (%s):" % [header, array.size()]
+	text += "[font_size=%s][color=%s]\n\n%s (%s):[/color][/font_size]" % [header_size, header_color.to_html(), header, array.size()]
 	for room: Room in array:
-		text += "\n - %s (%s)" % [room.name, room.type]
+		text += "[font_size=%s][color=%s]\n - %s (%s)[/color][/font_size]" % [regular_size, regular_color.to_html(), room.name, room.type]
 	return text
