@@ -61,7 +61,7 @@ func clear_containers() -> void:
 
 func fill_containers() -> void:
 	var last_type: String
-	for room in RoomManager.rooms:
+	for room in RoomManager.active_rooms:
 		if last_type == "":
 			last_type = room.type
 		elif last_type != room.type:

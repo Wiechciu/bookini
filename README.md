@@ -8,10 +8,8 @@
 
 ## 🧩 TODO
 
-- Automatic cost calculation based on room parameters.
 - Change color of the booking in the calendar when prepayment is done
 - Online synchronize.
-
 
 ### 📋 Booking Features
 - Auto-fill customer data from previous bookings
@@ -24,8 +22,6 @@
 - Save layout of split containers and restore on app start
 
 ### 🏨 Room Management
-- Add ability to change room parameters
-- Add/remove rooms dynamically
 - Add room price calculation
 
 ### 📊 Reporting
@@ -44,3 +40,4 @@
 ## 💡 MAYBE
 
 - Refactor bookings in the calendar view into their own objects, instead of simply coloring calendar fields
+- Allow drag & drop to change booking dates and rooms

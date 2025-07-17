@@ -9,7 +9,7 @@ enum Status {
 
 
 @export var id: int
-@export var sorting_id: int
+@export var sorting_priority: int
 @export var name: String
 @export var type: String
 @export var price: float
@@ -21,6 +21,7 @@ enum Status {
 static func create_new(name: String, type: String, price: float, capacity: int) -> Room:
 	var new_room: Room = Room.new()
 	new_room.id = RoomManager.get_next_id()
+	new_room.sorting_priority = 100
 	new_room.name = name
 	new_room.type = type
 	new_room.price = price
@@ -28,21 +29,29 @@ static func create_new(name: String, type: String, price: float, capacity: int) 
 	new_room.status = Status.ACTIVE
 	
 	RoomManager.rooms.append(new_room)
-	RoomManager.save_room(new_room)
+	RoomManager.sort_rooms()
+	RoomManager.save_rooms_json()
 	
 	return new_room
 
 
 @warning_ignore("shadowed_variable")
-static func update_room(room: Room, name: String = "", type: String = "", price: float = -1.0, capacity: int = -1) -> Room:
-	room.name = name if name != "" else room.name
-	room.type = type if type != "" else room.type
-	room.price = price if price != -1.0 else room.price
-	room.capacity = capacity if capacity != -1 else room.capacity
+func update_room(name: String = "", type: String = "", price: float = -1.0, capacity: int = -1, sorting_priority: int = -1) -> Room:
+	self.name = name if name != "" else self.name
+	self.type = type if type != "" else self.type
+	self.price = price if price != -1.0 else self.price
+	self.capacity = capacity if capacity != -1 else self.capacity
+	self.sorting_priority = sorting_priority if sorting_priority != -1 else self.sorting_priority
 	
-	RoomManager.save_room(room)
+	RoomManager.sort_rooms()
+	RoomManager.save_rooms_json()
 	
-	return room
+	return self
+
+
+func delete_room() -> void:
+	self.status = Status.INACTIVE
+	RoomManager.save_rooms_json()
 
 
 ## Returns Dictionary[String, float] with the following items: occupancy_percentage, days_occupied, days_total.
@@ -84,3 +93,28 @@ func get_occupancy_on_day(date_string: String) -> float:
 			occupancy += 1.0
 	
 	return occupancy
+
+
+func to_dict() -> Dictionary:
+	return {
+		"id": id,
+		"sorting_priority": sorting_priority,
+		"name": name,
+		"type": type,
+		"price": price,
+		"capacity": capacity,
+		"status": status
+	}
+
+
+static func from_dict(dict: Dictionary) -> Room:
+	var room = Room.new()
+	room.id = dict.get("id", 0)
+	room.sorting_priority = dict.get("sorting_priority", 0)
+	room.name = dict.get("name", "")
+	room.type = dict.get("type", "")
+	room.price = dict.get("price", 0.0)
+	room.capacity = dict.get("capacity", 0)
+	room.status = dict.get("status", 0)
+	
+	return room

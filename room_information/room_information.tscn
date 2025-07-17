@@ -1,75 +1,93 @@
-[gd_scene load_steps=2 format=3 uid="uid://cvx7d7in0txrc"]
+[gd_scene load_steps=4 format=3 uid="uid://cvx7d7in0txrc"]
 
 [ext_resource type="Script" uid="uid://cose3l6x1mr14" path="res://room_information/room_information.gd" id="1_q2huq"]
+[ext_resource type="Texture2D" uid="uid://b28ms02xh6xvk" path="res://art/trash.png" id="2_irsdf"]
+[ext_resource type="Texture2D" uid="uid://yeia6p55r0s0" path="res://art/plus.png" id="3_y0jvs"]
 
-[node name="RoomInformation" type="PanelContainer" node_paths=PackedStringArray("name_label", "type_label", "price_label", "capacity_label", "occupancy_this_month_label", "occupancy_last_month_label")]
+[node name="RoomInformation" type="PanelContainer" node_paths=PackedStringArray("name_label", "type_label", "price_label", "capacity_label", "sorting_priority_label", "occupancy_this_month_label", "occupancy_last_month_label", "buttons_container", "delete_button", "new_button", "cancel_button", "save_button")]
 offset_right = 500.0
 offset_bottom = 160.0
 size_flags_horizontal = 3
 focus_mode = 1
 theme_type_variation = &"PanelContainerRoomInformation"
 script = ExtResource("1_q2huq")
-name_label = NodePath("HBoxContainer/VBoxContainer2/Name")
-type_label = NodePath("HBoxContainer/VBoxContainer2/Type")
-price_label = NodePath("HBoxContainer/VBoxContainer2/Price")
-capacity_label = NodePath("HBoxContainer/VBoxContainer2/Capacity")
-occupancy_this_month_label = NodePath("HBoxContainer/VBoxContainer2/OccupancyThisMonth")
-occupancy_last_month_label = NodePath("HBoxContainer/VBoxContainer2/OccupancyLastMonth")
+name_label = NodePath("VBoxContainer/HBoxContainer/VBoxContainer2/Name")
+type_label = NodePath("VBoxContainer/HBoxContainer/VBoxContainer2/Type")
+price_label = NodePath("VBoxContainer/HBoxContainer/VBoxContainer2/Price")
+capacity_label = NodePath("VBoxContainer/HBoxContainer/VBoxContainer2/Capacity")
+sorting_priority_label = NodePath("VBoxContainer/HBoxContainer/VBoxContainer2/SortingPriority")
+occupancy_this_month_label = NodePath("VBoxContainer/HBoxContainer/VBoxContainer2/OccupancyThisMonth")
+occupancy_last_month_label = NodePath("VBoxContainer/HBoxContainer/VBoxContainer2/OccupancyLastMonth")
+buttons_container = NodePath("VBoxContainer/HBoxContainer2")
+delete_button = NodePath("VBoxContainer/HBoxContainer2/DeleteButton")
+new_button = NodePath("VBoxContainer/HBoxContainer2/NewButton")
+cancel_button = NodePath("VBoxContainer/HBoxContainer2/CancelButton")
+save_button = NodePath("VBoxContainer/HBoxContainer2/SaveButton")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Jacht:"
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Typ:"
 vertical_alignment = 1
 
-[node name="Label3" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Cena:"
 vertical_alignment = 1
 
-[node name="Label4" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="Label4" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Ilość osób:"
 vertical_alignment = 1
 
-[node name="Label5" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="Label7" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 31)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Priorytet sortowania:"
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Obłożenie w tym miesiącu:"
 vertical_alignment = 1
 
-[node name="Label6" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="Label6" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Obłożenie w zeszłym miesiącu:"
 vertical_alignment = 1
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Name" type="LineEdit" parent="HBoxContainer/VBoxContainer2"]
+[node name="Name" type="LineEdit" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
 auto_translate_mode = 2
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
@@ -77,7 +95,7 @@ size_flags_horizontal = 3
 theme_type_variation = &"LineEditDatabaseItem"
 text = "1"
 
-[node name="Type" type="LineEdit" parent="HBoxContainer/VBoxContainer2"]
+[node name="Type" type="LineEdit" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
 auto_translate_mode = 2
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
@@ -85,7 +103,7 @@ size_flags_horizontal = 3
 theme_type_variation = &"LineEditDatabaseItem"
 text = "apartament"
 
-[node name="Price" type="LineEdit" parent="HBoxContainer/VBoxContainer2"]
+[node name="Price" type="LineEdit" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
 auto_translate_mode = 2
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
@@ -93,7 +111,7 @@ size_flags_horizontal = 3
 theme_type_variation = &"LineEditDatabaseItem"
 text = "200"
 
-[node name="Capacity" type="LineEdit" parent="HBoxContainer/VBoxContainer2"]
+[node name="Capacity" type="LineEdit" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
 auto_translate_mode = 2
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
@@ -101,7 +119,15 @@ size_flags_horizontal = 3
 theme_type_variation = &"LineEditDatabaseItem"
 text = "5"
 
-[node name="OccupancyThisMonth" type="Label" parent="HBoxContainer/VBoxContainer2"]
+[node name="SortingPriority" type="LineEdit" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+auto_translate_mode = 2
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"LineEditDatabaseItem"
+text = "100"
+
+[node name="OccupancyThisMonth" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
 auto_translate_mode = 2
 custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
@@ -109,10 +135,57 @@ size_flags_horizontal = 3
 text = "30%"
 vertical_alignment = 1
 
-[node name="OccupancyLastMonth" type="Label" parent="HBoxContainer/VBoxContainer2"]
+[node name="OccupancyLastMonth" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
 auto_translate_mode = 2
 custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "80%"
 vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="DeleteButton" type="Button" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_type_variation = &"ButtonRed"
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer2/DeleteButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_irsdf")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="NewButton" type="Button" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_type_variation = &"FlatButton"
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer2/NewButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_y0jvs")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="CancelButton" type="Button" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_type_variation = &"ButtonRed"
+text = "anuluj"
+
+[node name="SaveButton" type="Button" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "zapisz"
