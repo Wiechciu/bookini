@@ -8,7 +8,6 @@
 
 ## 🧩 TODO
 
-- Change color of the booking in the calendar when prepayment is done
 - Online synchronize.
 
 ### 📋 Booking Features

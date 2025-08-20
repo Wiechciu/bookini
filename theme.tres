@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=97 format=3 uid="uid://b1p3xo06djhek"]
+[gd_resource type="Theme" load_steps=100 format=3 uid="uid://b1p3xo06djhek"]
 
 [ext_resource type="Texture2D" uid="uid://c5voeo7nugwy2" path="res://art/arrow_down_12x10.png" id="1_e1x85"]
 
@@ -263,6 +263,9 @@ bg_color = Color(1, 1, 1, 1)
 border_width_right = 1
 border_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xbk2q"]
+bg_color = Color(0.6666667, 0.6666667, 0.6666667, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fsxoa"]
 bg_color = Color(0, 0.258826, 0.511544, 1)
 border_color = Color(0, 0.019607844, 0.27058825, 1)
@@ -275,9 +278,6 @@ border_color = Color(0, 0.019607844, 0.27058825, 1)
 corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_535ge"]
-bg_color = Color(1, 1, 1, 0)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xjl3a"]
 bg_color = Color(0, 0.402347, 0.770637, 1)
 border_color = Color(0, 0.019607844, 0.27058825, 1)
@@ -287,8 +287,17 @@ bg_color = Color(0, 0, 0, 0.196078)
 border_width_right = 1
 border_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_535ge"]
+bg_color = Color(1, 1, 1, 0)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5463q"]
 bg_color = Color(0.48127356, 7.099286e-07, 2.4065375e-07, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t2aer"]
+bg_color = Color(2.0214916e-06, 0.79166794, 0.48346916, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q3haa"]
+bg_color = Color(0.415741, 0.67849, 0.999992, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g3mbl"]
 bg_color = Color(0.872165, 0.866552, 0.963267, 1)
@@ -610,18 +619,24 @@ PanelContainerAppHeader/base_type = &"PanelContainer"
 PanelContainerAppHeader/styles/panel = SubResource("StyleBoxFlat_cjfk0")
 PanelContainerCalendarField/base_type = &"PanelContainer"
 PanelContainerCalendarField/styles/panel = SubResource("StyleBoxFlat_hqigj")
+PanelContainerCalendarFieldBooked/base_type = &"PanelContainer"
+PanelContainerCalendarFieldBooked/styles/panel = SubResource("StyleBoxFlat_xbk2q")
 PanelContainerCalendarFieldCheckIn/base_type = &"PanelContainer"
 PanelContainerCalendarFieldCheckIn/styles/panel = SubResource("StyleBoxFlat_fsxoa")
 PanelContainerCalendarFieldCheckOut/base_type = &"PanelContainer"
 PanelContainerCalendarFieldCheckOut/styles/panel = SubResource("StyleBoxFlat_ybu1x")
-PanelContainerCalendarFieldClear/base_type = &"PanelContainer"
-PanelContainerCalendarFieldClear/styles/panel = SubResource("StyleBoxFlat_535ge")
 PanelContainerCalendarFieldFullDay/base_type = &"PanelContainer"
 PanelContainerCalendarFieldFullDay/styles/panel = SubResource("StyleBoxFlat_xjl3a")
 PanelContainerCalendarFieldInactive/base_type = &"PanelContainer"
 PanelContainerCalendarFieldInactive/styles/panel = SubResource("StyleBoxFlat_bkfjj")
-PanelContainerCalendarFieldOverbooking/base_type = &"PanelContainer"
-PanelContainerCalendarFieldOverbooking/styles/panel = SubResource("StyleBoxFlat_5463q")
+PanelContainerCalendarFieldNone/base_type = &"PanelContainer"
+PanelContainerCalendarFieldNone/styles/panel = SubResource("StyleBoxFlat_535ge")
+PanelContainerCalendarFieldOverbooked/base_type = &"PanelContainer"
+PanelContainerCalendarFieldOverbooked/styles/panel = SubResource("StyleBoxFlat_5463q")
+PanelContainerCalendarFieldPaid/base_type = &"PanelContainer"
+PanelContainerCalendarFieldPaid/styles/panel = SubResource("StyleBoxFlat_t2aer")
+PanelContainerCalendarFieldPrepaid/base_type = &"PanelContainer"
+PanelContainerCalendarFieldPrepaid/styles/panel = SubResource("StyleBoxFlat_q3haa")
 PanelContainerCalendarFieldToday/base_type = &"PanelContainer"
 PanelContainerCalendarFieldToday/styles/panel = SubResource("StyleBoxFlat_g3mbl")
 PanelContainerCalendarFieldWeekend/base_type = &"PanelContainer"

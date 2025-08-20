@@ -8,19 +8,29 @@ enum DateType {
 	FULL_DAY,
 }
 
+enum BookingType {
+	NONE,
+	BOOKED,
+	PREPAID,
+	PAID,
+	OVERBOOKED,
+}
+
 const STYLE_ACTIVE: String = "PanelContainerCalendarField"
 const STYLE_TODAY: String = "PanelContainerCalendarFieldToday"
 const STYLE_WEEKEND: String = "PanelContainerCalendarFieldWeekend"
 const STYLE_INACTIVE: String = "PanelContainerCalendarFieldInactive"
 
-const STYLE_CLEAR: String = "PanelContainerCalendarFieldClear"
-const STYLE_CHECK_IN: String = "PanelContainerCalendarFieldCheckIn"
-const STYLE_CHECK_OUT: String = "PanelContainerCalendarFieldCheckOut"
-const STYLE_FULL_DAY: String = "PanelContainerCalendarFieldFullDay"
-const STYLE_OVERBOOKING: String = "PanelContainerCalendarFieldOverbooking"
+const STYLE_NONE: String = "PanelContainerCalendarFieldNone"
+const STYLE_BOOKED: String = "PanelContainerCalendarFieldBooked"
+const STYLE_PREPAID: String = "PanelContainerCalendarFieldPrepaid"
+const STYLE_PAID: String = "PanelContainerCalendarFieldPaid"
+const STYLE_OVERBOOKED: String = "PanelContainerCalendarFieldOverbooked"
 
 const BORDER_COLOR: Color = Color(1.0, 0.0, 0.0, 1.0)
 const BORDER_WIDTH: int = 5
+const CORNER_RADIUS: int = 15
+
 
 @export var field_start: PanelContainer
 @export var field_end: PanelContainer
@@ -60,16 +70,15 @@ func check_booking(booking_to_check: Booking) -> void:
 	
 	bookings.append(booking_to_check)
 	var is_selected: bool = check_selected(date_string, date_type)
-	var is_overbooking: bool = check_overbooking(date_room, date_type, booking_to_check)
-	@warning_ignore_start("standalone_ternary")
-	match date_type:
-		DateType.CHECK_IN:
-			paint_check_in_overbooking(is_selected) if is_overbooking else paint_check_in(is_selected)
-		DateType.CHECK_OUT:
-			paint_check_out_overbooking(is_selected) if is_overbooking else paint_check_out(is_selected)
-		DateType.FULL_DAY:
-			paint_full_day_overbooking(is_selected) if is_overbooking else paint_full_day(is_selected)
-	@warning_ignore_restore("standalone_ternary")
+	
+	var booking_type: BookingType = BookingType.BOOKED
+	if check_overbooking(date_room, date_type, booking_to_check):
+		booking_type = BookingType.OVERBOOKED
+	elif booking_to_check.payment_amount > 0.0:
+		booking_type = BookingType.PAID
+	elif booking_to_check.prepaid_amount > 0.0:
+		booking_type = BookingType.PREPAID
+	paint(date_type, booking_type, is_selected)
 
 
 func check_selected(date_string: String, date_type: DateType) -> bool:
@@ -117,48 +126,53 @@ func paint_inactive() -> void:
 	theme_type_variation = STYLE_INACTIVE
 
 func paint_clear() -> void:
-	field_start.theme_type_variation = STYLE_CLEAR
-	field_end.theme_type_variation = STYLE_CLEAR
-	paint_borders(field_start, false)
-	paint_borders(field_end, false)
+	field_start.theme_type_variation = STYLE_NONE
+	field_end.theme_type_variation = STYLE_NONE
+	paint_borders(field_start, false, DateType.FULL_DAY, BookingType.NONE)
+	paint_borders(field_end, false, DateType.FULL_DAY, BookingType.NONE)
 
-func paint_check_in(borders: bool) -> void:
-	field_end.theme_type_variation = STYLE_CHECK_IN
-	paint_borders(field_end, borders)
+func paint(date_type: DateType, booking_type: BookingType, borders: bool) -> void:
+	var style: String
+	match booking_type:
+		BookingType.BOOKED:
+			style = STYLE_BOOKED
+		BookingType.PREPAID:
+			style = STYLE_PREPAID
+		BookingType.PAID:
+			style = STYLE_PAID
+		BookingType.OVERBOOKED:
+			style = STYLE_OVERBOOKED
 
-func paint_check_out(borders: bool) -> void:
-	field_start.theme_type_variation = STYLE_CHECK_OUT
-	paint_borders(field_start, borders)
+	match date_type:
+		DateType.CHECK_IN:
+			field_end.theme_type_variation = style
+			paint_borders(field_end, borders, DateType.CHECK_IN, booking_type)
+		DateType.CHECK_OUT:
+			field_start.theme_type_variation = style
+			paint_borders(field_start, borders, DateType.CHECK_OUT, booking_type)
+		DateType.FULL_DAY:
+			field_start.theme_type_variation = style
+			field_end.theme_type_variation = style
+			paint_borders(field_start, borders, DateType.FULL_DAY, booking_type)
+			paint_borders(field_end, borders, DateType.FULL_DAY, booking_type)
 
-func paint_full_day(borders: bool) -> void:
-	field_start.theme_type_variation = STYLE_FULL_DAY
-	field_end.theme_type_variation = STYLE_FULL_DAY
-	paint_borders(field_start, borders)
-	paint_borders(field_end, borders)
 
-func paint_check_in_overbooking(borders: bool) -> void:
-	field_end.theme_type_variation = STYLE_OVERBOOKING
-	paint_borders(field_end, borders)
-
-func paint_check_out_overbooking(borders: bool) -> void:
-	field_start.theme_type_variation = STYLE_OVERBOOKING
-	paint_borders(field_start, borders)
-
-func paint_full_day_overbooking(borders: bool) -> void:
-	field_start.theme_type_variation = STYLE_OVERBOOKING
-	field_end.theme_type_variation = STYLE_OVERBOOKING
-	paint_borders(field_start, borders)
-	paint_borders(field_end, borders)
-
-func paint_borders(control: Control, borders: bool) -> void:
+func paint_borders(control: Control, borders: bool, date_type: DateType, booking_type: BookingType) -> void:
+	control.remove_theme_stylebox_override("panel")
+	var stylebox: StyleBoxFlat = control.get_theme_stylebox("panel").duplicate()
+	if booking_type != BookingType.OVERBOOKED:
+		stylebox.corner_radius_top_left = CORNER_RADIUS if date_type == DateType.CHECK_IN else 0
+		stylebox.corner_radius_bottom_left = CORNER_RADIUS if date_type == DateType.CHECK_IN else 0
+		stylebox.corner_radius_top_right = CORNER_RADIUS if date_type == DateType.CHECK_OUT else 0
+		stylebox.corner_radius_bottom_right = CORNER_RADIUS if date_type == DateType.CHECK_OUT else 0
 	if borders:
-		var stylebox: StyleBox = control.get_theme_stylebox("panel").duplicate()
-		(stylebox as StyleBoxFlat).border_color = BORDER_COLOR
-		(stylebox as StyleBoxFlat).border_width_top = BORDER_WIDTH
-		(stylebox as StyleBoxFlat).border_width_bottom = BORDER_WIDTH
-		control.add_theme_stylebox_override("panel", stylebox)
-	else:
-		control.remove_theme_stylebox_override("panel")
+		stylebox.border_color = BORDER_COLOR
+		stylebox.border_width_top = BORDER_WIDTH
+		stylebox.border_width_bottom = BORDER_WIDTH
+		if booking_type != BookingType.OVERBOOKED:
+			stylebox.border_width_left = BORDER_WIDTH if date_type == DateType.CHECK_IN else 0
+			stylebox.border_width_right = BORDER_WIDTH if date_type == DateType.CHECK_OUT else 0
+	control.add_theme_stylebox_override("panel", stylebox)
 
 
 func get_tooltip_string() -> String:
