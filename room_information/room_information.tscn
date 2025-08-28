@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://yeia6p55r0s0" path="res://art/plus.png" id="3_y0jvs"]
 
 [node name="RoomInformation" type="PanelContainer" node_paths=PackedStringArray("name_label", "type_label", "price_label", "capacity_label", "sorting_priority_label", "occupancy_this_month_label", "occupancy_last_month_label", "buttons_container", "delete_button", "new_button", "cancel_button", "save_button")]
+anchors_preset = -1
 offset_right = 500.0
 offset_bottom = 160.0
 size_flags_horizontal = 3
