@@ -361,6 +361,7 @@ dragging_enabled = false
 [node name="ColorPickerButton" type="ColorPickerButton" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
+mouse_filter = 1
 color = Color(1, 1, 1, 1)
 
 [node name="FocusComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/ColorPickerButton" instance=ExtResource("7_hbo37")]

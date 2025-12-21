@@ -106,7 +106,7 @@ text_overrun_behavior = 6
 [node name="HSplitContainer4" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3"]
 layout_mode = 2
 theme_type_variation = &"SplitContainerTable"
-split_offset = 80
+split_offset = 100
 
 [node name="Label4" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4"]
 custom_minimum_size = Vector2(40, 0)
@@ -123,7 +123,7 @@ text_overrun_behavior = 6
 [node name="HSplitContainer5" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4"]
 layout_mode = 2
 theme_type_variation = &"SplitContainerTable"
-split_offset = 80
+split_offset = 100
 
 [node name="StartDate" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5"]
 custom_minimum_size = Vector2(40, 0)
@@ -169,7 +169,7 @@ text = "sortuj po tej kolumnie"
 [node name="HSplitContainer6" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5"]
 layout_mode = 2
 theme_type_variation = &"SplitContainerTable"
-split_offset = 80
+split_offset = 100
 
 [node name="Label6" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6"]
 custom_minimum_size = Vector2(40, 0)
@@ -186,7 +186,7 @@ text_overrun_behavior = 6
 [node name="HSplitContainer7" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6"]
 layout_mode = 2
 theme_type_variation = &"SplitContainerTable"
-split_offset = 80
+split_offset = 100
 
 [node name="Label7" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7"]
 custom_minimum_size = Vector2(40, 0)
@@ -203,7 +203,7 @@ text_overrun_behavior = 6
 [node name="HSplitContainer8" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7"]
 layout_mode = 2
 theme_type_variation = &"SplitContainerTable"
-split_offset = 80
+split_offset = 100
 
 [node name="Label8" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8"]
 custom_minimum_size = Vector2(40, 0)
@@ -220,7 +220,7 @@ text_overrun_behavior = 6
 [node name="HSplitContainer9" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8"]
 layout_mode = 2
 theme_type_variation = &"SplitContainerTable"
-split_offset = 80
+split_offset = 100
 
 [node name="Label9" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9"]
 custom_minimum_size = Vector2(40, 0)
@@ -237,7 +237,7 @@ text_overrun_behavior = 6
 [node name="HSplitContainer10" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9"]
 layout_mode = 2
 theme_type_variation = &"SplitContainerTable"
-split_offset = 80
+split_offset = 100
 
 [node name="Label10" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10"]
 custom_minimum_size = Vector2(40, 0)
@@ -254,7 +254,7 @@ text_overrun_behavior = 6
 [node name="HSplitContainer11" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10"]
 layout_mode = 2
 theme_type_variation = &"SplitContainerTable"
-split_offset = 80
+split_offset = 100
 
 [node name="Label11" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11"]
 custom_minimum_size = Vector2(40, 0)
@@ -271,7 +271,7 @@ text_overrun_behavior = 6
 [node name="HSplitContainer12" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11"]
 layout_mode = 2
 theme_type_variation = &"SplitContainerTable"
-split_offset = 80
+split_offset = 100
 
 [node name="Label12" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11/HSplitContainer12"]
 custom_minimum_size = Vector2(40, 0)
@@ -288,7 +288,7 @@ text_overrun_behavior = 6
 [node name="HSplitContainer13" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11/HSplitContainer12"]
 layout_mode = 2
 theme_type_variation = &"SplitContainerTable"
-split_offset = 80
+split_offset = 100
 
 [node name="Label13" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11/HSplitContainer12/HSplitContainer13"]
 custom_minimum_size = Vector2(40, 0)
@@ -305,7 +305,7 @@ text_overrun_behavior = 6
 [node name="HSplitContainer14" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11/HSplitContainer12/HSplitContainer13"]
 layout_mode = 2
 theme_type_variation = &"SplitContainerTable"
-split_offset = 80
+split_offset = 100
 
 [node name="Label14" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11/HSplitContainer12/HSplitContainer13/HSplitContainer14"]
 custom_minimum_size = Vector2(40, 0)
@@ -322,7 +322,7 @@ text_overrun_behavior = 6
 [node name="HSplitContainer15" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11/HSplitContainer12/HSplitContainer13/HSplitContainer14"]
 layout_mode = 2
 theme_type_variation = &"SplitContainerTable"
-split_offset = 80
+split_offset = 100
 
 [node name="Label15" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11/HSplitContainer12/HSplitContainer13/HSplitContainer14/HSplitContainer15"]
 custom_minimum_size = Vector2(20, 0)
@@ -339,7 +339,7 @@ text_overrun_behavior = 6
 [node name="HSplitContainer16" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11/HSplitContainer12/HSplitContainer13/HSplitContainer14/HSplitContainer15"]
 layout_mode = 2
 theme_type_variation = &"SplitContainerTable"
-split_offset = 80
+split_offset = 100
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11/HSplitContainer12/HSplitContainer13/HSplitContainer14/HSplitContainer15/HSplitContainer16"]
 layout_mode = 2

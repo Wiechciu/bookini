@@ -79,7 +79,6 @@ text = "Zmień język"
 
 [node name="LoadAllButton" type="Button" parent="VBoxContainer"]
 auto_translate_mode = 2
-visible = false
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 theme_type_variation = &"ButtonNavigationLoadAll"

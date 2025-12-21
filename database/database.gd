@@ -28,7 +28,7 @@ var database_items: Array[DatabaseItem]
 var sort_type: Utils.SortType = Utils.SortType.BY_ID
 var sort_direction: Utils.SortDirection = Utils.SortDirection.ASCENDING
 
-var load_all: bool = true # TODO: change to false when LoadAll button is reimplemented
+var load_all: bool = false
 var day_limit: int = 7
 
 
