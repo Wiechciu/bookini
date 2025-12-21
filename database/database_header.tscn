@@ -21,7 +21,7 @@ sort_by_start_date_button = NodePath("HSplitContainer1/HSplitContainer2/HSplitCo
 sort_by_start_texture_rect = NodePath("HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/StartDate/SortByStartDateButton/TextureRect")
 sort_arrow_ascending = ExtResource("2_ysx1i")
 sort_arrow_descending = ExtResource("3_rd6q3")
-rooms_label = NodePath("HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer/HSplitContainer7/Label7")
+rooms_label = NodePath("HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/Label8")
 
 [node name="HSplitContainer1" type="HSplitContainer" parent="."]
 layout_mode = 2
@@ -106,7 +106,7 @@ text_overrun_behavior = 6
 [node name="HSplitContainer4" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3"]
 layout_mode = 2
 theme_type_variation = &"SplitContainerTable"
-split_offset = 100
+split_offset = 80
 
 [node name="Label4" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4"]
 custom_minimum_size = Vector2(40, 0)
@@ -123,7 +123,7 @@ text_overrun_behavior = 6
 [node name="HSplitContainer5" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4"]
 layout_mode = 2
 theme_type_variation = &"SplitContainerTable"
-split_offset = 100
+split_offset = 80
 
 [node name="StartDate" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5"]
 custom_minimum_size = Vector2(40, 0)
@@ -169,7 +169,7 @@ text = "sortuj po tej kolumnie"
 [node name="HSplitContainer6" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5"]
 layout_mode = 2
 theme_type_variation = &"SplitContainerTable"
-split_offset = 100
+split_offset = 80
 
 [node name="Label6" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6"]
 custom_minimum_size = Vector2(40, 0)
@@ -183,12 +183,12 @@ autowrap_mode = 2
 clip_text = true
 text_overrun_behavior = 6
 
-[node name="HSplitContainer" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6"]
+[node name="HSplitContainer7" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6"]
 layout_mode = 2
 theme_type_variation = &"SplitContainerTable"
-split_offset = 100
+split_offset = 80
 
-[node name="Label6" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer"]
+[node name="Label7" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_vertical = 1
@@ -200,12 +200,12 @@ autowrap_mode = 2
 clip_text = true
 text_overrun_behavior = 6
 
-[node name="HSplitContainer7" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer"]
+[node name="HSplitContainer8" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7"]
 layout_mode = 2
 theme_type_variation = &"SplitContainerTable"
-split_offset = 100
+split_offset = 80
 
-[node name="Label7" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer/HSplitContainer7"]
+[node name="Label8" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_vertical = 1
@@ -217,12 +217,12 @@ autowrap_mode = 2
 clip_text = true
 text_overrun_behavior = 6
 
-[node name="HSplitContainer8" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer/HSplitContainer7"]
+[node name="HSplitContainer9" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8"]
 layout_mode = 2
 theme_type_variation = &"SplitContainerTable"
-split_offset = 100
+split_offset = 80
 
-[node name="Label8" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer/HSplitContainer7/HSplitContainer8"]
+[node name="Label9" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_vertical = 1
@@ -234,12 +234,12 @@ autowrap_mode = 2
 clip_text = true
 text_overrun_behavior = 6
 
-[node name="HSplitContainer9" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer/HSplitContainer7/HSplitContainer8"]
+[node name="HSplitContainer10" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9"]
 layout_mode = 2
 theme_type_variation = &"SplitContainerTable"
-split_offset = 100
+split_offset = 80
 
-[node name="Label9" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer/HSplitContainer7/HSplitContainer8/HSplitContainer9"]
+[node name="Label10" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_vertical = 1
@@ -251,12 +251,12 @@ autowrap_mode = 2
 clip_text = true
 text_overrun_behavior = 6
 
-[node name="HSplitContainer10" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer/HSplitContainer7/HSplitContainer8/HSplitContainer9"]
+[node name="HSplitContainer11" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10"]
 layout_mode = 2
 theme_type_variation = &"SplitContainerTable"
-split_offset = 100
+split_offset = 80
 
-[node name="Label10" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10"]
+[node name="Label11" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_vertical = 1
@@ -268,12 +268,12 @@ autowrap_mode = 2
 clip_text = true
 text_overrun_behavior = 6
 
-[node name="HSplitContainer11" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10"]
+[node name="HSplitContainer12" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11"]
 layout_mode = 2
 theme_type_variation = &"SplitContainerTable"
-split_offset = 100
+split_offset = 80
 
-[node name="Label11" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11"]
+[node name="Label12" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11/HSplitContainer12"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_vertical = 1
@@ -285,12 +285,12 @@ autowrap_mode = 2
 clip_text = true
 text_overrun_behavior = 6
 
-[node name="HSplitContainer12" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11"]
+[node name="HSplitContainer13" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11/HSplitContainer12"]
 layout_mode = 2
 theme_type_variation = &"SplitContainerTable"
-split_offset = 100
+split_offset = 80
 
-[node name="Label12" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11/HSplitContainer12"]
+[node name="Label13" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11/HSplitContainer12/HSplitContainer13"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_vertical = 1
@@ -302,12 +302,12 @@ autowrap_mode = 2
 clip_text = true
 text_overrun_behavior = 6
 
-[node name="HSplitContainer14" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11/HSplitContainer12"]
+[node name="HSplitContainer14" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11/HSplitContainer12/HSplitContainer13"]
 layout_mode = 2
 theme_type_variation = &"SplitContainerTable"
-split_offset = 100
+split_offset = 80
 
-[node name="Label13" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11/HSplitContainer12/HSplitContainer14"]
+[node name="Label14" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11/HSplitContainer12/HSplitContainer13/HSplitContainer14"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_vertical = 1
@@ -319,15 +319,32 @@ autowrap_mode = 2
 clip_text = true
 text_overrun_behavior = 6
 
-[node name="HSplitContainer15" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11/HSplitContainer12/HSplitContainer14"]
+[node name="HSplitContainer15" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11/HSplitContainer12/HSplitContainer13/HSplitContainer14"]
 layout_mode = 2
 theme_type_variation = &"SplitContainerTable"
-split_offset = 100
+split_offset = 80
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11/HSplitContainer12/HSplitContainer14/HSplitContainer15"]
+[node name="Label15" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11/HSplitContainer12/HSplitContainer13/HSplitContainer14/HSplitContainer15"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_type_variation = &"LabelDatabaseHeader"
+text = "Kategoria"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+text_overrun_behavior = 6
+
+[node name="HSplitContainer16" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11/HSplitContainer12/HSplitContainer13/HSplitContainer14/HSplitContainer15"]
+layout_mode = 2
+theme_type_variation = &"SplitContainerTable"
+split_offset = 80
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11/HSplitContainer12/HSplitContainer13/HSplitContainer14/HSplitContainer15/HSplitContainer16"]
 layout_mode = 2
 
-[node name="Label14" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11/HSplitContainer12/HSplitContainer14/HSplitContainer15/HBoxContainer"]
+[node name="Label16" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11/HSplitContainer12/HSplitContainer13/HSplitContainer14/HSplitContainer15/HSplitContainer16/HBoxContainer"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -340,7 +357,7 @@ autowrap_mode = 2
 clip_text = true
 text_overrun_behavior = 6
 
-[node name="ScrollbarMargin" type="Control" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11/HSplitContainer12/HSplitContainer14/HSplitContainer15/HBoxContainer"]
+[node name="ScrollbarMargin" type="Control" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11/HSplitContainer12/HSplitContainer13/HSplitContainer14/HSplitContainer15/HSplitContainer16/HBoxContainer"]
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 

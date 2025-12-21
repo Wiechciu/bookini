@@ -25,6 +25,7 @@ const STYLE_SELECTED: String = "PanelContainerDatabaseItemSelected"
 @export var payment_date_label: LineEdit
 @export var invoice_status_label: OptionButton
 @export var remarks_label: LineEdit
+@export var color_label: ColorPickerButton
 var booking: Booking
 var database: Database
 var cached_content: String
@@ -51,6 +52,11 @@ func initialize(database_to_assign: Database, booking_to_assign: Booking) -> voi
 		option_button.item_selected.connect(_on_item_selected)
 		option_button.focus_entered.connect(_on_focus_entered)
 		option_button.focus_exited.connect(_on_focus_exited)
+	
+	for color_picker_button: ColorPickerButton in find_children("*", "ColorPickerButton", true):
+		color_picker_button.focus_entered.connect(_on_focus_entered)
+		color_picker_button.focus_exited.connect(_on_focus_exited)
+		color_picker_button.color_changed.connect(update_booking.unbind(1))
 	
 	database = database_to_assign
 	assign_booking(booking_to_assign)
@@ -149,11 +155,13 @@ func assign_booking(booking_to_assign: Booking = null) -> void:
 	payment_date_label.text = booking.payment_date
 	invoice_status_label.select(invoice_status_label.get_item_index(booking.invoice_status))
 	remarks_label.text = booking.remarks
+	color_label.color = booking.color
 
 
 func update_booking() -> void:
 	booking.update(
 		booking.status,
+		color_label.color,
 		name_label.text,
 		phone_label.text,
 		pesel_label.text,

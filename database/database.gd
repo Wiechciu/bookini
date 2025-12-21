@@ -204,6 +204,7 @@ func filter_database() -> void:
 
 func _filter_bookings(booking: Booking) -> bool:
 	if _compare_booking_by_string_contains(database_filter.id_label, booking.id) \
+		or _compare_booking_by_string_contains(database_filter.color_label, booking.color) \
 		or _compare_booking_by_string_contains(database_filter.name_label, booking.name) \
 		or _compare_booking_by_string_contains(database_filter.phone_label, booking.phone) \
 		or _compare_booking_by_string_contains(database_filter.pesel_label, booking.pesel) \
@@ -226,8 +227,10 @@ func _filter_bookings(booking: Booking) -> bool:
 func _compare_booking_by_string_contains(control: Control, booking_text: Variant) -> bool:
 	if control is OptionButton:
 		return control.get_selected_id() != -1 and not str(booking_text) == (str(control.get_selected_id()))
-	else: # control is LineEdit:
+	elif control is LineEdit:
 		return control.text != "" and not str(booking_text).containsn(control.text)
+	else:
+		return control.color != Color.WHITE and control.color != booking_text
 
 
 func change_sort_type(new_sort_type: Utils.SortType) -> void:

@@ -21,8 +21,11 @@ extends PanelContainer
 @export var payment_date_label: LineEdit
 @export var invoice_status_label: OptionButton
 @export var remarks_label: LineEdit
+@export var color_label: ColorPickerButton
+
 var line_edits: Array[LineEdit]
 var option_buttons: Array[OptionButton]
+var color_picker_buttons: Array[ColorPickerButton]
 var cached_content: String
 
 
@@ -47,6 +50,10 @@ func _ready() -> void:
 		option_buttons.append(option_button)
 		option_button.item_selected.connect(_on_item_selected)
 	
+	for color_picker_button: ColorPickerButton in find_children("*", "ColorPickerButton", true):
+		color_picker_buttons.append(color_picker_button)
+		color_picker_button.color_changed.connect(toggle_filter.unbind(1))
+	
 	connect_split_containers_to_header()
 
 
@@ -55,6 +62,8 @@ func _on_clear_button_pressed() -> void:
 		line_edit.text = ""
 	for option_button: OptionButton in option_buttons:
 		option_button.select(-1)
+	for color_picker_button: ColorPickerButton in color_picker_buttons:
+		color_picker_button.color = Color.WHITE
 	database.unfilter_database()
 	hide_clear_button()
 
@@ -114,6 +123,9 @@ func is_any_filter_applied() -> bool:
 			return true
 	for option_button: OptionButton in option_buttons:
 		if option_button.get_selected_id() != -1:
+			return true
+	for color_picker_button: ColorPickerButton in color_picker_buttons:
+		if color_picker_button.color != Color.WHITE:
 			return true
 	return false
 

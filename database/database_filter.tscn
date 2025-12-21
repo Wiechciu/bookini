@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dx10i03usiffl"]
+[gd_scene load_steps=12 format=3 uid="uid://dx10i03usiffl"]
 
 [ext_resource type="Script" uid="uid://b7y06r4o1m5jy" path="res://database/database_filter.gd" id="1_y4xxc"]
 [ext_resource type="Texture2D" uid="uid://cngkt3kjwd3jg" path="res://art/clear.png" id="2_kuo7r"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://b87p8d3gl8mex" path="res://components/string_validation_component.tscn" id="4_3qwab"]
 [ext_resource type="PackedScene" uid="uid://cffd6bcgb65et" path="res://components/database_tooltip_component.tscn" id="5_4ukt5"]
 [ext_resource type="PackedScene" uid="uid://c13m2ib8ylvtl" path="res://database/line_edit_date_entry.tscn" id="7_3qwab"]
+[ext_resource type="Script" uid="uid://cu2umex74gvxd" path="res://color_picker/color_picker_component.gd" id="8_l2d08"]
+[ext_resource type="Script" uid="uid://d3aberk2i05db" path="res://database/allow_unselect.gd" id="8_ulpbq"]
+[ext_resource type="PackedScene" uid="uid://dm7grdqnu2tay" path="res://color_picker/color_picker.tscn" id="9_ulpbq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3qwab"]
 content_margin_left = 3.0
@@ -18,7 +21,7 @@ border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0, 0, 0, 1)
 
-[node name="DatabaseFilter" type="PanelContainer" node_paths=PackedStringArray("clear_button", "id_label", "name_label", "phone_label", "pesel_label", "start_date_label", "end_date_label", "nights_label", "room_label", "quantity_label", "prepaid_amount_label", "prepaid_date_label", "payment_amount_label", "payment_date_label", "invoice_status_label", "remarks_label")]
+[node name="DatabaseFilter" type="PanelContainer" node_paths=PackedStringArray("clear_button", "id_label", "name_label", "phone_label", "pesel_label", "start_date_label", "end_date_label", "nights_label", "room_label", "quantity_label", "prepaid_amount_label", "prepaid_date_label", "payment_amount_label", "payment_date_label", "invoice_status_label", "remarks_label", "color_label")]
 custom_minimum_size = Vector2(0, 27)
 theme_type_variation = &"PanelContainerDatabaseFilter"
 script = ExtResource("1_y4xxc")
@@ -38,7 +41,8 @@ prepaid_date_label = NodePath("HSplitContainer/HSplitContainer/HSplitContainer/H
 payment_amount_label = NodePath("HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/PaymentAmount")
 payment_date_label = NodePath("HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/PaymentDate")
 invoice_status_label = NodePath("HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/InvoiceStatus")
-remarks_label = NodePath("HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HBoxContainer/Remarks")
+remarks_label = NodePath("HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HBoxContainer/Remarks")
+color_label = NodePath("HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/ColorPickerButton")
 
 [node name="HSplitContainer" type="HSplitContainer" parent="."]
 layout_mode = 2
@@ -205,6 +209,7 @@ fit_to_longest_item = false
 item_count = 1
 popup/item_0/text = "1"
 popup/item_0/id = 0
+script = ExtResource("8_ulpbq")
 
 [node name="TooltipComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/Room" instance=ExtResource("5_4ukt5")]
 
@@ -307,6 +312,7 @@ fit_to_longest_item = false
 item_count = 1
 popup/item_0/text = "Nieopłacona"
 popup/item_0/id = 0
+script = ExtResource("8_ulpbq")
 
 [node name="TooltipComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/InvoiceStatus" instance=ExtResource("5_4ukt5")]
 
@@ -316,10 +322,27 @@ theme_type_variation = &"SplitContainerTable"
 split_offset = 70
 dragging_enabled = false
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer"]
+[node name="ColorPickerButton" type="ColorPickerButton" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer"]
+auto_translate_mode = 2
+custom_minimum_size = Vector2(20, 31)
+layout_mode = 2
+color = Color(1, 1, 1, 1)
+
+[node name="ColorPickerComponent" type="Node" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/ColorPickerButton"]
+script = ExtResource("8_l2d08")
+color_picker_scene = ExtResource("9_ulpbq")
+metadata/_custom_type_script = "uid://cu2umex74gvxd"
+
+[node name="HSplitContainer" type="HSplitContainer" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer"]
+layout_mode = 2
+theme_type_variation = &"SplitContainerTable"
+split_offset = 70
+dragging_enabled = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer"]
 layout_mode = 2
 
-[node name="Remarks" type="LineEdit" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HBoxContainer"]
+[node name="Remarks" type="LineEdit" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HBoxContainer"]
 auto_translate_mode = 2
 custom_minimum_size = Vector2(40, 31)
 layout_mode = 2
@@ -327,10 +350,10 @@ size_flags_horizontal = 3
 theme_type_variation = &"LineEditDatabaseItem"
 caret_blink = true
 
-[node name="FocusComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HBoxContainer/Remarks" instance=ExtResource("3_6g03t")]
+[node name="FocusComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HBoxContainer/Remarks" instance=ExtResource("3_6g03t")]
 
-[node name="TooltipComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HBoxContainer/Remarks" instance=ExtResource("5_4ukt5")]
+[node name="TooltipComponent" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HBoxContainer/Remarks" instance=ExtResource("5_4ukt5")]
 
-[node name="ScrollbarMargin" type="Control" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HBoxContainer"]
+[node name="ScrollbarMargin" type="Control" parent="HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer2/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HSplitContainer/HBoxContainer"]
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2

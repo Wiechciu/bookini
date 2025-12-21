@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://dm7grdqnu2tay"]
+
+[ext_resource type="Script" uid="uid://bo5k0yg0kpqa" path="res://color_picker/color_picker.gd" id="1_ix5rh"]
+
+[node name="ColorPicker" type="PopupPanel"]
+oversampling_override = 1.0
+size = Vector2i(20, 40)
+visible = true
+theme_type_variation = &"PanelContainerPopup"
+script = ExtResource("1_ix5rh")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 10.0
+offset_bottom = 30.0
+theme_override_constants/separation = 5

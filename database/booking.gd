@@ -9,6 +9,8 @@ enum Status {
 
 @export_storage var id: int
 @export_storage var status: Status
+@export_storage var color: Color
+
 @export_storage var name: String
 @export_storage var phone: String
 @export_storage var pesel: String
@@ -41,6 +43,7 @@ var has_correct_date_order: bool:
 
 @warning_ignore("shadowed_variable")
 static func create(
+		color: Color = Color.WHITE,
 		name: String = "",
 		phone: String = "",
 		pesel: String = "",
@@ -59,6 +62,7 @@ static func create(
 	GlobalRefs.last_id += 1
 	new_booking.id = GlobalRefs.last_id
 	new_booking.status = Status.ACTIVE
+	new_booking.color = color
 	
 	new_booking.name = name
 	new_booking.phone = phone
@@ -80,6 +84,7 @@ static func create(
 @warning_ignore("shadowed_variable")
 func update(
 		status: Status,
+		color: Color,
 		name: String,
 		phone: String,
 		pesel: String,
@@ -100,6 +105,7 @@ func update(
 		recalculate_required = true
 	
 	self.status = status
+	self.color = color
 	self.name = name
 	self.phone = phone
 	self.pesel = pesel
