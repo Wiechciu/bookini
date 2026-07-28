@@ -177,6 +177,56 @@ bg_color = Color(0.911107, 0.250246, 0.435197, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0e2f8"]
 bg_color = Color(0.661436, 0.115459, 0.29131, 1)
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_vj6dk"]
+size = Vector2(0, 15)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_110ce"]
+size = Vector2(0, 15)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0i2mx"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.39215687)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ypgn0"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.47058824)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oss31"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.5882353)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dch0g"]
+content_margin_left = 0.0
+content_margin_top = 4.0
+content_margin_right = 0.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.11764706)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ungt3"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.11764706)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wcq0w"]
 content_margin_left = 5.0
 content_margin_right = 5.0
@@ -560,6 +610,13 @@ ButtonRed/styles/hover_pressed = SubResource("StyleBoxFlat_jw50a")
 ButtonRed/styles/normal = SubResource("StyleBoxFlat_8rqbg")
 ButtonRed/styles/pressed = SubResource("StyleBoxFlat_0e2f8")
 HBoxContainer/constants/separation = 0
+HScrollBar/icons/decrement = SubResource("PlaceholderTexture2D_vj6dk")
+HScrollBar/icons/increment = SubResource("PlaceholderTexture2D_110ce")
+HScrollBar/styles/grabber = SubResource("StyleBoxFlat_0i2mx")
+HScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_ypgn0")
+HScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_oss31")
+HScrollBar/styles/scroll = SubResource("StyleBoxFlat_dch0g")
+HScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_ungt3")
 Label/colors/font_color = Color(0, 0, 0, 1)
 LabelAppHeader/base_type = &"Label"
 LabelAppHeader/colors/font_color = Color(1, 1, 1, 1)
