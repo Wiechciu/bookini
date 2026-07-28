@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://d26lkxydpbp38"]
+[gd_scene format=3 uid="uid://d26lkxydpbp38"]
 
 [ext_resource type="Script" uid="uid://bps73sxuq280n" path="res://database/database_header.gd" id="1_bnybt"]
 [ext_resource type="Texture2D" uid="uid://b04ijkpxcm25m" path="res://art/refresh.png" id="2_r2268"]
@@ -6,29 +6,33 @@
 [ext_resource type="Texture2D" uid="uid://yugagkd2lk2s" path="res://art/arrow_up.png" id="3_rd6q3"]
 [ext_resource type="PackedScene" uid="uid://cghapkildl4rr" path="res://components/tooltip_component.tscn" id="3_xnyeb"]
 
-[node name="DatabaseHeader" type="PanelContainer" node_paths=PackedStringArray("reset_button", "sort_by_id_button", "sort_by_id_texture_rect", "sort_by_start_date_button", "sort_by_start_texture_rect", "rooms_label")]
+[node name="DatabaseHeader" type="PanelContainer" unique_id=262046651 node_paths=PackedStringArray("reset_button", "sort_by_id_button", "sort_by_id_texture_rect", "sort_by_start_date_button", "sort_by_start_texture_rect", "rooms_label", "split_container")]
 custom_minimum_size = Vector2(0, 70)
-offset_right = 1500.0
-offset_bottom = 52.0
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 30.0
+grow_horizontal = 2
 size_flags_horizontal = 3
 focus_mode = 1
 theme_type_variation = &"PanelContainerDatabaseHeader"
 script = ExtResource("1_bnybt")
 reset_button = NodePath("ResetButton")
-sort_by_id_button = NodePath("HSplitContainer1/ID/SortByIdButton")
-sort_by_id_texture_rect = NodePath("HSplitContainer1/ID/SortByIdButton/TextureRect")
-sort_by_start_date_button = NodePath("HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/StartDate/SortByStartDateButton")
-sort_by_start_texture_rect = NodePath("HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/StartDate/SortByStartDateButton/TextureRect")
+sort_by_id_button = NodePath("HSplitContainer/ID/SortByIdButton")
+sort_by_id_texture_rect = NodePath("HSplitContainer/ID/SortByIdButton/TextureRect")
+sort_by_start_date_button = NodePath("HSplitContainer/StartDate/SortByStartDateButton")
+sort_by_start_texture_rect = NodePath("HSplitContainer/StartDate/SortByStartDateButton/TextureRect")
 sort_arrow_ascending = ExtResource("2_ysx1i")
 sort_arrow_descending = ExtResource("3_rd6q3")
-rooms_label = NodePath("HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/Label8")
+rooms_label = NodePath("HSplitContainer/Label8")
+split_container = NodePath("HSplitContainer")
 
-[node name="HSplitContainer1" type="HSplitContainer" parent="."]
+[node name="HSplitContainer" type="HSplitContainer" parent="." unique_id=1649119665]
 layout_mode = 2
 theme_type_variation = &"SplitContainerTable"
+split_offsets = PackedInt32Array(80, 280, 420, 520, 620, 720, 820, 920, 1020, 1120, 1220, 1320, 1420, 1520, 1620, 1720)
 split_offset = 80
 
-[node name="ID" type="Label" parent="HSplitContainer1"]
+[node name="ID" type="Label" parent="HSplitContainer" unique_id=654702821]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_vertical = 1
@@ -40,7 +44,7 @@ autowrap_mode = 2
 clip_text = true
 text_overrun_behavior = 6
 
-[node name="SortByIdButton" type="Button" parent="HSplitContainer1/ID"]
+[node name="SortByIdButton" type="Button" parent="HSplitContainer/ID" unique_id=1899425642]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 15
@@ -51,7 +55,7 @@ grow_vertical = 2
 theme_type_variation = &"ButtonEmpty"
 flat = true
 
-[node name="TextureRect" type="TextureRect" parent="HSplitContainer1/ID/SortByIdButton"]
+[node name="TextureRect" type="TextureRect" parent="HSplitContainer/ID/SortByIdButton" unique_id=1089272510]
 custom_minimum_size = Vector2(15, 15)
 layout_mode = 1
 anchors_preset = 3
@@ -66,15 +70,10 @@ grow_vertical = 0
 texture = ExtResource("2_ysx1i")
 expand_mode = 1
 
-[node name="TooltipComponent" parent="HSplitContainer1/ID/SortByIdButton" instance=ExtResource("3_xnyeb")]
+[node name="TooltipComponent" parent="HSplitContainer/ID/SortByIdButton" unique_id=493051245 instance=ExtResource("3_xnyeb")]
 text = "sortuj po tej kolumnie"
 
-[node name="HSplitContainer2" type="HSplitContainer" parent="HSplitContainer1"]
-layout_mode = 2
-theme_type_variation = &"SplitContainerTable"
-split_offset = 200
-
-[node name="Label2" type="Label" parent="HSplitContainer1/HSplitContainer2"]
+[node name="Label2" type="Label" parent="HSplitContainer" unique_id=1193926228]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_vertical = 1
@@ -86,12 +85,7 @@ autowrap_mode = 2
 clip_text = true
 text_overrun_behavior = 6
 
-[node name="HSplitContainer3" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2"]
-layout_mode = 2
-theme_type_variation = &"SplitContainerTable"
-split_offset = 140
-
-[node name="Label3" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3"]
+[node name="Label3" type="Label" parent="HSplitContainer" unique_id=1580207149]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_vertical = 1
@@ -103,12 +97,7 @@ autowrap_mode = 2
 clip_text = true
 text_overrun_behavior = 6
 
-[node name="HSplitContainer4" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3"]
-layout_mode = 2
-theme_type_variation = &"SplitContainerTable"
-split_offset = 100
-
-[node name="Label4" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4"]
+[node name="Label4" type="Label" parent="HSplitContainer" unique_id=1658233380]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_vertical = 1
@@ -120,12 +109,7 @@ autowrap_mode = 2
 clip_text = true
 text_overrun_behavior = 6
 
-[node name="HSplitContainer5" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4"]
-layout_mode = 2
-theme_type_variation = &"SplitContainerTable"
-split_offset = 100
-
-[node name="StartDate" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5"]
+[node name="StartDate" type="Label" parent="HSplitContainer" unique_id=2074389221]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_vertical = 1
@@ -137,7 +121,7 @@ autowrap_mode = 2
 clip_text = true
 text_overrun_behavior = 6
 
-[node name="SortByStartDateButton" type="Button" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/StartDate"]
+[node name="SortByStartDateButton" type="Button" parent="HSplitContainer/StartDate" unique_id=858010010]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 15
@@ -148,7 +132,7 @@ grow_vertical = 2
 theme_type_variation = &"ButtonEmpty"
 flat = true
 
-[node name="TextureRect" type="TextureRect" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/StartDate/SortByStartDateButton"]
+[node name="TextureRect" type="TextureRect" parent="HSplitContainer/StartDate/SortByStartDateButton" unique_id=808343734]
 custom_minimum_size = Vector2(15, 15)
 layout_mode = 1
 anchors_preset = 3
@@ -163,15 +147,10 @@ grow_vertical = 0
 texture = ExtResource("2_ysx1i")
 expand_mode = 1
 
-[node name="TooltipComponent" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/StartDate/SortByStartDateButton" instance=ExtResource("3_xnyeb")]
+[node name="TooltipComponent" parent="HSplitContainer/StartDate/SortByStartDateButton" unique_id=1686298362 instance=ExtResource("3_xnyeb")]
 text = "sortuj po tej kolumnie"
 
-[node name="HSplitContainer6" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5"]
-layout_mode = 2
-theme_type_variation = &"SplitContainerTable"
-split_offset = 100
-
-[node name="Label6" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6"]
+[node name="Label6" type="Label" parent="HSplitContainer" unique_id=1490381459]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_vertical = 1
@@ -183,12 +162,7 @@ autowrap_mode = 2
 clip_text = true
 text_overrun_behavior = 6
 
-[node name="HSplitContainer7" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6"]
-layout_mode = 2
-theme_type_variation = &"SplitContainerTable"
-split_offset = 100
-
-[node name="Label7" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7"]
+[node name="Label7" type="Label" parent="HSplitContainer" unique_id=102738919]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_vertical = 1
@@ -200,12 +174,7 @@ autowrap_mode = 2
 clip_text = true
 text_overrun_behavior = 6
 
-[node name="HSplitContainer8" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7"]
-layout_mode = 2
-theme_type_variation = &"SplitContainerTable"
-split_offset = 100
-
-[node name="Label8" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8"]
+[node name="Label8" type="Label" parent="HSplitContainer" unique_id=1876905856]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_vertical = 1
@@ -217,12 +186,7 @@ autowrap_mode = 2
 clip_text = true
 text_overrun_behavior = 6
 
-[node name="HSplitContainer9" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8"]
-layout_mode = 2
-theme_type_variation = &"SplitContainerTable"
-split_offset = 100
-
-[node name="Label9" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9"]
+[node name="Label9" type="Label" parent="HSplitContainer" unique_id=2019900176]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_vertical = 1
@@ -234,12 +198,7 @@ autowrap_mode = 2
 clip_text = true
 text_overrun_behavior = 6
 
-[node name="HSplitContainer10" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9"]
-layout_mode = 2
-theme_type_variation = &"SplitContainerTable"
-split_offset = 100
-
-[node name="Label10" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10"]
+[node name="Label10" type="Label" parent="HSplitContainer" unique_id=1060429466]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_vertical = 1
@@ -251,12 +210,7 @@ autowrap_mode = 2
 clip_text = true
 text_overrun_behavior = 6
 
-[node name="HSplitContainer11" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10"]
-layout_mode = 2
-theme_type_variation = &"SplitContainerTable"
-split_offset = 100
-
-[node name="Label11" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11"]
+[node name="Label11" type="Label" parent="HSplitContainer" unique_id=832130671]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_vertical = 1
@@ -268,12 +222,7 @@ autowrap_mode = 2
 clip_text = true
 text_overrun_behavior = 6
 
-[node name="HSplitContainer12" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11"]
-layout_mode = 2
-theme_type_variation = &"SplitContainerTable"
-split_offset = 100
-
-[node name="Label12" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11/HSplitContainer12"]
+[node name="Label12" type="Label" parent="HSplitContainer" unique_id=276609347]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_vertical = 1
@@ -285,12 +234,7 @@ autowrap_mode = 2
 clip_text = true
 text_overrun_behavior = 6
 
-[node name="HSplitContainer13" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11/HSplitContainer12"]
-layout_mode = 2
-theme_type_variation = &"SplitContainerTable"
-split_offset = 100
-
-[node name="Label13" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11/HSplitContainer12/HSplitContainer13"]
+[node name="Label13" type="Label" parent="HSplitContainer" unique_id=1730382894]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_vertical = 1
@@ -302,12 +246,7 @@ autowrap_mode = 2
 clip_text = true
 text_overrun_behavior = 6
 
-[node name="HSplitContainer14" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11/HSplitContainer12/HSplitContainer13"]
-layout_mode = 2
-theme_type_variation = &"SplitContainerTable"
-split_offset = 100
-
-[node name="Label14" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11/HSplitContainer12/HSplitContainer13/HSplitContainer14"]
+[node name="Label14" type="Label" parent="HSplitContainer" unique_id=133320071]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_vertical = 1
@@ -319,12 +258,7 @@ autowrap_mode = 2
 clip_text = true
 text_overrun_behavior = 6
 
-[node name="HSplitContainer15" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11/HSplitContainer12/HSplitContainer13/HSplitContainer14"]
-layout_mode = 2
-theme_type_variation = &"SplitContainerTable"
-split_offset = 100
-
-[node name="Label15" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11/HSplitContainer12/HSplitContainer13/HSplitContainer14/HSplitContainer15"]
+[node name="Label15" type="Label" parent="HSplitContainer" unique_id=1850528884]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 size_flags_vertical = 1
@@ -336,15 +270,7 @@ autowrap_mode = 2
 clip_text = true
 text_overrun_behavior = 6
 
-[node name="HSplitContainer16" type="HSplitContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11/HSplitContainer12/HSplitContainer13/HSplitContainer14/HSplitContainer15"]
-layout_mode = 2
-theme_type_variation = &"SplitContainerTable"
-split_offset = 100
-
-[node name="HBoxContainer" type="HBoxContainer" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11/HSplitContainer12/HSplitContainer13/HSplitContainer14/HSplitContainer15/HSplitContainer16"]
-layout_mode = 2
-
-[node name="Label16" type="Label" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11/HSplitContainer12/HSplitContainer13/HSplitContainer14/HSplitContainer15/HSplitContainer16/HBoxContainer"]
+[node name="Label16" type="Label" parent="HSplitContainer" unique_id=1452503174]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -357,11 +283,14 @@ autowrap_mode = 2
 clip_text = true
 text_overrun_behavior = 6
 
-[node name="ScrollbarMargin" type="Control" parent="HSplitContainer1/HSplitContainer2/HSplitContainer3/HSplitContainer4/HSplitContainer5/HSplitContainer6/HSplitContainer7/HSplitContainer8/HSplitContainer9/HSplitContainer10/HSplitContainer11/HSplitContainer12/HSplitContainer13/HSplitContainer14/HSplitContainer15/HSplitContainer16/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HSplitContainer" unique_id=1549152114]
+layout_mode = 2
+
+[node name="ScrollbarMargin" type="Control" parent="HSplitContainer/HBoxContainer" unique_id=1079423934]
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 
-[node name="ResetButton" type="TextureButton" parent="."]
+[node name="ResetButton" type="TextureButton" parent="." unique_id=756251861]
 modulate = Color(0, 0, 0, 1)
 custom_minimum_size = Vector2(28, 28)
 layout_mode = 2
@@ -371,5 +300,5 @@ texture_normal = ExtResource("2_r2268")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="TooltipComponent" parent="ResetButton" instance=ExtResource("3_xnyeb")]
+[node name="TooltipComponent" parent="ResetButton" unique_id=724711644 instance=ExtResource("3_xnyeb")]
 text = "zresetuj szerokość kolumn"

@@ -11,8 +11,9 @@ extends Control
 @export var sort_arrow_ascending: Texture
 @export var sort_arrow_descending: Texture
 @export var rooms_label: Label
-var split_containers: Array[SplitContainer]
-var default_offsets: Array[int]
+@export var split_container: HSplitContainer
+#var split_containers: Array[SplitContainer]
+var default_offsets: PackedInt32Array
 
 
 func _ready() -> void:
@@ -23,10 +24,10 @@ func _ready() -> void:
 	sort_by_start_date_button.pressed.connect(_on_sort_by_start_date_button_pressed)
 	update_sort_buttons()
 	
-	for split_container: SplitContainer in find_children("*", "SplitContainer", true):
-		split_container.dragged.connect(_on_split_container_dragged.unbind(1))
-		split_containers.append(split_container)
-		default_offsets.append(split_container.split_offset)
+	#for split_container: SplitContainer in find_children("*", "SplitContainer", true):
+	split_container.dragged.connect(_on_split_container_dragged.unbind(1))
+	#split_containers.append(split_container)
+	default_offsets = split_container.split_offsets
 	
 	if AppManager.yachts:
 		rooms_label.text = "Jacht"
@@ -51,13 +52,14 @@ func update_sort_buttons() -> void:
 
 
 func _on_reset_button_pressed() -> void:
-	var counter: int = -1
-	for split_container: SplitContainer in split_containers:
-		counter += 1
-		if split_container.split_offset == default_offsets[counter]:
-			continue
-		split_container.split_offset = default_offsets[counter]
-		split_container.dragged.emit(split_container.split_offset)
+	#var counter: int = -1
+	#for split_container: SplitContainer in split_containers:
+		#counter += 1
+		#if split_container.split_offset == default_offsets[counter]:
+			#continue
+		#split_container.split_offset = default_offsets[counter]
+	split_container.split_offsets = default_offsets
+	split_container.dragged.emit(0)
 	reset_button.hide()
 
 
