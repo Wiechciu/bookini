@@ -190,16 +190,9 @@ func start_editing() -> void:
 
 
 func connect_split_containers_to_header() -> void:
-	#var counter: int = -1
-	#for split_container: SplitContainer in find_children("*", "SplitContainer", true):
-		#counter += 1
-		#database.database_header.split_containers[counter].dragged.connect(update_split_container.bind(split_container))
-		#update_split_container(database.database_header.split_containers[counter].split_offset, split_container)
 	database.database_header.split_container.dragged.connect(update_split_container.unbind(1))
 	update_split_container()
 
 
-#func update_split_container(offset: int, split_container: SplitContainer) -> void:
-	#split_container.split_offset = offset
 func update_split_container() -> void:
 	split_container.split_offsets = database.database_header.split_container.split_offsets
